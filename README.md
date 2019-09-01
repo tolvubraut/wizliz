@@ -1,3 +1,3 @@
 # verkefni2
 Jekyll Framework
-* [](index.html)
+* [Index](index.html)
