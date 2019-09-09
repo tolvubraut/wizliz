@@ -1,0 +1,28 @@
+//Header Navigation
+.current {
+    color: green;
+}
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+.nav-container {
+  display:flex;
+  box-shadow: 1px 1px 5px 5px black;
+  flex-wrap: wrap;
+}
+
+.logo {
+  flex: 25%;
+  text-align:center;
+  
+}
+
+.nav-link {
+  text-align:center;
+  flex: 25%;
+  border: 1px solid;
+  padding: 5px;
+}

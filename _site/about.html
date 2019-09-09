@@ -1,4 +1,4 @@
-<!doctype html>
+<!doctype html> 
 <html>
   <head>
     
@@ -14,27 +14,39 @@
 <link rel="canonical" href="http://localhost:4000/about.html" />
 <meta property="og:url" content="http://localhost:4000/about.html" />
 <script type="application/ld+json">
-{"headline":"About","@type":"WebPage","url":"http://localhost:4000/about.html","@context":"https://schema.org"}</script>
+{"@type":"WebPage","headline":"About","url":"http://localhost:4000/about.html","@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
   </head>
   <body>
-    
     <nav>
+  <div class="nav-container">
+    <div class="logo"><img src="/assets/img/sveinn1.png"></div>
     
-      <a href="/" >Home</a>
+      <a class="nav-link" href="/" >
+        <h2>Home</h2>
+      </a>
     
-      <a href="/about.html" class="current">About</a>
+      <a class="nav-link" href="/about.html" class="current">
+        <h2>About</h2>
+      </a>
     
-      <a href="/blog.html" >Blog</a>
+      <a class="nav-link" href="/blog.html" >
+        <h2>Blog</h2>
+      </a>
     
-      <a href="/staff.html" >Staff</a>
+      <a class="nav-link" href="/staff.html" >
+        <h2>Staff</h2>
+      </a>
     
-  </nav>
-    <h1 id="about-page">About page</h1>
+  </div>
+</nav>
+    <!-- Decide if default container for body is : wrapper : grid : !width % with preset layout -->
+    <div class="container"> 
+      <h1 id="about-page">About page</h1>
 
 <p>This page tells you a little bit about me.</p>
 
-    
+  </div>
   </body>
 </html>

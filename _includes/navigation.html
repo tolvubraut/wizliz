@@ -1,5 +1,10 @@
 <nav>
+  <div class="nav-container">
+    <div class="logo"><img src="{{site.baseurl}}/assets/img/sveinn1.png"></div>
     {% for item in site.data.navigation %}
-      <a href="{{ item.link }}" {% if page.url == item.link %}class="current"{% endif %}>{{ item.name }}</a>
+      <a class="nav-link" href="{{ item.link }}" {% if page.url == item.link %}class="current"{% endif %}>
+        <h2>{{ item.name }}</h2>
+      </a>
     {% endfor %}
-  </nav>
+  </div>
+</nav>

@@ -3,12 +3,14 @@
 	"file": "styles.css",
 	"sources": [
 		"styles.scss",
-		"_sass/main.scss"
+		"_sass/base.scss",
+		"_sass/navigation.scss"
 	],
 	"sourcesContent": [
-		"@import \"main\";",
-		".current {\r\n  color: green;\r\n}\r\n\r\nh1 {\r\n  color: red;\r\n}"
+		"@import \"base\";\n@import \"navigation\";",
+		"// Base for Website\r\n\r\na {\r\n  color:rgb(72, 96, 228);\r\n  text-decoration: none;\r\n}\r\n\r\n.container {\r\n  width: 75%;\r\n  margin: 0 auto;\r\n}",
+		"//Header Navigation\r\n.current {\r\n    color: green;\r\n}\r\n* {\r\n  box-sizing: border-box;\r\n  padding: 0;\r\n  margin: 0;\r\n}\r\n\r\n.nav-container {\r\n  display:flex;\r\n  box-shadow: 1px 1px 5px 5px black;\r\n  flex-wrap: wrap;\r\n}\r\n\r\n.logo {\r\n  flex: 25%;\r\n  text-align:center;\r\n  \r\n}\r\n\r\n.nav-link {\r\n  text-align:center;\r\n  flex: 25%;\r\n  border: 1px solid;\r\n  padding: 5px;\r\n}"
 	],
 	"names": [],
-	"mappings": "ACAA,AAAA,QAAQ,CAAC,EACP,KAAK,EAAE,KAAK,GACb;;AAED,AAAA,EAAE,CAAC,EACD,KAAK,EAAE,GAAG,GACX"
+	"mappings": "ACEA,AAAA,CAAC,CAAC,EACA,KAAK,EAAC,OAAgB,EACtB,eAAe,EAAE,IAAI,GACtB;;AAED,AAAA,UAAU,CAAC,EACT,KAAK,EAAE,GAAG,EACV,MAAM,EAAE,MAAM,GACf;;ACTD,AAAA,QAAQ,CAAC,EACL,KAAK,EAAE,KAAK,GACf;;AACD,AAAA,CAAC,CAAC,EACA,UAAU,EAAE,UAAU,EACtB,OAAO,EAAE,CAAC,EACV,MAAM,EAAE,CAAC,GACV;;AAED,AAAA,cAAc,CAAC,EACb,OAAO,EAAC,IAAI,EACZ,UAAU,EAAE,qBAAqB,EACjC,SAAS,EAAE,IAAI,GAChB;;AAED,AAAA,KAAK,CAAC,EACJ,IAAI,EAAE,GAAG,EACT,UAAU,EAAC,MAAM,GAElB;;AAED,AAAA,SAAS,CAAC,EACR,UAAU,EAAC,MAAM,EACjB,IAAI,EAAE,GAAG,EACT,MAAM,EAAE,SAAS,EACjB,OAAO,EAAE,GAAG,GACb"
 }
