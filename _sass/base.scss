@@ -1,5 +1,7 @@
 // Base for Website
-
+* {
+  font-family: 'Ubuntu', sans-serif;
+}
 a {
   color:rgb(72, 96, 228);
   text-decoration: none;
@@ -8,4 +10,8 @@ a {
 .container {
   width: 75%;
   margin: 0 auto;
+}
+
+h1 {
+  font-family: 'Abril Fatface', cursive;
 }

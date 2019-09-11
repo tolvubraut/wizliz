@@ -1,15 +1,23 @@
+* { font-family: 'Ubuntu', sans-serif; }
+
 a { color: #4860e4; text-decoration: none; }
 
 .container { width: 75%; margin: 0 auto; }
+
+h1 { font-family: 'Abril Fatface', cursive; }
 
 .current { color: green; }
 
 * { box-sizing: border-box; padding: 0; margin: 0; }
 
-.nav-container { display: flex; box-shadow: 1px 1px 5px 5px black; flex-wrap: wrap; }
+.flexwrapper { display: fixed; box-shadow: 0px 0px 7px 1px black; }
 
-.logo { flex: 25%; text-align: center; }
+.head-menu { display: flex; margin: 0 auto; width: 60%; flex-direction: row; }
 
-.nav-link { text-align: center; flex: 25%; border: 1px solid; padding: 5px; }
+.logo { text-align: center; }
+
+.nav-menu { display: flex; width: 100%; justify-content: flex-end; }
+
+.nav-link { text-align: center; align-self: center; margin: 0 2.5em; }
 
 /*# sourceMappingURL=styles.css.map */
