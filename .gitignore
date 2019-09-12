@@ -1,5 +1,4 @@
 # Build and Release Folders
-.jekyll-cache
 styles/.sass-cache
 styles/.sass-cache/*
 * css.map
