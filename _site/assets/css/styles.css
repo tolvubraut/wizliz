@@ -4,11 +4,9 @@
 
 a { color: #4860e4; text-decoration: none; }
 
-.container { width: 75%; margin: 3.5em auto 0 auto; height: 200vh; }
+.container { width: 70em; margin: 3.5em auto 0 auto; height: 200vh; }
 
 h1 { font-family: 'Abril Fatface', cursive; }
-
-.current { color: black; }
 
 * { box-sizing: border-box; padding: 0; margin: 0; }
 

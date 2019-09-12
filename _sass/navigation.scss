@@ -1,7 +1,4 @@
 //Header Navigation
-.current {
-    color: black;
-}
 
 * {
   box-sizing: border-box;
@@ -29,8 +26,7 @@
 }
 
 .logo {
- 
-  
+ // Adjust Logo if needed
 }
 
 .nav-menu {
@@ -48,4 +44,8 @@
   display:block;
   padding: 10px 2em;
   text-transform: uppercase;
+}
+// Make Navbar mobile-friendly || Attempt to add Hamburger to nav-links
+@media screen and(max-width: 65em) {
+
 }
