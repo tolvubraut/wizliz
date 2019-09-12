@@ -2,6 +2,11 @@
 * {
   font-family: 'Ubuntu', sans-serif;
 }
+//Add base colour system for blog
+.current {
+  color: green;
+}
+
 a {
   color:rgb(72, 96, 228);
   text-decoration: none;
@@ -9,7 +14,8 @@ a {
 
 .container {
   width: 75%;
-  margin: 0 auto;
+  margin: 3.5em auto 0 auto;
+  height: 200vh;
 }
 
 h1 {
