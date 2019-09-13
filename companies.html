@@ -2,15 +2,15 @@
 layout: default
 title: Staff
 ---
+<!-- This is COMPANIES page -->
 <h1>Gaming Companies</h1>
 
 <ul>
   {% for author in site.authors %}
     <li>
       <h2><a href="{{ author.url }}"><p>{{ author.company | markdownify }}</p></a></h2>
-      <h3>{{ author.position }}</h3>
       <p>{{ author.content | markdownify }}</p>
-      <p>{{ author.name }}</p>
     </li>
   {% endfor %}
 </ul>
+
