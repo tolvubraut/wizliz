@@ -1,14 +1,10 @@
 ---
-layout: post
 author: jill
-company: Cd Projekt Red
+publisher: Cd Projekt Red
 title: Cyberpunk 2077
 ---
-<!-- Post under GAMES -->
-An apple is a sweet, edible fruit produced by an apple tree.
+<!-- Cyberpunk.md -->
+### Cyberpunk 2077 is an upcoming role-playing video game developed and published by CD Projekt
 
-Apple trees are cultivated worldwide, and are the most widely grown species in
-the genus Malus. The tree originated in Central Asia, where its wild ancestor,
-Malus sieversii, is still found today. Apples have been grown for thousands of
-years in Asia and Europe, and were brought to North America by European
-colonists.
+<hr>
+Cyberpunk 2077 is being developed by CD Projekt Red, an internal studio within CD Projekt, using the REDengine 4 game engine. They launched a new division in Wrocław and partnered with Digital Scapes to assist production. Around 450 total staff members are involved with the development, exceeding the number that worked on the studio's previous game, The Witcher 3: Wild Hunt. Cyberpunk 2020 creator Mike Pondsmith consulted on the project, and actor Keanu Reeves has a starring role.
