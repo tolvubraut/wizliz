@@ -6,7 +6,7 @@ layout: default
 <p>
   {{ page.date | date_to_string }}
   
-  {% assign publisher = site.authors | where: 'company', page.publisher | first %}
+  {% assign publisher = site.companies | where: 'company', page.publisher | first %}
   {% if publisher %}
     - <a href="{{ publisher.url }}">{{ publisher.company }}</a>
   {% endif %}

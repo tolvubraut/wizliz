@@ -7,6 +7,11 @@
   color: green;
 }
 
+// Removing list styling temporarily for publisher page
+li , ul {
+  list-style: none;
+}
+
 a {
   color:rgb(72, 96, 228);
   text-decoration: none;

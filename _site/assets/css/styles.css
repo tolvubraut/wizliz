@@ -2,6 +2,8 @@
 
 .current { color: green; }
 
+li, ul { list-style: none; }
+
 a { color: #4860e4; text-decoration: none; }
 
 .container { width: 70em; margin: 3.5em auto 0 auto; height: 200vh; }
@@ -10,14 +12,18 @@ h1 { font-family: 'Abril Fatface', cursive; }
 
 * { box-sizing: border-box; padding: 0; margin: 0; }
 
-.flexwrapper { position: fixed; top: 0; left: 0; box-shadow: 0px 0px 7px 1px black; width: 100%; background-color: #1f1f1f; height: 3em; }
+#headwrapper { position: fixed; top: 0; left: 0; box-shadow: 0px 0px 7px 1px black; width: 100%; background-color: #1f1f1f; height: 3em; }
 
-.head-menu { display: flex; margin: 0 auto; width: 65em; }
+#head-menu { display: flex; margin: 0 auto; width: 65em; }
 
-.nav-menu { width: 100%; display: flex; flex-direction: row; justify-content: flex-end; }
+.nav-menu { display: flex; flex-direction: row; justify-content: flex-end; width: 100%; }
 
-.nav-link:hover { background: white; }
+.nav-link:hover { background: white; border: 1px solid black; }
 
-.nav-link { display: block; padding: 10px 2em; text-transform: uppercase; }
+.nav-link { display: block; padding: 10px 2em; text-transform: uppercase; height: auto; }
+
+@media screen and (max-width: 65em) { #headwrapper { display: flex; } }
+
+@media screen and (max-width: 48em) { .logo { display: flex; flex: 100%; } }
 
 /*# sourceMappingURL=styles.css.map */

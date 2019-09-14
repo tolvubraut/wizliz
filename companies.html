@@ -5,7 +5,7 @@ title: Companies
 <h1>Gaming Companies</h1>
 <!-- companies.html -->
 <ul>
-  {% for publisher in site.authors %}
+  {% for publisher in site.companies %}
     <li>
       <h2><a href="{{ publisher.url }}"><p>{{ publisher.company | markdownify }}</p></a></h2>
       <p>{{ publisher.content | markdownify }}</p>

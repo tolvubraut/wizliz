@@ -7,8 +7,8 @@
 }
 
 
-.flexwrapper {
-  // Fixed
+// Start of Header
+#headwrapper {
   position:fixed;
   top:0;
   left:0;
@@ -19,33 +19,50 @@
 
 }
 
-.head-menu {
+#head-menu {
   display:flex;
   margin: 0 auto;
   width: 65em; 
 }
 
 .logo {
- // Adjust Logo if needed
+  
 }
 
+#header-logo {
+
+}
 .nav-menu {
-  width:100%;
   display:flex;
   flex-direction: row;
   justify-content: flex-end;
+  width:100%;
 }
 
 .nav-link:hover {
   background:white;
+  border: 1px solid black;
 }
 
 .nav-link {
   display:block;
   padding: 10px 2em;
   text-transform: uppercase;
+  height: auto;
 }
+// End of Header
+
+
 // Make Navbar mobile-friendly || Attempt to add Hamburger to nav-links
 @media screen and(max-width: 65em) {
+  #headwrapper {
+   display:flex; 
+  }
+}
 
+@media screen and(max-width: 48em) {
+  .logo {
+    display:flex;
+    flex: 100%;
+  }
 }
