@@ -20,10 +20,10 @@ h1 { font-family: 'Abril Fatface', cursive; }
 
 .nav-link:hover { background: white; border: 1px solid black; }
 
-.nav-link { display: block; padding: 10px 2em; text-transform: uppercase; height: auto; }
+.nav-link { padding: 0 1.2em; text-transform: uppercase; width: auto; height: auto; }
 
-@media screen and (max-width: 65em) { #headwrapper { display: flex; } }
+.nav-link-logo { position: relative; left: 5px; top: 3px; }
 
-@media screen and (max-width: 48em) { .logo { display: flex; flex: 100%; } }
+.nav-link-text { position: relative; top: 8px; }
 
 /*# sourceMappingURL=styles.css.map */

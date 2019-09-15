@@ -1,18 +1,16 @@
-<nav>
-  <div id="headwrapper">
-    <div id="head-menu">
-      <div id="header-logo">
-        <a href="{{ index | prepend: site.baseurl }}">
-          <img class="logo" src="{{site.baseurl}}/assets/img/sveinn1.png">
+<nav id="headwrapper">
+  <div id="head-menu">
+    <div id="header-logo">
+      <a href="{{ index | prepend: site.baseurl }}">
+        <img class="logo" src="{{site.baseurl}}/assets/img/sveinn1.png">
+      </a>
+    </div>
+    <div class="nav-menu">
+      {% for item in site.data.navigation %}
+        <a class="nav-link" href="{{ item.link }}" {% if page.url == item.link %}class="current"{% endif %}>
+          <h2 class="nav-link-text"><img class="nav-link-logo" src="{{ item.image }}">{{ item.name }}</h2>
         </a>
-      </div>
-      <div class="nav-menu">
-        {% for item in site.data.navigation %}
-          <a class="nav-link" href="{{ item.link }}" {% if page.url == item.link %}class="current"{% endif %}>
-            <h2>{{ item.name }}</h2>
-          </a>
-        {% endfor %}
-      </div>
+      {% endfor %}
     </div>
   </div>
 </nav>

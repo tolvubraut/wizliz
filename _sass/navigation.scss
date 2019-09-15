@@ -26,12 +26,14 @@
 }
 
 .logo {
-  
+  //
 }
 
 #header-logo {
-
+  //
 }
+
+// Start of Nav menu 
 .nav-menu {
   display:flex;
   flex-direction: row;
@@ -45,24 +47,35 @@
 }
 
 .nav-link {
-  display:block;
-  padding: 10px 2em;
+  padding: 0 1.2em;
   text-transform: uppercase;
+  width: auto;
   height: auto;
+  
+}
+
+.nav-link-logo {
+  position:relative;
+  left:5px;
+  top: 3px;
+}
+
+.nav-link-text {
+  position:relative;
+  top:8px;
 }
 // End of Header
 
 
-// Make Navbar mobile-friendly || Attempt to add Hamburger to nav-links
+//  Attempt to add Hamburger to nav-links
 @media screen and(max-width: 65em) {
   #headwrapper {
-   display:flex; 
+   
   }
 }
 
-@media screen and(max-width: 48em) {
-  .logo {
-    display:flex;
-    flex: 100%;
+@media screen and(max-width: 53em) {
+  .nav-link {
+    
   }
 }
