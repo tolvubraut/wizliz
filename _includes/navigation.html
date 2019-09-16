@@ -1,12 +1,12 @@
-<nav id="headwrapper">
+<header id="headwrapper">
   <div class="head-container">
     <div class="header-logo">
-      <a href="{{ index | prepend: site.baseurl }}">
+      <a href="{{site.baseurl }}../">
         <img class="logo" src="{{site.baseurl}}/assets/img/sveinn1.png">
       </a>
     </div>
     <!-- Menu/Hamburger -->
-    <div class="nav-wrapper">
+    <nav class="nav-wrapper">
       <!-- Hamburger -->
       <input type="checkbox" class="toggle">
       <div class="mobile-menu">
@@ -20,6 +20,6 @@
           </a>
         {% endfor %}
       </div>
-    </div>
+    </nav>
   </div>
-</nav>
+</header>

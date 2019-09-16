@@ -1,9 +1,11 @@
 <footer class="footwrapper">
+    <a href="{{ publisher.url }}">
     <div class="footer-container">
         <div class="company-container"> 
             {% for publisher in site.companies %}
-                <div class="company-info"><a href="{{ publisher.url }}"><h2>{{publisher.company}}</h2></a></div>     
+                <div class="company-info"><h2>{{publisher.company}}</h2></div>     
             {% endfor %}
         </div>
     </div>
+</a>
 </footer>

@@ -14,8 +14,10 @@
   <body>
     {% include navigation.html %}
     <!-- Decide if default container for body is : wrapper : grid : !width % with preset layout -->
-    <div class="container"> 
-      {{ content }}
+    <div class="mainwrapper"> 
+      <div class="main-container">
+       {{ content }}
+      </div>
     </div>
     {% include footer.html %}
   </body>

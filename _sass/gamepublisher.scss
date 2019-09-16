@@ -2,14 +2,23 @@
 
 //Add Color to Mixin
 .game-container {
+    &:hover {
+        @include mainHoverEffect;
+        
+        
+    }
+    @include transLink;
+    @include borderBackground;
+    @include allBorder;
     display:flex;
     align-items: center;
     flex-direction: column;
-    background-image: linear-gradient(rgb(72, 96, 228), black);
-    border-radius: 10px;
     margin: 10px 0;
-    color:rgb(72, 96, 228);
+    padding: 5px 10px 10px 10px;
+    text-align: center;
+    
 }
+
 
 
 

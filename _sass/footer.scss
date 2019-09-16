@@ -2,14 +2,12 @@
 //Redo Footer
 .footwrapper {
     border: 1px solid;
-    // flex-shrink: 0;
-    color:white;
     box-shadow: 0 1px 2px 3px black;
-    background: #151514;
+    background: $backgroundColor;
 }
 
 .footer-container {
-    width: 90em;
+    max-width: 80em;
     height: auto;
     margin: 0 auto;
 }
@@ -18,25 +16,26 @@
     display:flex;
     flex-wrap: wrap;
     justify-content: center;
-
 }
 
 .company-info {
-    background: radial-gradient(244px at top right,#685e31,rgba(0,0,0,0)),radial-gradient(244px at top left,#0d92c3,rgba(0,0,0,0)),radial-gradient(333px at bottom left,#8a43bd,rgba(0,0,0,0)),radial-gradient(244px at bottom right,#1d8d42,rgba(0,0,0,0));
+    background: radial-gradient(244px at top right,#685e31,rgba(0,0,0,0)),radial-gradient(244px at top left,#0d92c3,rgba(0,0,0,0)),radial-gradient(400px at bottom left,#8a43bd,rgba(0,0,0,0)),radial-gradient(400px at bottom right,#1d8d42,rgba(0,0,0,0));
     display:flex;
     justify-content: center;
     align-items: center;
     flex: 31%;
     border: 1px solid;
-    border-radius : 10px;
+    @include sRadius;
     height: 5em;
     margin: 10px;
+    a {
+        
+    }
 }
 
 
 @media screen and (max-width: 65em) {
     .footer-container {
-        position: relative;
         width: auto;
     }
     .company-container {

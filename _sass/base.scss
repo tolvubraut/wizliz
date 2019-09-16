@@ -1,35 +1,22 @@
 //Cleanup for Mixins and vars
 // Base for Website
+:root {
+  --main-font: 'Ubuntu', sans-serif;
+  --secondary-font: 'Abril Fatface', cursive;
+}
+
 * {
-  font-family: 'Ubuntu', sans-serif;
+  font-family: var(--secondary-font);
   box-sizing: border-box;
   padding: 0;
   margin: 0;
   
 }
-
-
-@mixin transLink {
-  transition: all 0.3s linear;
-}
-
-//Sticky Footer
 html , body {
   height: 100%;
 }
 
-body {
-  display:flex;
-  flex-direction: column;
-}
 
-header {
-//
-}
-
-h1 {
-  font-family: 'Abril Fatface', cursive;
-}
 //End of Sticky Footer
 
 //Add base colour system for blog
@@ -40,20 +27,139 @@ h1 {
 
 
 
-// Removing list styling temporarily for publisher page
+//SCSS Variables
 
-//ADD MIXIN
-a {
-  color:rgb(72, 96, 228);
-  text-decoration: none;
+//Font size
+$fontSize: 12px;
+
+$fontHeadingSize: 1em;
+
+$fontBigHeadingSize: 1.5em;
+
+//Colors
+$headerTitle: rgb(80,60,200);
+
+$mainColor: rgb(72, 96, 228);
+
+$secondaryColor: rgb(60, 100, 144);
+
+$borderColor: black;
+
+$backgroundRgba: rgba(25, 25, 25, 0.85);
+
+$backgroundColor:  #1f1f1f;
+
+$backgroundImage: linear-gradient(rgb(50, 96, 228), black);
+
+$headerHeight: 4.2em;
+
+//Mixin
+
+//Border Defaults
+@mixin botBorder {
+  border-bottom: 2px solid;
+  border-color:$borderColor;
+}
+@mixin allBorder {
+  border: 2px solid;
+  border-color:$borderColor;
+}
+@mixin topBorder {
+  border-top: 2px solid;
+  border-color:$borderColor;
+}
+@mixin botTopBorder {
+  border-top: 2px solid;
+  border-bottom: 2px solid;
+  border-color:$borderColor;
+}
+//Border Defaults
+
+@mixin sRadius {
+  border-radius: 10px;
 }
 
+@mixin transLink {
+  transition: all 0.3s ease;
+}
+
+
+
+@mixin borderBackground {
+  background-image: $backgroundImage;
+  @include sRadius;
+}
+@mixin mainHoverEffect {
+  color: lighten( $mainColor, 10%);
+  border-color:darken($borderColor, 5%);
+  background-image: linear-gradient(rgb(45, 121, 200), black);
+  border: 3px solid;
+  h1, h2 {
+    color: lighten($mainColor, 10%)
+  }
+}
+
+@mixin secondaryHoverEffect {
+  color:lighten( $mainColor, 10%);
+  @include allBorder();
+  
+}
+
+a {
+  color: $mainColor;
+  text-decoration: none;
+}
+h1, h2, h3, h4{
+  font-family: var(--main-font);
+  color:$mainColor;
+}
+
+.header-title {
+  text-align:center;
+  
+  color: darken($mainColor, 5%);
+}
+
+
+
+
+// Apply Main Colors
+header {
+  color:black;
+}
+
+body {
+  display:flex;
+  flex-direction: column;
+  
+}
+
+
+
+
+
+
+
+
+
+
+
+
+//Sticky Footer
+
+
+
+
+
+
 //ADD BASIS FOR CONTAINER
-.container {
+.mainwrapper {
   width: 70em;
   margin: 5em auto 0 auto;
   flex: 1 0 auto;
-  
+}
+.main-container {
+  width: auto;
 }
 
 img {
@@ -62,13 +168,11 @@ img {
 }
 
 //SEPERATE FOLDER FOR BODY
-@media screen and(max-width: 65em) {
-  .container {
+@media screen and(max-width: 68em) {
+  .mainwrapper {
     width: auto;
   }
 }
 @media screen and(max-width: 45em) {
-  .container {
-    margin: 6em auto 0 auto;
-  }
+  
 }
