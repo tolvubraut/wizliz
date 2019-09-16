@@ -1,4 +1,8 @@
-* { font-family: 'Ubuntu', sans-serif; }
+* { font-family: 'Ubuntu', sans-serif; box-sizing: border-box; padding: 0; margin: 0; }
+
+html, body { height: 100%; color: #1f1f1f; }
+
+body { display: flex; flex-direction: column; }
 
 .current { color: green; }
 
@@ -8,7 +12,7 @@ li, ul { list-style: none; }
 
 a { color: #4860e4; text-decoration: none; }
 
-.container { width: 70em; margin: 5em auto 0 auto; height: 200vh; }
+.container { width: 70em; margin: 5em auto 0 auto; flex: 1 0 auto; }
 
 h1 { font-family: 'Abril Fatface', cursive; }
 
@@ -16,14 +20,13 @@ h1 { font-family: 'Abril Fatface', cursive; }
 
 @media screen and (max-width: 45em) { .container { margin: 6em auto 0 auto; } }
 
-* { box-sizing: border-box; padding: 0; margin: 0; }
-
 #headwrapper { position: fixed; top: 0; left: 0; box-shadow: 0px 0px 7px 1px black; width: 100%; background-color: #1f1f1f; height: 4em; }
 
 .head-container { display: flex; margin: 0 auto; width: 65em; }
 
 .header-logo { display: flex; align-items: center; }
 
+/*======================== Start of Nav Menu =========================*/
 .nav-wrapper { display: flex; flex-direction: row; justify-content: flex-end; width: 100%; }
 
 .nav-menu { display: flex; flex-direction: row; justify-content: flex-end; }
@@ -36,6 +39,7 @@ h1 { font-family: 'Abril Fatface', cursive; }
 
 .nav-link-text { position: relative; right: 10px; top: 15px; }
 
+/*====================================== End of nav Menu ======================================*/
 .toggle { display: none; }
 
 /*  ==================== Media Query 1040PX ==================== */
@@ -48,6 +52,7 @@ h1 { font-family: 'Abril Fatface', cursive; }
   .nav-link { display: flex; justify-content: center; align-items: center; width: 100%; height: 10%; background: rgba(25, 25, 25, 0.9); border-bottom: 1px solid; border-top: 1px solid; }
   .nav-link-text { position: initial; font-weight: bold; font-size: 2rem; }
   .nav-link-icon { top: 1px; }
+  /*====================================== Start of Mobile Menu and animations ======================================*/
   .nav-wrapper .toggle { display: initial; width: 4.6rem; height: 4rem; position: absolute; top: 0.25em; right: 1em; opacity: 0; cursor: pointer; z-index: 999; }
   .nav-wrapper .mobile-menu { width: 4.2rem; height: 4rem; position: absolute; top: 0.1em; right: 0.9em; z-index: 998; display: flex; justify-content: center; align-content: center; align-items: center; padding: 10px; transition: all 0.3s linear; }
   .nav-wrapper .mobile-menu .bar { position: relative; width: 1000px; height: 5px; z-index: 5; background: white; transition: all 0.2s ease; }
@@ -58,10 +63,12 @@ h1 { font-family: 'Abril Fatface', cursive; }
   .nav-wrapper .toggle.checked:hover + .mobile-menu { transform: rotate(135deg); }
   .nav-wrapper .toggle:checked + .mobile-menu .bar::before, .nav-wrapper .toggle:checked + .mobile-menu .bar::after { top: 0; transform: rotate(90deg); }
   .toggle:checked + .mobile-menu + .nav-menu { opacity: 1; width: 100%; height: 100vh; }
-  .toggle:checked + .header-logo { opacity: 0; } }
+  .toggle:checked + .header-logo { opacity: 0; }
+  /*====================================== ENd of Mobile Menu and animations ======================================*/ }
 
 /* ================ Media Query 720PX ====================*/
-@media screen and (max-width: 45em) { #headwrapper { height: 3.8em; }
+@media screen and (max-width: 45em) { /*============================================ Start of Adjusting Height of mobile Hamburger ==============================================*/
+  #headwrapper { height: 3.8em; }
   .head-container { height: 3.8em; }
   .header-logo { height: 3.8em; justify-content: flex-start; }
   .logo { width: 100%; }
@@ -70,6 +77,15 @@ h1 { font-family: 'Abril Fatface', cursive; }
   .nav-wrapper .mobile-menu { width: 3.8rem; height: 3.6rem; top: 0.15em; right: 0.8em; }
   .nav-wrapper .mobile-menu .bar { height: 4px; }
   .nav-wrapper .mobile-menu .bar::after, .nav-wrapper .mobile-menu .bar::before { content: ''; top: -10px; height: 4px; }
-  .nav-wrapper .mobile-menu .bar:after { top: 10px; } }
+  .nav-wrapper .mobile-menu .bar:after { top: 10px; }
+  /* ==================== End of Adjustment =====================*/ }
+
+.footwrapper { border: 1px solid; flex-shrink: 0; color: white; box-shadow: 0 1px 2px 3px black; background: #151514; }
+
+.footer-container { width: 90em; height: auto; margin: 0 auto; }
+
+.company-container { display: flex; flex-wrap: wrap; justify-content: center; }
+
+.company-info { background: radial-gradient(244px at top right, #685e31, rgba(0, 0, 0, 0)), radial-gradient(244px at top left, #0d92c3, rgba(0, 0, 0, 0)), radial-gradient(333px at bottom left, #8a43bd, rgba(0, 0, 0, 0)), radial-gradient(244px at bottom right, #1d8d42, rgba(0, 0, 0, 0)); display: flex; justify-content: center; align-items: center; flex: 31%; border: 1px solid; border-radius: 10px; height: 10em; margin: 10px; }
 
 /*# sourceMappingURL=styles.css.map */

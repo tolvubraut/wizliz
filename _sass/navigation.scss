@@ -1,9 +1,4 @@
 //Header Navigation
-* {
-  box-sizing: border-box;
-  padding: 0;
-  margin: 0;
-}
 
 // Start of Header
 #headwrapper {
@@ -23,16 +18,17 @@
 }
 
 .logo {
-  
+  //BLANK
 }
 
 .header-logo {
   display:flex;
-
   align-items: center;
 }
 
-// Start of Nav menu 
+ /*========================
+   Start of Nav Menu
+  =========================*/
 .nav-wrapper {
   display:flex;
   flex-direction: row;
@@ -40,7 +36,6 @@
   width:100%;
 }
 
-// Start of links/menu
 .nav-menu {
   display:flex;
   flex-direction: row;
@@ -54,8 +49,9 @@
   align-self: center;
   height: 4em;
 }
+
 .nav-link:hover {
-  // Add better animation for hovering over nav
+  // Add better animation for hovering over nav !IMPORTANT
   background:white;
   border: 1px solid black;
 }
@@ -69,7 +65,9 @@
   right: 10px;
   top: 15px;
 }
-// End of Header
+ /*======================================
+   End of nav Menu
+  ======================================*/
 
 // Hamburger
 .toggle {
@@ -81,7 +79,8 @@
     ==================== */
 
 @media screen and (max-width: 65em) {
-  //Start of Header
+
+  //Start of Header containers
   #headwrapper {
     height: 4.2em;
   }
@@ -99,8 +98,6 @@
     height: 4.2em;
   }
  
-
-
   .logo {
     width: 120%;
   }
@@ -108,6 +105,7 @@
   .nav-wrapper {
     width: 0;
   }
+// End of Header Containers
 
   //Aligns nav-menu on right side for hamburger
   .nav-menu {
@@ -145,9 +143,10 @@
   .nav-link-icon {
     top: 1px;
   }
-  // End of basic Header
-
-  // Start of Mobile Menu
+  // End of alignment
+ /*======================================
+   Start of Mobile Menu and animations
+  ======================================*/
   .nav-wrapper .toggle {
     display:initial;
     width: 4.6rem;
@@ -220,19 +219,19 @@
   .toggle:checked + .header-logo {
     opacity: 0;
   }
- 
-  //End of Mobile Menu
-
+   /*======================================
+   ENd of Mobile Menu and animations
+  ======================================*/
 }
-
-
 
 /* ================
   Media Query 720PX
 ====================*/
 @media screen and (max-width: 45em) {
-  //Adjusting Height of mobile Hamburger
-  #headwrapper {
+  /*============================================
+   Start of Adjusting Height of mobile Hamburger
+  ==============================================*/
+   #headwrapper {
     height: 3.8em;
   }
   .head-container {
@@ -276,4 +275,7 @@
   .nav-wrapper .mobile-menu .bar:after {
     top: 10px;
   }
+    /* ====================
+        End of Adjustment
+      =====================*/
 }
