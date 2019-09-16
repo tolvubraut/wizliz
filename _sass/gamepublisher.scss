@@ -1,0 +1,23 @@
+//Styling for post based pages --header/image/title
+
+//Add Color to Mixin
+.game-container {
+    display:flex;
+    align-items: center;
+    flex-direction: column;
+    background-image: linear-gradient(rgb(72, 96, 228), black);
+    border-radius: 10px;
+    margin: 10px 0;
+    color:rgb(72, 96, 228);
+}
+
+
+
+.icon-container {
+
+}
+
+.games-icon {
+    
+    height: auto;
+}

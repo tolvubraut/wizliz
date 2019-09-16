@@ -2,14 +2,17 @@
 layout: default
 title: Companies
 ---
-<h1>Gaming Companies</h1>
+<h1>Companies</h1>
 <!-- companies.html -->
-<ul>
+
   {% for publisher in site.companies %}
-    <li>
-      <h2><a href="{{ publisher.url }}"><p>{{ publisher.company | markdownify }}</p></a></h2>
+    <div class="game-container">
+      <div class="image-container">
+        <img  class="games-image" src="{{ publisher.image }}">
+      </div>
+      <h1><a href="{{ publisher.url }}">{{ publisher.company | markdownify }}</a></h1>
       <p>{{ publisher.content | markdownify }}</p>
-    </li>
+    </div>
   {% endfor %}
-</ul>
+
 

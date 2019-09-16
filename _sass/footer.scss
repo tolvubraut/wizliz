@@ -1,6 +1,8 @@
+// Fix sticky Footer
+//Redo Footer
 .footwrapper {
     border: 1px solid;
-    flex-shrink: 0;
+    // flex-shrink: 0;
     color:white;
     box-shadow: 0 1px 2px 3px black;
     background: #151514;
@@ -27,6 +29,21 @@
     flex: 31%;
     border: 1px solid;
     border-radius : 10px;
-    height: 10em;
+    height: 5em;
     margin: 10px;
+}
+
+
+@media screen and (max-width: 65em) {
+    .footer-container {
+        position: relative;
+        width: auto;
+    }
+    .company-container {
+        width: auto;
+    }
+    .company-info {
+        width: auto;
+        
+    }
 }

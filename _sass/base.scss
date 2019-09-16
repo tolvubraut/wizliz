@@ -1,15 +1,21 @@
+//Cleanup for Mixins and vars
 // Base for Website
 * {
   font-family: 'Ubuntu', sans-serif;
   box-sizing: border-box;
   padding: 0;
   margin: 0;
+  
 }
-$background-container: #1f1f1f; 
 
+
+@mixin transLink {
+  transition: all 0.3s linear;
+}
+
+//Sticky Footer
 html , body {
   height: 100%;
-  color:$background-container;
 }
 
 body {
@@ -17,36 +23,45 @@ body {
   flex-direction: column;
 }
 
-//Add base colour system for blog
-.current {
-  color: green;
-}
-
-a.current {
-  color:orangered;
-}
-
-// Removing list styling temporarily for publisher page
-li , ul {
-  list-style: none;
-}
-
-a {
-  color:rgb(72, 96, 228);
-  text-decoration: none;
-}
-
-.container {
-  width: 70em;
-  margin: 5em auto 0 auto;
-
-  flex: 1 0 auto;
+header {
+//
 }
 
 h1 {
   font-family: 'Abril Fatface', cursive;
 }
+//End of Sticky Footer
 
+//Add base colour system for blog
+//FIX
+.current {
+  color: green;
+}
+
+
+
+// Removing list styling temporarily for publisher page
+
+//ADD MIXIN
+a {
+  color:rgb(72, 96, 228);
+  text-decoration: none;
+}
+
+//ADD BASIS FOR CONTAINER
+.container {
+  width: 70em;
+  margin: 5em auto 0 auto;
+  flex: 1 0 auto;
+  
+}
+
+img {
+  width: auto;
+  height: auto;
+}
+
+//SEPERATE FOLDER FOR BODY
 @media screen and(max-width: 65em) {
   .container {
     width: auto;

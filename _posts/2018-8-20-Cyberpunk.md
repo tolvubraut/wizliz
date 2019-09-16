@@ -2,6 +2,7 @@
 author: jill
 publisher: Cd Projekt Red
 title: Cyberpunk 2077
+image: \assets\img\github.png
 ---
 <!-- Cyberpunk.md -->
 ### Cyberpunk 2077 is an upcoming role-playing video game developed and published by CD Projekt

@@ -1,26 +1,24 @@
 * { font-family: 'Ubuntu', sans-serif; box-sizing: border-box; padding: 0; margin: 0; }
 
-html, body { height: 100%; color: #1f1f1f; }
+html, body { height: 100%; }
 
 body { display: flex; flex-direction: column; }
 
+h1 { font-family: 'Abril Fatface', cursive; }
+
 .current { color: green; }
-
-a.current { color: orangered; }
-
-li, ul { list-style: none; }
 
 a { color: #4860e4; text-decoration: none; }
 
 .container { width: 70em; margin: 5em auto 0 auto; flex: 1 0 auto; }
 
-h1 { font-family: 'Abril Fatface', cursive; }
+img { width: auto; height: auto; }
 
 @media screen and (max-width: 65em) { .container { width: auto; } }
 
 @media screen and (max-width: 45em) { .container { margin: 6em auto 0 auto; } }
 
-#headwrapper { position: fixed; top: 0; left: 0; box-shadow: 0px 0px 7px 1px black; width: 100%; background-color: #1f1f1f; height: 4em; }
+#headwrapper { position: fixed; top: 0; left: 0; box-shadow: 0px 0px 7px 1px black; width: 100%; background-color: #1f1f1f; height: 4em; z-index: 1000; }
 
 .head-container { display: flex; margin: 0 auto; width: 65em; }
 
@@ -80,12 +78,20 @@ h1 { font-family: 'Abril Fatface', cursive; }
   .nav-wrapper .mobile-menu .bar:after { top: 10px; }
   /* ==================== End of Adjustment =====================*/ }
 
-.footwrapper { border: 1px solid; flex-shrink: 0; color: white; box-shadow: 0 1px 2px 3px black; background: #151514; }
+.footwrapper { border: 1px solid; color: white; box-shadow: 0 1px 2px 3px black; background: #151514; }
 
 .footer-container { width: 90em; height: auto; margin: 0 auto; }
 
 .company-container { display: flex; flex-wrap: wrap; justify-content: center; }
 
-.company-info { background: radial-gradient(244px at top right, #685e31, rgba(0, 0, 0, 0)), radial-gradient(244px at top left, #0d92c3, rgba(0, 0, 0, 0)), radial-gradient(333px at bottom left, #8a43bd, rgba(0, 0, 0, 0)), radial-gradient(244px at bottom right, #1d8d42, rgba(0, 0, 0, 0)); display: flex; justify-content: center; align-items: center; flex: 31%; border: 1px solid; border-radius: 10px; height: 10em; margin: 10px; }
+.company-info { background: radial-gradient(244px at top right, #685e31, rgba(0, 0, 0, 0)), radial-gradient(244px at top left, #0d92c3, rgba(0, 0, 0, 0)), radial-gradient(333px at bottom left, #8a43bd, rgba(0, 0, 0, 0)), radial-gradient(244px at bottom right, #1d8d42, rgba(0, 0, 0, 0)); display: flex; justify-content: center; align-items: center; flex: 31%; border: 1px solid; border-radius: 10px; height: 5em; margin: 10px; }
+
+@media screen and (max-width: 65em) { .footer-container { position: relative; width: auto; }
+  .company-container { width: auto; }
+  .company-info { width: auto; } }
+
+.game-container { display: flex; align-items: center; flex-direction: column; background-image: linear-gradient(#4860e4, black); border-radius: 10px; margin: 10px 0; color: #4860e4; }
+
+.games-icon { height: auto; }
 
 /*# sourceMappingURL=styles.css.map */
