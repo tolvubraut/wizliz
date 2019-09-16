@@ -23,10 +23,16 @@ a {
 
 .container {
   width: 70em;
-  margin: 3.5em auto 0 auto;
+  margin: 5em auto 0 auto;
   height: 200vh;
 }
 
 h1 {
   font-family: 'Abril Fatface', cursive;
+}
+
+@media screen and(max-width: 65em) {
+  .container {
+    width: auto;
+  }
 }

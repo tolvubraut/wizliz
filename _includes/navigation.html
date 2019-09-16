@@ -9,7 +9,7 @@
     <div class="nav-wrapper">
       <!-- Hamburger -->
       <input type="checkbox" class="toggle">
-      <div class="hamburger">
+      <div class="mobile-menu">
         <div class="bar"></div>
       </div>
       <!-- Menu -->
@@ -17,7 +17,7 @@
         <!-- <img class="" src="/assets/img/sveinn1.png"> Pic for mobile navbar -->
         {% for item in site.data.navigation %}
           <a class="nav-link" href="{{ item.link }}" {% if page.url == item.link %}class="current"{% endif %}>
-            <h2 class="nav-link-text"><img class="nav-link-logo" src="{{ item.image }}">{{ item.name }}</h2>
+            <h2 class="nav-link-text"><img class="nav-link-icon" src="{{ item.image }}">{{ item.name }}</h2>
           </a>
         {% endfor %}
       </div>

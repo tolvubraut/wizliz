@@ -13,7 +13,7 @@
   box-shadow: 0px 0px 7px 1px black;
   width: 100%;
   background-color: #1f1f1f;
-  height: 3em;
+  height:auto;
 }
 
 .head-container {
@@ -23,11 +23,11 @@
 }
 
 .logo {
-  //Empty
+  //
 }
 
-#header-logo {
-  //Empty
+.header-logo {
+  //
 }
 
 // Start of Nav menu 
@@ -38,7 +38,6 @@
   width:100%;
 }
 
-
 // Start of links/menu
 .nav-menu {
   display:flex;
@@ -46,24 +45,21 @@
   justify-content: flex-end;
 }
 
-
+.nav-link {
+  padding: 0 1.2em;
+  text-transform: uppercase;
+  font-size: 1em;
+}
 .nav-link:hover {
   // Add better animation for hovering over nav
   background:white;
   border: 1px solid black;
 }
-
-.nav-link {
-  padding: 0 1.2em;
-  text-transform: uppercase;
-  font-size: 0.8em;
-}
-.nav-link-logo {
+.nav-link-icon {
   position:relative;
-  left:5px;
+  left:0px;
   top: 4px;
 }
-
 .nav-link-text {
   position:relative;
   right: 10px;
@@ -76,19 +72,36 @@
   display:none;
 }
 
+// Media Query 1040PX
 @media screen and(max-width: 65em) {
   //Start of Header
-  #head-wrapper {
-   //Adjust Height  
-  }
-  
-  .head-container {
-    width: 100%;
+  #headwrapper {
+    height: 5em;
   }
 
+  .head-container {
+    width: 100%;
+    height: 5em;
+  }
+
+  .header-logo {
+    display:flex;
+    justify-content: center;
+    align-items:center;
+    width: 100%;
+  }
+  .logo {
+    width: 120%;
+  }
+
+  .nav-wrapper {
+    width: 0;
+  }
+
+  //Aligns nav-menu on right side for hamburger
   .nav-menu {
     position:fixed;
-    top: 45px;
+    top: 5rem;
     right: 0;
     opacity: 0;
     width: 0;
@@ -100,7 +113,6 @@
     align-items: center;
     justify-content: flex-start;
     flex-direction: column;
-    padding-top: 100px;
   }
 
   .nav-link {
@@ -109,39 +121,43 @@
     align-items: center;
     width: 100%;
     height: 10%;
-    font-size: 1rem;
-
+    background: rgba(25, 25, 25, 0.9);
+    border-bottom: 1px solid;
+    border-top: 1px solid;
+  }
+  .nav-link-text {
+    position:initial;
+    font-weight: bold;
+    font-size: 2rem;
   }
 
-  // Toggle for Nav-menu
-  .toggle:checked + .hamburger + .nav-menu {
-    opacity: 1;
-    width: 50%;
-    height: 100vh;
+  .nav-link-icon {
+    top: 2px;
   }
 
 
 
-  // End of Header
 
-  // Start of Hamburger
+  // End of basic Header
+
+  // Start of Mobile Menu
   .nav-wrapper .toggle {
     display:initial;
-    width: 3rem;
-    height: 3rem;
+    width: 3.8rem;
+    height: 3.8rem;
     position: absolute;
-    top:0;
-    right:0;
+    top:0.8em;
+    right:1em;
     opacity:0;
     cursor: pointer;
     z-index: 999;
   }
-  .nav-wrapper .hamburger {
-    width: 3rem;
-    height: 3rem;
+  .nav-wrapper .mobile-menu {
+    width: 3.5rem;
+    height: 3.5rem;
     position: absolute;
-    top:0;
-    right:0;
+    top:0.8em;
+    right:1em;
     z-index: 998;
     display:flex;
     justify-content: center;
@@ -150,16 +166,16 @@
     padding: 10px;
     transition: all 0.3s linear;
   }
-  .nav-wrapper .hamburger .bar {
+  .nav-wrapper .mobile-menu .bar {
     position: relative;
-    width: 100%;
+    width: 1000px;
     height: 3px;
     z-index: 5;
     background:white;
     transition: all 0.2s ease;
   }
-  .nav-wrapper .hamburger .bar::after,
-  .nav-wrapper .hamburger .bar::before {
+  .nav-wrapper .mobile-menu .bar::after,
+  .nav-wrapper .mobile-menu .bar::before {
     content: '';
     position: absolute;
     top: -10px;
@@ -168,24 +184,31 @@
     background: white;
     transition: all 0.3s linear;
   }
-  .nav-wrapper .hamburger .bar:after {
+  .nav-wrapper .mobile-menu .bar:after {
     top: 10px;
   }
   // Transition Animation for Mobile-Navbar
-  .nav-wrapper .toggle:hover + .hamburger {
+  .nav-wrapper .toggle:hover + .mobile-menu {
     background: rgba(255, 255, 255, 0.1);
     border-radius: 50%;
   }
-  .nav-wrapper .toggle:checked + .hamburger {
+  .nav-wrapper .toggle:checked + .mobile-menu {
     transform: rotate(45deg);
   }
-  .nav-wrapper .toggle.checked:hover + .hamburger {
+  .nav-wrapper .toggle.checked:hover + .mobile-menu {
     transform: rotate(135deg)
   }
-  .nav-wrapper .toggle:checked + .hamburger .bar::before,
-  .nav-wrapper .toggle:checked + .hamburger .bar::after {
+  .nav-wrapper .toggle:checked + .mobile-menu .bar::before,
+  .nav-wrapper .toggle:checked + .mobile-menu .bar::after {
       top: 0;
       transform: rotate(90deg);
+  }
+
+  // Toggle for Nav-menu
+  .toggle:checked + .mobile-menu + .nav-menu {
+    opacity: 1;
+    width: 100%;
+    height: 100vh;
   }
   //End of Hamburger
 
