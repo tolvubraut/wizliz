@@ -6,12 +6,12 @@ html, body { height: 100%; }
 
 img { width: auto; height: auto; }
 
-/*================= FontSizing/Color ====================*/
-body { display: flex; flex-direction: column; font-family: var(--secondary-font); font-weight: 400; line-height: 1.5; background-image: url("/assets/img/cyberpunk2077-background.png"); /* The image used */ background-color: #cccccc; /* Used if the image is unavailable */ background-position: center; /* Center the image */ background-repeat: no-repeat; /* Do not repeat the image */ background-size: cover; /* Resize the background image to cover the entire container */ }
+/*============================== FontSizing/Colors ================================*/
+body { display: flex; flex-direction: column; font-family: var(--secondary-font); font-weight: 400; line-height: 1.5; background-image: url("/verkefni2/assets/img/cyberpunk2077-background.png"); /* The image used */ background-color: #cccccc; /* Used if the image is unavailable */ background-position: center; /* Center the image */ background-repeat: no-repeat; /* Do not repeat the image */ background-size: cover; /* Resize the background image to cover the entire container */ }
 
-h1, h2, h3, h4 { font-family: var(--main-font); color: #b3b3b3; line-height: 1.5; }
+h1, h2, h3, h4 { font-family: var(--main-font); color: #b4b9b4; line-height: 1.5; }
 
-a { color: #b3b3b3; text-decoration: none; }
+a { color: #b4b9b4; text-decoration: none; }
 
 p { color: white; }
 
@@ -23,20 +23,30 @@ li a:hover { border-bottom: 2px solid; border-color: black; }
 
 .links { display: flex; justify-content: center; align-items: center; align-content: center; font-size: 1.5em; }
 
-.header-title { text-align: center; color: #f3f3f3; }
+.heading-title { text-align: center; color: #f6f7f6; }
+
+#headwrapper { background-color: #1a1a1a; }
 
 .nav-link-text { font-size: 1.25em; }
 
 .nav-link { text-transform: uppercase; }
+
+.nav-link:hover { background: white; }
 
 /*========================== {{ content }} Container  ============================*/
 .mainwrapper { width: 70em; margin: 5em auto 0 auto; flex: 1 0 auto; }
 
 .main-container { width: auto; }
 
-@media screen and (max-width: 68em) { .mainwrapper { width: auto; } }
+@media screen and (max-width: 65em) { .mainwrapper { width: auto; }
+  .nav-menu { background: rgba(25, 25, 25, 0.85); }
+  .nav-link { background: rgba(25, 25, 25, 0.85); font-size: 1.25em; }
+  .nav-link-text { font-weight: 500; }
+  .bar { background: white; }
+  .bar:after, .bar:before { background: white; }
+  .toggle:hover + .mobile-menu { background: rgba(255, 255, 255, 0.1); } }
 
-#headwrapper { position: fixed; top: 0; left: 0; box-shadow: 0 0 7px 1px black; width: 100%; background-color: #1a1a1a; height: auto; z-index: 1000; }
+#headwrapper { position: fixed; top: 0; left: 0; width: 100%; box-shadow: 0 0 7px 1px black; height: auto; z-index: 1000; }
 
 .head-container { display: flex; margin: 0 auto; width: 65em; }
 
@@ -45,15 +55,15 @@ li a:hover { border-bottom: 2px solid; border-color: black; }
 .logo-container { display: flex; justify-content: center; align-items: center; align-content: center; }
 
 /*======================== Start of Nav Menu =========================*/
-.nav-wrapper { display: flex; flex-direction: row; justify-content: flex-end; width: 100%; }
+.nav-wrapper { width: 100%; }
 
 .nav-menu { display: flex; flex-direction: row; justify-content: flex-end; }
 
-.nav-link { text-transform: uppercase; padding: 0 1.2em; align-self: center; height: 4em; }
+.nav-link { padding: 0 1.2em; align-self: center; height: 4em; }
 
-.nav-link:hover { background: white; border: 2px solid; border-color: black; color: #cdcdcd; border: 2px solid; }
+.nav-link:hover { border: 2px solid; border-color: black; color: #ced2ce; border: 2px solid; }
 
-.nav-link:hover h1, .nav-link:hover h2, .nav-link:hover h3, .nav-link:hover h4 { color: #cdcdcd; }
+.nav-link:hover h1, .nav-link:hover h2, .nav-link:hover h3, .nav-link:hover h4 { color: #ced2ce; }
 
 .nav-link-icon { position: relative; left: 0px; top: 4px; }
 
@@ -68,16 +78,16 @@ li a:hover { border-bottom: 2px solid; border-color: black; }
   .logo-container { display: flex; justify-content: center; align-items: center; align-content: center; width: 100%; height: 4.25em; }
   .nav-wrapper { width: 0; }
   .nav-menu { position: fixed; top: 4.25em; right: 0; opacity: 0; width: 0; height: 0; overflow: hidden; z-index: 1; background: rgba(25, 25, 25, 0.85); justify-content: flex-start; flex-direction: column; }
-  .nav-link { display: flex; justify-content: center; align-items: center; align-content: center; width: 100%; height: 10%; font-size: 1.25em; background: rgba(25, 25, 25, 0.85); border-top: 2px solid; border-bottom: 2px solid; border-color: black; }
-  .nav-link-text { position: initial; font-weight: bold; }
+  .nav-link { display: flex; justify-content: center; align-items: center; align-content: center; border-top: 2px solid; border-bottom: 2px solid; border-color: black; width: 100%; height: 10%; }
+  .nav-link-text { position: initial; font-weight: 500; }
   .nav-link-icon { top: 1px; }
   /*====================================== Start of Mobile Menu and animations ======================================*/
   .nav-wrapper .toggle { display: initial; width: 4.6rem; height: 4rem; position: absolute; top: 0.25em; right: 1em; opacity: 0; cursor: pointer; z-index: 999; }
   .nav-wrapper .mobile-menu { width: 4.2rem; height: 4rem; position: absolute; top: 0.1em; right: 0.9em; z-index: 998; display: flex; padding: 10px; display: flex; justify-content: center; align-items: center; align-content: center; transition: all 0.3s ease; }
-  .nav-wrapper .mobile-menu .bar { position: relative; width: 1000px; height: 5px; z-index: 5; background: white; transition: all 0.3s ease; }
-  .nav-wrapper .mobile-menu .bar::after, .nav-wrapper .mobile-menu .bar::before { content: ''; position: absolute; top: -12px; height: 5px; width: 100%; background: white; transition: all 0.3s ease; }
+  .nav-wrapper .mobile-menu .bar { position: relative; width: 1000px; height: 5px; z-index: 5; transition: all 0.3s ease; }
+  .nav-wrapper .mobile-menu .bar::after, .nav-wrapper .mobile-menu .bar::before { content: ''; position: absolute; top: -12px; height: 5px; width: 100%; transition: all 0.3s ease; }
   .nav-wrapper .mobile-menu .bar:after { top: 12px; }
-  .nav-wrapper .toggle:hover + .mobile-menu { background: rgba(255, 255, 255, 0.1); border-radius: 50%; }
+  .nav-wrapper .toggle:hover + .mobile-menu { border-radius: 50%; }
   .nav-wrapper .toggle:checked + .mobile-menu { transform: rotate(45deg); }
   .nav-wrapper .toggle.checked:hover + .mobile-menu { transform: rotate(135deg); }
   .nav-wrapper .toggle:checked + .mobile-menu .bar::before, .nav-wrapper .toggle:checked + .mobile-menu .bar::after { top: 0; transform: rotate(90deg); }
@@ -100,9 +110,9 @@ li a:hover { border-bottom: 2px solid; border-color: black; }
 
 .game-container { transition: all 0.3s ease; background-image: linear-gradient(#3260e4, black); border-radius: 10px; border: 2px solid; border-color: black; display: flex; justify-content: center; align-items: center; align-content: center; flex-direction: column; margin: 10px 0; padding: 5px 10px 10px 10px; }
 
-.game-container:hover { color: #cdcdcd; border-color: black; background-image: linear-gradient(#2d79c8, black); border: 2px solid; }
+.game-container:hover { color: #ced2ce; border-color: black; background-image: linear-gradient(#2d79c8, black); border: 2px solid; }
 
-.game-container:hover h1, .game-container:hover h2, .game-container:hover h3, .game-container:hover h4 { color: #cdcdcd; }
+.game-container:hover h1, .game-container:hover h2, .game-container:hover h3, .game-container:hover h4 { color: #ced2ce; }
 
 .footwrapper { border: 2px solid; border-color: black; box-shadow: 0 0 7px 1px black; background: #1a1a1a; }
 
@@ -112,9 +122,9 @@ li a:hover { border-bottom: 2px solid; border-color: black; }
 
 .company-info { background: linear-gradient(#3260e4, black); display: flex; justify-content: center; align-items: center; align-content: center; border: 2px solid; border-color: black; border-radius: 10px; flex: 25%; height: 4em; margin: 10px; }
 
-.company-info:hover { color: #cdcdcd; border: 2px solid; }
+.company-info:hover { color: #ced2ce; border: 2px solid; }
 
-.company-info:hover h1, .company-info:hover h2, .company-info:hover h3, .company-info:hover h4 { color: #cdcdcd; }
+.company-info:hover h1, .company-info:hover h2, .company-info:hover h3, .company-info:hover h4 { color: #ced2ce; }
 
 @media screen and (max-width: 45em) { .company-info { flex: 35%; } }
 

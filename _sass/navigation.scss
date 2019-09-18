@@ -6,11 +6,9 @@ $headerHeight: 4.25em;
   position:fixed;
   top:0;
   left:0;
-  @include boxShadow;
   width: 100%;
-  background-color: $backgroundColor;
+  @include boxShadow;
   height:auto;
-
   //z-index to avoid clipping with nav
   z-index: 1000;
 }
@@ -33,9 +31,6 @@ $headerHeight: 4.25em;
    Start of Nav Menu
   =========================*/
 .nav-wrapper {
-  display:flex;
-  flex-direction: row;
-  justify-content: flex-end;
   width:100%;
 }
 
@@ -43,19 +38,16 @@ $headerHeight: 4.25em;
   display:flex;
   flex-direction: row;
   justify-content: flex-end;
-  
 }
 
 .nav-link {
-  text-transform: uppercase;
   padding: 0 1.2em;
   align-self: center;
   height: 4em;
 }
 
 .nav-link:hover {
-  // Add better animation for hovering over nav !IMPORTANT
-  background:white;
+  // Add better animation for hovering over nav !IMPORTANT and diff background colour
   @include allBorder;
   @include secondaryHoverEffect;
 }
@@ -122,17 +114,14 @@ $headerHeight: 4.25em;
 
   .nav-link {
     @include flexCenter;
+    @include botTopBorder;
     width: 100%;
     height: 10%;
-    font-size: $fontLinkSize;
-    background: $backgroundRgba;
-    @include botTopBorder;
   }
   .nav-link-text {
     position:initial;
-    font-weight: bold;
+    font-weight: 500;
   }
-
   .nav-link-icon {
     top: 1px;
   }
@@ -169,7 +158,6 @@ $headerHeight: 4.25em;
     width: 1000px;
     height: 5px;
     z-index: 5;
-    background:white;
     @include transLink;
   }
   .nav-wrapper .mobile-menu .bar::after,
@@ -179,7 +167,7 @@ $headerHeight: 4.25em;
     top: -12px;
     height: 5px;
     width: 100%;
-    background: white;
+    
     @include transLink;
   }
   .nav-wrapper .mobile-menu .bar:after {
@@ -187,7 +175,7 @@ $headerHeight: 4.25em;
   }
   // Transition Animation for Mobile-Navbar
   .nav-wrapper .toggle:hover + .mobile-menu {
-    background: rgba(255, 255, 255, 0.1);
+    
     border-radius: 50%;
   }
   .nav-wrapper .toggle:checked + .mobile-menu {

@@ -8,7 +8,7 @@ layout: default
   
   {% assign publisher = site.companies | where: 'company', page.publisher | first %}
   {% if publisher %}
-    - <a href="{{ publisher.url }}">{{ publisher.company }}</a>
+    - <a href="{{site.baseurl}}{{ publisher.url }}">{{ publisher.company }}</a>
   {% endif %}
 </p>
 

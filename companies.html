@@ -2,13 +2,13 @@
 layout: default
 title: Companies
 ---
-<h1 class="header-title">Companies</h1>
+<h1 class="heading-title">Companies</h1>
 <!-- companies.html -->
 
   {% for publisher in site.companies %}
-  <a href="{{ publisher.url }}">
+  <a href="{{site.baseurl}}{{ publisher.url }}">
     <div class="game-container">
-        <img  class="games-icon" src="{{ publisher.image }}">
+        <img  class="games-icon" src="{{site.baseurl}}{{ publisher.image }}">
       <p>{{ publisher.content | markdownify }}</p>
     </div>
   </a> 
