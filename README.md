@@ -3,5 +3,5 @@ Jekyll Framework
 * [Index](index.html)
 
 
-#TODO 
+TODO 
 resize background img
