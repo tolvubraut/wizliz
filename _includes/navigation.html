@@ -1,5 +1,27 @@
-<nav>
-    {% for item in site.data.navigation %}
-      <a href="{{ item.link }}" {% if page.url == item.link %}class="current"{% endif %}>{{ item.name }}</a>
-    {% endfor %}
-  </nav>
+<header id="headwrapper">
+  <div class="head-container">
+    <div class="logo-container">
+      <a href="{{site.baseurl }}/">
+        <img class="logo" src="{{site.baseurl}}/assets/img/main-wizliz.png">
+      </a>
+    </div>
+    <!-- Menu/Hamburger -->
+    <nav class="nav-wrapper">
+      <!-- Hamburger -->
+      <input type="checkbox" class="toggle">
+      <div class="mobile-menu">
+        <div class="bar"></div>
+      </div>
+      <!-- Menu -->
+      <div class="nav-menu">
+        {% for item in site.data.navigation %}
+          <a class="nav-link" href="{{site.baseurl}}{{ item.link }}" {% if page.url == item.link %}class="current"{% endif %}>
+              <span class="nav-link-text">
+                <img class="nav-link-icon" src="{{site.baseurl}}{{ item.image }}">{{ item.name }}
+              </span>  
+          </a>
+        {% endfor %}
+      </div>
+    </nav>
+  </div>
+</header>

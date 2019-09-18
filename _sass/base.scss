@@ -1,0 +1,271 @@
+
+//Cleanup for Mixins and vars
+// Base for Website
+:root {
+  --main-font: 'Roboto Condensed', sans-serif;
+  --secondary-font: 'Rambla', sans-serif;
+  --third-font: 'Yanone Kaffeesatz', sans-serif;
+  --alt-font: 'Kosugi', sans-serif;
+}
+
+//Defaults
+* {
+  font-family: var(--secondary-font);
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+html , body {
+  height: 100%;
+}
+
+img {
+  width: auto;
+  height: auto;
+}
+
+//End of Sticky Footer
+
+// .current {
+//   color: green;
+// }
+
+//SCSS Variables
+
+//Font sizes
+$paraSize: 12px;
+
+$fontSize: 1em;
+
+$fontLinkSize: 1.25em;
+
+$fontHeadingSize: 1.5em;
+
+//Colors
+
+//Okay
+// $mainColor: #b3b3b3;
+$mainColor:#b4b9b4;
+//Find better secondary colour
+$secondaryColor: rgb(60, 100, 144);
+
+
+//find unique HeaderTitle and fix h/p tags on site
+$headerTitle: $mainColor; //Add Additional color style
+
+//Good
+$backgroundColor:  #1a1a1a;
+
+//Used mainly in Header-Hamburger
+$backgroundRgba: rgba(25, 25, 25, 0.85);
+
+//Find better Gradient and find seperate gradient per content
+$backgroundGradient: linear-gradient(rgb(50, 96, 228), black);
+
+//Find new border colour
+$borderColor: black;
+
+
+
+//Mixin
+
+//Border Defaults
+@mixin botBorder {
+  border-bottom: 2px solid;
+  border-color:$borderColor;
+}
+@mixin allBorder {
+  border: 2px solid;
+  border-color:$borderColor;
+}
+@mixin topBorder {
+  border-top: 2px solid;
+  border-color:$borderColor;
+}
+@mixin botTopBorder {
+  border-top: 2px solid;
+  border-bottom: 2px solid;
+  border-color:$borderColor;
+}
+//Border Defaults
+
+@mixin sRadius {
+  border-radius: 10px;
+}
+
+@mixin transLink {
+  transition: all 0.3s ease;
+}
+
+@mixin borderBackground {
+  background-image: $backgroundGradient;
+  @include sRadius;
+}
+
+//:Hover Psuedo on Elements
+@mixin mainHoverEffect {
+  //Avoid calling other mixins for transition
+  color: lighten( $mainColor, 10%);
+  border-color:darken($borderColor, 5%);
+  background-image: linear-gradient(rgb(45, 121, 200), black);
+  border: 2px solid;
+  h1, h2, h3, h4{
+    color: lighten($mainColor, 10%)
+  }
+}
+
+@mixin secondaryHoverEffect {
+  color:lighten( $mainColor, 10%);
+  border: 2px solid;
+  h1, h2, h3, h4 {
+    color: lighten($mainColor, 10%);
+  }
+}
+
+
+@mixin flexCenter {
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+}
+
+@mixin boxShadow {
+  box-shadow: 0 0 7px 1px black;
+}
+
+/*==============================
+      FontSizing/Colors
+================================*/
+
+//Base
+
+body {
+  display:flex;
+  flex-direction: column;
+  font-family: var(--secondary-font);
+  font-weight: 400;
+  line-height: 1.5;
+  //Add background img to Games/Companies/About and make it transparent
+  background-image: url("/verkefni2/assets/img/cyberpunk2077-background.png"); /* The image used */
+  background-color: #cccccc; /* Used if the image is unavailable */
+  background-position: center; /* Center the image */
+  background-repeat: no-repeat; /* Do not repeat the image */
+  background-size: cover; /* Resize the background image to cover the entire container */
+}
+
+h1, h2, h3, h4{
+  font-family: var(--main-font);
+  color:$mainColor;
+  line-height: 1.5
+}
+//Header and Links
+a {
+  color: $mainColor;
+  text-decoration: none;
+}
+//Content
+p {
+  color:white;
+}
+//Clear list Styles
+ul li {
+  list-style: none;
+}
+
+//List Items for Publishers
+li a {
+ 
+  font-size: $fontHeadingSize;
+  color: darken($secondaryColor, 5%);
+  font-weight: bold;
+  margin: 10px;
+  &:hover {
+    @include botBorder();
+  }
+}
+
+//Defaults for links
+.links {
+  @include flexCenter();
+  font-size: $fontHeadingSize;
+}
+
+.heading-title {
+  text-align:center;
+  color: lighten($mainColor, 25%);
+}
+
+//Header-Nav part
+header {
+  //BLANK
+}
+#headwrapper {
+  background-color: $backgroundColor;
+}
+.nav-link-text {
+  font-size: $fontLinkSize;
+}
+.nav-link {
+  text-transform: uppercase;  
+  &:hover {
+    background:white;
+  }
+}
+
+
+
+/*==========================
+  {{ content }} Container 
+============================*/
+
+//Make new folder for base body
+.mainwrapper {
+  width: 70em;
+  margin: 5em auto 0 auto;
+  flex: 1 0 auto;
+}
+.main-container {
+  width: auto;
+}
+
+
+//SEPERATE FOLDER FOR BODY
+@media screen and(max-width: 65em) {
+  .mainwrapper {
+    width: auto;
+  }
+
+  //Link Container
+  .nav-menu {
+    background: $backgroundRgba;
+  }
+  //Header Links
+  .nav-link {
+    background: $backgroundRgba;
+    font-size: $fontLinkSize;
+  }
+  //Header Text
+  .nav-link-text {
+    font-weight: 500;
+  }
+
+  //Styles MobileMenu Lines
+  .bar {
+    background:white;
+  }
+
+  //Styles Top and Bottom Bars on MobileMenu
+  .bar:after,
+  .bar:before {
+    background:white;
+  }
+
+  //Hovering over MobileMenu
+  .toggle:hover + .mobile-menu {
+    background: rgba(255, 255, 255, 0.1);
+  }
+}
+@media screen and(max-width: 45em) {
+  
+}

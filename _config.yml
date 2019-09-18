@@ -1,18 +1,19 @@
+#baseurl: /verkefni2 Can be used to setup for links if need be
+baseurl: /verkefni2
 collections:
-  authors:
+  companies:
     output: true
-
 defaults:
   - scope:
       path: ""
-      type: "authors"
+      type: "companies"
     values:
-      layout: "author"
+      layout: "publisher"
   - scope:
       path: ""
       type: "posts"
     values:
-      layout: "post"
+      layout: "games"
   - scope:
       path: ""
     values:
@@ -21,5 +22,6 @@ plugins:
   - jekyll-feed
   - jekyll-sitemap
   - jekyll-seo-tag
+
 
       

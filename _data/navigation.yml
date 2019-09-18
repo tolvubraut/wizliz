@@ -1,9 +1,15 @@
 - name: Home
+  image: /assets/img/igni.png
   link: /
+- name: Games
+  image: /assets/img/quen.png
+  link: /games.html
+- name: Companies
+  image: /assets/img/aard.png
+  link: /companies.html
 - name: About
+  image: /assets/img/axii.png
   link: /about.html
-- name: Blog
-  link: /blog.html
-- name: Staff
-  link: /staff.html
+
+
   

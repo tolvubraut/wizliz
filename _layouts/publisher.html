@@ -1,0 +1,15 @@
+---
+layout: default
+---
+<!-- author.html -->
+<h2>{{ page.company }}</h2>
+
+{{ content }}
+
+<h2>Games</h2>
+<ul>
+  {% assign filtered_posts = site.posts | where: 'publisher', page.company %}
+  {% for post in filtered_posts %}
+    <li><a href="{{site.baseurl}}{{ post.url }}">{{ post.title }}</a></li>
+  {% endfor %}
+</ul>
