@@ -1,8 +1,8 @@
 <header id="headwrapper">
   <div class="head-container">
-    <div class="header-logo">
+    <div class="logo-container">
       <a href="{{site.baseurl }}../">
-        <img class="logo" src="{{site.baseurl}}/assets/img/sveinn1.png">
+        <img class="logo" src="{{site.baseurl}}/assets/img/main-wizliz.png">
       </a>
     </div>
     <!-- Menu/Hamburger -->
@@ -15,8 +15,10 @@
       <!-- Menu -->
       <div class="nav-menu">
         {% for item in site.data.navigation %}
-          <a class="nav-link" href="{{ item.link }}" {% if page.url == item.link %}class="current"{% endif %}>
-            <h2 class="nav-link-text"><img class="nav-link-icon" src="{{ item.image }}">{{ item.name }}</h2>
+          <a class="nav-link" href="{{site.baseurl}}{{ item.link }}" {% if page.url == item.link %}class="current"{% endif %}>
+              <span class="nav-link-text">
+                <img class="nav-link-icon" src="{{ item.image }}">{{ item.name }}
+              </span>  
           </a>
         {% endfor %}
       </div>

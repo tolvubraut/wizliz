@@ -1,57 +1,70 @@
 //Cleanup for Mixins and vars
 // Base for Website
 :root {
-  --main-font: 'Ubuntu', sans-serif;
-  --secondary-font: 'Abril Fatface', cursive;
+  --main-font: 'Roboto Condensed', sans-serif;
+  --secondary-font: 'Rambla', sans-serif;
+  --third-font: 'Yanone Kaffeesatz', sans-serif;
+  --alt-font: 'Kosugi', sans-serif;
 }
 
+//Defaults
 * {
   font-family: var(--secondary-font);
   box-sizing: border-box;
   padding: 0;
   margin: 0;
-  
 }
 html , body {
   height: 100%;
 }
 
+img {
+  width: auto;
+  height: auto;
+}
 
 //End of Sticky Footer
 
-//Add base colour system for blog
-//FIX
-.current {
-  color: green;
-}
-
-
+// .current {
+//   color: green;
+// }
 
 //SCSS Variables
 
-//Font size
-$fontSize: 12px;
+//Font sizes
+$paraSize: 12px;
 
-$fontHeadingSize: 1em;
+$fontSize: 1em;
 
-$fontBigHeadingSize: 1.5em;
+$fontLinkSize: 1.25em;
+
+$fontHeadingSize: 1.5em;
 
 //Colors
-$headerTitle: rgb(80,60,200);
 
-$mainColor: rgb(72, 96, 228);
+//Okay
+$mainColor: #b3b3b3;
 
+//Find better secondary colour
 $secondaryColor: rgb(60, 100, 144);
 
-$borderColor: black;
 
+//find unique HeaderTitle and fix h/p tags on site
+$headerTitle: $mainColor; //Add Additional color style
+
+//Good
+$backgroundColor:  #1a1a1a;
+
+//Used mainly in Header-Hamburger
 $backgroundRgba: rgba(25, 25, 25, 0.85);
 
-$backgroundColor:  #1f1f1f;
+//Find better Gradient and find seperate gradient per content
+$backgroundGradient: linear-gradient(rgb(50, 96, 228), black);
 
-$backgroundImage: linear-gradient(rgb(50, 96, 228), black);
+//Find new border colour
+$borderColor: black;
 
-$headerHeight: 4.2em;
+
 
 //Mixin
 
@@ -83,76 +96,122 @@ $headerHeight: 4.2em;
   transition: all 0.3s ease;
 }
 
-
-
 @mixin borderBackground {
-  background-image: $backgroundImage;
+  background-image: $backgroundGradient;
   @include sRadius;
 }
+
+//:Hover Psuedo on Elements
 @mixin mainHoverEffect {
+  //Avoid calling other mixins for transition
   color: lighten( $mainColor, 10%);
   border-color:darken($borderColor, 5%);
   background-image: linear-gradient(rgb(45, 121, 200), black);
-  border: 3px solid;
-  h1, h2 {
+  border: 2px solid;
+  h1, h2, h3, h4{
     color: lighten($mainColor, 10%)
   }
 }
 
 @mixin secondaryHoverEffect {
   color:lighten( $mainColor, 10%);
-  @include allBorder();
-  
-}
-
-a {
-  color: $mainColor;
-  text-decoration: none;
-}
-h1, h2, h3, h4{
-  font-family: var(--main-font);
-  color:$mainColor;
-}
-
-.header-title {
-  text-align:center;
-  
-  color: darken($mainColor, 5%);
+  border: 2px solid;
+  h1, h2, h3, h4 {
+    color: lighten($mainColor, 10%);
+  }
 }
 
 
-
-
-// Apply Main Colors
-header {
-  color:black;
+@mixin flexCenter {
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
 }
+
+@mixin boxShadow {
+  box-shadow: 0 0 7px 1px black;
+}
+
+/*=================
+  FontSizing/Color
+====================*/
+
+//Base
 
 body {
   display:flex;
   flex-direction: column;
-  
+  font-family: var(--secondary-font);
+  font-weight: 400;
+  line-height: 1.5;
+
+  //Add background img to Games/Companies/About and make it transparent
+  background-image: url("/assets/img/cyberpunk2077-background.png"); /* The image used */
+  background-color: #cccccc; /* Used if the image is unavailable */
+  background-position: center; /* Center the image */
+  background-repeat: no-repeat; /* Do not repeat the image */
+  background-size: cover; /* Resize the background image to cover the entire container */
+}
+
+h1, h2, h3, h4{
+  font-family: var(--main-font);
+  color:$mainColor;
+  line-height: 1.5
+}
+//Header and Links
+a {
+  color: $mainColor;
+  text-decoration: none;
+}
+//Content
+p {
+  color:white;
+}
+//Clear list Styles
+ul li {
+  list-style: none;
+}
+
+//List Items for Publishers
+li a {
+ 
+  font-size: $fontHeadingSize;
+  color: darken($secondaryColor, 5%);
+  font-weight: bold;
+  margin: 10px;
+  &:hover {
+    @include botBorder();
+  }
+}
+
+//Defaults for links
+.links {
+  @include flexCenter();
+  font-size: $fontHeadingSize;
+}
+
+.header-title {
+  text-align:center;
+  color: lighten($mainColor, 25%);
+}
+
+//Header-Nav part
+header {
+  //BLANK
+}
+.nav-link-text {
+  font-size: $fontLinkSize;
+}
+.nav-link {
+  text-transform: uppercase;  
 }
 
 
 
-
-
-
-
-
-
-
-
-
-//Sticky Footer
-
-
-
-
-
-
-//ADD BASIS FOR CONTAINER
+/*==========================
+  {{ content }} Container 
+============================*/
 .mainwrapper {
   width: 70em;
   margin: 5em auto 0 auto;
@@ -162,10 +221,6 @@ body {
   width: auto;
 }
 
-img {
-  width: auto;
-  height: auto;
-}
 
 //SEPERATE FOLDER FOR BODY
 @media screen and(max-width: 68em) {

@@ -1,43 +1,59 @@
-:root { --main-font: 'Ubuntu', sans-serif; --secondary-font: 'Abril Fatface', cursive; }
+:root { --main-font: 'Roboto Condensed', sans-serif; --secondary-font: 'Rambla', sans-serif; --third-font: 'Yanone Kaffeesatz', sans-serif; --alt-font: 'Kosugi', sans-serif; }
 
 * { font-family: var(--secondary-font); box-sizing: border-box; padding: 0; margin: 0; }
 
 html, body { height: 100%; }
 
-.current { color: green; }
+img { width: auto; height: auto; }
 
-a { color: #4860e4; text-decoration: none; }
+/*================= FontSizing/Color ====================*/
+body { display: flex; flex-direction: column; font-family: var(--secondary-font); font-weight: 400; line-height: 1.5; background-image: url("/assets/img/cyberpunk2077-background.png"); /* The image used */ background-color: #cccccc; /* Used if the image is unavailable */ background-position: center; /* Center the image */ background-repeat: no-repeat; /* Do not repeat the image */ background-size: cover; /* Resize the background image to cover the entire container */ }
 
-h1, h2, h3, h4 { font-family: var(--main-font); color: #4860e4; }
+h1, h2, h3, h4 { font-family: var(--main-font); color: #b3b3b3; line-height: 1.5; }
 
-.header-title { text-align: center; color: #324de1; }
+a { color: #b3b3b3; text-decoration: none; }
 
-header { color: black; }
+p { color: white; }
 
-body { display: flex; flex-direction: column; }
+ul li { list-style: none; }
 
+li a { font-size: 1.5em; color: #35587e; font-weight: bold; margin: 10px; }
+
+li a:hover { border-bottom: 2px solid; border-color: black; }
+
+.links { display: flex; justify-content: center; align-items: center; align-content: center; font-size: 1.5em; }
+
+.header-title { text-align: center; color: #f3f3f3; }
+
+.nav-link-text { font-size: 1.25em; }
+
+.nav-link { text-transform: uppercase; }
+
+/*========================== {{ content }} Container  ============================*/
 .mainwrapper { width: 70em; margin: 5em auto 0 auto; flex: 1 0 auto; }
 
 .main-container { width: auto; }
 
-img { width: auto; height: auto; }
-
 @media screen and (max-width: 68em) { .mainwrapper { width: auto; } }
 
-#headwrapper { position: fixed; top: 0; left: 0; box-shadow: 0px 0px 7px 1px black; width: 100%; background-color: #1f1f1f; height: auto; z-index: 1000; }
+#headwrapper { position: fixed; top: 0; left: 0; box-shadow: 0 0 7px 1px black; width: 100%; background-color: #1a1a1a; height: auto; z-index: 1000; }
 
 .head-container { display: flex; margin: 0 auto; width: 65em; }
 
-.header-logo { display: flex; align-items: center; }
+.logo { display: flex; justify-content: center; align-items: center; align-content: center; }
+
+.logo-container { display: flex; justify-content: center; align-items: center; align-content: center; }
 
 /*======================== Start of Nav Menu =========================*/
 .nav-wrapper { display: flex; flex-direction: row; justify-content: flex-end; width: 100%; }
 
 .nav-menu { display: flex; flex-direction: row; justify-content: flex-end; }
 
-.nav-link { text-transform: uppercase; padding: 0 1.2em; font-size: 1em; align-self: center; height: 4em; }
+.nav-link { text-transform: uppercase; padding: 0 1.2em; align-self: center; height: 4em; }
 
-.nav-link:hover { background: white; border: 2px solid; border-color: black; color: #7487eb; border: 2px solid; border-color: black; }
+.nav-link:hover { background: white; border: 2px solid; border-color: black; color: #cdcdcd; border: 2px solid; }
+
+.nav-link:hover h1, .nav-link:hover h2, .nav-link:hover h3, .nav-link:hover h4 { color: #cdcdcd; }
 
 .nav-link-icon { position: relative; left: 0px; top: 4px; }
 
@@ -47,18 +63,17 @@ img { width: auto; height: auto; }
 .toggle { display: none; }
 
 /*  ==================== Media Query 1040PX ==================== */
-@media screen and (max-width: 65em) { #headwrapper { height: 4.2em; }
-  .head-container { width: 100%; height: 4.2em; }
-  .header-logo { display: flex; justify-content: center; align-items: center; width: 100%; height: 4.2em; }
-  .logo { width: 120%; }
+@media screen and (max-width: 65em) { #headwrapper { height: 4.25em; }
+  .head-container { width: 100%; height: 4.25em; }
+  .logo-container { display: flex; justify-content: center; align-items: center; align-content: center; width: 100%; height: 4.25em; }
   .nav-wrapper { width: 0; }
-  .nav-menu { position: fixed; top: 4.2em; right: 0; opacity: 0; width: 0; height: 0; overflow: hidden; background: rgba(25, 25, 25, 0.85); z-index: 1; display: flex; align-items: center; justify-content: flex-start; flex-direction: column; }
-  .nav-link { display: flex; justify-content: center; align-items: center; width: 100%; height: 10%; background: rgba(25, 25, 25, 0.85); border-bottom: 1px solid; border-top: 1px solid; }
-  .nav-link-text { position: initial; font-weight: bold; font-size: 2rem; }
+  .nav-menu { position: fixed; top: 4.25em; right: 0; opacity: 0; width: 0; height: 0; overflow: hidden; z-index: 1; background: rgba(25, 25, 25, 0.85); justify-content: flex-start; flex-direction: column; }
+  .nav-link { display: flex; justify-content: center; align-items: center; align-content: center; width: 100%; height: 10%; font-size: 1.25em; background: rgba(25, 25, 25, 0.85); border-top: 2px solid; border-bottom: 2px solid; border-color: black; }
+  .nav-link-text { position: initial; font-weight: bold; }
   .nav-link-icon { top: 1px; }
   /*====================================== Start of Mobile Menu and animations ======================================*/
   .nav-wrapper .toggle { display: initial; width: 4.6rem; height: 4rem; position: absolute; top: 0.25em; right: 1em; opacity: 0; cursor: pointer; z-index: 999; }
-  .nav-wrapper .mobile-menu { width: 4.2rem; height: 4rem; position: absolute; top: 0.1em; right: 0.9em; z-index: 998; display: flex; justify-content: center; align-content: center; align-items: center; padding: 10px; transition: all 0.3s ease; }
+  .nav-wrapper .mobile-menu { width: 4.2rem; height: 4rem; position: absolute; top: 0.1em; right: 0.9em; z-index: 998; display: flex; padding: 10px; display: flex; justify-content: center; align-items: center; align-content: center; transition: all 0.3s ease; }
   .nav-wrapper .mobile-menu .bar { position: relative; width: 1000px; height: 5px; z-index: 5; background: white; transition: all 0.3s ease; }
   .nav-wrapper .mobile-menu .bar::after, .nav-wrapper .mobile-menu .bar::before { content: ''; position: absolute; top: -12px; height: 5px; width: 100%; background: white; transition: all 0.3s ease; }
   .nav-wrapper .mobile-menu .bar:after { top: 12px; }
@@ -73,7 +88,7 @@ img { width: auto; height: auto; }
 @media screen and (max-width: 45em) { /*============================================ Start of Adjusting Height of mobile Hamburger ==============================================*/
   #headwrapper { height: 3.8em; }
   .head-container { height: 3.8em; }
-  .header-logo { height: 3.8em; justify-content: flex-start; }
+  .logo-container { height: 3.8em; justify-content: flex-start; }
   .logo { width: 100%; }
   .nav-menu { top: 3.8rem; }
   .nav-wrapper .toggle { width: 4.2rem; height: 3.6rem; top: 0em; right: 0.8em; }
@@ -83,22 +98,26 @@ img { width: auto; height: auto; }
   .nav-wrapper .mobile-menu .bar:after { top: 10px; }
   /* ==================== End of Adjustment =====================*/ }
 
-.footwrapper { border: 1px solid; box-shadow: 0 1px 2px 3px black; background: #1f1f1f; }
+.game-container { transition: all 0.3s ease; background-image: linear-gradient(#3260e4, black); border-radius: 10px; border: 2px solid; border-color: black; display: flex; justify-content: center; align-items: center; align-content: center; flex-direction: column; margin: 10px 0; padding: 5px 10px 10px 10px; }
+
+.game-container:hover { color: #cdcdcd; border-color: black; background-image: linear-gradient(#2d79c8, black); border: 2px solid; }
+
+.game-container:hover h1, .game-container:hover h2, .game-container:hover h3, .game-container:hover h4 { color: #cdcdcd; }
+
+.footwrapper { border: 2px solid; border-color: black; box-shadow: 0 0 7px 1px black; background: #1a1a1a; }
 
 .footer-container { max-width: 80em; height: auto; margin: 0 auto; }
 
-.company-container { display: flex; flex-wrap: wrap; justify-content: center; }
+.company-container { display: flex; flex-wrap: wrap; }
 
-.company-info { background: radial-gradient(244px at top right, #685e31, rgba(0, 0, 0, 0)), radial-gradient(244px at top left, #0d92c3, rgba(0, 0, 0, 0)), radial-gradient(400px at bottom left, #8a43bd, rgba(0, 0, 0, 0)), radial-gradient(400px at bottom right, #1d8d42, rgba(0, 0, 0, 0)); display: flex; justify-content: center; align-items: center; flex: 31%; border: 1px solid; border-radius: 10px; height: 5em; margin: 10px; }
+.company-info { background: linear-gradient(#3260e4, black); display: flex; justify-content: center; align-items: center; align-content: center; border: 2px solid; border-color: black; border-radius: 10px; flex: 25%; height: 4em; margin: 10px; }
 
-@media screen and (max-width: 65em) { .footer-container { width: auto; }
-  .company-container { width: auto; }
-  .company-info { width: auto; } }
+.company-info:hover { color: #cdcdcd; border: 2px solid; }
 
-.game-container { transition: all 0.3s ease; background-image: linear-gradient(#3260e4, black); border-radius: 10px; border: 2px solid; border-color: black; display: flex; align-items: center; flex-direction: column; margin: 10px 0; padding: 5px 10px 10px 10px; text-align: center; }
+.company-info:hover h1, .company-info:hover h2, .company-info:hover h3, .company-info:hover h4 { color: #cdcdcd; }
 
-.game-container:hover { color: #7487eb; border-color: black; background-image: linear-gradient(#2d79c8, black); border: 3px solid; }
+@media screen and (max-width: 45em) { .company-info { flex: 35%; } }
 
-.game-container:hover h1, .game-container:hover h2 { color: #7487eb; }
+@media screen and (max-width: 30em) { .company-info { flex: 45%; } }
 
-.games-icon { height: auto; }
+/*# sourceMappingURL=styles.css.map */

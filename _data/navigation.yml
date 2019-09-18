@@ -1,15 +1,15 @@
 - name: Home
-  image: /assets/img/user.png
+  image: /assets/img/igni.png
   link: /
-- name: About
-  image: /assets/img/user.png
-  link: /about.html
 - name: Games
-  image: /assets/img/user.png
+  image: /assets/img/quen.png
   link: /games.html
 - name: Companies
-  image: /assets/img/user.png
+  image: /assets/img/aard.png
   link: /companies.html
+- name: About
+  image: /assets/img/axii.png
+  link: /about.html
 
 
   

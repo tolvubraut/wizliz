@@ -4,29 +4,15 @@
 .game-container {
     &:hover {
         @include mainHoverEffect;
-        
-        
     }
     @include transLink;
     @include borderBackground;
     @include allBorder;
-    display:flex;
-    align-items: center;
+    @include flexCenter;
     flex-direction: column;
     margin: 10px 0;
     padding: 5px 10px 10px 10px;
-    text-align: center;
     
 }
 
 
-
-
-.icon-container {
-
-}
-
-.games-icon {
-    
-    height: auto;
-}

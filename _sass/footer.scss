@@ -1,8 +1,8 @@
 // Fix sticky Footer
 //Redo Footer
 .footwrapper {
-    border: 1px solid;
-    box-shadow: 0 1px 2px 3px black;
+    @include allBorder;
+    @include boxShadow;
     background: $backgroundColor;
 }
 
@@ -15,34 +15,38 @@
 .company-container {
     display:flex;
     flex-wrap: wrap;
-    justify-content: center;
 }
 
 .company-info {
-    background: radial-gradient(244px at top right,#685e31,rgba(0,0,0,0)),radial-gradient(244px at top left,#0d92c3,rgba(0,0,0,0)),radial-gradient(400px at bottom left,#8a43bd,rgba(0,0,0,0)),radial-gradient(400px at bottom right,#1d8d42,rgba(0,0,0,0));
-    display:flex;
-    justify-content: center;
-    align-items: center;
-    flex: 31%;
-    border: 1px solid;
+    background: $backgroundGradient;
+    @include flexCenter;
+    @include allBorder;
     @include sRadius;
-    height: 5em;
+    flex: 25%;
+    height: 4em;
     margin: 10px;
-    a {
-        
+    &:hover {
+        @include secondaryHoverEffect;
+    }
+}
+
+//ADD MEDIA QUERIES to avoid overflow;
+
+@media screen and (max-width: 65em) {
+    
+}
+
+@media screen and (max-width: 45em) {
+    .company-info {
+    flex: 35%;
     }
 }
 
 
-@media screen and (max-width: 65em) {
-    .footer-container {
-        width: auto;
-    }
-    .company-container {
-        width: auto;
-    }
+
+@media screen and (max-width: 30em) {
     .company-info {
-        width: auto;
+        flex: 45%;
         
     }
 }

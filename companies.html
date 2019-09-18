@@ -8,10 +8,7 @@ title: Companies
   {% for publisher in site.companies %}
   <a href="{{ publisher.url }}">
     <div class="game-container">
-      <div class="image-container">
-        <img  class="games-image" src="{{ publisher.image }}">
-      </div>
-      <h1>{{ publisher.company | markdownify }}</h1>
+        <img  class="games-icon" src="{{ publisher.image }}">
       <p>{{ publisher.content | markdownify }}</p>
     </div>
   </a> 
