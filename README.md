@@ -4,4 +4,4 @@ Jekyll Framework
 
 
 TODO 
-resize background img
+1. resize background img
