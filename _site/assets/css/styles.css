@@ -7,7 +7,7 @@ html, body { height: 100%; }
 img { width: auto; height: auto; }
 
 /*============================== FontSizing/Colors ================================*/
-body { display: flex; flex-direction: column; font-family: var(--secondary-font); font-weight: 400; line-height: 1.5; background-image: url("/verkefni2/assets/img/cyberpunk2077-background.png"); /* The image used */ background-color: #cccccc; /* Used if the image is unavailable */ background-position: center; /* Center the image */ background-repeat: no-repeat; /* Do not repeat the image */ background-size: cover; /* Resize the background image to cover the entire container */ }
+body { display: flex; flex-direction: column; font-family: var(--secondary-font); font-weight: 400; line-height: 1.5; background-image: url("/verkefni2/assets/img/cyberpunk2077-backgroundgithub.png"); /* The image used */ background-color: #cccccc; /* Used if the image is unavailable */ background-position: center; /* Center the image */ background-repeat: no-repeat; /* Do not repeat the image */ background-size: cover; /* Resize the background image to cover the entire container */ }
 
 h1, h2, h3, h4 { font-family: var(--main-font); color: #b4b9b4; line-height: 1.5; }
 
