@@ -62,33 +62,25 @@ $backgroundRgba: rgba(25, 25, 25, 0.85);
 //Find better Gradient and find seperate gradient per content
 $backgroundGradient: linear-gradient(rgb(50, 96, 228), black);
 
-//Find new border colour
-$borderColor: black;
+//Main border colour for container styling
+$mainBorderColor: white;
 
-
+//Bordercolor for inline styling
+$secondaryBorderColor: black;
 
 //Mixin
 
 //Border Defaults
-@mixin botBorder {
-  border-bottom: 2px solid;
-  border-color:$borderColor;
+//TO USE -- @include mainBorder(blue, border-top);
+@mixin mainBorder($color:$mainBorderColor, $border1:border,  $border2:none) {
+  #{$border1}:2px solid;
+  #{$border2}:2px solid;
+  border-color: #{$color};
 }
-@mixin allBorder {
-  border: 2px solid;
-  border-color:$borderColor;
-}
-@mixin topBorder {
-  border-top: 2px solid;
-  border-color:$borderColor;
-}
-@mixin botTopBorder {
-  border-top: 2px solid;
-  border-bottom: 2px solid;
-  border-color:$borderColor;
-}
-//Border Defaults
 
+//Mixin with Arguments
+
+//Border Defaults
 @mixin sRadius {
   border-radius: 10px;
 }
@@ -105,18 +97,18 @@ $borderColor: black;
 //:Hover Psuedo on Elements
 @mixin mainHoverEffect {
   //Avoid calling other mixins for transition
-  color: lighten( $mainColor, 10%);
-  border-color:darken($borderColor, 5%);
-  background-image: linear-gradient(rgb(45, 121, 200), black);
   border: 2px solid;
+  border-color:darken($mainBorderColor, 5%);
+  background-image: linear-gradient(rgb(45, 121, 200), black);
+  color: lighten( $mainColor, 10%);
   h1, h2, h3, h4{
     color: lighten($mainColor, 10%)
   }
 }
 
 @mixin secondaryHoverEffect {
-  color:lighten( $mainColor, 10%);
   border: 2px solid;
+  color:lighten($mainColor, 10%);
   h1, h2, h3, h4 {
     color: lighten($mainColor, 10%);
   }
@@ -147,7 +139,7 @@ body {
   font-weight: 400;
   line-height: 1.5;
   //Add background img to Games/Companies/About and make it transparent
-  background-image: url("/verkefni2/assets/img/cyberpunk2077-backgroundgithub.png"); /* The image used */
+  background-image: url("/verkefni2/assets/img/cyberpunk2077-background.png"); /* The image used */
   background-color: #cccccc; /* Used if the image is unavailable */
   background-position: center; /* Center the image */
   background-repeat: no-repeat; /* Do not repeat the image */
@@ -181,11 +173,11 @@ li a {
   font-weight: bold;
   margin: 10px;
   &:hover {
-    @include botBorder();
+    @include mainBorder($mainBorderColor, border-bottom);
   }
 }
 
-//Defaults for links
+//Styles Links
 .links {
   @include flexCenter();
   font-size: $fontHeadingSize;
