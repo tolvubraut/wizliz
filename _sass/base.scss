@@ -43,17 +43,15 @@ $fontHeadingSize: 1.5em;
 
 //Colors
 
-//Okay
+
 // $mainColor: #b3b3b3;
 $mainColor:#b4b9b4;
 //Find better secondary colour
 $secondaryColor: rgb(60, 100, 144);
 
-
 //find unique HeaderTitle and fix h/p tags on site
 $headerTitle: $mainColor; //Add Additional color style
 
-//Good
 $backgroundColor:  #1a1a1a;
 
 //Used mainly in Header-Hamburger
@@ -95,10 +93,11 @@ $secondaryBorderColor: black;
 }
 
 //:Hover Psuedo on Elements
+//Add argument for color
+//Use on containers
 @mixin mainHoverEffect {
   //Avoid calling other mixins for transition
   border: 2px solid;
-  border-color:darken($mainBorderColor, 5%);
   background-image: linear-gradient(rgb(45, 121, 200), black);
   color: lighten( $mainColor, 10%);
   h1, h2, h3, h4{
@@ -106,9 +105,11 @@ $secondaryBorderColor: black;
   }
 }
 
+//Use on inline content
+//Add argument for color
 @mixin secondaryHoverEffect {
   border: 2px solid;
-  color:lighten($mainColor, 10%);
+  color:darken($mainColor, 10%);
   h1, h2, h3, h4 {
     color: lighten($mainColor, 10%);
   }
@@ -146,7 +147,7 @@ body {
   background-size: cover; /* Resize the background image to cover the entire container */
 }
 
-h1, h2, h3, h4{
+h1, h2, h3, h4 {
   font-family: var(--main-font);
   color:$mainColor;
   line-height: 1.5
@@ -155,6 +156,9 @@ h1, h2, h3, h4{
 a {
   color: $mainColor;
   text-decoration: none;
+  &:hover {
+    color: darken($mainColor, 5%);
+  }
 }
 //Content
 p {
@@ -198,14 +202,11 @@ header {
 .nav-link-text {
   font-size: $fontLinkSize;
 }
-.nav-link {
-  text-transform: uppercase;  
+.nav-link { 
   &:hover {
     background:white;
   }
 }
-
-
 
 /*==========================
   {{ content }} Container 
@@ -217,8 +218,11 @@ header {
   margin: 5em auto 0 auto;
   flex: 1 0 auto;
 }
+
+
 .main-container {
   width: auto;
+  
 }
 
 
