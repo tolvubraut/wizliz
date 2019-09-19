@@ -5,14 +5,17 @@ header: Companies
 ---
 <h1 class="heading-title">Companies</h1>
 <!-- companies.html -->
-
+<!-- Make seperate css for this page -->
   {% for publisher in site.companies %}
   <a href="{{site.baseurl}}{{ publisher.url }}">
     <div class="game-container">
-        <img  class="games-icon" src="{{site.baseurl}}{{ publisher.image }}">
-      <p>{{ publisher.content | markdownify }}</p>
-    </div>
-  </a> 
+      <aside class="aside-grid">
+          <img  class="games-icon" src="{{site.baseurl}}{{ publisher.image }}">
+      </aside>
+      <main class="main-grid"> 
+          <p>{{ publisher.content | markdownify }}</p>
+      </div>
+    </main>
+    </a>
   {% endfor %}
-
 

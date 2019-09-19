@@ -5,13 +5,17 @@ title: Games
 <!-- games.html -->
 <!-- Working -->
 <h1 class="heading-title">Games</h1>
-
+<hr>
   {% for post in site.posts %}
   <a href="{{site.baseurl}}{{ post.url }}">
-    <div class="game-container">  
-        <img class="games-img" src="{{site.baseurl}}{{ post.image }}">
+    <div class="game-container">
+      <aside class="aside-grid">
+          <img class="games-icon" src="{{site.baseurl}}{{ post.image }}">
+      </aside>
+      <main class="main-grid"> 
         <h2>{{ post.title }} </h2>
         <p>{{ post.excerpt }}</p>
       </div>
+    </main>
     </a>
   {% endfor %}

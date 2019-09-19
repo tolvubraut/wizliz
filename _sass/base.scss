@@ -19,6 +19,9 @@
 html , body {
   height: 100%;
 }
+.html {
+  scroll-behavior: smooth;
+}
 
 img {
   width: auto;
@@ -34,7 +37,7 @@ img {
 //SCSS Variables
 
 //Font sizes
-$paraSize: 14px;
+$paraSize: 0.8em;
 
 $fontSize: 1em;
 
@@ -46,30 +49,27 @@ $fontHeadingSize: 1.5em;
 
 
 // $mainColor: #b3b3b3;
-$mainColor:#b4b9b4;
-$secondaryColor: rgb(60, 100, 144);
-
+$mainColor:#b3b3b3;
+$secondaryColor: #030303;
+$headerColor: #030303;
+$linkColor:rgb(35, 100, 170);
 //find unique HeaderTitle and fix h/p tags on site
+$whiteColor: white;
 
-$backgroundColor:  #1a1a1a;
-
-//Used mainly in Header-Hamburger
+$backgroundColor:  #161616; //Background for header and footer
+$backgroundMain: linear-gradient(#32143d, #582c68);
+//Hamburger
 $backgroundRgba: rgba(25, 25, 25, 0.85);
-
-//Find better Gradient and find seperate gradient per content
+//Footer
 $backgroundGradient: linear-gradient(rgb(50, 96, 228), black);
 
-//Main border colour for container styling
-$mainBorderColor: white;
 
-//Bordercolor for inline styling
-$secondaryBorderColor: black;
 
 //Mixin
 
 //Border Defaults
 //TO USE -- @include mainBorder(blue, border-top);
-@mixin mainBorder($color:$mainBorderColor, $border1:border,  $border2:none) {
+@mixin mainBorder($color:$whiteColor, $border1:border,  $border2:none) {
   #{$border1}:2px solid;
   #{$border2}:2px solid;
   border-color: #{$color};
@@ -78,11 +78,12 @@ $secondaryBorderColor: black;
 //Mixin with Arguments
 
 //Border Defaults
-@mixin sRadius {
-  border-radius: 10px;
+@mixin sRadius($radius:10px) {
+  border-radius: #{$radius};
 }
 
 @mixin transLink {
+  -webkit-transition: all 0.3s ease;
   transition: all 0.3s ease;
 }
 
@@ -94,10 +95,12 @@ $secondaryBorderColor: black;
 //:Hover Psuedo on Elements
 //Add argument for color
 //Use on containers
-@mixin mainHoverEffect {
+
+//Fix both hovereffects to be consistent across all elements
+@mixin mainHoverEffect() {
   //Avoid calling other mixins for transition
-  border: 2px solid;
   background-image: linear-gradient(rgb(45, 121, 200), black);
+  border: 2px solid;
   color: lighten( $mainColor, 10%);
   h1, h2, h3, h4{
     color: lighten($mainColor, 10%)
@@ -107,9 +110,9 @@ $secondaryBorderColor: black;
 //Use on inline content
 //Add argument for color
 @mixin secondaryHoverEffect {
-  border: 2px solid;
   color:darken($mainColor, 10%);
-  h1, h2, h3, h4 {
+  border: 2px solid;
+  h1, h3, h4 {
     color: lighten($mainColor, 10%);
   }
 }
@@ -139,30 +142,36 @@ body {
   font-weight: 400;
   line-height: 1.5;
   //Add background img to Games/Companies/About and make it transparent
-  background-image: url("/verkefni2/assets/img/cyberpunk2077-background.png"); /* The image used */
-  background-image: url("/verkefni2/assets/img/mainBackground.png"); /* Used if the image is unavailable */
+  background-image: url("/verkefni2/assets/img/mainBackground.png"); /* The image used */
+  background-color: whitesmoke;
   background-position: center; /* Center the image */
   background-repeat: no-repeat; /* Do not repeat the image */
   background-size: cover; /* Resize the background image to cover the entire container */
 }
 
-h1, h2, h3, h4 {
+h1,  h3, h4 {
   font-family: var(--main-font);
-  color:$mainColor;
-  line-height: 1.5
+  color:$headerColor;
+  line-height: 1.5;
 }
+h2 {
+  color:white;
+}
+//H2 used exclusively for blog titles
+
 //Header and Links
 a {
-  color: $mainColor;
+  color: $linkColor;
   text-decoration: none;
   //find alt colour for basis of colour change in :hover
   &:hover {
-    color: darken($mainColor, 5%);
+    opacity: 99;
   }
 }
 //Content
 p {
-  color:white;
+  color:$secondaryColor;
+  font-weight: 600;
 }
 //Clear list Styles
 ul li {
@@ -172,15 +181,19 @@ ul li {
 //List Items for Publishers
 li a {
   font-size: $fontHeadingSize;
-  color: darken($secondaryColor, 5%);
   font-weight: bold;
   margin: 10px;
   &:hover {
-    @include mainBorder($mainBorderColor, border-bottom);
+    @include mainBorder($whiteColor, border-bottom);
   }
 }
 
 //Styles Links
+
+.nav-link {
+  color:$mainColor;
+}
+
 .links {
   @include flexCenter();
   font-size: $fontHeadingSize;
@@ -193,12 +206,15 @@ li a {
   width: 100%;
 }
 
+
 .heading-title {
   font-family:  var(--header-font);
-  color: #0e0e0e;
+  color: $headerColor;
   font-weight: 100;
-  font-size: 3.5em;
+  font-size: 3em;
   text-transform: uppercase;
+  position: relative;
+  right: 1em;
 }
 
 //Header-Nav part
@@ -229,8 +245,6 @@ li a {
 
 //Fonts
 
-
-
 /*==========================
   {{ content }} Container 
 ============================*/
@@ -249,22 +263,28 @@ li a {
 }
 
 
+@media screen and(max-width: 80em) {
+  .heading-title {
+    position:initial;
+    text-align:center;
+  }
+}
+
 //SEPERATE FOLDER FOR BODY
 @media screen and(max-width: 65em) {
   .mainwrapper {
     width: auto;
   }
 
-  //Link Container
   .nav-menu {
     background: $backgroundRgba;
   }
-  //Header Links
+
   .nav-link {
     background: $backgroundRgba;
     font-size: $fontLinkSize;
   }
-  //Header Text
+
   .nav-link-text {
     font-weight: 500;
   }
@@ -274,7 +294,6 @@ li a {
     background:white;
   }
 
-  //Styles Top and Bottom Bars on MobileMenu
   .bar:after,
   .bar:before {
     background:white;
@@ -286,5 +305,7 @@ li a {
   }
 }
 @media screen and(max-width: 45em) {
-  
+ .heading-title {
+   font-size: 2em;
+ } 
 }

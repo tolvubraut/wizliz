@@ -1,7 +1,7 @@
 // Fix sticky Footer
 //Redo Footer
 .footwrapper {
-    @include mainBorder($secondaryBorderColor);
+    @include mainBorder($secondaryColor);
     @include boxShadow;
 }
 
@@ -19,10 +19,10 @@
 
 .company-info {
     @include flexCenter;
-    @include mainBorder($mainBorderColor, border-top,  border-bottom);
+    @include mainBorder($whiteColor, border-top,  border-bottom);
     @include sRadius;
     flex: 25%;
-    height: 4em;
+    height: 6em;
     margin: 10px;
     &:hover {
         @include secondaryHoverEffect;
