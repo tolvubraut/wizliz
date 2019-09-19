@@ -44,11 +44,12 @@ $headerHeight: 4.25em;
   padding: 0 1.2em;
   align-self: center;
   height: 4em;
+  text-transform: uppercase; 
 }
 
 .nav-link:hover {
   // Add better animation for hovering over nav !IMPORTANT and diff background colour
-  @include allBorder;
+  @include mainBorder();
   @include secondaryHoverEffect;
 }
 .nav-link-icon {
@@ -78,6 +79,7 @@ $headerHeight: 4.25em;
   //Start of Header containers
   #headwrapper {
     height: $headerHeight;
+    @include mainBorder($mainBorderColor, border-bottom);
   }
 
   .head-container {
@@ -114,9 +116,12 @@ $headerHeight: 4.25em;
 
   .nav-link {
     @include flexCenter;
-    @include botTopBorder;
+    @include mainBorder($mainBorderColor,border-bottom);
     width: 100%;
     height: 10%;
+    &:active {
+      transform: translateY(-1px);
+    }
   }
   .nav-link-text {
     position:initial;

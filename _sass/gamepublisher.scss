@@ -7,7 +7,7 @@
     }
     @include transLink;
     @include borderBackground;
-    @include allBorder;
+    @include mainBorder();
     @include flexCenter;
     flex-direction: column;
     margin: 10px 0;
