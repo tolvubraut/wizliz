@@ -1,4 +1,4 @@
-:root { --main-font: 'Roboto Condensed', sans-serif; --secondary-font: 'Rambla', sans-serif; --third-font: 'Yanone Kaffeesatz', sans-serif; --alt-font: 'Kosugi', sans-serif; }
+:root { --main-font: 'Roboto Condensed', sans-serif; --secondary-font: 'Rambla', sans-serif; --third-font: 'Yanone Kaffeesatz', sans-serif; --alt-font: 'Kosugi', sans-serif; --header-font: 'Black Han Sans', sans-serif; }
 
 * { font-family: var(--secondary-font); box-sizing: border-box; padding: 0; margin: 0; }
 
@@ -7,7 +7,7 @@ html, body { height: 100%; }
 img { width: auto; height: auto; }
 
 /*============================== FontSizing/Colors ================================*/
-body { display: flex; flex-direction: column; font-family: var(--secondary-font); font-weight: 400; line-height: 1.5; background-image: url("/verkefni2/assets/img/cyberpunk2077-background.png"); /* The image used */ background-color: #cccccc; /* Used if the image is unavailable */ background-position: center; /* Center the image */ background-repeat: no-repeat; /* Do not repeat the image */ background-size: cover; /* Resize the background image to cover the entire container */ }
+body { display: flex; flex-direction: column; font-family: var(--secondary-font); font-weight: 400; line-height: 1.5; background-image: url("/verkefni2/assets/img/cyberpunk2077-background.png"); /* The image used */ background-image: url("/verkefni2/assets/img/mainBackground.png"); /* Used if the image is unavailable */ background-position: center; /* Center the image */ background-repeat: no-repeat; /* Do not repeat the image */ background-size: cover; /* Resize the background image to cover the entire container */ }
 
 h1, h2, h3, h4 { font-family: var(--main-font); color: #b4b9b4; line-height: 1.5; }
 
@@ -25,13 +25,19 @@ li a:hover { border-bottom: 2px solid; none: 2px solid; border-color: white; }
 
 .links { display: flex; justify-content: center; align-items: center; align-content: center; font-size: 1.5em; }
 
-.heading-title { text-align: center; color: #f6f7f6; }
+.linksAll { display: flex; justify-content: center; height: 100%; width: 100%; }
+
+.heading-title { font-family: var(--header-font); color: #0e0e0e; font-weight: 100; font-size: 3.5em; text-transform: uppercase; }
 
 #headwrapper { background-color: #1a1a1a; }
 
 .nav-link-text { font-size: 1.25em; }
 
 .nav-link:hover { background: white; }
+
+.footwrapper { background: #1a1a1a; }
+
+.company-info { background: linear-gradient(#3260e4, black); }
 
 /*========================== {{ content }} Container  ============================*/
 .mainwrapper { width: 70em; margin: 5em auto 0 auto; flex: 1 0 auto; }
@@ -115,13 +121,13 @@ li a:hover { border-bottom: 2px solid; none: 2px solid; border-color: white; }
 
 .game-container:hover h1, .game-container:hover h2, .game-container:hover h3, .game-container:hover h4 { color: #ced2ce; }
 
-.footwrapper { border: 2px solid; none: 2px solid; border-color: black; box-shadow: 0 0 7px 1px black; background: #1a1a1a; }
+.footwrapper { border: 2px solid; none: 2px solid; border-color: black; box-shadow: 0 0 7px 1px black; }
 
 .footer-container { max-width: 80em; height: auto; margin: 0 auto; }
 
 .company-container { display: flex; flex-wrap: wrap; }
 
-.company-info { background: linear-gradient(#3260e4, black); display: flex; justify-content: center; align-items: center; align-content: center; border-top: 2px solid; border-bottom: 2px solid; border-color: white; border-radius: 10px; flex: 25%; height: 4em; margin: 10px; }
+.company-info { display: flex; justify-content: center; align-items: center; align-content: center; border-top: 2px solid; border-bottom: 2px solid; border-color: white; border-radius: 10px; flex: 25%; height: 4em; margin: 10px; }
 
 .company-info:hover { border: 2px solid; color: #9aa09a; }
 

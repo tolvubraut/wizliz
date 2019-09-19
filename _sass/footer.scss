@@ -3,7 +3,6 @@
 .footwrapper {
     @include mainBorder($secondaryBorderColor);
     @include boxShadow;
-    background: $backgroundColor;
 }
 
 .footer-container {
@@ -19,7 +18,6 @@
 }
 
 .company-info {
-    background: $backgroundGradient;
     @include flexCenter;
     @include mainBorder($mainBorderColor, border-top,  border-bottom);
     @include sRadius;

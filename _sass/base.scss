@@ -6,6 +6,7 @@
   --secondary-font: 'Rambla', sans-serif;
   --third-font: 'Yanone Kaffeesatz', sans-serif;
   --alt-font: 'Kosugi', sans-serif;
+  --header-font: 'Black Han Sans', sans-serif;
 }
 
 //Defaults
@@ -33,7 +34,7 @@ img {
 //SCSS Variables
 
 //Font sizes
-$paraSize: 12px;
+$paraSize: 14px;
 
 $fontSize: 1em;
 
@@ -46,11 +47,9 @@ $fontHeadingSize: 1.5em;
 
 // $mainColor: #b3b3b3;
 $mainColor:#b4b9b4;
-//Find better secondary colour
 $secondaryColor: rgb(60, 100, 144);
 
 //find unique HeaderTitle and fix h/p tags on site
-$headerTitle: $mainColor; //Add Additional color style
 
 $backgroundColor:  #1a1a1a;
 
@@ -141,7 +140,7 @@ body {
   line-height: 1.5;
   //Add background img to Games/Companies/About and make it transparent
   background-image: url("/verkefni2/assets/img/cyberpunk2077-background.png"); /* The image used */
-  background-color: #cccccc; /* Used if the image is unavailable */
+  background-image: url("/verkefni2/assets/img/mainBackground.png"); /* Used if the image is unavailable */
   background-position: center; /* Center the image */
   background-repeat: no-repeat; /* Do not repeat the image */
   background-size: cover; /* Resize the background image to cover the entire container */
@@ -186,16 +185,24 @@ li a {
   @include flexCenter();
   font-size: $fontHeadingSize;
 }
+//Use this instead of links to take up entire parent div
+.linksAll {
+  display:flex;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+}
 
 .heading-title {
-  text-align:center;
-  color: lighten($mainColor, 25%);
+  font-family:  var(--header-font);
+  color: #0e0e0e;
+  font-weight: 100;
+  font-size: 3.5em;
+  text-transform: uppercase;
 }
 
 //Header-Nav part
-header {
-  //BLANK
-}
+
 #headwrapper {
   background-color: $backgroundColor;
 }
@@ -207,6 +214,22 @@ header {
     background:white;
   }
 }
+
+
+//Footer
+.footwrapper {
+  background: $backgroundColor;
+}
+
+.company-info {
+  background: $backgroundGradient;
+}
+
+//Colours
+
+//Fonts
+
+
 
 /*==========================
   {{ content }} Container 
