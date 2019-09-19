@@ -19,7 +19,7 @@ main {
     @include mainBorder($secondaryColor);
     @include sRadius();
     &:hover {
-        opacity: .99;//temp
+        opacity: 0.9;//Temp until a tag is fixed
     }
 }
 

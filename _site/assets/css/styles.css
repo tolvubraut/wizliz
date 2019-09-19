@@ -11,15 +11,15 @@ img { width: auto; height: auto; }
 /*============================== FontSizing/Colors ================================*/
 body { display: flex; flex-direction: column; font-family: var(--secondary-font); font-weight: 400; line-height: 1.5; background-image: url("/verkefni2/assets/img/mainBackground.png"); /* The image used */ background-color: whitesmoke; background-position: center; /* Center the image */ background-repeat: no-repeat; /* Do not repeat the image */ background-size: cover; /* Resize the background image to cover the entire container */ }
 
-h1, h3, h4 { font-family: var(--main-font); color: #030303; line-height: 1.5; }
+h1, h3, h4 { font-family: var(--main-font); color: #040404; line-height: 1.5; }
 
 h2 { color: white; }
 
 a { color: #2364aa; text-decoration: none; }
 
-a:hover { opacity: 99; }
+a:hover { color: #1f5895; }
 
-p { color: #030303; font-weight: 600; }
+p { color: #6699ff; font-weight: 600; }
 
 ul li { list-style: none; }
 
@@ -33,7 +33,7 @@ li a:hover { border-bottom: 2px solid; none: 2px solid; border-color: white; }
 
 .linksAll { display: flex; justify-content: center; height: 100%; width: 100%; }
 
-.heading-title { font-family: var(--header-font); color: #030303; font-weight: 100; font-size: 3em; text-transform: uppercase; position: relative; right: 1em; }
+.heading-title { font-family: var(--header-font); color: #040404; font-weight: 100; font-size: 3em; text-transform: uppercase; position: relative; right: 1em; }
 
 #headwrapper { background-color: #161616; }
 
@@ -53,9 +53,7 @@ li a:hover { border-bottom: 2px solid; none: 2px solid; border-color: white; }
 @media screen and (max-width: 80em) { .heading-title { position: initial; text-align: center; } }
 
 @media screen and (max-width: 65em) { .mainwrapper { width: auto; }
-  .nav-menu { background: rgba(25, 25, 25, 0.85); }
-  .nav-link { background: rgba(25, 25, 25, 0.85); font-size: 1.25em; }
-  .nav-link-text { font-weight: 500; }
+  .nav-link { background: rgba(25, 25, 25, 0.85); font-size: 1.25em; font-weight: 400; }
   .bar { background: white; }
   .bar:after, .bar:before { background: white; }
   .toggle:hover + .mobile-menu { background: rgba(255, 255, 255, 0.1); } }
@@ -77,9 +75,9 @@ li a:hover { border-bottom: 2px solid; none: 2px solid; border-color: white; }
 
 .nav-link { padding: 0 1.2em; align-self: center; height: 4em; text-transform: uppercase; display: flex; align-items: center; }
 
-.nav-link:hover { border: 2px solid; none: 2px solid; border-color: white; color: #9a9a9a; border: 2px solid; }
+.nav-link:active { transform: translateY(-1px); }
 
-.nav-link:hover h1, .nav-link:hover h3, .nav-link:hover h4 { color: #cdcdcd; }
+.nav-link:hover { border: 2px solid; none: 2px solid; border-color: white; }
 
 .nav-link-icon { position: relative; right: 12px; }
 
@@ -95,7 +93,6 @@ li a:hover { border-bottom: 2px solid; none: 2px solid; border-color: white; }
   .nav-wrapper { width: 0; }
   .nav-menu { position: fixed; top: 4.25em; right: 0; opacity: 0; width: 0; height: 0; overflow: hidden; z-index: 1; background: rgba(25, 25, 25, 0.85); justify-content: flex-start; flex-direction: column; }
   .nav-link { display: flex; justify-content: center; align-items: center; align-content: center; border-bottom: 2px solid; none: 2px solid; border-color: white; width: 100%; height: 10%; }
-  .nav-link:active { transform: translateY(-1px); }
   .nav-link-text { position: initial; font-weight: 500; }
   .nav-link-icon { top: 1px; }
   /*====================================== Start of Mobile Menu and animations ======================================*/
@@ -116,7 +113,6 @@ li a:hover { border-bottom: 2px solid; none: 2px solid; border-color: white; }
   #headwrapper { height: 3.8em; }
   .head-container { height: 3.8em; }
   .logo-container { height: 3.8em; justify-content: flex-start; }
-  .logo { width: 100%; }
   .nav-menu { top: 3.8rem; }
   .nav-wrapper .toggle { width: 4.2rem; height: 3.6rem; top: 0em; right: 0.8em; }
   .nav-wrapper .mobile-menu { width: 3.8rem; height: 3.6rem; top: 0.15em; right: 0.8em; }
@@ -131,7 +127,7 @@ main { grid-area: main; }
 
 .game-container { display: Grid; grid-template-areas: "aside main"; grid-template-columns: 1fr 5fr; margin: 0 0 2em 0; min-height: 8em; border: 2px solid; none: 2px solid; border-color: #030303; border-radius: 10px; }
 
-.game-container:hover { opacity: .99; }
+.game-container:hover { opacity: 0.9; }
 
 .aside-grid { background: #161616; display: flex; justify-content: center; align-items: center; align-content: center; }
 
@@ -143,15 +139,19 @@ main { grid-area: main; }
 
 .footwrapper { border: 2px solid; none: 2px solid; border-color: #030303; box-shadow: 0 0 7px 1px black; }
 
-.footer-container { max-width: 80em; height: auto; margin: 0 auto; }
+.social-media-container { display: flex; flex-direction: row; max-height: 40px; background: black; align-items: center; }
+
+.social-media { width: 100%; display: flex; justify-content: center; flex-direction: row; flex-wrap: wrap; flex: 30%; }
+
+.testcontain { display: flex; flex: 200%; }
+
+.logo { align-self: center; }
+
+.footer-container { max-width: 70em; height: auto; margin: 0 auto; }
 
 .company-container { display: flex; flex-wrap: wrap; }
 
-.company-info { display: flex; justify-content: center; align-items: center; align-content: center; border-top: 2px solid; border-bottom: 2px solid; border-color: white; border-radius: 10px; flex: 25%; height: 6em; margin: 10px; }
-
-.company-info:hover { color: #9a9a9a; border: 2px solid; }
-
-.company-info:hover h1, .company-info:hover h3, .company-info:hover h4 { color: #cdcdcd; }
+.company-info { display: flex; justify-content: center; align-items: center; align-content: center; border-radius: 10px; flex: 25%; height: 5em; margin: 10px; }
 
 @media screen and (max-width: 45em) { .company-info { flex: 35%; } }
 

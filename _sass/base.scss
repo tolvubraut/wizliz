@@ -51,7 +51,8 @@ $fontHeadingSize: 1.5em;
 // $mainColor: #b3b3b3;
 $mainColor:#b3b3b3;
 $secondaryColor: #030303;
-$headerColor: #030303;
+$headerColor: #040404;
+$paraColor: #6699ff;
 $linkColor:rgb(35, 100, 170);
 //find unique HeaderTitle and fix h/p tags on site
 $whiteColor: white;
@@ -163,14 +164,14 @@ h2 {
 a {
   color: $linkColor;
   text-decoration: none;
-  //find alt colour for basis of colour change in :hover
+  //use main link color for changing hover on links
   &:hover {
-    opacity: 99;
+    color: darken($linkColor, 5%);
   }
 }
 //Content
 p {
-  color:$secondaryColor;
+  color:$paraColor;
   font-weight: 600;
 }
 //Clear list Styles
@@ -231,7 +232,6 @@ li a {
   }
 }
 
-
 //Footer
 .footwrapper {
   background: $backgroundColor;
@@ -241,9 +241,6 @@ li a {
   background: $backgroundGradient;
 }
 
-//Colours
-
-//Fonts
 
 /*==========================
   {{ content }} Container 
@@ -256,12 +253,10 @@ li a {
   flex: 1 0 auto;
 }
 
-
 .main-container {
   width: auto;
   padding: 10px;
 }
-
 
 @media screen and(max-width: 80em) {
   .heading-title {
@@ -276,17 +271,10 @@ li a {
     width: auto;
   }
 
-  .nav-menu {
-    background: $backgroundRgba;
-  }
-
   .nav-link {
     background: $backgroundRgba;
     font-size: $fontLinkSize;
-  }
-
-  .nav-link-text {
-    font-weight: 500;
+    font-weight: 400;
   }
 
   //Styles MobileMenu Lines

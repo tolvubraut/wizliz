@@ -5,8 +5,37 @@
     @include boxShadow;
 }
 
+//Social media temp
+.social-media-container {
+    display:flex;
+    flex-direction: row;
+    max-height: 40px;
+    background:black;
+    align-items: center;
+}
+
+.social-media {
+    width: 100%;
+    display:flex;
+    justify-content: center;
+    flex-direction: row;
+    flex-wrap:wrap;
+    flex: 30%;
+    
+}
+.testcontain {
+    display:flex;
+    flex: 200%
+}
+.footer-logo {
+    
+}
+.logo {
+    align-self: center;
+}
+////
 .footer-container {
-    max-width: 80em;
+    max-width: 70em;
     height: auto;
     margin: 0 auto;
 }
@@ -19,14 +48,10 @@
 
 .company-info {
     @include flexCenter;
-    @include mainBorder($whiteColor, border-top,  border-bottom);
     @include sRadius;
     flex: 25%;
-    height: 6em;
+    height: 5em;
     margin: 10px;
-    &:hover {
-        @include secondaryHoverEffect;
-    }
 }
 
 //ADD MEDIA QUERIES to avoid overflow;
