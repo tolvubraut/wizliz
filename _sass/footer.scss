@@ -7,31 +7,27 @@
 
 //Social media temp
 .social-media-container {
-    display:flex;
+    @include flexCenter();
     flex-direction: row;
-    max-height: 40px;
-    background:black;
-    align-items: center;
+    height:auto;
 }
 
 .social-media {
-    width: 100%;
-    display:flex;
-    justify-content: center;
+    @include flexCenter();
     flex-direction: row;
     flex-wrap:wrap;
     flex: 30%;
+    width: 100%;
     
 }
-.testcontain {
-    display:flex;
-    flex: 200%
-}
-.footer-logo {
-    
-}
-.logo {
-    align-self: center;
+
+//maybe add a class for footer logos
+.social-media img {
+    @include flexCenter();
+    width: 35px;
+    border-radius: 50%;
+    background:$whiteColor;
+    margin: 5px 10px 5px 10px;
 }
 ////
 .footer-container {
@@ -40,10 +36,9 @@
     margin: 0 auto;
 }
 
-.company-container {
+.flexwrapper {
     display:flex;
     flex-wrap: wrap;
-
 }
 
 .company-info {
@@ -56,9 +51,9 @@
 
 //ADD MEDIA QUERIES to avoid overflow;
 
-@media screen and (max-width: 65em) {
-    
-}
+
+
+
 
 @media screen and (max-width: 45em) {
     .company-info {

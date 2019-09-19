@@ -138,6 +138,7 @@ $headerHeight: 4.25em;
    Start of Mobile Menu and animations
   ======================================*/
   .nav-wrapper .toggle {
+    
     display:initial;
     width: 4.6rem;
     height: 4rem;
@@ -183,7 +184,6 @@ $headerHeight: 4.25em;
   }
   // Transition Animation for Mobile-Navbar
   .nav-wrapper .toggle:hover + .mobile-menu {
-    
     border-radius: 50%;
   }
   .nav-wrapper .toggle:checked + .mobile-menu {

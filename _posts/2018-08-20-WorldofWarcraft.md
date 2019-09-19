@@ -1,5 +1,4 @@
 ---
-
 publisher: Activision
 title: World of Warcraft
 image: \assets\img\wow.png

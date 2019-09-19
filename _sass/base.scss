@@ -2,11 +2,11 @@
 //Cleanup for Mixins and vars
 // Base for Website
 :root {
-  --main-font: 'Roboto Condensed', sans-serif;
-  --secondary-font: 'Rambla', sans-serif;
-  --third-font: 'Yanone Kaffeesatz', sans-serif;
-  --alt-font: 'Kosugi', sans-serif;
-  --header-font: 'Black Han Sans', sans-serif;
+  --main-font: 'Roboto Condensed', sans-serif; //used for main things on site
+  --secondary-font: 'Rambla', sans-serif; // Use for side things Paragraphs, etc
+  --third-font: 'Yanone Kaffeesatz', sans-serif; // Experimental
+  --alt-font: 'Kosugi', sans-serif; //Experimental
+  --header-font: 'Black Han Sans', sans-serif; //Heavy Font
 }
 
 //Defaults
@@ -47,12 +47,9 @@ $fontHeadingSize: 1.5em;
 
 //Colors
 
-
-// $mainColor: #b3b3b3;
 $mainColor:#b3b3b3;
 $secondaryColor: #030303;
-$headerColor: #040404;
-$paraColor: #6699ff;
+$headerColor: #030303; //Maybe give headers unqiue colour
 $linkColor:rgb(35, 100, 170);
 //find unique HeaderTitle and fix h/p tags on site
 $whiteColor: white;
@@ -69,23 +66,14 @@ $backgroundGradient: linear-gradient(rgb(50, 96, 228), black);
 //Mixin
 
 //Border Defaults
-//TO USE -- @include mainBorder(blue, border-top);
 @mixin mainBorder($color:$whiteColor, $border1:border,  $border2:none) {
   #{$border1}:2px solid;
   #{$border2}:2px solid;
   border-color: #{$color};
 }
 
-//Mixin with Arguments
-
-//Border Defaults
 @mixin sRadius($radius:10px) {
   border-radius: #{$radius};
-}
-
-@mixin transLink {
-  -webkit-transition: all 0.3s ease;
-  transition: all 0.3s ease;
 }
 
 @mixin borderBackground {
@@ -93,34 +81,25 @@ $backgroundGradient: linear-gradient(rgb(50, 96, 228), black);
   @include sRadius;
 }
 
+
+@mixin transLink {
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+
+
 //:Hover Psuedo on Elements
 //Add argument for color
-//Use on containers
 
 //Fix both hovereffects to be consistent across all elements
-@mixin mainHoverEffect() {
-  //Avoid calling other mixins for transition
-  background-image: linear-gradient(rgb(45, 121, 200), black);
-  border: 2px solid;
-  color: lighten( $mainColor, 10%);
-  h1, h2, h3, h4{
-    color: lighten($mainColor, 10%)
-  }
-}
-
-//Use on inline content
-//Add argument for color
-@mixin secondaryHoverEffect {
-  color:darken($mainColor, 10%);
-  border: 2px solid;
-  h1, h3, h4 {
-    color: lighten($mainColor, 10%);
-  }
-}
 
 
 @mixin flexCenter {
   display:flex;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
   justify-content: center;
   align-items: center;
   align-content: center;
@@ -129,6 +108,7 @@ $backgroundGradient: linear-gradient(rgb(50, 96, 228), black);
 @mixin boxShadow {
   box-shadow: 0 0 7px 1px black;
 }
+//Add HoverEffects that work on all link elements
 
 /*==============================
       FontSizing/Colors
@@ -164,14 +144,14 @@ h2 {
 a {
   color: $linkColor;
   text-decoration: none;
-  //use main link color for changing hover on links
+  //find alt colour for basis of colour change in :hover
   &:hover {
-    color: darken($linkColor, 5%);
+    opacity: 99;
   }
 }
 //Content
 p {
-  color:$paraColor;
+  color:$secondaryColor;
   font-weight: 600;
 }
 //Clear list Styles
@@ -200,7 +180,7 @@ li a {
   font-size: $fontHeadingSize;
 }
 //Use this instead of links to take up entire parent div
-.linksAll {
+.linksBlock {
   display:flex;
   justify-content: center;
   height: 100%;
@@ -232,15 +212,23 @@ li a {
   }
 }
 
+
 //Footer
-.footwrapper {
+#footwrapper {
   background: $backgroundColor;
+}
+
+.social-media {
+  background: darken($backgroundColor, 5%);
 }
 
 .company-info {
   background: $backgroundGradient;
 }
 
+//Colours
+
+//Fonts
 
 /*==========================
   {{ content }} Container 
@@ -253,10 +241,12 @@ li a {
   flex: 1 0 auto;
 }
 
+
 .main-container {
   width: auto;
   padding: 10px;
 }
+
 
 @media screen and(max-width: 80em) {
   .heading-title {
@@ -271,10 +261,17 @@ li a {
     width: auto;
   }
 
+  .nav-menu {
+    background: $backgroundRgba;
+  }
+
   .nav-link {
     background: $backgroundRgba;
     font-size: $fontLinkSize;
-    font-weight: 400;
+  }
+
+  .nav-link-text {
+    font-weight: 500;
   }
 
   //Styles MobileMenu Lines

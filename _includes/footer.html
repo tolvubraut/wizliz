@@ -1,33 +1,30 @@
 
-<footer class="footwrapper">
+<footer id="footwrapper">
     <div class="social-media-container">
-        <a href="">
-            <img src="{{site.baseurl}}/assets/img/wizliz-test1.png" class="logo">
-        </a>
         <div class="social-media">
             <a href="">
-                <img src="{{site.baseurl}}/assets/img/g1.png" class="logo">
+                <img src="{{site.baseurl}}/assets/img/g1.png">
             </a>
             <a href="">
-                <img src="{{site.baseurl}}/assets/img/g2.png" class="logo">
+                <img src="{{site.baseurl}}/assets/img/g2.png">
             </a>
             <a href="">
-                <img src="{{site.baseurl}}/assets/img/g3.png" class="logo">
+                <img src="{{site.baseurl}}/assets/img/g3.png">
             </a>
             <a href="">
-                <img src="{{site.baseurl}}/assets/img/g4.png" class="logo">
+                <img src="{{site.baseurl}}/assets/img/g4.png">
             </a>
             <a href="">
-                <img src="{{site.baseurl}}/assets/img/g5.png" class="logo">
+                <img src="{{site.baseurl}}/assets/img/g5.png">
             </a>
         </div>
     </div>
     
     <div class="footer-container">
-        <div class="company-container"> 
+        <div class="flexwrapper"> 
             {% for publisher in site.companies %}
                 <div class="company-info">
-                    <a class="linksAll" href="{{site.baseurl}}{{ publisher.url }}" ><span class="links">{{publisher.company}}</span></a>       
+                    <a class="linksBlock" href="{{site.baseurl}}{{ publisher.url }}" ><span class="links">{{publisher.company}}</span></a>       
                 </div>
             {% endfor %}
         </div>
