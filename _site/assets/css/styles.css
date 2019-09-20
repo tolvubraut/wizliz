@@ -83,15 +83,15 @@ li a:hover { border-bottom: 2px solid; none: 2px solid; border-color: white; }
   .nav-link-icon { top: 1px; }
   /*====================================== Start of Mobile Menu and animations ======================================*/
   .nav-wrapper .toggle { display: initial; width: 4.6rem; height: 4rem; position: absolute; top: 0.25em; right: 1em; opacity: 0; cursor: pointer; z-index: 999; }
-  .nav-wrapper .mobile-menu { width: 4.2rem; height: 4rem; position: absolute; top: 0.1em; right: 0.9em; z-index: 998; display: flex; padding: 10px; display: flex; display: -webkit-box; display: -moz-box; display: -webkit-flex; display: -ms-flexbox; justify-content: center; align-items: center; align-content: center; -webkit-transition: all 0.3s ease; -moz-transition: all 0.3s ease; -o-transition: all 0.3s ease; transition: all 0.3s ease; }
-  .nav-wrapper .mobile-menu .bar { position: relative; width: 1000px; height: 5px; z-index: 5; -webkit-transition: all 0.3s ease; -moz-transition: all 0.3s ease; -o-transition: all 0.3s ease; transition: all 0.3s ease; background: white; }
-  .nav-wrapper .mobile-menu .bar::after, .nav-wrapper .mobile-menu .bar::before { content: ''; position: absolute; top: -12px; height: 5px; width: 100%; background: white; -webkit-transition: all 0.3s ease; -moz-transition: all 0.3s ease; -o-transition: all 0.3s ease; transition: all 0.3s ease; }
+  .nav-wrapper .mobile-menu { width: 4.2rem; height: 4rem; position: absolute; top: 0.1em; right: 0.9em; z-index: 998; display: flex; padding: 10px; display: flex; display: -webkit-box; display: -moz-box; display: -webkit-flex; display: -ms-flexbox; justify-content: center; align-items: center; align-content: center; -webkit-transition: all 0.4s ease; -moz-transition: all 0.4s ease; -o-transition: all 0.4s ease; transition: all 0.4s ease; }
+  .nav-wrapper .mobile-menu .bar { position: relative; width: 1000px; height: 5px; z-index: 5; -webkit-transition: all 0.4s ease; -moz-transition: all 0.4s ease; -o-transition: all 0.4s ease; transition: all 0.4s ease; background: white; }
+  .nav-wrapper .mobile-menu .bar::after, .nav-wrapper .mobile-menu .bar::before { content: ''; position: absolute; top: -12px; height: 5px; width: 100%; background: white; -webkit-transition: all 0.4s ease; -moz-transition: all 0.4s ease; -o-transition: all 0.4s ease; transition: all 0.4s ease; }
   .nav-wrapper .mobile-menu .bar:after { top: 12px; }
   .nav-wrapper .toggle:hover + .mobile-menu { border-radius: 50%; background: rgba(255, 255, 255, 0.1); }
   .nav-wrapper .toggle:checked + .mobile-menu { transform: rotate(45deg); }
   .nav-wrapper .toggle.checked:hover + .mobile-menu { transform: rotate(135deg); }
   .nav-wrapper .toggle:checked + .mobile-menu .bar::before, .nav-wrapper .toggle:checked + .mobile-menu .bar::after { top: 0; transform: rotate(90deg); }
-  .toggle:checked + .mobile-menu + .nav-menu { opacity: 1; width: 100%; height: 100vh; -webkit-transition: all 0.3s ease; -moz-transition: all 0.3s ease; -o-transition: all 0.3s ease; transition: all 0.3s ease; }
+  .toggle:checked + .mobile-menu + .nav-menu { opacity: 1; width: 100%; height: 100vh; -webkit-transition: all 0.4s ease; -moz-transition: all 0.4s ease; -o-transition: all 0.4s ease; transition: all 0.4s ease; }
   /*====================================== ENd of Mobile Menu and animations ======================================*/ }
 
 /* ================ Media Query 720PX ====================*/
@@ -157,7 +157,7 @@ haegri { grid-area: haegri; }
 
 .homewrapper { margin-top: 4em; flex: 1 0 auto; }
 
-.home-container { display: grid; grid-template-areas: "section gallery"; grid-template-columns: 1fr 1fr; border-bottom: 10px solid #743a8a; }
+.home-container { display: -webkit-box; display: grid; grid-template-areas: "section gallery"; grid-template-columns: 1fr 1fr; border-bottom: 10px solid #743a8a; }
 
 .slideshow-container { max-width: 100%; height: 45vh; position: relative; }
 
@@ -169,9 +169,9 @@ haegri { grid-area: haegri; }
 @keyframes fade { from { opacity: .4; }
   to { opacity: 1; } }
 
-.slides { display: block; width: 100%; height: 100%; }
+.slides { display: block; width: 100%; height: 100%; border: 2px solid; none: 2px solid; border-color: #030303; }
 
-.prev, .next { display: flex; position: absolute; cursor: pointer; width: auto; padding: 16px; font-weight: bold; color: white; background-color: rgba(0, 0, 0, 0.8); font-size: 1.5em; top: 24%; transition: 0.6s ease; border-radius: 10px; z-index: 1000; }
+.prev, .next { position: absolute; cursor: pointer; width: auto; padding: 16px; font-weight: bold; color: white; background-color: rgba(25, 25, 25, 0.85); font-size: 1.5em; top: 24%; -webkit-transition: all 0.4s ease; -moz-transition: all 0.4s ease; -o-transition: all 0.4s ease; transition: all 0.4s ease; border-radius: 10px; z-index: 4; }
 
 .next { right: 50%; border-radius: 10px; }
 
@@ -183,9 +183,9 @@ haegri { grid-area: haegri; }
 
 .slideSelect:active { background-color: #737373; }
 
-.active, .dot:hover { background-color: #717171; }
+.active, .dot:hover { background-color: rgba(25, 25, 25, 0.85); }
 
-.side-gallery { display: grid; grid-template-areas: "main main" "vinstri haegri"; grid-template-rows: 50% 50%; height: 45vh; object-fit: contain; }
+.side-gallery { display: -webkit-box; display: grid; grid-template-areas: "main main" "vinstri haegri"; grid-template-rows: 50% 50%; height: 45vh; object-fit: contain; }
 
 .side-images { display: block; height: 100%; border: 2px solid; none: 2px solid; border-color: #030303; }
 
