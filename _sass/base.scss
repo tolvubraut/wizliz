@@ -79,11 +79,20 @@ $backgroundGradient: linear-gradient(to top right,rgba( 22, 22, 22, 0.6), 70%, r
   transition: all 0.3s ease;
 }
 
-@mixin transSlide {
-  -webkit-transition: left 2s linear;
-  -moz-transition: left 2s linear;
-  -o-transition: left 2s linear;
-  transition: left 2s linear;
+@mixin fade {
+  -webkit-animation-name: fade;
+  -webkit-animation-duration: 1.5s;
+  animation-name: fade;
+  animation-duration: 1.5s;
+  @-webkit-keyframes fade {
+    from {opacity: .4} 
+    to {opacity: 1}
+  }
+  
+  @keyframes fade {
+    from {opacity: .4} 
+    to {opacity: 1}
+  }
 }
 
 @mixin flexCenter {

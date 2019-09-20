@@ -4,32 +4,78 @@ layout: homepage
 ---
 
 
-<!-- Disabled until footer pos is fixed -->
+    <!-- Slider -->
+    <!-- First Section -->
 <div class="homewrapper">
-<div class="home-container">
-    <section class="slideshow-container">
-    {% for item in site.posts limit:1%}
-        <img class="slides" src="{{site.baseurl}}{{item.image}}">
-    {% endfor %}
-    </section>
-    <gallery class="side-gallery">
-        <main class="">
-            <img class="side-images" src="{{site.baseurl}}/assets/img/blizzard.png">
-        </main>
-        <vinstri class="">
-            <img class="side-images" src="{{site.baseurl}}/assets/img/cyberpunk2077-background.png">
-        </vinstri>
-        <haegri class="">
-            <img class="side-images" src="{{site.baseurl}}/assets/img/cdprojektredgallery.jpg">
-        <haegri/>
-    </gallery>
+    <div class="home-container">
+            <a class="prev" onclick="plusSlides(-1)">&#10094;</a> <!-- replace && with images -->
+            <a class="next" onclick="plusSlides(1)">&#10095;</a>
+        <div class="slideshow-container">  
+        {% for item in site.posts limit:5 %}
+            <section class="mySlides">
+                <img class="slides" src="{{site.baseurl}}{{item.image}}">+
+            </section>
+        {% endfor %} 
+
+        <div class= "selectPos">
+                {% for index in site.posts limit:5 %}
+                {% assign i = i | plus:1 %}
+                    <span class="slideSelect" onclick="currentSlide({{i}})"></span> 
+                {% endfor %}
+            </div>   
+        </div>
+        
+        <!-- Second Section -->
+        <gallery class="side-gallery">
+            <main class="">
+                <img class="side-images" src="{{site.baseurl}}/assets/img/diablo3Slider.jpg">
+            </main>
+            <vinstri class="">
+                <img class="side-images" src="{{site.baseurl}}/assets/img/cyberpunk2077-background.png">
+            </vinstri>
+            <haegri class="">
+                <img class="side-images" src="{{site.baseurl}}/assets/img/cdprojektredgallery.jpg">
+            <haegri/>
+        </gallery>
+    </div>
+    
+    <div class="news-container">
+        <article>
+            <h1>Project - WIZLIZ Web Page</h1>
+            <br>
+            <p>coaocnaosnctAEHai ertu ai ljcerh i? disd urh ilorem ipsum aldor daolum metlar mellur eru drullur i sokkinum þónum</p>
+        </article>
+    </div>
 </div>
-<div class="news-container">
-    <h1>Project - WIZLIZ Web Page</h1>
-    <br>
-    <p>coaocnaosnctAEHai ertu ai ljcerh i? disd urh ilorem ipsum aldor daolum metlar mellur eru drullur i sokkinum þónum</p>
-</div>
-</div>
+
+<script>
+    var slideIndex = 1;
+    showSlides(slideIndex);
+    
+    function plusSlides(n) {
+        showSlides(slideIndex += n);
+    }
+    
+    function currentSlide(n) {
+        showSlides(slideIndex = n);
+    }
+    
+    function showSlides(n) {
+        var i;
+        var slides = document.getElementsByClassName("mySlides");
+        var dots = document.getElementsByClassName("slideSelect");
+        if (n > slides.length) {slideIndex = 1}    
+        if (n < 1) {slideIndex = slides.length}
+        for (i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";  
+        }
+        for (i = 0; i < dots.length; i++) {
+            dots[i].className = dots[i].className.replace(" active", "");
+        }
+        slides[slideIndex-1].style.display = "block";  
+        dots[slideIndex-1].className += " active";
+    }
+</script>
 
 
 

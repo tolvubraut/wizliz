@@ -1,1 +1,0 @@
-//Add js for slider in future

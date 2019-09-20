@@ -4,7 +4,6 @@
     @include mainBorder($secondaryColor);
     @include boxShadow;
     background: $backgroundColor;
-    min-width: 100vh;
 }
 
 //Social media temp
@@ -53,7 +52,7 @@
     margin: 10px;
     background: $backgroundGradient;
     &:hover {
-        background: linear-gradient(to top right,rgba( 22, 22, 22, 0.4), 70%, rgba(82, 42, 97, 0.4));
+        background: linear-gradient(to top right,rgba( 22, 22, 22, 0.4), 65%, rgba(82, 42, 97, 0.4));
     }
 }
 // of main Content on footer
