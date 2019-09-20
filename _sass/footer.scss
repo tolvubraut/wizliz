@@ -1,8 +1,10 @@
-// Fix sticky Footer
-//Redo Footer
-.footwrapper {
+//Start of Footer
+//Start of Social Media
+#footwrapper {
     @include mainBorder($secondaryColor);
     @include boxShadow;
+    background: $backgroundColor;
+    min-width: 100vh;
 }
 
 //Social media temp
@@ -18,7 +20,7 @@
     flex-wrap:wrap;
     flex: 30%;
     width: 100%;
-    
+    background: darken($backgroundColor, 5%);
 }
 
 //maybe add a class for footer logos
@@ -29,7 +31,9 @@
     background:$whiteColor;
     margin: 5px 10px 5px 10px;
 }
-////
+//End of Social Media
+
+//Start of main Content on footer
 .footer-container {
     max-width: 70em;
     height: auto;
@@ -47,21 +51,18 @@
     flex: 25%;
     height: 5em;
     margin: 10px;
+    background: $backgroundGradient;
+    &:hover {
+        background: linear-gradient(to top right,rgba( 22, 22, 22, 0.4), 70%, rgba(82, 42, 97, 0.4));
+    }
 }
-
-//ADD MEDIA QUERIES to avoid overflow;
-
-
-
-
+// of main Content on footer
 
 @media screen and (max-width: 45em) {
     .company-info {
     flex: 35%;
     }
 }
-
-
 
 @media screen and (max-width: 30em) {
     .company-info {

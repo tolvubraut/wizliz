@@ -2,7 +2,8 @@
 
 publisher: Cd Projekt Red
 title: Cyberpunk 2077
-image: \assets\img\cyberpunk2077.png
+icon: \assets\img\cyberpunk2077.png
+image: \assets\img\cyberpunkSlider.jpg
 ---
 <!-- Cyberpunk.md -->
 Cyberpunk 2077 is an upcoming role-playing video game developed and published by CD Projekt

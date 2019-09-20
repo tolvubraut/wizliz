@@ -1,16 +1,35 @@
 ---
 title: Home
-layout: default
+layout: homepage
 ---
-<!-- add slider -->
 
 
+<!-- Disabled until footer pos is fixed -->
+<div class="homewrapper">
+<div class="home-container">
+    <section class="slideshow-container">
+    {% for item in site.posts limit:1%}
+        <img class="slides" src="{{site.baseurl}}{{item.image}}">
+    {% endfor %}
+    </section>
+    <gallery class="side-gallery">
+        <main class="">
+            <img class="side-images" src="{{site.baseurl}}/assets/img/blizzard.png">
+        </main>
+        <vinstri class="">
+            <img class="side-images" src="{{site.baseurl}}/assets/img/cyberpunk2077-background.png">
+        </vinstri>
+        <haegri class="">
+            <img class="side-images" src="{{site.baseurl}}/assets/img/cdprojektredgallery.jpg">
+        <haegri/>
+    </gallery>
+</div>
+<div class="news-container">
+    <h1>Project - WIZLIZ Web Page</h1>
+    <br>
+    <p>coaocnaosnctAEHai ertu ai ljcerh i? disd urh ilorem ipsum aldor daolum metlar mellur eru drullur i sokkinum þónum</p>
+</div>
+</div>
 
-<p>TODO Add slider | 3pic layout on the side | Page bio beneath it</p><hr>
-<p>Color test</p>
-<h1>h1 test</h1>
-<h2>h2 test</h2>
-<h3>h3 test</h3>
-<h4>h4 test</h4>
-<a href="">Link Test</a>
+
 
