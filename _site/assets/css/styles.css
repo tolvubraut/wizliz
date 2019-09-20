@@ -6,10 +6,12 @@ html, body { height: 100%; }
 
 .html { scroll-behavior: smooth; }
 
-img { width: auto; height: auto; }
+img { width: 100%; height: auto; }
+
+.current { color: orangered; }
 
 /*============================== FontSizing/Colors ================================*/
-body { display: flex; flex-direction: column; font-family: var(--secondary-font); font-weight: 400; line-height: 1.5; background-image: url("/verkefni2/assets/img/mainBackground.png"); /* The image used */ background-color: whitesmoke; background-position: center; /* Center the image */ background-repeat: no-repeat; /* Do not repeat the image */ background-size: cover; /* Resize the background image to cover the entire container */ }
+body { display: flex; flex-direction: column; font-family: var(--secondary-font); font-weight: 400; line-height: 1.5; background-image: url("/verkefni2/assets/img/mainBackground.png"); /* The image used */ background-color: whitesmoke; background-position: center; /* Center the image */ background-repeat: no-repeat; /* Do not repeat the image */ background-size: cover fill; /* Resize the background image to cover the entire container */ }
 
 h1, h3, h4 { font-family: var(--main-font); color: #030303; line-height: 1.5; }
 
@@ -17,7 +19,7 @@ h2 { color: white; }
 
 a { color: #2364aa; text-decoration: none; }
 
-a:hover { opacity: 99; }
+a:hover { color: #2c7dd4; }
 
 p { color: #030303; font-weight: 600; }
 
@@ -27,25 +29,11 @@ li a { font-size: 1.5em; font-weight: bold; margin: 10px; }
 
 li a:hover { border-bottom: 2px solid; none: 2px solid; border-color: white; }
 
-.nav-link { color: #b3b3b3; }
-
 .links { display: flex; display: -webkit-box; display: -moz-box; display: -webkit-flex; display: -ms-flexbox; justify-content: center; align-items: center; align-content: center; font-size: 1.5em; }
 
 .linksBlock { display: flex; justify-content: center; height: 100%; width: 100%; }
 
 .heading-title { font-family: var(--header-font); color: #030303; font-weight: 100; font-size: 3em; text-transform: uppercase; position: relative; right: 1em; }
-
-#headwrapper { background-color: #161616; }
-
-.nav-link-text { font-size: 1.25em; }
-
-.nav-link:hover { background: white; }
-
-#footwrapper { background: #161616; }
-
-.social-media { background: #090909; }
-
-.company-info { background: linear-gradient(#3260e4, black); }
 
 /*========================== {{ content }} Container  ============================*/
 .mainwrapper { width: 70em; margin: 5em auto 0 auto; flex: 1 0 auto; }
@@ -54,17 +42,11 @@ li a:hover { border-bottom: 2px solid; none: 2px solid; border-color: white; }
 
 @media screen and (max-width: 80em) { .heading-title { position: initial; text-align: center; } }
 
-@media screen and (max-width: 65em) { .mainwrapper { width: auto; }
-  .nav-menu { background: rgba(25, 25, 25, 0.85); }
-  .nav-link { background: rgba(25, 25, 25, 0.85); font-size: 1.25em; }
-  .nav-link-text { font-weight: 500; }
-  .bar { background: white; }
-  .bar:after, .bar:before { background: white; }
-  .toggle:hover + .mobile-menu { background: rgba(255, 255, 255, 0.1); } }
+@media screen and (max-width: 65em) { .mainwrapper { width: auto; } }
 
 @media screen and (max-width: 45em) { .heading-title { font-size: 2em; } }
 
-#headwrapper { position: fixed; top: 0; left: 0; width: 100%; box-shadow: 0 0 7px 1px black; height: auto; z-index: 1000; }
+#headwrapper { position: fixed; top: 0; left: 0; width: 100%; box-shadow: 0 0 7px 1px black; height: auto; z-index: 1000; background-color: #161616; }
 
 .head-container { display: flex; margin: 0 auto; width: 65em; }
 
@@ -77,15 +59,15 @@ li a:hover { border-bottom: 2px solid; none: 2px solid; border-color: white; }
 
 .nav-menu { display: flex; flex-direction: row; justify-content: flex-end; }
 
-.nav-link { padding: 0 1.2em; align-self: center; height: 4em; text-transform: uppercase; display: flex; align-items: center; }
+.nav-link { padding: 0 1.2em; align-self: center; height: 4em; text-transform: uppercase; display: flex; align-items: center; color: #b3b3b3; }
 
 .nav-link:active { transform: translateY(-1px); }
 
-.nav-link:hover { border: 2px solid; none: 2px solid; border-color: white; }
+.nav-link:hover { background: white; color: #9a9a9a; border: 2px solid; none: 2px solid; border-color: white; }
 
-.nav-link-icon { position: relative; right: 12px; }
+.nav-link-icon { position: relative; right: 12px; width: 61px; height: 60px; }
 
-.nav-link-text { position: relative; right: 15px; top: 2px; }
+.nav-link-text { position: relative; right: 15px; top: 2px; font-size: 1.25em; }
 
 /*====================================== End of nav Menu ======================================*/
 .toggle { display: none; }
@@ -95,21 +77,21 @@ li a:hover { border-bottom: 2px solid; none: 2px solid; border-color: white; }
   .head-container { width: 100%; height: 4.25em; }
   .logo-container { display: flex; display: -webkit-box; display: -moz-box; display: -webkit-flex; display: -ms-flexbox; justify-content: center; align-items: center; align-content: center; width: 100%; height: 4.25em; }
   .nav-wrapper { width: 0; }
-  .nav-menu { position: fixed; top: 4.25em; right: 0; opacity: 0; width: 0; height: 0; overflow: hidden; z-index: 1; background: rgba(25, 25, 25, 0.85); justify-content: flex-start; flex-direction: column; }
-  .nav-link { display: flex; display: -webkit-box; display: -moz-box; display: -webkit-flex; display: -ms-flexbox; justify-content: center; align-items: center; align-content: center; border-bottom: 2px solid; none: 2px solid; border-color: white; width: 100%; height: 10%; }
+  .nav-menu { position: fixed; top: 4.25em; right: 0; opacity: 0; width: 0; height: 0; overflow: hidden; z-index: 1; background: rgba(25, 25, 25, 0.85); justify-content: flex-start; flex-direction: column; background: rgba(25, 25, 25, 0.85); }
+  .nav-link { display: flex; display: -webkit-box; display: -moz-box; display: -webkit-flex; display: -ms-flexbox; justify-content: center; align-items: center; align-content: center; border-bottom: 2px solid; none: 2px solid; border-color: white; width: 100%; height: 10%; background: rgba(25, 25, 25, 0.85); font-size: 1.25em; }
   .nav-link-text { position: initial; font-weight: 500; }
   .nav-link-icon { top: 1px; }
   /*====================================== Start of Mobile Menu and animations ======================================*/
   .nav-wrapper .toggle { display: initial; width: 4.6rem; height: 4rem; position: absolute; top: 0.25em; right: 1em; opacity: 0; cursor: pointer; z-index: 999; }
-  .nav-wrapper .mobile-menu { width: 4.2rem; height: 4rem; position: absolute; top: 0.1em; right: 0.9em; z-index: 998; display: flex; padding: 10px; display: flex; display: -webkit-box; display: -moz-box; display: -webkit-flex; display: -ms-flexbox; justify-content: center; align-items: center; align-content: center; -webkit-transition: all 0.3s ease; transition: all 0.3s ease; }
-  .nav-wrapper .mobile-menu .bar { position: relative; width: 1000px; height: 5px; z-index: 5; -webkit-transition: all 0.3s ease; transition: all 0.3s ease; }
-  .nav-wrapper .mobile-menu .bar::after, .nav-wrapper .mobile-menu .bar::before { content: ''; position: absolute; top: -12px; height: 5px; width: 100%; -webkit-transition: all 0.3s ease; transition: all 0.3s ease; }
+  .nav-wrapper .mobile-menu { width: 4.2rem; height: 4rem; position: absolute; top: 0.1em; right: 0.9em; z-index: 998; display: flex; padding: 10px; display: flex; display: -webkit-box; display: -moz-box; display: -webkit-flex; display: -ms-flexbox; justify-content: center; align-items: center; align-content: center; -webkit-transition: all 0.3s ease; -moz-transition: all 0.3s ease; -o-transition: all 0.3s ease; transition: all 0.3s ease; }
+  .nav-wrapper .mobile-menu .bar { position: relative; width: 1000px; height: 5px; z-index: 5; -webkit-transition: all 0.3s ease; -moz-transition: all 0.3s ease; -o-transition: all 0.3s ease; transition: all 0.3s ease; background: white; }
+  .nav-wrapper .mobile-menu .bar::after, .nav-wrapper .mobile-menu .bar::before { content: ''; position: absolute; top: -12px; height: 5px; width: 100%; background: white; -webkit-transition: all 0.3s ease; -moz-transition: all 0.3s ease; -o-transition: all 0.3s ease; transition: all 0.3s ease; }
   .nav-wrapper .mobile-menu .bar:after { top: 12px; }
-  .nav-wrapper .toggle:hover + .mobile-menu { border-radius: 50%; }
+  .nav-wrapper .toggle:hover + .mobile-menu { border-radius: 50%; background: rgba(255, 255, 255, 0.1); }
   .nav-wrapper .toggle:checked + .mobile-menu { transform: rotate(45deg); }
   .nav-wrapper .toggle.checked:hover + .mobile-menu { transform: rotate(135deg); }
   .nav-wrapper .toggle:checked + .mobile-menu .bar::before, .nav-wrapper .toggle:checked + .mobile-menu .bar::after { top: 0; transform: rotate(90deg); }
-  .toggle:checked + .mobile-menu + .nav-menu { opacity: 1; width: 100%; height: 100vh; -webkit-transition: all 0.3s ease; transition: all 0.3s ease; }
+  .toggle:checked + .mobile-menu + .nav-menu { opacity: 1; width: 100%; height: 100vh; -webkit-transition: all 0.3s ease; -moz-transition: all 0.3s ease; -o-transition: all 0.3s ease; transition: all 0.3s ease; }
   /*====================================== ENd of Mobile Menu and animations ======================================*/ }
 
 /* ================ Media Query 720PX ====================*/
@@ -143,11 +125,11 @@ main { grid-area: main; }
 
 .main-grid { background: linear-gradient(#32143d, #582c68); padding: 10px; }
 
-.footwrapper { border: 2px solid; none: 2px solid; border-color: #030303; box-shadow: 0 0 7px 1px black; }
+#footwrapper { border: 2px solid; none: 2px solid; border-color: #030303; box-shadow: 0 0 7px 1px black; background: #161616; min-width: 100vh; }
 
 .social-media-container { display: flex; display: -webkit-box; display: -moz-box; display: -webkit-flex; display: -ms-flexbox; justify-content: center; align-items: center; align-content: center; flex-direction: row; height: auto; }
 
-.social-media { display: flex; display: -webkit-box; display: -moz-box; display: -webkit-flex; display: -ms-flexbox; justify-content: center; align-items: center; align-content: center; flex-direction: row; flex-wrap: wrap; flex: 30%; width: 100%; }
+.social-media { display: flex; display: -webkit-box; display: -moz-box; display: -webkit-flex; display: -ms-flexbox; justify-content: center; align-items: center; align-content: center; flex-direction: row; flex-wrap: wrap; flex: 30%; width: 100%; background: #090909; }
 
 .social-media img { display: flex; display: -webkit-box; display: -moz-box; display: -webkit-flex; display: -ms-flexbox; justify-content: center; align-items: center; align-content: center; width: 35px; border-radius: 50%; background: white; margin: 5px 10px 5px 10px; }
 
@@ -155,10 +137,38 @@ main { grid-area: main; }
 
 .flexwrapper { display: flex; flex-wrap: wrap; }
 
-.company-info { display: flex; display: -webkit-box; display: -moz-box; display: -webkit-flex; display: -ms-flexbox; justify-content: center; align-items: center; align-content: center; border-radius: 10px; flex: 25%; height: 5em; margin: 10px; }
+.company-info { display: flex; display: -webkit-box; display: -moz-box; display: -webkit-flex; display: -ms-flexbox; justify-content: center; align-items: center; align-content: center; border-radius: 10px; flex: 25%; height: 5em; margin: 10px; background: linear-gradient(to top right, rgba(22, 22, 22, 0.6), 70%, rgba(82, 42, 97, 0.6)); }
+
+.company-info:hover { background: linear-gradient(to top right, rgba(22, 22, 22, 0.4), 70%, rgba(82, 42, 97, 0.4)); }
 
 @media screen and (max-width: 45em) { .company-info { flex: 35%; } }
 
 @media screen and (max-width: 30em) { .company-info { flex: 45%; } }
+
+section { grid-area: section; }
+
+gallery { grid-area: gallery; }
+
+main { grid-area: main; }
+
+vinstri { grid-area: vinstri; }
+
+haegri { grid-area: haegri; }
+
+.homewrapper { margin-top: 4em; flex: 1 0 auto; }
+
+.home-container { display: grid; grid-template-areas: "section gallery"; grid-template-columns: 1fr 1fr; border-bottom: 10px solid #743a8a; height: 50%; }
+
+.slideshow-container { -webkit-transition: left 2s linear; -moz-transition: left 2s linear; -o-transition: left 2s linear; transition: left 2s linear; max-width: 100%; }
+
+.slides { display: block; width: 100%; height: 100%; }
+
+.side-gallery { display: grid; grid-template-areas: "main main" "vinstri haegri"; grid-template-rows: 50% 1fr; }
+
+.side-images { display: block; object-fit: cover contain; height: 100%; border: 2px solid; none: 2px solid; border-color: #030303; }
+
+.news-container { width: 80em; margin: 0 auto; padding: 3em 0 4em 0; }
+
+@media screen and (max-width: 65em) { .homewrapper { margin-top: 4.25em; } }
 
 /*# sourceMappingURL=styles.css.map */

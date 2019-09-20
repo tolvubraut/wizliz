@@ -1,5 +1,4 @@
 ---
-short_name: ted
 company: Activision
 founded: "1979"
 image: \assets\img\blizzard.png

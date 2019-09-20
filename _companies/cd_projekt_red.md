@@ -1,5 +1,4 @@
 ---
-short_name: jill
 company: Cd Projekt Red
 founded: "1994"
 image: \assets\img\cdprojektred.png

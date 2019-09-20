@@ -1,7 +1,8 @@
 ---
 publisher: Activision
 title: World of Warcraft
-image: \assets\img\wow.png
+icon: \assets\img\wow.png
+image: \assets\img\wowSlider.jpg
 ---
 <!-- Worldofwarcraft.md -->
 World of Warcraft (WoW) is a massively multiplayer online role-playing game (MMORPG) released in 2004 by Blizzard Entertainment.

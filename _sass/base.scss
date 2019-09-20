@@ -16,7 +16,8 @@
   padding: 0;
   margin: 0;
 }
-html , body {
+//sticky
+html, body {
   height: 100%;
 }
 .html {
@@ -24,15 +25,15 @@ html , body {
 }
 
 img {
-  width: auto;
+  width: 100%;
   height: auto;
 }
 
 //End of Sticky Footer
 
-// .current {
-//   color: green;
-// }
+.current {
+  color: orangered;
+}
 
 //SCSS Variables
 
@@ -51,7 +52,6 @@ $mainColor:#b3b3b3;
 $secondaryColor: #030303;
 $headerColor: #030303; //Maybe give headers unqiue colour
 $linkColor:rgb(35, 100, 170);
-//find unique HeaderTitle and fix h/p tags on site
 $whiteColor: white;
 
 $backgroundColor:  #161616; //Background for header and footer
@@ -59,12 +59,8 @@ $backgroundMain: linear-gradient(#32143d, #582c68);
 //Hamburger
 $backgroundRgba: rgba(25, 25, 25, 0.85);
 //Footer
-$backgroundGradient: linear-gradient(rgb(50, 96, 228), black);
-
-
-
+$backgroundGradient: linear-gradient(to top right,rgba( 22, 22, 22, 0.6), 70%, rgba(82, 42, 97, 0.6));
 //Mixin
-
 //Border Defaults
 @mixin mainBorder($color:$whiteColor, $border1:border,  $border2:none) {
   #{$border1}:2px solid;
@@ -76,23 +72,19 @@ $backgroundGradient: linear-gradient(rgb(50, 96, 228), black);
   border-radius: #{$radius};
 }
 
-@mixin borderBackground {
-  background-image: $backgroundGradient;
-  @include sRadius;
-}
-
-
 @mixin transLink {
   -webkit-transition: all 0.3s ease;
+  -moz-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
   transition: all 0.3s ease;
 }
 
-
-//:Hover Psuedo on Elements
-//Add argument for color
-
-//Fix both hovereffects to be consistent across all elements
-
+@mixin transSlide {
+  -webkit-transition: left 2s linear;
+  -moz-transition: left 2s linear;
+  -o-transition: left 2s linear;
+  transition: left 2s linear;
+}
 
 @mixin flexCenter {
   display:flex;
@@ -115,7 +107,6 @@ $backgroundGradient: linear-gradient(rgb(50, 96, 228), black);
 ================================*/
 
 //Base
-
 body {
   display:flex;
   flex-direction: column;
@@ -127,7 +118,7 @@ body {
   background-color: whitesmoke;
   background-position: center; /* Center the image */
   background-repeat: no-repeat; /* Do not repeat the image */
-  background-size: cover; /* Resize the background image to cover the entire container */
+  background-size: cover fill; /* Resize the background image to cover the entire container */
 }
 
 h1,  h3, h4 {
@@ -135,10 +126,10 @@ h1,  h3, h4 {
   color:$headerColor;
   line-height: 1.5;
 }
-h2 {
-  color:white;
-}
 //H2 used exclusively for blog titles
+h2 {
+  color:$whiteColor;
+}
 
 //Header and Links
 a {
@@ -146,15 +137,15 @@ a {
   text-decoration: none;
   //find alt colour for basis of colour change in :hover
   &:hover {
-    opacity: 99;
+    color: lighten($linkColor, 10%);
   }
 }
-//Content
+
 p {
   color:$secondaryColor;
   font-weight: 600;
 }
-//Clear list Styles
+
 ul li {
   list-style: none;
 }
@@ -170,15 +161,11 @@ li a {
 }
 
 //Styles Links
-
-.nav-link {
-  color:$mainColor;
-}
-
 .links {
   @include flexCenter();
   font-size: $fontHeadingSize;
 }
+
 //Use this instead of links to take up entire parent div
 .linksBlock {
   display:flex;
@@ -186,7 +173,6 @@ li a {
   height: 100%;
   width: 100%;
 }
-
 
 .heading-title {
   font-family:  var(--header-font);
@@ -197,38 +183,6 @@ li a {
   position: relative;
   right: 1em;
 }
-
-//Header-Nav part
-
-#headwrapper {
-  background-color: $backgroundColor;
-}
-.nav-link-text {
-  font-size: $fontLinkSize;
-}
-.nav-link { 
-  &:hover {
-    background:white;
-  }
-}
-
-
-//Footer
-#footwrapper {
-  background: $backgroundColor;
-}
-
-.social-media {
-  background: darken($backgroundColor, 5%);
-}
-
-.company-info {
-  background: $backgroundGradient;
-}
-
-//Colours
-
-//Fonts
 
 /*==========================
   {{ content }} Container 
@@ -241,12 +195,10 @@ li a {
   flex: 1 0 auto;
 }
 
-
 .main-container {
   width: auto;
   padding: 10px;
 }
-
 
 @media screen and(max-width: 80em) {
   .heading-title {
@@ -260,35 +212,8 @@ li a {
   .mainwrapper {
     width: auto;
   }
-
-  .nav-menu {
-    background: $backgroundRgba;
-  }
-
-  .nav-link {
-    background: $backgroundRgba;
-    font-size: $fontLinkSize;
-  }
-
-  .nav-link-text {
-    font-weight: 500;
-  }
-
-  //Styles MobileMenu Lines
-  .bar {
-    background:white;
-  }
-
-  .bar:after,
-  .bar:before {
-    background:white;
-  }
-
-  //Hovering over MobileMenu
-  .toggle:hover + .mobile-menu {
-    background: rgba(255, 255, 255, 0.1);
-  }
 }
+
 @media screen and(max-width: 45em) {
  .heading-title {
    font-size: 2em;
