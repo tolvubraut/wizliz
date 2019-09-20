@@ -1,18 +1,53 @@
 //Styling for post based pages --header/image/title
-
 //Add Color to Mixin
+
+
+aside {
+    grid-area: aside;
+}
+
+main {
+    grid-area: main;
+}
+
 .game-container {
+    display:Grid;
+    grid-template-areas: "aside main";
+    grid-template-columns: 1fr 5fr;
+    margin: 0 0 2em 0;
+    min-height: 8em;
+    width: 100%;
+    @include mainBorder($secondaryColor);
+    @include sRadius();
     &:hover {
-        @include mainHoverEffect;
+        opacity: 0.9;//Temp until a tag is fixed
     }
-    @include transLink;
-    @include borderBackground;
-    @include allBorder;
-    @include flexCenter;
-    flex-direction: column;
-    margin: 10px 0;
-    padding: 5px 10px 10px 10px;
+}
+
+.aside-grid {
+    background:$backgroundColor;
+    @include flexCenter();
+}
+.games-logo {
+    @include flexCenter();
+}
+.games-icon {
+    width: 85px;
+    height: 85px;
+    align-self: center;
+}
+
+.company-icon {
+    width: 120px;
+    height: 70px;
+}
+
+.main-grid {
+    background:$backgroundMain;
+    padding: 10px;
     
 }
 
-
+@media screen and(max-width: 70em) {
+    
+}

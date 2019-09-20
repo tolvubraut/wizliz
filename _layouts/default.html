@@ -6,7 +6,7 @@
     <title>{{ page.title }}</title>
     <meta name="viewport" content="width=device-width">
     <link rel="stylesheet" href="{{'/assets/css/styles.css' | prepend: site.baseurl }}">
-
+    <script src="{{site.baseurl}}/assets/js/slider.js"></script>
     
     <!-- ROBOTO CONDENSED MAIN-->
     <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed&display=swap" rel="stylesheet"> 
@@ -16,13 +16,14 @@
     <link href="https://fonts.googleapis.com/css?family=Rambla&display=swap" rel="stylesheet">
     <!-- Kosugi -->
     <link href="https://fonts.googleapis.com/css?family=Kosugi&display=swap" rel="stylesheet">
-    
+    <!-- Black Hans -->
+    <link href="https://fonts.googleapis.com/css?family=Black+Han+Sans&display=swap" rel="stylesheet">
     {% feed_meta %}
     {% seo %}
   </head>
   <body>
     {% include navigation.html %}
-    <!-- Decide if default container for body is : wrapper : grid : !width % with preset layout -->
+    <!-- Use seperate containers per page -->
     <div class="mainwrapper"> 
       <div class="main-container">
        {{ content }}
@@ -31,3 +32,4 @@
     {% include footer.html %}
   </body>
 </html>
+<!-- pep beikon -->

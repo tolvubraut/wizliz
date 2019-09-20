@@ -16,8 +16,9 @@
       <div class="nav-menu">
         {% for item in site.data.navigation %}
           <a class="nav-link" href="{{site.baseurl}}{{ item.link }}" {% if page.url == item.link %}class="current"{% endif %}>
+              <img class="nav-link-icon" src="{{site.baseurl}}{{ item.image }}">
               <span class="nav-link-text">
-                <img class="nav-link-icon" src="{{site.baseurl}}{{ item.image }}">{{ item.name }}
+                {{ item.name }}
               </span>  
           </a>
         {% endfor %}

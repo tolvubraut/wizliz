@@ -2,11 +2,11 @@
 layout: default
 ---
 <!-- author.html -->
-<h2>{{ page.company }}</h2>
+<h1>{{ page.company }}</h1>
 
 {{ content }}
 
-<h2>Games</h2>
+<h1>Games</h1>
 <ul>
   {% assign filtered_posts = site.posts | where: 'publisher', page.company %}
   {% for post in filtered_posts %}

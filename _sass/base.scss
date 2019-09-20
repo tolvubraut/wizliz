@@ -2,10 +2,11 @@
 //Cleanup for Mixins and vars
 // Base for Website
 :root {
-  --main-font: 'Roboto Condensed', sans-serif;
-  --secondary-font: 'Rambla', sans-serif;
-  --third-font: 'Yanone Kaffeesatz', sans-serif;
-  --alt-font: 'Kosugi', sans-serif;
+  --main-font: 'Roboto Condensed', sans-serif; //used for main things on site
+  --secondary-font: 'Rambla', sans-serif; // Use for side things Paragraphs, etc
+  --third-font: 'Yanone Kaffeesatz', sans-serif; // Experimental
+  --alt-font: 'Kosugi', sans-serif; //Experimental
+  --header-font: 'Black Han Sans', sans-serif; //Heavy Font
 }
 
 //Defaults
@@ -17,6 +18,9 @@
 }
 html , body {
   height: 100%;
+}
+.html {
+  scroll-behavior: smooth;
 }
 
 img {
@@ -33,7 +37,7 @@ img {
 //SCSS Variables
 
 //Font sizes
-$paraSize: 12px;
+$paraSize: 0.8em;
 
 $fontSize: 1em;
 
@@ -43,58 +47,33 @@ $fontHeadingSize: 1.5em;
 
 //Colors
 
-//Okay
-// $mainColor: #b3b3b3;
-$mainColor:#b4b9b4;
-//Find better secondary colour
-$secondaryColor: rgb(60, 100, 144);
-
-
+$mainColor:#b3b3b3;
+$secondaryColor: #030303;
+$headerColor: #030303; //Maybe give headers unqiue colour
+$linkColor:rgb(35, 100, 170);
 //find unique HeaderTitle and fix h/p tags on site
-$headerTitle: $mainColor; //Add Additional color style
+$whiteColor: white;
 
-//Good
-$backgroundColor:  #1a1a1a;
-
-//Used mainly in Header-Hamburger
+$backgroundColor:  #161616; //Background for header and footer
+$backgroundMain: linear-gradient(#32143d, #582c68);
+//Hamburger
 $backgroundRgba: rgba(25, 25, 25, 0.85);
-
-//Find better Gradient and find seperate gradient per content
+//Footer
 $backgroundGradient: linear-gradient(rgb(50, 96, 228), black);
-
-//Find new border colour
-$borderColor: black;
 
 
 
 //Mixin
 
 //Border Defaults
-@mixin botBorder {
-  border-bottom: 2px solid;
-  border-color:$borderColor;
-}
-@mixin allBorder {
-  border: 2px solid;
-  border-color:$borderColor;
-}
-@mixin topBorder {
-  border-top: 2px solid;
-  border-color:$borderColor;
-}
-@mixin botTopBorder {
-  border-top: 2px solid;
-  border-bottom: 2px solid;
-  border-color:$borderColor;
-}
-//Border Defaults
-
-@mixin sRadius {
-  border-radius: 10px;
+@mixin mainBorder($color:$whiteColor, $border1:border,  $border2:none) {
+  #{$border1}:2px solid;
+  #{$border2}:2px solid;
+  border-color: #{$color};
 }
 
-@mixin transLink {
-  transition: all 0.3s ease;
+@mixin sRadius($radius:10px) {
+  border-radius: #{$radius};
 }
 
 @mixin borderBackground {
@@ -102,29 +81,25 @@ $borderColor: black;
   @include sRadius;
 }
 
-//:Hover Psuedo on Elements
-@mixin mainHoverEffect {
-  //Avoid calling other mixins for transition
-  color: lighten( $mainColor, 10%);
-  border-color:darken($borderColor, 5%);
-  background-image: linear-gradient(rgb(45, 121, 200), black);
-  border: 2px solid;
-  h1, h2, h3, h4{
-    color: lighten($mainColor, 10%)
-  }
+
+@mixin transLink {
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
 }
 
-@mixin secondaryHoverEffect {
-  color:lighten( $mainColor, 10%);
-  border: 2px solid;
-  h1, h2, h3, h4 {
-    color: lighten($mainColor, 10%);
-  }
-}
+
+//:Hover Psuedo on Elements
+//Add argument for color
+
+//Fix both hovereffects to be consistent across all elements
 
 
 @mixin flexCenter {
   display:flex;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
   justify-content: center;
   align-items: center;
   align-content: center;
@@ -133,6 +108,7 @@ $borderColor: black;
 @mixin boxShadow {
   box-shadow: 0 0 7px 1px black;
 }
+//Add HoverEffects that work on all link elements
 
 /*==============================
       FontSizing/Colors
@@ -147,26 +123,36 @@ body {
   font-weight: 400;
   line-height: 1.5;
   //Add background img to Games/Companies/About and make it transparent
-  background-image: url("/verkefni2/assets/img/cyberpunk2077-backgroundgithub.png"); /* The image used */
-  background-color: #cccccc; /* Used if the image is unavailable */
+  background-image: url("/verkefni2/assets/img/mainBackground.png"); /* The image used */
+  background-color: whitesmoke;
   background-position: center; /* Center the image */
   background-repeat: no-repeat; /* Do not repeat the image */
   background-size: cover; /* Resize the background image to cover the entire container */
 }
 
-h1, h2, h3, h4{
+h1,  h3, h4 {
   font-family: var(--main-font);
-  color:$mainColor;
-  line-height: 1.5
+  color:$headerColor;
+  line-height: 1.5;
 }
+h2 {
+  color:white;
+}
+//H2 used exclusively for blog titles
+
 //Header and Links
 a {
-  color: $mainColor;
+  color: $linkColor;
   text-decoration: none;
+  //find alt colour for basis of colour change in :hover
+  &:hover {
+    opacity: 99;
+  }
 }
 //Content
 p {
-  color:white;
+  color:$secondaryColor;
+  font-weight: 600;
 }
 //Clear list Styles
 ul li {
@@ -175,45 +161,74 @@ ul li {
 
 //List Items for Publishers
 li a {
- 
   font-size: $fontHeadingSize;
-  color: darken($secondaryColor, 5%);
   font-weight: bold;
   margin: 10px;
   &:hover {
-    @include botBorder();
+    @include mainBorder($whiteColor, border-bottom);
   }
 }
 
-//Defaults for links
+//Styles Links
+
+.nav-link {
+  color:$mainColor;
+}
+
 .links {
   @include flexCenter();
   font-size: $fontHeadingSize;
 }
+//Use this instead of links to take up entire parent div
+.linksBlock {
+  display:flex;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+}
+
 
 .heading-title {
-  text-align:center;
-  color: lighten($mainColor, 25%);
+  font-family:  var(--header-font);
+  color: $headerColor;
+  font-weight: 100;
+  font-size: 3em;
+  text-transform: uppercase;
+  position: relative;
+  right: 1em;
 }
 
 //Header-Nav part
-header {
-  //BLANK
-}
+
 #headwrapper {
   background-color: $backgroundColor;
 }
 .nav-link-text {
   font-size: $fontLinkSize;
 }
-.nav-link {
-  text-transform: uppercase;  
+.nav-link { 
   &:hover {
     background:white;
   }
 }
 
 
+//Footer
+#footwrapper {
+  background: $backgroundColor;
+}
+
+.social-media {
+  background: darken($backgroundColor, 5%);
+}
+
+.company-info {
+  background: $backgroundGradient;
+}
+
+//Colours
+
+//Fonts
 
 /*==========================
   {{ content }} Container 
@@ -225,10 +240,20 @@ header {
   margin: 5em auto 0 auto;
   flex: 1 0 auto;
 }
+
+
 .main-container {
   width: auto;
+  padding: 10px;
 }
 
+
+@media screen and(max-width: 80em) {
+  .heading-title {
+    position:initial;
+    text-align:center;
+  }
+}
 
 //SEPERATE FOLDER FOR BODY
 @media screen and(max-width: 65em) {
@@ -236,16 +261,15 @@ header {
     width: auto;
   }
 
-  //Link Container
   .nav-menu {
     background: $backgroundRgba;
   }
-  //Header Links
+
   .nav-link {
     background: $backgroundRgba;
     font-size: $fontLinkSize;
   }
-  //Header Text
+
   .nav-link-text {
     font-weight: 500;
   }
@@ -255,7 +279,6 @@ header {
     background:white;
   }
 
-  //Styles Top and Bottom Bars on MobileMenu
   .bar:after,
   .bar:before {
     background:white;
@@ -267,5 +290,7 @@ header {
   }
 }
 @media screen and(max-width: 45em) {
-  
+ .heading-title {
+   font-size: 2em;
+ } 
 }

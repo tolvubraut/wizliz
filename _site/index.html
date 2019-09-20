@@ -6,7 +6,7 @@
     <title>Home</title>
     <meta name="viewport" content="width=device-width">
     <link rel="stylesheet" href="/verkefni2/assets/css/styles.css">
-
+    <script src="/verkefni2/assets/js/slider.js"></script>
     
     <!-- ROBOTO CONDENSED MAIN-->
     <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed&display=swap" rel="stylesheet"> 
@@ -16,7 +16,8 @@
     <link href="https://fonts.googleapis.com/css?family=Rambla&display=swap" rel="stylesheet">
     <!-- Kosugi -->
     <link href="https://fonts.googleapis.com/css?family=Kosugi&display=swap" rel="stylesheet">
-    
+    <!-- Black Hans -->
+    <link href="https://fonts.googleapis.com/css?family=Black+Han+Sans&display=swap" rel="stylesheet">
     <link type="application/atom+xml" rel="alternate" href="http://localhost:4000/verkefni2/feed.xml" />
     <!-- Begin Jekyll SEO tag v2.6.1 -->
 <title>Home</title>
@@ -26,7 +27,7 @@
 <link rel="canonical" href="http://localhost:4000/verkefni2/" />
 <meta property="og:url" content="http://localhost:4000/verkefni2/" />
 <script type="application/ld+json">
-{"headline":"Home","@type":"WebSite","url":"http://localhost:4000/verkefni2/","@context":"https://schema.org"}</script>
+{"@type":"WebSite","headline":"Home","url":"http://localhost:4000/verkefni2/","@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
   </head>
@@ -49,26 +50,37 @@
       <div class="nav-menu">
         
           <a class="nav-link" href="/verkefni2/" class="current">
+              <img class="nav-link-icon" src="/verkefni2/assets/img/g3.png">
               <span class="nav-link-text">
-                <img class="nav-link-icon" src="/verkefni2/assets/img/igni.png">Home
+                Home
+              </span>  
+          </a>
+        
+          <a class="nav-link" href="/verkefni2/gallery.html" >
+              <img class="nav-link-icon" src="/verkefni2/assets/img/g5.png">
+              <span class="nav-link-text">
+                Gallery
               </span>  
           </a>
         
           <a class="nav-link" href="/verkefni2/games.html" >
+              <img class="nav-link-icon" src="/verkefni2/assets/img/g1.png">
               <span class="nav-link-text">
-                <img class="nav-link-icon" src="/verkefni2/assets/img/quen.png">Games
+                Games
               </span>  
           </a>
         
           <a class="nav-link" href="/verkefni2/companies.html" >
+              <img class="nav-link-icon" src="/verkefni2/assets/img/g4.png">
               <span class="nav-link-text">
-                <img class="nav-link-icon" src="/verkefni2/assets/img/aard.png">Companies
+                Companies
               </span>  
           </a>
         
           <a class="nav-link" href="/verkefni2/about.html" >
+              <img class="nav-link-icon" src="/verkefni2/assets/img/g2.png">
               <span class="nav-link-text">
-                <img class="nav-link-icon" src="/verkefni2/assets/img/axii.png">About
+                About
               </span>  
           </a>
         
@@ -76,24 +88,60 @@
     </nav>
   </div>
 </header>
-    <!-- Decide if default container for body is : wrapper : grid : !width % with preset layout -->
+    <!-- Use seperate containers per page -->
     <div class="mainwrapper"> 
       <div class="main-container">
-       
+       <!-- add slider -->
+
+
+
+<p>TODO Add slider | 3pic layout on the side | Page bio beneath it</p><hr>
+<p>Color test</p>
+<h1>h1 test</h1>
+<h2>h2 test</h2>
+<h3>h3 test</h3>
+<h4>h4 test</h4>
+<a href="">Link Test</a>
+
+
       </div>
     </div>
-    <footer class="footwrapper">
-    <a href="">
+    
+<footer id="footwrapper">
+    <div class="social-media-container">
+        <div class="social-media">
+            <a href="">
+                <img src="/verkefni2/assets/img/g1.png">
+            </a>
+            <a href="">
+                <img src="/verkefni2/assets/img/g2.png">
+            </a>
+            <a href="">
+                <img src="/verkefni2/assets/img/g3.png">
+            </a>
+            <a href="">
+                <img src="/verkefni2/assets/img/g4.png">
+            </a>
+            <a href="">
+                <img src="/verkefni2/assets/img/g5.png">
+            </a>
+        </div>
+    </div>
+    
     <div class="footer-container">
-        <div class="company-container"> 
+        <div class="flexwrapper"> 
             
-            <div class="company-info"><span class="links">Activision</span></div>       
+                <div class="company-info">
+                    <a class="linksBlock" href="/verkefni2/companies/activision.html" ><span class="links">Activision</span></a>       
+                </div>
             
-            <div class="company-info"><span class="links">Cd Projekt Red</span></div>       
+                <div class="company-info">
+                    <a class="linksBlock" href="/verkefni2/companies/cd_projekt_red.html" ><span class="links">Cd Projekt Red</span></a>       
+                </div>
             
         </div>
     </div>
-</a>
 </footer>
   </body>
 </html>
+<!-- pep beikon -->
