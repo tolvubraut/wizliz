@@ -1,0 +1,230 @@
+
+//Cleanup for Mixins and vars
+// Base for Website
+:root {
+  --main-font: 'Roboto Condensed', sans-serif; //used for main things on site
+  --secondary-font: 'Rambla', sans-serif; // Use for side things Paragraphs, etc
+  --third-font: 'Yanone Kaffeesatz', sans-serif; // Experimental
+  --alt-font: 'Kosugi', sans-serif; //Experimental
+  --header-font: 'Black Han Sans', sans-serif; //Heavy Font
+}
+
+//Defaults
+* {
+  font-family: var(--secondary-font);
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+//sticky
+html, body {
+  height: 100%;
+}
+.html {
+  scroll-behavior: smooth;
+}
+
+img {
+  width: 100%;
+  height: auto;
+}
+
+//End of Sticky Footer
+
+.current {
+  color: orangered;
+}
+
+//SCSS Variables
+
+//Font sizes
+$paraSize: 0.8em;
+
+$fontSize: 1em;
+
+$fontLinkSize: 1.25em;
+
+$fontHeadingSize: 1.5em;
+
+//Colors
+
+$mainColor:#b3b3b3;
+$secondaryColor: #030303;
+$headerColor: #030303; //Maybe give headers unqiue colour
+$linkColor:rgb(35, 100, 170);
+$whiteColor: white;
+
+$backgroundColor:  #161616; //Background for header and footer
+$backgroundMain: linear-gradient(#32143d, #582c68);
+//Hamburger
+$backgroundRgba: rgba(25, 25, 25, 0.85);
+//Footer
+$backgroundGradient: linear-gradient(to top right,rgba( 22, 22, 22, 0.6), 70%, rgba(82, 42, 97, 0.6));
+//Mixin
+//Border Defaults
+@mixin mainBorder($color:$whiteColor, $border1:border,  $border2:none) {
+  #{$border1}:2px solid;
+  #{$border2}:2px solid;
+  border-color: #{$color};
+}
+
+@mixin sRadius($radius:10px) {
+  border-radius: #{$radius};
+}
+
+@mixin transLink {
+  -webkit-transition: all 0.3s ease;
+  -moz-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+
+@mixin fade {
+  -webkit-animation-name: fade;
+  -webkit-animation-duration: 1.5s;
+  animation-name: fade;
+  animation-duration: 1.5s;
+  @-webkit-keyframes fade {
+    from {opacity: .4} 
+    to {opacity: 1}
+  }
+  
+  @keyframes fade {
+    from {opacity: .4} 
+    to {opacity: 1}
+  }
+}
+
+@mixin flexCenter {
+  display:flex;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+}
+
+@mixin boxShadow {
+  box-shadow: 0 0 7px 1px black;
+}
+//Add HoverEffects that work on all link elements
+
+/*==============================
+      FontSizing/Colors
+================================*/
+
+//Base
+body {
+  display:flex;
+  flex-direction: column;
+  font-family: var(--secondary-font);
+  font-weight: 400;
+  line-height: 1.5;
+  //Add background img to Games/Companies/About and make it transparent
+  background-image: url("/verkefni2/assets/img/mainBackground.png"); /* The image used */
+  background-color: whitesmoke;
+  background-position: center; /* Center the image */
+  background-repeat: no-repeat; /* Do not repeat the image */
+  background-size: cover fill; /* Resize the background image to cover the entire container */
+}
+
+h1,  h3, h4 {
+  font-family: var(--main-font);
+  color:$headerColor;
+  line-height: 1.5;
+}
+//H2 used exclusively for blog titles
+h2 {
+  color:$whiteColor;
+}
+
+//Header and Links
+a {
+  color: $linkColor;
+  text-decoration: none;
+  //find alt colour for basis of colour change in :hover
+  &:hover {
+    color: lighten($linkColor, 10%);
+  }
+}
+
+p {
+  color:$secondaryColor;
+  font-weight: 600;
+}
+
+ul li {
+  list-style: none;
+}
+
+//List Items for Publishers
+li a {
+  font-size: $fontHeadingSize;
+  font-weight: bold;
+  margin: 10px;
+  &:hover {
+    @include mainBorder($whiteColor, border-bottom);
+  }
+}
+
+//Styles Links
+.links {
+  @include flexCenter();
+  font-size: $fontHeadingSize;
+}
+
+//Use this instead of links to take up entire parent div
+.linksBlock {
+  display:flex;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+}
+
+.heading-title {
+  font-family:  var(--header-font);
+  color: $headerColor;
+  font-weight: 100;
+  font-size: 3em;
+  text-transform: uppercase;
+  position: relative;
+  right: 1em;
+}
+
+/*==========================
+  {{ content }} Container 
+============================*/
+
+//Make new folder for base body
+.mainwrapper {
+  width: 70em;
+  margin: 5em auto 0 auto;
+  flex: 1 0 auto;
+}
+
+.main-container {
+  width: auto;
+  padding: 10px;
+}
+
+@media screen and(max-width: 80em) {
+  .heading-title {
+    position:initial;
+    text-align:center;
+  }
+}
+
+//SEPERATE FOLDER FOR BODY
+@media screen and(max-width: 65em) {
+  .mainwrapper {
+    width: auto;
+  }
+}
+
+@media screen and(max-width: 45em) {
+ .heading-title {
+   font-size: 2em;
+ } 
+}

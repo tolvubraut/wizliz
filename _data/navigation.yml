@@ -1,9 +1,18 @@
 - name: Home
+  image: /assets/img/g3.png
   link: /
+- name: Gallery
+  image: /assets/img/g5.png
+  link: /gallery.html 
+- name: Games
+  image: /assets/img/g1.png
+  link: /games.html
+- name: Companies
+  image: /assets/img/g4.png
+  link: /companies.html
 - name: About
+  image: /assets/img/g2.png
   link: /about.html
-- name: Blog
-  link: /blog.html
-- name: Staff
-  link: /staff.html
+
+
   

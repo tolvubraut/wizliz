@@ -1,0 +1,21 @@
+---
+layout: default
+title: Games
+---
+<!-- games.html -->
+<!-- Working -->
+<h1 class="heading-title">Games</h1>
+
+  {% for post in site.posts %}
+  <!-- Move a tag inside -->
+    <a href="{{site.baseurl}}{{ post.url }}" class="game-container">
+      <aside class="aside-grid">
+        <img class="games-icon" src="{{site.baseurl}}{{ post.icon }}">
+      </aside>
+      <main class="main-grid"> 
+        <h2>{{ post.title }} </h2>
+        <p>{{ post.excerpt }}</p>
+      </main>
+    </a>
+  
+  {% endfor %}

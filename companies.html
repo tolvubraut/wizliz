@@ -1,0 +1,19 @@
+---
+layout: default
+title: Companies
+header: Companies
+---
+<h1 class="heading-title">Companies</h1>
+<!-- companies.html -->
+<!-- Make seperate css for this page maybe -->
+  {% for publisher in site.companies %}
+    <a href="{{site.baseurl}}{{ publisher.url }}" class="game-container">
+      <aside class="aside-grid">
+          <img  class="company-icon" src="{{site.baseurl}}{{ publisher.image }}">
+      </aside>
+      <main class="main-grid"> 
+          <p>{{ publisher.content | markdownify }}</p>
+      </main>
+    </a>
+  {% endfor %}
+

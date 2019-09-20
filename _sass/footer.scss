@@ -1,0 +1,71 @@
+//Start of Footer
+//Start of Social Media
+#footwrapper {
+    @include mainBorder($secondaryColor);
+    @include boxShadow;
+    background: $backgroundColor;
+}
+
+//Social media temp
+.social-media-container {
+    @include flexCenter();
+    flex-direction: row;
+    height:auto;
+}
+
+.social-media {
+    @include flexCenter();
+    flex-direction: row;
+    flex-wrap:wrap;
+    flex: 30%;
+    width: 100%;
+    background: darken($backgroundColor, 5%);
+}
+
+//maybe add a class for footer logos
+.social-media img {
+    @include flexCenter();
+    width: 35px;
+    border-radius: 50%;
+    background:$whiteColor;
+    margin: 5px 10px 5px 10px;
+}
+//End of Social Media
+
+//Start of main Content on footer
+.footer-container {
+    max-width: 70em;
+    height: auto;
+    margin: 0 auto;
+}
+
+.flexwrapper {
+    display:flex;
+    flex-wrap: wrap;
+}
+
+.company-info {
+    @include flexCenter;
+    @include sRadius;
+    flex: 25%;
+    height: 5em;
+    margin: 10px;
+    background: $backgroundGradient;
+    &:hover {
+        background: linear-gradient(to top right,rgba( 22, 22, 22, 0.4), 65%, rgba(82, 42, 97, 0.4));
+    }
+}
+// of main Content on footer
+
+@media screen and (max-width: 45em) {
+    .company-info {
+    flex: 35%;
+    }
+}
+
+@media screen and (max-width: 30em) {
+    .company-info {
+        flex: 45%;
+        
+    }
+}
