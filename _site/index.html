@@ -5,7 +5,6 @@
     <title>Home</title>
     <meta name="viewport" content="width=device-width">
     <link rel="stylesheet" href="/verkefni2/assets/css/styles.css">
-    <script src="/verkefni2/assets/js/slider.js"></script>
     
     <!-- ROBOTO CONDENSED MAIN-->
     <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed&display=swap" rel="stylesheet"> 
@@ -48,7 +47,7 @@
       <!-- Menu -->
       <div class="nav-menu">
         
-          <a class="nav-link" href="/verkefni2/" class="current">
+          <a class="nav-link" href="/verkefni2/" >
               <img class="nav-link-icon" src="/verkefni2/assets/img/g3.png">
               <span class="nav-link-text">
                 Home
@@ -87,32 +86,106 @@
     </nav>
   </div>
 </header>
-        <!-- Disabled until footer pos is fixed -->
+            <!-- Slider -->
+    <!-- First Section -->
 <div class="homewrapper">
-<div class="home-container">
-    <section class="slideshow-container">
+    <div class="home-container">
+            <a class="prev" onclick="plusSlides(-1)">&#10094;</a> <!-- replace && with images -->
+            <a class="next" onclick="plusSlides(1)">&#10095;</a>
+        <div class="slideshow-container">  
+        
+            <section class="mySlides">
+                <img class="slides" src="/verkefni2\assets\img\starcraft2Slider.png">+
+            </section>
+        
+            <section class="mySlides">
+                <img class="slides" src="/verkefni2\assets\img\diablo3Slider.jpg">+
+            </section>
+        
+            <section class="mySlides">
+                <img class="slides" src="/verkefni2\assets\img\cyberpunkSlider.jpg">+
+            </section>
+        
+            <section class="mySlides">
+                <img class="slides" src="/verkefni2\assets\img\wowSlider.jpg">+
+            </section>
+        
+            <section class="mySlides">
+                <img class="slides" src="/verkefni2\assets\img\witcher3Slider.jpg">+
+            </section>
+         
+
+        <div class= "selectPos">
+                
+                
+                    <span class="slideSelect" onclick="currentSlide(1)"></span> 
+                
+                
+                    <span class="slideSelect" onclick="currentSlide(2)"></span> 
+                
+                
+                    <span class="slideSelect" onclick="currentSlide(3)"></span> 
+                
+                
+                    <span class="slideSelect" onclick="currentSlide(4)"></span> 
+                
+                
+                    <span class="slideSelect" onclick="currentSlide(5)"></span> 
+                
+            </div>   
+        </div>
+        
+        <!-- Second Section -->
+        <gallery class="side-gallery">
+            <main class="">
+                <img class="side-images" src="/verkefni2/assets/img/diablo3Slider.jpg">
+            </main>
+            <vinstri class="">
+                <img class="side-images" src="/verkefni2/assets/img/cyberpunk2077-background.png">
+            </vinstri>
+            <haegri class="">
+                <img class="side-images" src="/verkefni2/assets/img/cdprojektredgallery.jpg">
+            <haegri/>
+        </gallery>
+    </div>
     
-        <img class="slides" src="/verkefni2\assets\img\starcraft2Slider.png">
+    <div class="news-container">
+        <article>
+            <h1>Project - WIZLIZ Web Page</h1>
+            <br>
+            <p>coaocnaosnctAEHai ertu ai ljcerh i? disd urh ilorem ipsum aldor daolum metlar mellur eru drullur i sokkinum þónum</p>
+        </article>
+    </div>
+</div>
+
+<script>
+    var slideIndex = 1;
+    showSlides(slideIndex);
     
-    </section>
-    <gallery class="side-gallery">
-        <main class="">
-            <img class="side-images" src="/verkefni2/assets/img/blizzard.png">
-        </main>
-        <vinstri class="">
-            <img class="side-images" src="/verkefni2/assets/img/cyberpunk2077-background.png">
-        </vinstri>
-        <haegri class="">
-            <img class="side-images" src="/verkefni2/assets/img/cdprojektredgallery.jpg">
-        <haegri/>
-    </gallery>
-</div>
-<div class="news-container">
-    <h1>Project - WIZLIZ Web Page</h1>
-    <br>
-    <p>coaocnaosnctAEHai ertu ai ljcerh i? disd urh ilorem ipsum aldor daolum metlar mellur eru drullur i sokkinum þónum</p>
-</div>
-</div>
+    function plusSlides(n) {
+        showSlides(slideIndex += n);
+    }
+    
+    function currentSlide(n) {
+        showSlides(slideIndex = n);
+    }
+    
+    function showSlides(n) {
+        var i;
+        var slides = document.getElementsByClassName("mySlides");
+        var dots = document.getElementsByClassName("slideSelect");
+        if (n > slides.length) {slideIndex = 1}    
+        if (n < 1) {slideIndex = slides.length}
+        for (i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";  
+        }
+        for (i = 0; i < dots.length; i++) {
+            dots[i].className = dots[i].className.replace(" active", "");
+        }
+        slides[slideIndex-1].style.display = "block";  
+        dots[slideIndex-1].className += " active";
+    }
+</script>
 
 
 

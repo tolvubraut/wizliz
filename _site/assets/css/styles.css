@@ -125,7 +125,7 @@ main { grid-area: main; }
 
 .main-grid { background: linear-gradient(#32143d, #582c68); padding: 10px; }
 
-#footwrapper { border: 2px solid; none: 2px solid; border-color: #030303; box-shadow: 0 0 7px 1px black; background: #161616; min-width: 100vh; }
+#footwrapper { border: 2px solid; none: 2px solid; border-color: #030303; box-shadow: 0 0 7px 1px black; background: #161616; }
 
 .social-media-container { display: flex; display: -webkit-box; display: -moz-box; display: -webkit-flex; display: -ms-flexbox; justify-content: center; align-items: center; align-content: center; flex-direction: row; height: auto; }
 
@@ -139,7 +139,7 @@ main { grid-area: main; }
 
 .company-info { display: flex; display: -webkit-box; display: -moz-box; display: -webkit-flex; display: -ms-flexbox; justify-content: center; align-items: center; align-content: center; border-radius: 10px; flex: 25%; height: 5em; margin: 10px; background: linear-gradient(to top right, rgba(22, 22, 22, 0.6), 70%, rgba(82, 42, 97, 0.6)); }
 
-.company-info:hover { background: linear-gradient(to top right, rgba(22, 22, 22, 0.4), 70%, rgba(82, 42, 97, 0.4)); }
+.company-info:hover { background: linear-gradient(to top right, rgba(22, 22, 22, 0.4), 65%, rgba(82, 42, 97, 0.4)); }
 
 @media screen and (max-width: 45em) { .company-info { flex: 35%; } }
 
@@ -157,18 +157,41 @@ haegri { grid-area: haegri; }
 
 .homewrapper { margin-top: 4em; flex: 1 0 auto; }
 
-.home-container { display: grid; grid-template-areas: "section gallery"; grid-template-columns: 1fr 1fr; border-bottom: 10px solid #743a8a; height: 50%; }
+.home-container { display: grid; grid-template-areas: "section gallery"; grid-template-columns: 1fr 1fr; border-bottom: 10px solid #743a8a; }
 
-.slideshow-container { -webkit-transition: left 2s linear; -moz-transition: left 2s linear; -o-transition: left 2s linear; transition: left 2s linear; max-width: 100%; }
+.slideshow-container { max-width: 100%; height: 45vh; position: relative; }
+
+.mySlides { -webkit-animation-name: fade; -webkit-animation-duration: 1.5s; animation-name: fade; animation-duration: 1.5s; display: none; max-width: 100%; height: 45vh; }
+
+@-webkit-keyframes fade { from { opacity: .4; }
+  to { opacity: 1; } }
+
+@keyframes fade { from { opacity: .4; }
+  to { opacity: 1; } }
 
 .slides { display: block; width: 100%; height: 100%; }
 
-.side-gallery { display: grid; grid-template-areas: "main main" "vinstri haegri"; grid-template-rows: 50% 1fr; }
+.prev, .next { display: flex; position: absolute; cursor: pointer; width: auto; padding: 16px; font-weight: bold; color: white; background-color: rgba(0, 0, 0, 0.8); font-size: 1.5em; top: 24%; transition: 0.6s ease; border-radius: 10px; z-index: 1000; }
 
-.side-images { display: block; object-fit: cover contain; height: 100%; border: 2px solid; none: 2px solid; border-color: #030303; }
+.next { right: 50%; border-radius: 10px; }
+
+.prev:hover, .next:hover { background-color: white; }
+
+.selectPos { text-align: center; position: relative; bottom: 30px; }
+
+.slideSelect { cursor: pointer; height: 15px; width: 15px; margin: 0 2px; display: inline-block; background-color: #b3b3b3; border-radius: 50%; transition: background-color 0.6s ease; }
+
+.slideSelect:active { background-color: #737373; }
+
+.active, .dot:hover { background-color: #717171; }
+
+.side-gallery { display: grid; grid-template-areas: "main main" "vinstri haegri"; grid-template-rows: 50% 50%; height: 45vh; object-fit: contain; }
+
+.side-images { display: block; height: 100%; border: 2px solid; none: 2px solid; border-color: #030303; }
 
 .news-container { width: 80em; margin: 0 auto; padding: 3em 0 4em 0; }
 
-@media screen and (max-width: 65em) { .homewrapper { margin-top: 4.25em; } }
+@media screen and (max-width: 65em) { .home-container { width: auto; }
+  .news-container { width: auto; } }
 
 /*# sourceMappingURL=styles.css.map */
