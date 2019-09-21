@@ -92,60 +92,84 @@
     <div class="home-container">
             <a class="prev" onclick="plusSlides(-1)">&#10094;</a> <!-- replace && with images -->
             <a class="next" onclick="plusSlides(1)">&#10095;</a>
-        <div class="slideshow-container">  
-        
-            <section class="mySlides">
-                <img class="slides" src="/verkefni2\assets\img\starcraft2Slider.png">
-            </section>
-        
-            <section class="mySlides">
-                <img class="slides" src="/verkefni2\assets\img\diablo3Slider.jpg">
-            </section>
-        
-            <section class="mySlides">
-                <img class="slides" src="/verkefni2\assets\img\cyberpunkSlider.jpg">
-            </section>
-        
-            <section class="mySlides">
-                <img class="slides" src="/verkefni2\assets\img\wowSlider.jpg">
-            </section>
-        
-            <section class="mySlides">
-                <img class="slides" src="/verkefni2\assets\img\witcher3Slider.jpg">
-            </section>
-         
+        <div class="slideshow-container"> 
+            
+            
+                <section class="mySlides">
+                    <img class="slides" src="/verkefni2\assets\img\starcraft2Slider.png">
+                </section>
+            
+                <section class="mySlides">
+                    <img class="slides" src="/verkefni2\assets\img\diablo3Slider.jpg">
+                </section>
+            
+                <section class="mySlides">
+                    <img class="slides" src="/verkefni2\assets\img\cyberpunkSlider.jpg">
+                </section>
+            
+                <section class="mySlides">
+                    <img class="slides" src="/verkefni2\assets\img\wowSlider.jpg">
+                </section>
+            
+                <section class="mySlides">
+                    <img class="slides" src="/verkefni2\assets\img\witcher3Slider.jpg">
+                </section>
+             
 
-        <div class= "selectPos">
+            <div class= "selectPos">
                 
-                
+                    
                     <span class="slideSelect" onclick="currentSlide(1)"></span> 
                 
-                
+                    
                     <span class="slideSelect" onclick="currentSlide(2)"></span> 
                 
-                
+                    
                     <span class="slideSelect" onclick="currentSlide(3)"></span> 
                 
-                
+                    
                     <span class="slideSelect" onclick="currentSlide(4)"></span> 
                 
-                
+                    
                     <span class="slideSelect" onclick="currentSlide(5)"></span> 
                 
             </div>   
         </div>
-        
-        <!-- Second Section -->
+
         <gallery class="side-gallery">
-            <main>
-                <img class="side-images" src="/verkefni2/assets/img/diablo3Slider.jpg">
-            </main>
-            <vinstri >
-                <img class="side-images" src="/verkefni2/assets/img/cyberpunk2077-background.png">
-            </vinstri>
-            <haegri>
-                <img class="side-images" src="/verkefni2/assets/img/cdprojektredgallery.jpg">
-            <haegri/>
+            
+            
+                
+                    <!-- 1 is used by main picture -->
+                
+            
+            
+                
+                    <topL>
+                        <img class="slides"  src="/verkefni2\assets\img\wowSlider.jpg">
+                    </topL>
+                
+            
+            
+                
+                    <topR>
+                        <img class="slides"  src="/verkefni2\assets\img\cyberpunkSlider.jpg">
+                    </topR>
+                
+            
+            
+                
+                    <botL>
+                        <img class="slides"  src="/verkefni2\assets\img\diablo3Slider.jpg">
+                    </botL>
+            
+            
+                
+                    <botR">
+                        <img class="slides"  src="/verkefni2\assets\img\starcraft2Slider.png">
+                    </botR> 
+                
+            
         </gallery>
     </div>
 
@@ -153,17 +177,45 @@
         <article>
             <h1>Project - WIZLIZ Web Page</h1>
             <br>
-            <p>Insert News here</p>
+            
+            
+              
+                <h1>5</h1>
+              
+            
+            
+              
+                <h1>5</h1>
+              
+            
+            
+              
+                <h1>5</h1>
+              
+            
+            
+              
+                <h1>5</h1>
+              
+            
+            
+              
+                <h1>5</h1>
+              
+            
+            <p>Insert News heregit </p>
+            
         </article>
     </div>
 </div>
 
 <script>
-    var slideIndex = 3;
+    var slideIndex =1;
     showSlides(slideIndex);
     
     function plusSlides(n) {
         showSlides(slideIndex += n);
+        console.log(slideIndex-1)
     }
     
     function currentSlide(n) {
@@ -174,15 +226,28 @@
         var i;
         var slides = document.getElementsByClassName("mySlides");
         var dots = document.getElementsByClassName("slideSelect");
-        if (n > slides.length) {slideIndex = 1}    
-        if (n < 1) {slideIndex = slides.length}
+        // If Slider goes beyond 5 it will reset to first image (1)
+        if (n > slides.length) {
+            slideIndex = 1
+        }    
+        // If Slider goes below 1 resets to last image (5)
+        if (n < 1) {
+            slideIndex = slides.length
+        }
+        // Puts None display on all slides
         for (i = 0; i < slides.length; i++) {
             slides[i].style.display = "none";  
         }
+        
+        //Removes Active from all Dots
         for (i = 0; i < dots.length; i++) {
             dots[i].className = dots[i].className.replace(" active", "");
         }
+        
+        //Puts current slide display as a block
         slides[slideIndex-1].style.display = "block";  
+
+        //Puts current dot as active
         dots[slideIndex-1].className += " active";
     }
 </script>
@@ -226,5 +291,27 @@
         </div>
     </div>
 </footer>
+
+    
+      
+        
+          <p>1</p>
+        
+      
+      
+        
+      
+      
+        
+      
+      
+        
+      
+      
+        
+      
+
+
+
   </body>
 </html>

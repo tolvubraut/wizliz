@@ -8,17 +8,22 @@ gallery {
     grid-area: gallery;
 }
 
-main {
-    grid-area: main;
+topL {
+    grid-area:topL;
 }
 
-vinstri {
-    grid-area:vinstri;
+topR {
+    grid-area:topR
 }
 
-haegri {
-    grid-area: haegri
+botL {
+    grid-area: botL
 }
+
+botR {
+    grid-area: botR;
+}
+
 .homewrapper {
     margin-top: 4em;
     flex: 1 0 auto; //Keeps sticky footer sticky
@@ -42,7 +47,6 @@ haegri {
 
 .mySlides {
     @include fade();
-    display:none;
     max-width: 100%;
     height:$pictureGalleryHeight;
 }
@@ -50,7 +54,6 @@ haegri {
 //Each image in the slider
 .slides {
     display:block;
-    width: 100%;
     height: 100%;
     @include mainBorder($secondaryColor);
 }
@@ -103,16 +106,13 @@ haegri {
     background-color: $backgroundRgba;
   }
 
-
-
-
 //Side Grid
 //Scales Grid containing side images
 .side-gallery {
     @include grid();
     grid-template-areas: 
-    "main main"
-    "vinstri haegri";
+    "topL topR"
+    "botL botR";
     grid-template-rows: 50% 50%;
     // grid-template-rows: minmax(50%, 25%);
     height: $pictureGalleryHeight;
@@ -120,16 +120,12 @@ haegri {
 }
 
 //Scales size of image within grid container
-.side-images {
-    display:block;
-    height: 100%;
-    @include mainBorder($secondaryColor);
-}
 
 .news-container {
     width: 80em;
     margin: 0 auto;
     padding: 3em 0 4em 0;
+    z-index: 10000;
 }
 
 @media screen and(max-width: 65em) {    

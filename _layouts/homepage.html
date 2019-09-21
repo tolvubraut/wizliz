@@ -23,5 +23,15 @@
     {% include navigation.html %}
         {{ content }}
     {% include footer.html %}
+
+    {% for index in site.posts limit:5 %}
+      {% assign i = i | plus: 1 %}
+        {% if i == 1%}
+          <p>{{i}}</p>
+        {% endif %}
+      {% endfor %}
+
+
+
   </body>
 </html>
