@@ -1,26 +1,26 @@
 //Grid area
 $pictureGalleryHeight: 45vh;
-section {
-    grid-area: section;
+.main {
+    grid-area: main;
 }
 
-gallery {
-    grid-area: gallery;
+.secondary {
+    grid-area: secondary;
 }
 
-topL {
+.topL {
     grid-area:topL;
 }
 
-topR {
+.topR {
     grid-area:topR
 }
 
-botL {
+.botL {
     grid-area: botL
 }
 
-botR {
+.botR {
     grid-area: botR;
 }
 
@@ -30,12 +30,10 @@ botR {
     
 }
 
-.home-container {
-    @include grid();
-    grid-template-areas: "section gallery";
-    grid-template-columns: 1fr 1fr;
-    // border-bottom: 10px solid #743a8a;
-}
+/*========================
+        Grid
+==========================*/
+
 
 //Slider
 //Scales Grid containing the images
@@ -43,12 +41,30 @@ botR {
     max-width: 100%;
     height:$pictureGalleryHeight;
     position: relative;
+    @include grid();
+    grid-template-areas: "main";
+    grid-template-columns: 1fr;
 }
+
+//Side grid make 4x8
+.slideshow-gallery {
+    @include grid();
+    grid-template-areas: 
+    "main main topL topR"
+    "main main botL botR";
+    grid-template-rows: 50% 50%;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    // grid-template-rows: minmax(50%, 25%);
+    height: $pictureGalleryHeight;
+    object-fit:contain;
+}
+
+
+
 
 .mySlides {
     @include fade();
     max-width: 100%;
-    height:$pictureGalleryHeight;
 }
 
 //Each image in the slider
@@ -64,7 +80,7 @@ botR {
     width: auto;
     padding: 16px;
     font-weight: bold;
-    color:white;
+    color:$whiteColor;
     background-color: $backgroundRgba;
     font-size: $fontHeadingSize;
     top: 24%;
@@ -78,7 +94,7 @@ botR {
     @include sRadius();
   }
 
-  .prev:hover, .next:hover {
+.prev:hover, .next:hover {
     background-color:$whiteColor;
   }
 
@@ -86,6 +102,7 @@ botR {
     text-align: center;
     position:relative;
     bottom: 30px;
+    right: 25.8%;
 }
 
 .slideSelect {
@@ -106,18 +123,7 @@ botR {
     background-color: $backgroundRgba;
   }
 
-//Side Grid
-//Scales Grid containing side images
-.side-gallery {
-    @include grid();
-    grid-template-areas: 
-    "topL topR"
-    "botL botR";
-    grid-template-rows: 50% 50%;
-    // grid-template-rows: minmax(50%, 25%);
-    height: $pictureGalleryHeight;
-    object-fit:contain;
-}
+
 
 //Scales size of image within grid container
 
