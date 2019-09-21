@@ -157,7 +157,7 @@ haegri { grid-area: haegri; }
 
 .homewrapper { margin-top: 4em; flex: 1 0 auto; }
 
-.home-container { display: -webkit-box; display: grid; grid-template-areas: "section gallery"; grid-template-columns: 1fr 1fr; border-bottom: 10px solid #743a8a; }
+.home-container { display: -webkit-box; display: grid; grid-template-areas: "section gallery"; grid-template-columns: 1fr 1fr; }
 
 .slideshow-container { max-width: 100%; height: 45vh; position: relative; }
 

@@ -29,7 +29,7 @@ haegri {
     @include grid();
     grid-template-areas: "section gallery";
     grid-template-columns: 1fr 1fr;
-    border-bottom: 10px solid #743a8a;
+    // border-bottom: 10px solid #743a8a;
 }
 
 //Slider
@@ -102,6 +102,8 @@ haegri {
 .active, .dot:hover {
     background-color: $backgroundRgba;
   }
+
+
 
 
 //Side Grid
