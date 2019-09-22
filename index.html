@@ -5,45 +5,55 @@ layout: homepage
 
 
 <div class="homewrapper">
-    <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-    <a class="next" onclick="plusSlides(1)">&#10095;</a>
+
         <!-- Slider -->
-    <div class="slideshow-container"> 
-        <gallery class="slideshow-gallery">
+    <div class="slideshow-gallery"> 
+        
+        <gallery class="slideshow-container">
+            
             {% for index in site.posts reversed limit:5 %}
             {% assign counter = counter | plus:1 %}
                 {% if counter == 1 %}
-                    <section class="mySlides main">
-                        <img onclick ="currentSlide(1)" class="slides" src="{{site.baseurl}}{{index.image}}" data-number="0">
+                    <!-- Change Js code for slides -->
+                    <section class="myBigSlide">
+                        
+                        <img  class="bigSlide" src="{{site.baseurl}}{{index.image}}">
+                        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+                        <a class="next" onclick="plusSlides(1)">&#10095;</a>
+                       
+                    </section>
+                <div class="slides-container">
+                    <section class="mySlides">
+                        <img onclick ="currentSlide(1)" class="slides" src="{{site.baseurl}}{{index.image}}" >
                     </section>
                 {% elsif counter == 2 %}
                     <section  class="mySlides">
-                        <img onclick ="currentSlide(2)" class="slides topL" src="{{site.baseurl}}{{index.image}}">
+                        <img onclick ="currentSlide(2)" class="slides" src="{{site.baseurl}}{{index.image}}">
                     </section > 
                 {% elsif counter == 3 %}
                     <section class="mySlides">
-                        <img  onclick ="currentSlide(3)" class="slides topR" src="{{site.baseurl}}{{index.image}}">
+                        <img  onclick ="currentSlide(3)" class="slides" src="{{site.baseurl}}{{index.image}}">
                     </section>
                 {% elsif counter == 4 %}
                     <section class="mySlides">
-                        <img onclick ="currentSlide(4)" class="slides botL" src="{{site.baseurl}}{{index.image}}">
+                        <img onclick ="currentSlide(4)" class="slides" src="{{site.baseurl}}{{index.image}}">
                     </section>
                 {%- elsif counter == 5 %}
                     <section class="mySlides">
-                        <img onclick ="currentSlide(5)" class="slides botR" src="{{site.baseurl}}{{index.image}}">
+                        <img onclick ="currentSlide(5)" class="slides" src="{{site.baseurl}}{{index.image}}">
                     </section> 
+                </div>
                 {% endif %}
             {% endfor %}
         </gallery>
 
             <!-- Dots -->
-            <div class= "selectPos">
-                <!-- Possibly make 1x1 Grid with Main picture and transfer small pictures to 5-10% at bottom of main as absolute -->
+            <!-- <div class= "selectPos">
                 {% for index in site.posts limit:5 %}
                     {% assign i = i | plus:1 %}
                     <span class="slideSelect" onclick="currentSlide({{i}})"></span> 
                 {% endfor %}
-            </div>  
+            </div>   -->
         </div>
 
     <div class="news-container">
@@ -55,11 +65,7 @@ layout: homepage
     </div>
 </div>
 
-
-
 <script>
-  //Gallery Used in html
-
 
     //These will only be run on startup
     var imageCollection = [];
@@ -82,54 +88,42 @@ layout: homepage
     function plusSlides(n) {
         lastSlide = slideIndex;
         nextSlide = nextSlide + 1
-        plusFunc = true;
         showSlides(slideIndex += n);
         //Put prev slide here  
     }
 
-    //Requires another formula
     function currentSlide(n) {
         lastSlide = slideIndex;
         nextSlide = +1
-        jumpSlide = true;
-        if (slideIndex == n) {
-            showSlides(slideIndex = 2);
-        } else {
-            showSlides(slideIndex = n);
-        }    
+        showSlides(slideIndex = n);
     }
     
-    //Filters sliders
     function showSlides(n) {
         var i;
         var slides = document.getElementsByClassName("mySlides");
-        var imageSlides = document.getElementsByClassName("slides");
-        var dots = document.getElementsByClassName("slideSelect");
 
-        // If Index goes beyond 5 it will reset to first image (1)
+        var imageSlides = document.getElementsByClassName("slides");
+
+        var showcase = document.getElementsByClassName("bigSlide");
+
+        // var dots = document.getElementsByClassName("slideSelect");
+
         if (n > slides.length) {
             slideIndex = 1
         }    
-        // If Index goes below 1 resets to last image (5)
         if (n < 1) {
             slideIndex = slides.length
         }
-        //If NextSlide goes above 5 resets to first index
         if (nextSlide > slides.length) {
             nextSlide = 1
         }
-        // Used for old static slider
-
-        
-        //Removes Active from all Dots
-        for (i = 0; i < dots.length; i++) {
-            dots[i].className = dots[i].className.replace(" active", "");
+   
+        for (i = 0; i < slides.length; i++) {
+            imageSlides[i].className = imageSlides[i].className.replace(" active", "");
         }
         
-        //Puts current slide display as a block
-        slides[slideIndex-1].style.display = "block"; 
         //Puts current dot as active
-        dots[slideIndex-1].className += " active";
+        imageSlides[slideIndex-1].className += " active";
 
         //Resets all pictures to original place 
         for (var i = 0; i < slides.length; i++) {
@@ -144,18 +138,12 @@ layout: homepage
         var pastImage = imageSlides[lastSlide-1].src; //Points to picture prior to index
         var currentImage = imageSlides[slideIndex-1].src; //Points to currentIndex
         var futureImage = imageSlides[nextSlide-1].src; //Points to Index ahead of CurrentIndex
-        if (plusFunc == true) {
-            document.getElementsByClassName("slides")[slideIndex-1].src = baseImage;
-            document.getElementsByClassName("slides")[basePos].src = currentImage;
-            plusFunc = false;    
-        }
-        else if(jumpFunc = true) {
-            document.getElementsByClassName("slides")[slideIndex-1].src = baseImage;
-            document.getElementsByClassName("slides")[basePos].src = currentImage;
-            jumpFunc = false;
-        }
+        var showcaseImage = showcase[0].src
+  
+        // document.getElementsByClassName("slides")[slideIndex-1].src = baseImage;
+        // document.getElementsByClassName("slides")[basePos].src = currentImage;
+        showcase[0].src = currentImage;
     }
-    //Run on startup to grab images in .slides
     getImages();
     showSlides();
     console.log(imageCollection);

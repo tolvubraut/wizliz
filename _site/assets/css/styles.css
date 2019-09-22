@@ -6,7 +6,7 @@ html, body { height: 100%; }
 
 .html { scroll-behavior: smooth; }
 
-img { width: 100%; height: auto; }
+img { width: 100%; display: block; height: auto; }
 
 .current { color: orangered; }
 
@@ -111,7 +111,7 @@ aside { grid-area: aside; }
 
 main { grid-area: main; }
 
-.game-container { display: Grid; grid-template-areas: "aside main"; grid-template-columns: 1fr 5fr; margin: 0 0 2em 0; min-height: 8em; width: 100%; border: 2px solid; none: 2px solid; border-color: #030303; border-radius: 10px; }
+.game-container { display: Grid; grid-template-areas: "aside main"; grid-template-columns: 1fr 5fr; margin: 0 0 2em 0; min-height: 8em; width: 100%; border: 2px solid; none: 2px solid; border-color: #030303; border-radius: 10px; -webkit-transition: all 0.4s ease; -moz-transition: all 0.4s ease; -o-transition: all 0.4s ease; transition: all 0.4s ease; }
 
 .game-container:hover { opacity: 0.9; }
 
@@ -145,26 +145,17 @@ main { grid-area: main; }
 
 @media screen and (max-width: 30em) { .company-info { flex: 45%; } }
 
-.main { grid-area: main; }
-
-.secondary { grid-area: secondary; }
-
-.topL { grid-area: topL; }
-
-.topR { grid-area: topR; }
-
-.botL { grid-area: botL; }
-
-.botR { grid-area: botR; }
-
 .homewrapper { margin-top: 4em; flex: 1 0 auto; }
 
-/*======================== Grid ==========================*/
-.slideshow-container { max-width: 100%; height: 45vh; position: relative; display: -webkit-box; display: grid; grid-template-areas: "main"; grid-template-columns: 1fr; }
+/*======================== Slideshow Gallery ==========================*/
+.slideshow-gallery { max-width: 100%; height: auto; }
 
-.slideshow-gallery { display: -webkit-box; display: grid; grid-template-areas: "main main topL topR" "main main botL botR"; grid-template-rows: 50% 50%; grid-template-columns: 1fr 1fr 1fr 1fr; height: 45vh; object-fit: contain; }
+.slideshow-container { max-width: 100%; height: auto; }
 
-.mySlides { -webkit-animation-name: fade; -webkit-animation-duration: 1.5s; animation-name: fade; animation-duration: 1.5s; max-width: 100%; }
+/* ========================== Showcase Image =============================*/
+.myBigSlide { position: relative; }
+
+.bigSlide { -webkit-animation-name: fade; -webkit-animation-duration: 1.5s; animation-name: fade; animation-duration: 1.5s; width: 100%; height: 100%; max-height: 75vh; margin: 0 auto 0 auto; }
 
 @-webkit-keyframes fade { from { opacity: .4; }
   to { opacity: 1; } }
@@ -172,25 +163,41 @@ main { grid-area: main; }
 @keyframes fade { from { opacity: .4; }
   to { opacity: 1; } }
 
-.slides { display: block; height: 100%; border: 2px solid; none: 2px solid; border-color: #030303; }
+/* ========================== Small Images in Slider =============================*/
+.slides-container { display: flex; flex-direction: row; max-height: 178px; }
 
-.prev, .next { position: absolute; cursor: pointer; width: auto; padding: 16px; font-weight: bold; color: white; background-color: rgba(25, 25, 25, 0.85); font-size: 1.5em; top: 24%; -webkit-transition: all 0.4s ease; -moz-transition: all 0.4s ease; -o-transition: all 0.4s ease; transition: all 0.4s ease; border-radius: 10px; z-index: 4; }
+.mySlides { position: relative; width: 20%; height: auto; right: 0; }
 
-.next { right: 50%; border-radius: 10px; }
+.slides { height: 100%; width: 100%; background-image: black; -webkit-animation-name: fade; -webkit-animation-duration: 1.5s; animation-name: fade; animation-duration: 1.5s; border: 2px solid; none: 2px solid; border-color: #030303; }
+
+@-webkit-keyframes fade { from { opacity: .4; }
+  to { opacity: 1; } }
+
+@keyframes fade { from { opacity: .4; }
+  to { opacity: 1; } }
+
+.prev, .next { position: absolute; width: auto; margin: 0 auto; padding: 16px; font-weight: bold; color: white; background-color: rgba(25, 25, 25, 0.85); font-size: 1.5em; top: 40%; z-index: 4; cursor: pointer; -webkit-transition: all 0.4s ease; -moz-transition: all 0.4s ease; -o-transition: all 0.4s ease; transition: all 0.4s ease; border-radius: 10px; }
+
+.next { right: 0%; border-radius: 10px; }
 
 .prev:hover, .next:hover { background-color: white; }
 
-.selectPos { text-align: center; position: relative; bottom: 30px; right: 25.0%; }
+.active, .slides:hover { background-color: rgba(25, 25, 25, 0.85); border: 2px solid; none: 2px solid; border-color: white; }
 
-.slideSelect { cursor: pointer; height: 15px; width: 15px; margin: 0 2px; display: inline-block; background-color: #b3b3b3; border-radius: 50%; transition: background-color 0.6s ease; }
+.news-container { width: 80em; margin: 0 auto; padding: 3em 0 4em 0; }
 
-.slideSelect:active { background-color: #737373; }
+@media screen and (min-width: 2000px) { .slides-container { max-height: 270px; } }
 
-.active, .dot:hover { background-color: rgba(25, 25, 25, 0.85); }
+@media screen and (max-width: 65em) { .news-container { width: auto; } }
 
-.news-container { width: 80em; margin: 0 auto; padding: 3em 0 4em 0; z-index: 10000; }
+@media screen and (max-width: 57.5em) { .bigSlide { height: 25em; } }
 
-@media screen and (max-width: 65em) { .home-container { width: auto; }
-  .news-container { width: auto; } }
+@media screen and (max-width: 45em) { .bigSlide { height: 20em; } }
+
+@media screen and (max-width: 37.5em) { .bigSlide { height: 17em; } }
+
+@media screen and (max-width: 30em) { .bigSlide { height: 15em; }
+  .slides-container { height: 57px; }
+  .mySlides { height: 100%; } }
 
 /*# sourceMappingURL=styles.css.map */

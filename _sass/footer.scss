@@ -45,8 +45,8 @@
 }
 
 .company-info {
-    @include flexCenter;
-    @include sRadius;
+    @include flexCenter();
+    @include sRadius();
     flex: 25%;
     height: 5em;
     margin: 10px;

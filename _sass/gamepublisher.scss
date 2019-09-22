@@ -19,8 +19,9 @@ main {
     width: 100%;
     @include mainBorder($secondaryColor);
     @include sRadius();
+    @include transLink();
     &:hover {
-        opacity: 0.9;//Temp until a tag is fixed
+        opacity: 0.9;
     }
 }
 
