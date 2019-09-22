@@ -65,9 +65,10 @@ layout: homepage
     var imageCollection = [];
     var basePos = 0;
     var lastSlide = 1;
-    var slideIndex = 3;
+    var slideIndex = 1;
     var nextSlide = 2;
-
+    var jumpFunc = false;
+    var plusFunc = false;
 
     function getImages() {
         Gallery = document.getElementsByClassName("slides");
@@ -81,6 +82,7 @@ layout: homepage
     function plusSlides(n) {
         lastSlide = slideIndex;
         nextSlide = nextSlide + 1
+        plusFunc = true;
         showSlides(slideIndex += n);
         //Put prev slide here  
     }
@@ -89,6 +91,7 @@ layout: homepage
     function currentSlide(n) {
         lastSlide = slideIndex;
         nextSlide = +1
+        jumpSlide = true;
         if (slideIndex == n) {
             showSlides(slideIndex = 2);
         } else {
@@ -141,9 +144,16 @@ layout: homepage
         var pastImage = imageSlides[lastSlide-1].src; //Points to picture prior to index
         var currentImage = imageSlides[slideIndex-1].src; //Points to currentIndex
         var futureImage = imageSlides[nextSlide-1].src; //Points to Index ahead of CurrentIndex
-
-        document.getElementsByClassName("slides")[slideIndex-1].src = baseImage;
-        document.getElementsByClassName("slides")[basePos].src = currentImage;
+        if (plusFunc == true) {
+            document.getElementsByClassName("slides")[slideIndex-1].src = baseImage;
+            document.getElementsByClassName("slides")[basePos].src = currentImage;
+            plusFunc = false;    
+        }
+        else if(jumpFunc = true) {
+            document.getElementsByClassName("slides")[slideIndex-1].src = baseImage;
+            document.getElementsByClassName("slides")[basePos].src = currentImage;
+            jumpFunc = false;
+        }
     }
     //Run on startup to grab images in .slides
     getImages();
