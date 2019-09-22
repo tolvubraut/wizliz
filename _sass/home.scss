@@ -34,7 +34,6 @@ $pictureGalleryHeight: 45vh;
         Grid
 ==========================*/
 
-
 //Slider
 //Scales Grid containing the images
 .slideshow-container {
@@ -54,13 +53,9 @@ $pictureGalleryHeight: 45vh;
     "main main botL botR";
     grid-template-rows: 50% 50%;
     grid-template-columns: 1fr 1fr 1fr 1fr;
-    // grid-template-rows: minmax(50%, 25%);
     height: $pictureGalleryHeight;
     object-fit:contain;
 }
-
-
-
 
 .mySlides {
     @include fade();
@@ -87,12 +82,12 @@ $pictureGalleryHeight: 45vh;
     @include transLink();
     @include sRadius();
     z-index: 4;
-  }
+}
   
 .next {
     right: 50%;
     @include sRadius();
-  }
+}
 
 .prev:hover, .next:hover {
     background-color:$whiteColor;
@@ -121,9 +116,7 @@ $pictureGalleryHeight: 45vh;
 
 .active, .dot:hover {
     background-color: $backgroundRgba;
-  }
-
-
+}
 
 //Scales size of image within grid container
 
