@@ -11,37 +11,36 @@ layout: homepage
             <a class="next" onclick="plusSlides(1)">&#10095;</a>
         <div class="slideshow-container"> 
             <gallery class="slideshow-gallery">
-                 
                 {% for index in site.posts reversed limit:5 %}
                 {% assign counter = counter | plus:1 %}
                     {% if counter == 1 %}
 
                         <section class="mySlides main">
-                            <img class="slides" src="{{site.baseurl}}{{index.image}}" data-value="10">
+                            <img onclick ="currentSlide(1)" class="slides" src="{{site.baseurl}}{{index.image}}">
                         </section>
 
                     {% elsif counter == 2 %}
 
                         <section  class="mySlides">
-                            <img class="slides topL"  src="{{site.baseurl}}{{index.image}}" data-value="11">
+                            <img onclick ="currentSlide(2)" class="slides topL" src="{{site.baseurl}}{{index.image}}">
                         </section > 
 
                     {% elsif counter == 3 %}
 
                         <section class="mySlides">
-                            <img class="slides topR"  src="{{site.baseurl}}{{index.image}}" data-value="12">
+                            <img  onclick ="currentSlide(3)" class="slides topR" src="{{site.baseurl}}{{index.image}}">
                         </section>
 
                     {% elsif counter == 4 %}
 
                         <section class="mySlides">
-                            <img class="slides botL"  src="{{site.baseurl}}{{index.image}}" data-value="13">
+                            <img onclick ="currentSlide(4)" class="slides botL" src="{{site.baseurl}}{{index.image}}">
                         </section>
 
                     {%- elsif counter == 5 %}
 
                         <section class="mySlides">
-                            <img class="slides botR"  src="{{site.baseurl}}{{index.image}}" data-value="14">
+                            <img onclick ="currentSlide(5)" class="slides botR" src="{{site.baseurl}}{{index.image}}">
                         </section> 
 
                     {% endif %}
@@ -61,39 +60,54 @@ layout: homepage
         <article>
             <h1>Project - WIZLIZ Web Page</h1>
             <hr>
-            
+            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quidem, omnis?</p>
         </article>
     </div>
 </div>
 
 <script>
- 
+    //Dom.src Collection
+    var imageCollection = [];
+    Gallery = document.getElementsByClassName("slides")
+    for (x = 0; x < Gallery.length; x++) {
+        var images = [];
+        images = document.getElementsByClassName("slides")[x].src;
+        imageCollection.push(images);
+    } 
 
-    var changeimg = document.getElementsByClassName("mySlides").src = "{{site.baseurl}}/assets/img/wow.png"
-
+    
     //These will only be run on startup
-    var slideIndex =1;
-    var lastSlide =1;
+    var basePos = 0;
+    var lastSlide = 1;
+    var slideIndex = 1;
+    var nextSlide = 2;
+    slideLoop = false;    
     showSlides();
-
     //Adds or Deducts 1 from slider
     function plusSlides(n) {
         lastSlide = slideIndex;
+        nextSlide = nextSlide + 1
         showSlides(slideIndex += n);
         //Put prev slide here  
     }
-    
+    //Requires another formula
     //Places slider at 1-5 (0-4)
     function currentSlide(n) {
         lastSlide = slideIndex;
-        showSlides(slideIndex = n);
-        //Put prev slide here
+        nextSlide = +1
+        if (slideIndex == n) {
+            showSlides(slideIndex = 2);
+        } else {
+            showSlides(slideIndex = n);
+        }
+    
     }
     
     //Filters sliders
     function showSlides(n) {
         var i;
         var slides = document.getElementsByClassName("mySlides");
+        var imageSlides = document.getElementsByClassName("slides");
         var dots = document.getElementsByClassName("slideSelect");
         // If Slider goes beyond 5 it will reset to first image (1)
         if (n > slides.length) {
@@ -103,7 +117,11 @@ layout: homepage
         if (n < 1) {
             slideIndex = slides.length
         }
-        // Puts None display on all slides
+        //If slider goes above 5 resets to first index
+        if (nextSlide > slides.length) {
+            nextSlide = 1
+        }
+        // Used for old static slider
         for (i = 0; i < slides.length; i++) { 
             slides[i].style.display = "block";  
         }
@@ -114,11 +132,44 @@ layout: homepage
         }
         
         //Puts current slide display as a block
-        // slides[lastSlide-1].style.display = "none";
         slides[slideIndex-1].style.display = "block"; 
-        console.log("current Index : ", slideIndex-1, " Previous Index: ", lastSlide-1);
         //Puts current dot as active
         dots[slideIndex-1].className += " active";
+        //Holy grail
+        for (var i = 0; i < slides.length; i++) {
+            imageSlides[i].src = imageCollection[i]
+        }
+
+
+
+
+
+        //IMG Rotater
+        console.log("PastSlide : ", lastSlide, " CurrentSlide : ", slideIndex, " NextSlide : ", nextSlide);
+
+        //Position to assign
+        var baseImage = imageSlides[basePos].src; // Always points to Big picture
+        var pastImage = imageSlides[lastSlide-1].src; //Points to picture prior to index
+        var currentImage = imageSlides[slideIndex-1].src; //Points to currentIndex
+        var futureImage = imageSlides[nextSlide-1].src; //Points to currentIndex
+        // console.log("Base Image : ", baseImage)
+        // console.log("PastImage : ", pastImage)
+        // console.log("CurrentImage : ", currentImage)
+        // console.log("FutureImage : ", futureImage)
+
+
+        
+        //Fix so each image gets reset to its original place and new one is placed
+        document.getElementsByClassName("slides")[slideIndex-1].src = baseImage;
+        document.getElementsByClassName("slides")[basePos].src = currentImage;
+        
+
+        
+
+
+
+
+
 
     }
 </script>
