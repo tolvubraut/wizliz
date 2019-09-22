@@ -86,105 +86,174 @@
     </nav>
   </div>
 </header>
-            <!-- Slider -->
-    <!-- First Section -->
-<div class="homewrapper">
-    <div class="home-container">
-            <a class="prev" onclick="plusSlides(-1)">&#10094;</a> <!-- replace && with images -->
-            <a class="next" onclick="plusSlides(1)">&#10095;</a>
-        <div class="slideshow-container">  
-        
-            <section class="mySlides">
-                <img class="slides" src="/verkefni2\assets\img\starcraft2Slider.png">
-            </section>
-        
-            <section class="mySlides">
-                <img class="slides" src="/verkefni2\assets\img\diablo3Slider.jpg">
-            </section>
-        
-            <section class="mySlides">
-                <img class="slides" src="/verkefni2\assets\img\cyberpunkSlider.jpg">
-            </section>
-        
-            <section class="mySlides">
-                <img class="slides" src="/verkefni2\assets\img\wowSlider.jpg">
-            </section>
-        
-            <section class="mySlides">
-                <img class="slides" src="/verkefni2\assets\img\witcher3Slider.jpg">
-            </section>
-         
+        <div class="homewrapper">
+    <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+    <a class="next" onclick="plusSlides(1)">&#10095;</a>
+        <!-- Slider -->
+    <div class="slideshow-container"> 
+        <gallery class="slideshow-gallery">
+            
+            
+                
+                    <section class="mySlides main">
+                        <img onclick ="currentSlide(1)" class="slides" src="/verkefni2\assets\img\witcher3Slider.jpg" data-number="0">
+                    </section>
+                
+            
+            
+                
+                    <section  class="mySlides">
+                        <img onclick ="currentSlide(2)" class="slides topL" src="/verkefni2\assets\img\wowSlider.jpg">
+                    </section > 
+                
+            
+            
+                
+                    <section class="mySlides">
+                        <img  onclick ="currentSlide(3)" class="slides topR" src="/verkefni2\assets\img\cyberpunkSlider.jpg">
+                    </section>
+                
+            
+            
+                
+                    <section class="mySlides">
+                        <img onclick ="currentSlide(4)" class="slides botL" src="/verkefni2\assets\img\diablo3Slider.jpg">
+                    </section>
+            
+            
+                
+                    <section class="mySlides">
+                        <img onclick ="currentSlide(5)" class="slides botR" src="/verkefni2\assets\img\starcraft2Slider.png">
+                    </section> 
+                
+            
+        </gallery>
 
-        <div class= "selectPos">
+            <!-- Dots -->
+            <div class= "selectPos">
+                <!-- Possibly make 1x1 Grid with Main picture and transfer small pictures to 5-10% at bottom of main as absolute -->
                 
-                
+                    
                     <span class="slideSelect" onclick="currentSlide(1)"></span> 
                 
-                
+                    
                     <span class="slideSelect" onclick="currentSlide(2)"></span> 
                 
-                
+                    
                     <span class="slideSelect" onclick="currentSlide(3)"></span> 
                 
-                
+                    
                     <span class="slideSelect" onclick="currentSlide(4)"></span> 
                 
-                
+                    
                     <span class="slideSelect" onclick="currentSlide(5)"></span> 
                 
-            </div>   
+            </div>  
         </div>
-        
-        <!-- Second Section -->
-        <gallery class="side-gallery">
-            <main>
-                <img class="side-images" src="/verkefni2/assets/img/diablo3Slider.jpg">
-            </main>
-            <vinstri >
-                <img class="side-images" src="/verkefni2/assets/img/cyberpunk2077-background.png">
-            </vinstri>
-            <haegri>
-                <img class="side-images" src="/verkefni2/assets/img/cdprojektredgallery.jpg">
-            <haegri/>
-        </gallery>
-    </div>
 
     <div class="news-container">
         <article>
             <h1>Project - WIZLIZ Web Page</h1>
-            <br>
-            <p>Insert News here</p>
+            <hr>
+            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quidem, omnis?</p>
         </article>
     </div>
 </div>
 
+
+
 <script>
+  //Gallery Used in html
+
+
+    //These will only be run on startup
+    var imageCollection = [];
+    var basePos = 0;
+    var lastSlide = 1;
     var slideIndex = 3;
-    showSlides(slideIndex);
-    
+    var nextSlide = 2;
+
+
+    function getImages() {
+        Gallery = document.getElementsByClassName("slides");
+        for (x = 0; x < Gallery.length; x++) {
+            images = document.getElementsByClassName("slides")[x].src;
+            imageCollection.push(images);
+        } 
+    }  
+
+    //Adds or Deducts 1 from slider
     function plusSlides(n) {
+        lastSlide = slideIndex;
+        nextSlide = nextSlide + 1
         showSlides(slideIndex += n);
+        //Put prev slide here  
     }
-    
+
+    //Requires another formula
     function currentSlide(n) {
-        showSlides(slideIndex = n);
+        lastSlide = slideIndex;
+        nextSlide = +1
+        if (slideIndex == n) {
+            showSlides(slideIndex = 2);
+        } else {
+            showSlides(slideIndex = n);
+        }    
     }
     
+    //Filters sliders
     function showSlides(n) {
         var i;
         var slides = document.getElementsByClassName("mySlides");
+        var imageSlides = document.getElementsByClassName("slides");
         var dots = document.getElementsByClassName("slideSelect");
-        if (n > slides.length) {slideIndex = 1}    
-        if (n < 1) {slideIndex = slides.length}
-        for (i = 0; i < slides.length; i++) {
-            slides[i].style.display = "none";  
+
+        // If Index goes beyond 5 it will reset to first image (1)
+        if (n > slides.length) {
+            slideIndex = 1
+        }    
+        // If Index goes below 1 resets to last image (5)
+        if (n < 1) {
+            slideIndex = slides.length
         }
+        //If NextSlide goes above 5 resets to first index
+        if (nextSlide > slides.length) {
+            nextSlide = 1
+        }
+        // Used for old static slider
+
+        
+        //Removes Active from all Dots
         for (i = 0; i < dots.length; i++) {
             dots[i].className = dots[i].className.replace(" active", "");
         }
-        slides[slideIndex-1].style.display = "block";  
+        
+        //Puts current slide display as a block
+        slides[slideIndex-1].style.display = "block"; 
+        //Puts current dot as active
         dots[slideIndex-1].className += " active";
+
+        //Resets all pictures to original place 
+        for (var i = 0; i < slides.length; i++) {
+            imageSlides[i].src = imageCollection[i]
+        }
+
+        //IMG Rotater
+        console.log("PastSlide : ", lastSlide, " CurrentSlide : ", slideIndex, " NextSlide : ", nextSlide);
+
+        //Position to assign
+        var baseImage = imageSlides[basePos].src; // Always points to Big picture
+        var pastImage = imageSlides[lastSlide-1].src; //Points to picture prior to index
+        var currentImage = imageSlides[slideIndex-1].src; //Points to currentIndex
+        var futureImage = imageSlides[nextSlide-1].src; //Points to Index ahead of CurrentIndex
+
+        document.getElementsByClassName("slides")[slideIndex-1].src = baseImage;
+        document.getElementsByClassName("slides")[basePos].src = currentImage;
     }
+    //Run on startup to grab images in .slides
+    getImages();
+    showSlides();
+    console.log(imageCollection);
 </script>
 
 
@@ -226,5 +295,10 @@
         </div>
     </div>
 </footer>
+
+    
+
+
+
   </body>
 </html>

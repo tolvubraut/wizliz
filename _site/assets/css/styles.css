@@ -145,23 +145,26 @@ main { grid-area: main; }
 
 @media screen and (max-width: 30em) { .company-info { flex: 45%; } }
 
-section { grid-area: section; }
+.main { grid-area: main; }
 
-gallery { grid-area: gallery; }
+.secondary { grid-area: secondary; }
 
-main { grid-area: main; }
+.topL { grid-area: topL; }
 
-vinstri { grid-area: vinstri; }
+.topR { grid-area: topR; }
 
-haegri { grid-area: haegri; }
+.botL { grid-area: botL; }
+
+.botR { grid-area: botR; }
 
 .homewrapper { margin-top: 4em; flex: 1 0 auto; }
 
-.home-container { display: -webkit-box; display: grid; grid-template-areas: "section gallery"; grid-template-columns: 1fr 1fr; }
+/*======================== Grid ==========================*/
+.slideshow-container { max-width: 100%; height: 45vh; position: relative; display: -webkit-box; display: grid; grid-template-areas: "main"; grid-template-columns: 1fr; }
 
-.slideshow-container { max-width: 100%; height: 45vh; position: relative; }
+.slideshow-gallery { display: -webkit-box; display: grid; grid-template-areas: "main main topL topR" "main main botL botR"; grid-template-rows: 50% 50%; grid-template-columns: 1fr 1fr 1fr 1fr; height: 45vh; object-fit: contain; }
 
-.mySlides { -webkit-animation-name: fade; -webkit-animation-duration: 1.5s; animation-name: fade; animation-duration: 1.5s; display: none; max-width: 100%; height: 45vh; }
+.mySlides { -webkit-animation-name: fade; -webkit-animation-duration: 1.5s; animation-name: fade; animation-duration: 1.5s; max-width: 100%; }
 
 @-webkit-keyframes fade { from { opacity: .4; }
   to { opacity: 1; } }
@@ -169,7 +172,7 @@ haegri { grid-area: haegri; }
 @keyframes fade { from { opacity: .4; }
   to { opacity: 1; } }
 
-.slides { display: block; width: 100%; height: 100%; border: 2px solid; none: 2px solid; border-color: #030303; }
+.slides { display: block; height: 100%; border: 2px solid; none: 2px solid; border-color: #030303; }
 
 .prev, .next { position: absolute; cursor: pointer; width: auto; padding: 16px; font-weight: bold; color: white; background-color: rgba(25, 25, 25, 0.85); font-size: 1.5em; top: 24%; -webkit-transition: all 0.4s ease; -moz-transition: all 0.4s ease; -o-transition: all 0.4s ease; transition: all 0.4s ease; border-radius: 10px; z-index: 4; }
 
@@ -177,7 +180,7 @@ haegri { grid-area: haegri; }
 
 .prev:hover, .next:hover { background-color: white; }
 
-.selectPos { text-align: center; position: relative; bottom: 30px; }
+.selectPos { text-align: center; position: relative; bottom: 30px; right: 25.0%; }
 
 .slideSelect { cursor: pointer; height: 15px; width: 15px; margin: 0 2px; display: inline-block; background-color: #b3b3b3; border-radius: 50%; transition: background-color 0.6s ease; }
 
@@ -185,11 +188,7 @@ haegri { grid-area: haegri; }
 
 .active, .dot:hover { background-color: rgba(25, 25, 25, 0.85); }
 
-.side-gallery { display: -webkit-box; display: grid; grid-template-areas: "main main" "vinstri haegri"; grid-template-rows: 50% 50%; height: 45vh; object-fit: contain; }
-
-.side-images { display: block; height: 100%; border: 2px solid; none: 2px solid; border-color: #030303; }
-
-.news-container { width: 80em; margin: 0 auto; padding: 3em 0 4em 0; }
+.news-container { width: 80em; margin: 0 auto; padding: 3em 0 4em 0; z-index: 10000; }
 
 @media screen and (max-width: 65em) { .home-container { width: auto; }
   .news-container { width: auto; } }
