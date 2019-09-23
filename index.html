@@ -14,7 +14,7 @@ layout: homepage
                             <!-- Add a loop that keeps going through games until it finds a picture if it dosen't find any -->
                             {% if index.mobileImage%}
                                 <picture>
-                                    <source class="bigbackup" media="(max-width: 800px)" srcset="{{site.baseurl}}{{index.mobileImage}}" alt="Slider Big Image">
+                                    <source class="bigbackup"data-value  ="0" media="(max-width: 800px)" srcset="{{site.baseurl}}{{index.mobileImage}}" alt="Slider Big Image">
                                     <img  class="bigSlide" src="{{site.baseurl}}{{index.image}}">
                                 </picture>
                             {% else %}
@@ -91,10 +91,11 @@ layout: homepage
         var slides = document.getElementsByClassName("mySlides");
         var imageSlides = document.getElementsByClassName("slides");
         var showcase = document.getElementsByClassName("bigSlide");
-        var test = document.getElementsByClassName("bigbackuo");
+        var test = document.getElementsByClassName("bigbackup");
+        for (x = 0; x > test.length; x++) {
 
-        test.getAttribute("srcset");
-        console.log(testpic)
+        }
+
         if (n > slides.length) {
             slideIndex = 1
         }    

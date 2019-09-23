@@ -127,6 +127,13 @@ $pictureGalleryHeight: 90vh;
         padding-top: 32.01%
     }
 }
+
+//Laptops
+@media screen and (max-width: 80em) {
+    .myBigSlide {
+        padding-top: 50%;
+    }
+}
 //Tablets 1040PX
 @media screen and(max-width: 65em) {
     .myBigSlide {
