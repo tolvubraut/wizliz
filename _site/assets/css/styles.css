@@ -168,7 +168,7 @@ main { grid-area: main; }
 
 .mySlides { position: relative; width: 20%; height: auto; right: 0; }
 
-.slides { height: 100%; width: 100%; background-image: black; -webkit-animation-name: fade; -webkit-animation-duration: 1.5s; animation-name: fade; animation-duration: 1.5s; border: 2px solid; none: 2px solid; border-color: #030303; }
+.slides { height: 100%; width: 100%; background-image: black; object-fit: cover; -webkit-animation-name: fade; -webkit-animation-duration: 1.5s; animation-name: fade; animation-duration: 1.5s; border: 2px solid; none: 2px solid; border-color: #030303; }
 
 @-webkit-keyframes fade { from { opacity: .4; }
   to { opacity: 1; } }
@@ -176,7 +176,7 @@ main { grid-area: main; }
 @keyframes fade { from { opacity: .4; }
   to { opacity: 1; } }
 
-.prev, .next { position: absolute; width: auto; margin: 0 auto; padding: 16px; font-weight: bold; color: white; background-color: rgba(25, 25, 25, 0.85); font-size: 1.5em; top: 40%; z-index: 4; cursor: pointer; -webkit-transition: all 0.4s ease; -moz-transition: all 0.4s ease; -o-transition: all 0.4s ease; transition: all 0.4s ease; border-radius: 10px; }
+.prev, .next { position: absolute; width: auto; margin: 0 auto; padding: 25px; font-weight: bold; color: white; background-color: rgba(25, 25, 25, 0.85); font-size: 1.5em; top: 40%; z-index: 4; cursor: pointer; -webkit-transition: all 0.4s ease; -moz-transition: all 0.4s ease; -o-transition: all 0.4s ease; transition: all 0.4s ease; border-radius: 10px; }
 
 .next { right: 0%; border-radius: 10px; }
 
@@ -188,13 +188,17 @@ main { grid-area: main; }
 
 @media screen and (min-width: 2000px) { .slides-container { max-height: 270px; } }
 
-@media screen and (max-width: 65em) { .news-container { width: auto; } }
+@media screen and (max-width: 65em) { .news-container { width: auto; }
+  .prev, .next { padding: 25px; } }
 
-@media screen and (max-width: 57.5em) { .bigSlide { height: 25em; } }
+@media screen and (max-width: 57.5em) { .bigSlide { height: 25em; }
+  .prev, .next { padding: 16px; } }
 
-@media screen and (max-width: 45em) { .bigSlide { height: 20em; } }
+@media screen and (max-width: 45em) { .bigSlide { height: 20em; }
+  .prev, .next { padding: 14px; } }
 
-@media screen and (max-width: 37.5em) { .bigSlide { height: 17em; } }
+@media screen and (max-width: 37.5em) { .bigSlide { height: 17em; }
+  .prev, .next { padding: 12px; } }
 
 @media screen and (max-width: 30em) { .bigSlide { height: 15em; }
   .slides-container { height: 57px; }

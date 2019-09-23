@@ -24,36 +24,17 @@ layout: homepage
                     </section>
                 <div class="slides-container">
                     <section class="mySlides">
-                        <img onclick ="currentSlide(1)" class="slides" src="{{site.baseurl}}{{index.image}}" >
+                        <img onclick ="currentSlide({{counter}})" class="slides" src="{{site.baseurl}}{{index.image}}" >
                     </section>
-                {% elsif counter == 2 %}
+                {% else %}
                     <section  class="mySlides">
-                        <img onclick ="currentSlide(2)" class="slides" src="{{site.baseurl}}{{index.image}}">
+                        <img onclick ="currentSlide({{counter}})" class="slides" src="{{site.baseurl}}{{index.image}}">
                     </section > 
-                {% elsif counter == 3 %}
-                    <section class="mySlides">
-                        <img  onclick ="currentSlide(3)" class="slides" src="{{site.baseurl}}{{index.image}}">
-                    </section>
-                {% elsif counter == 4 %}
-                    <section class="mySlides">
-                        <img onclick ="currentSlide(4)" class="slides" src="{{site.baseurl}}{{index.image}}">
-                    </section>
-                {%- elsif counter == 5 %}
-                    <section class="mySlides">
-                        <img onclick ="currentSlide(5)" class="slides" src="{{site.baseurl}}{{index.image}}">
-                    </section> 
+                    {% endif %}
+                {% endfor %}
                 </div>
-                {% endif %}
-            {% endfor %}
         </gallery>
 
-            <!-- Dots -->
-            <!-- <div class= "selectPos">
-                {% for index in site.posts limit:5 %}
-                    {% assign i = i | plus:1 %}
-                    <span class="slideSelect" onclick="currentSlide({{i}})"></span> 
-                {% endfor %}
-            </div>   -->
         </div>
 
     <div class="news-container">
@@ -73,8 +54,6 @@ layout: homepage
     var lastSlide = 1;
     var slideIndex = 1;
     var nextSlide = 2;
-    var jumpFunc = false;
-    var plusFunc = false;
 
     function getImages() {
         Gallery = document.getElementsByClassName("slides");
@@ -106,8 +85,6 @@ layout: homepage
 
         var showcase = document.getElementsByClassName("bigSlide");
 
-        // var dots = document.getElementsByClassName("slideSelect");
-
         if (n > slides.length) {
             slideIndex = 1
         }    
@@ -120,18 +97,18 @@ layout: homepage
    
         for (i = 0; i < slides.length; i++) {
             imageSlides[i].className = imageSlides[i].className.replace(" active", "");
+            imageSlides[i].style.display = "none";
         }
         
         //Puts current dot as active
         imageSlides[slideIndex-1].className += " active";
-
+        imageSlides[slideIndex-1].style.display = "none";
+        imageSlides[slideIndex-1].style.display = "block";
         //Resets all pictures to original place 
         for (var i = 0; i < slides.length; i++) {
             imageSlides[i].src = imageCollection[i]
+            imageSlides[i].style.display = "block";
         }
-
-        //IMG Rotater
-        console.log("PastSlide : ", lastSlide, " CurrentSlide : ", slideIndex, " NextSlide : ", nextSlide);
 
         //Position to assign
         var baseImage = imageSlides[basePos].src; // Always points to Big picture

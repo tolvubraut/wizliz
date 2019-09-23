@@ -36,7 +36,6 @@ $pictureGalleryHeight: 90vh;
     height: 100%;
     max-height: 75vh;
     margin: 0 auto 0 auto;
-
 }
 
 
@@ -63,6 +62,7 @@ $pictureGalleryHeight: 90vh;
     height: 100%;
     width: 100%;
     background-image:black;
+    object-fit: cover;
     @include fade();
     @include mainBorder($secondaryColor);
 }
@@ -73,7 +73,7 @@ $pictureGalleryHeight: 90vh;
     position: absolute;
     width: auto;
     margin: 0 auto;
-    padding: 16px;
+    padding: 25px;
     font-weight: bold;
     color:$whiteColor;
     background-color: $backgroundRgba;
@@ -96,27 +96,6 @@ $pictureGalleryHeight: 90vh;
   }
 
 
-//Dots
-// .selectPos {
-//     text-align: center;
-//     position:relative;
-//     right: 46.8%;
-//     top:80%;
-// }
-
-// .slideSelect {
-//     cursor: pointer;
-//     height: 15px;
-//     width: 15px;
-//     margin: 0 2px;
-//     display:none; //Temp
-//     background-color: $mainColor;
-//     border-radius: 50%;
-//     transition: background-color 0.6s ease;
-//     &:active {
-//         background-color: darken($mainColor,25%);
-//     }
-//   }
 
 .active, .slides:hover {
     background-color: $backgroundRgba;
@@ -143,7 +122,9 @@ $pictureGalleryHeight: 90vh;
     .news-container {
         width: auto;
     }
-    
+    .prev, .next {
+        padding: 25px;
+    }
 }
 
 @media screen and(max-width: 57.5em) {
@@ -153,18 +134,27 @@ $pictureGalleryHeight: 90vh;
     .bigSlide {
         height: 25em;
     }
+    .prev, .next {
+        padding: 16px;
+    }
+
 }
 
 @media screen and(max-width: 45em) {
     .bigSlide {
         height: 20em;
     }
-
+    .prev, .next {
+        padding: 14px;
+    }
 }
 
 @media screen and(max-width: 37.5em) {
     .bigSlide {
         height:17em;
+    }
+    .prev, .next {
+        padding: 12px;
     }
     
 }
