@@ -4,7 +4,6 @@ $pictureGalleryHeight: 90vh;
 .homewrapper {
     margin-top: 4em;
     flex: 1 0 auto; //Keeps sticky footer sticky
-    
 }
 
 /*========================
@@ -112,6 +111,10 @@ $pictureGalleryHeight: 90vh;
     padding: 3em 0 4em 0;
 }
 
+.news-header {
+    font-family: var(--header-font)
+}
+
 //2k Resolution 2540x1440
 @media screen and(min-width: 2000px) {
     .myBigSlide {
@@ -131,7 +134,7 @@ $pictureGalleryHeight: 90vh;
 //Laptops
 @media screen and (max-width: 80em) {
     .myBigSlide {
-        padding-top: 50%;
+        // padding-top: 45%;
     }
 }
 //Tablets 1040PX

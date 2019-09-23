@@ -98,8 +98,8 @@
                             <!-- Add a loop that keeps going through games until it finds a picture if it dosen't find any -->
                             
                                 <picture>
-                                    <source class="bigbackup"data-value  ="0" media="(max-width: 800px)" srcset="/verkefni2/assets/img/witcher3mobile.jpg" alt="Slider Big Image">
-                                    <img  class="bigSlide" src="/verkefni2\assets\img\witcher3Slider.jpg">
+                                    <source class="bigbackup" data-value="1" media="(max-width: 800px)" srcset="/verkefni2/assets/img/witcher3mobile.jpg" alt="Slider Big Image">
+                                    <img  class="bigSlide" data-value="1" src="/verkefni2\assets\img\witcher3Slider.jpg">
                                 </picture>
                             
                         <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
@@ -109,8 +109,8 @@
                     <section class="mySlides">
                         
                             <picture>
-                                <source media="(max-width: 800px)" srcset="/verkefni2/assets/img/witcher3mobile.jpg">
-                                <img onclick ="currentSlide(1)" class="slides" src="/verkefni2\assets\img\witcher3Slider.jpg" alt="Slider Small Image">
+                                <source class="sliderbackup" data-value="1" media="(max-width: 800px)" srcset="/verkefni2/assets/img/witcher3mobile.jpg">
+                                <img onclick ="currentSlide(1)" class="slides" data-value="1"  src="/verkefni2\assets\img\witcher3Slider.jpg" alt="Slider Small Image">
                             </picture>
                         
                     </section>
@@ -121,8 +121,8 @@
                     <section  class="mySlides">
                         
                             <picture>
-                                <source media="(max-width: 800px)" srcset="/verkefni2/assets/img/wowmobile.jpg">
-                                <img onclick ="currentSlide(2)" class="slides" src="/verkefni2\assets\img\wow500px.png" alt="Slide Image">
+                                <source class="sliderbackup" data-value="2" media="(max-width: 800px)" srcset="/verkefni2/assets/img/wowmobile.jpg">
+                                <img onclick ="currentSlide(2)" class="slides" data-value="2" src="/verkefni2\assets\img\wow500px.png" alt="Slide Image">
                             </picture>
                         
                     </section > 
@@ -133,8 +133,8 @@
                     <section  class="mySlides">
                         
                             <picture>
-                                <source media="(max-width: 800px)" srcset="/verkefni2/assets/img/cyberpunk2077mobile.jpg">
-                                <img onclick ="currentSlide(3)" class="slides" src="/verkefni2\assets\img\cyberpunkSlider.jpg" alt="Slide Image">
+                                <source class="sliderbackup" data-value="3" media="(max-width: 800px)" srcset="/verkefni2/assets/img/cyberpunk2077mobile.jpg">
+                                <img onclick ="currentSlide(3)" class="slides" data-value="3" src="/verkefni2\assets\img\cyberpunkSlider.jpg" alt="Slide Image">
                             </picture>
                         
                     </section > 
@@ -145,8 +145,8 @@
                     <section  class="mySlides">
                         
                             <picture>
-                                <source media="(max-width: 800px)" srcset="/verkefni2/assets/img/diablo3mobile.jpg">
-                                <img onclick ="currentSlide(4)" class="slides" src="/verkefni2\assets\img\diablo3Slider.jpg" alt="Slide Image">
+                                <source class="sliderbackup" data-value="4" media="(max-width: 800px)" srcset="/verkefni2/assets/img/diablo3mobile.jpg">
+                                <img onclick ="currentSlide(4)" class="slides" data-value="4" src="/verkefni2\assets\img\diablo3Slider.jpg" alt="Slide Image">
                             </picture>
                         
                     </section > 
@@ -157,8 +157,8 @@
                     <section  class="mySlides">
                         
                             <picture>
-                                <source media="(max-width: 800px)" srcset="/verkefni2/assets/img/sc2mobile.jpg">
-                                <img onclick ="currentSlide(5)" class="slides" src="/verkefni2\assets\img\starcraft2Slider.png" alt="Slide Image">
+                                <source class="sliderbackup" data-value="5" media="(max-width: 800px)" srcset="/verkefni2/assets/img/sc2mobile.jpg">
+                                <img onclick ="currentSlide(5)" class="slides" data-value="5" src="/verkefni2\assets\img\starcraft2Slider.png" alt="Slide Image">
                             </picture>
                         
                     </section > 
@@ -169,8 +169,7 @@
         </div>
     <div class="news-container">
         <article>
-            <h1>Project - WIZLIZ Web Page</h1>
-            <hr>
+            <h1 class="news-header">Project - WIZLIZ Web Page</h1>
             <p>--New folder with news--</p>
             <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quidem, omnis?</p>
         </article>
@@ -180,6 +179,7 @@
 <script>
     //These will only be run on startup
     var imageCollection = [];
+    var backupCollection = [];
     var basePos = 0;
     var lastSlide = 1;
     var slideIndex = 1;
@@ -191,6 +191,13 @@
             imageCollection.push(images);
         } 
     }  
+    function getImagesV2() {
+        Gallery = document.getElementsByClassName("sliderbackup");
+        for (x = 0; x < Gallery.length; x++) {
+            images = document.getElementsByClassName("sliderbackup")[x].getAttribute("srcset");
+            backupCollection.push(images);
+        } 
+    } 
     //Adds or Deducts 1 from slider
     function plusSlides(n) {
         lastSlide = slideIndex;
@@ -203,15 +210,19 @@
         nextSlide = +1
         showSlides(slideIndex = n);
     }
+
+    /*====================================================
+                        MAIN JS FUNC
+    ===================================================*/
     function showSlides(n) {
         var i;
         var slides = document.getElementsByClassName("mySlides");
         var imageSlides = document.getElementsByClassName("slides");
         var showcase = document.getElementsByClassName("bigSlide");
-        var test = document.getElementsByClassName("bigbackup");
-        for (x = 0; x > test.length; x++) {
 
-        }
+
+        var backup = document.getElementsByClassName("sliderbackup");
+        var bigbackup = document.getElementsByClassName("bigbackup");
 
         if (n > slides.length) {
             slideIndex = 1
@@ -234,10 +245,26 @@
         var pastImage = imageSlides[lastSlide-1].src; //Points to picture prior to index
         var currentImage = imageSlides[slideIndex-1].src; //Points to currentIndex
         var futureImage = imageSlides[nextSlide-1].src; //Points to Index ahead of CurrentIndex
-        var showcaseImage = showcase[0].src;
-        showcase[0].src = currentImage;
-    }
+
+        var backupImage = backup[slideIndex-1].src;
+
+        for (x = 0; x < backup.length; x++) {
+            if (imageSlides[x].getAttribute("data-value") == backup[x].getAttribute("data-value")) {
+                
+            } 
+        }
+        if (window.innerWidth > 800) {
+            showcase[0].src = currentImage;
+        } else {
+            
+            
+        }
+      //Maybe remove all <picture tags> and just add them somewhere else.
+}   
+        
+    
     getImages();
+    getImagesV2();
     showSlides();
 </script>
 

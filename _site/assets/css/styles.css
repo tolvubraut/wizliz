@@ -40,9 +40,8 @@ li a:hover { border-bottom: 2px solid; none: 2px solid; border-color: white; }
 
 .main-container { width: auto; padding: 10px; }
 
-@media screen and (max-width: 80em) { .heading-title { position: initial; text-align: center; } }
-
-@media screen and (max-width: 65em) { .mainwrapper { width: auto; } }
+@media screen and (max-width: 80em) { .heading-title { position: initial; text-align: center; }
+  .mainwrapper { width: 100%; } }
 
 @media screen and (max-width: 45em) { .heading-title { font-size: 2em; } }
 
@@ -188,12 +187,12 @@ main { grid-area: main; }
 
 .news-container { width: 80em; margin: 0 auto; padding: 3em 0 4em 0; }
 
+.news-header { font-family: var(--header-font); }
+
 @media screen and (min-width: 2000px) { .myBigSlide { padding-top: 39.15%; }
   .slides-container { max-height: 270px; } }
 
 @media screen and (max-width: 100em) { .myBigSlide { padding-top: 32.01%; } }
-
-@media screen and (max-width: 80em) { .myBigSlide { padding-top: 50%; } }
 
 @media screen and (max-width: 65em) { .myBigSlide { padding-top: 55.6%; }
   .prev, .next { padding: 25px; }
