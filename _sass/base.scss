@@ -132,7 +132,7 @@ body {
   background-color: whitesmoke;
   background-position: center; /* Center the image */
   background-repeat: no-repeat; /* Do not repeat the image */
-  background-size: cover fill; /* Resize the background image to cover the entire container */
+  background-size: fill; /* Resize the background image to cover the entire container */
 }
 
 h1,  h3, h4 {
@@ -197,7 +197,6 @@ li a {
   position: relative;
   right: 1em;
 }
-
 /*==========================
   {{ content }} Container 
 ============================*/
@@ -207,6 +206,8 @@ li a {
   width: 70em;
   margin: 5em auto 0 auto;
   flex: 1 0 auto;
+
+
 }
 
 .main-container {

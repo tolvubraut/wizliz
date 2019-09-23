@@ -2,8 +2,6 @@
 title: Home
 layout: homepage
 ---
-
-
 <div class="homewrapper">
         <!-- Slider -->
     <div class="slideshow-gallery"> 
@@ -11,19 +9,41 @@ layout: homepage
             {% for index in site.posts reversed limit:5 %}
             {% assign counter = counter | plus:1 %}
                 {% if counter == 1 %}
-                    <!-- Change Js code for slides -->
                     <section class="myBigSlide">
-                        <img  class="bigSlide" src="{{site.baseurl}}{{index.image}}">
+                            <!-- Makes sure an alternative image has been put in in the src tag -->
+                            <!-- Add a loop that keeps going through games until it finds a picture if it dosen't find any -->
+                            {% if index.mobileImage%}
+                                <picture>
+                                    <source class="bigbackup" media="(max-width: 800px)" srcset="{{site.baseurl}}{{index.mobileImage}}" alt="Slider Big Image">
+                                    <img  class="bigSlide" src="{{site.baseurl}}{{index.image}}">
+                                </picture>
+                            {% else %}
+                                <img  class="bigSlide" src="{{site.baseurl}}{{index.image}}">
+                            {%endif%}
                         <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
                         <a class="next" onclick="plusSlides(1)">&#10095;</a>
                     </section>
                 <div class="slides-container">
                     <section class="mySlides">
-                        <img onclick ="currentSlide({{counter}})" class="slides" src="{{site.baseurl}}{{index.image}}" >
+                        {% if index.mobileImage%}
+                            <picture>
+                                <source media="(max-width: 800px)" srcset="{{site.baseurl}}{{index.mobileImage}}">
+                                <img onclick ="currentSlide({{counter}})" class="slides" src="{{site.baseurl}}{{index.image}}" alt="Slider Small Image">
+                            </picture>
+                        {% else %}
+                            <img onclick ="currentSlide({{counter}})" class="slides" src="{{site.baseurl}}{{index.image}}" alt="Slider Small Image">
+                        {%endif%}
                     </section>
-                {% else %}
+                {%else%}
                     <section  class="mySlides">
-                        <img onclick ="currentSlide({{counter}})" class="slides" src="{{site.baseurl}}{{index.image}}">
+                        {% if index.mobileImage%}
+                            <picture>
+                                <source media="(max-width: 800px)" srcset="{{site.baseurl}}{{index.mobileImage}}">
+                                <img onclick ="currentSlide({{counter}})" class="slides" src="{{site.baseurl}}{{index.image}}" alt="Slide Image">
+                            </picture>
+                        {%else%}
+                            <img onclick ="currentSlide({{counter}})" class="slides" src="{{site.baseurl}}{{index.image}}" alt="Slide Image">
+                        {%endif%}
                     </section > 
                     {% endif %}
                 {% endfor %}
@@ -71,6 +91,10 @@ layout: homepage
         var slides = document.getElementsByClassName("mySlides");
         var imageSlides = document.getElementsByClassName("slides");
         var showcase = document.getElementsByClassName("bigSlide");
+        var test = document.getElementsByClassName("bigbackuo");
+
+        test.getAttribute("srcset");
+        console.log(testpic)
         if (n > slides.length) {
             slideIndex = 1
         }    
@@ -92,9 +116,7 @@ layout: homepage
         var pastImage = imageSlides[lastSlide-1].src; //Points to picture prior to index
         var currentImage = imageSlides[slideIndex-1].src; //Points to currentIndex
         var futureImage = imageSlides[nextSlide-1].src; //Points to Index ahead of CurrentIndex
-        var showcaseImage = showcase[0].src
-        // document.getElementsByClassName("slides")[slideIndex-1].src = baseImage;
-        // document.getElementsByClassName("slides")[basePos].src = currentImage;
+        var showcaseImage = showcase[0].src;
         showcase[0].src = currentImage;
     }
     getImages();

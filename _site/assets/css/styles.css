@@ -11,7 +11,7 @@ img { display: block; width: 100%; height: auto; }
 .current { color: orangered; }
 
 /*============================== FontSizing/Colors ================================*/
-body { display: flex; flex-direction: column; font-family: var(--secondary-font); font-weight: 400; line-height: 1.5; background-image: url("/verkefni2/assets/img/mainBackground.png"); /* The image used */ background-color: whitesmoke; background-position: center; /* Center the image */ background-repeat: no-repeat; /* Do not repeat the image */ background-size: cover fill; /* Resize the background image to cover the entire container */ }
+body { display: flex; flex-direction: column; font-family: var(--secondary-font); font-weight: 400; line-height: 1.5; background-image: url("/verkefni2/assets/img/mainBackground.png"); /* The image used */ background-color: whitesmoke; background-position: center; /* Center the image */ background-repeat: no-repeat; /* Do not repeat the image */ background-size: fill; /* Resize the background image to cover the entire container */ }
 
 h1, h3, h4 { font-family: var(--main-font); color: #030303; line-height: 1.5; }
 
@@ -191,9 +191,10 @@ main { grid-area: main; }
 @media screen and (min-width: 2000px) { .myBigSlide { padding-top: 39.15%; }
   .slides-container { max-height: 270px; } }
 
-@media screen and (max-width: 100em) { .myBigSlide { padding-top: 56.25%; } }
+@media screen and (max-width: 100em) { .myBigSlide { padding-top: 32.01%; } }
 
-@media screen and (max-width: 65em) { .prev, .next { padding: 25px; }
+@media screen and (max-width: 65em) { .myBigSlide { padding-top: 55.6%; }
+  .prev, .next { padding: 25px; }
   .news-container { width: auto; } }
 
 @media screen and (max-width: 57.5em) { .prev, .next { padding: 16px; } }
@@ -202,7 +203,8 @@ main { grid-area: main; }
 
 @media screen and (max-width: 37.5em) { .prev, .next { padding: 12px; } }
 
-@media screen and (max-width: 30em) { .slides-container { height: 57px; }
+@media screen and (max-width: 30em) { .myBigSlide { padding-top: 62%; }
+  .slides-container { height: 57px; }
   .mySlides { height: 100%; } }
 
 /*# sourceMappingURL=styles.css.map */

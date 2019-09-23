@@ -25,12 +25,10 @@ $pictureGalleryHeight: 90vh;
     Showcase Image
 =============================*/
 .myBigSlide {
-
     position: relative;
     width: 100%;
     padding-top: 38.25%; 
  }
-
 
 
 .bigSlide {
@@ -41,9 +39,8 @@ $pictureGalleryHeight: 90vh;
     bottom: 0;
     right: 0;
     height: 100%;
+    // height: 91.9vh; This is complete height of both big picture and small picture
  }
-
-
 
 /* ==========================
     Small Images in Slider
@@ -74,7 +71,6 @@ $pictureGalleryHeight: 90vh;
     @include mainBorder($secondaryColor);
 }
 
-
 //Arrows
 .prev, .next {
     position: absolute;
@@ -92,7 +88,6 @@ $pictureGalleryHeight: 90vh;
     @include sRadius();
 }
   
-
 .next {
     right: 0%;
 }
@@ -104,8 +99,6 @@ $pictureGalleryHeight: 90vh;
 .prev:hover, .next:hover {
     background-color:$whiteColor;
   }
-
-
 
 .active, .slides:hover {
     background-color: $backgroundRgba;
@@ -119,8 +112,7 @@ $pictureGalleryHeight: 90vh;
     padding: 3em 0 4em 0;
 }
 
-
-
+//2k Resolution 2540x1440
 @media screen and(min-width: 2000px) {
     .myBigSlide {
         padding-top: 39.15%
@@ -129,14 +121,17 @@ $pictureGalleryHeight: 90vh;
         max-height:270px;
     }
 }
-
+//HD Resolution 1920x1080
 @media screen and (max-width: 100em) {
     .myBigSlide {
-        padding-top: 56.25%
+        padding-top: 32.01%
     }
 }
-
+//Tablets 1040PX
 @media screen and(max-width: 65em) {
+    .myBigSlide {
+        padding-top: 55.6%;
+    }
     .prev, .next {
         padding: 25px;
     }
@@ -157,6 +152,7 @@ $pictureGalleryHeight: 90vh;
     }
 }
 
+//Mobile
 @media screen and(max-width: 37.5em) { 
     .prev, .next {
         padding: 12px;
@@ -164,6 +160,9 @@ $pictureGalleryHeight: 90vh;
 }
 
 @media screen and(max-width: 30em) {
+    .myBigSlide {
+        padding-top: 62%;
+    }
     .slides-container {
         height: 57px;
     }
