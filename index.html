@@ -5,22 +5,17 @@ layout: homepage
 
 
 <div class="homewrapper">
-
         <!-- Slider -->
     <div class="slideshow-gallery"> 
-        
         <gallery class="slideshow-container">
-            
             {% for index in site.posts reversed limit:5 %}
             {% assign counter = counter | plus:1 %}
                 {% if counter == 1 %}
                     <!-- Change Js code for slides -->
                     <section class="myBigSlide">
-                        
                         <img  class="bigSlide" src="{{site.baseurl}}{{index.image}}">
                         <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
                         <a class="next" onclick="plusSlides(1)">&#10095;</a>
-                       
                     </section>
                 <div class="slides-container">
                     <section class="mySlides">
@@ -34,27 +29,24 @@ layout: homepage
                 {% endfor %}
                 </div>
         </gallery>
-
         </div>
-
     <div class="news-container">
         <article>
             <h1>Project - WIZLIZ Web Page</h1>
             <hr>
+            <p>--New folder with news--</p>
             <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quidem, omnis?</p>
         </article>
     </div>
 </div>
 
 <script>
-
     //These will only be run on startup
     var imageCollection = [];
     var basePos = 0;
     var lastSlide = 1;
     var slideIndex = 1;
     var nextSlide = 2;
-
     function getImages() {
         Gallery = document.getElementsByClassName("slides");
         for (x = 0; x < Gallery.length; x++) {
@@ -62,7 +54,6 @@ layout: homepage
             imageCollection.push(images);
         } 
     }  
-
     //Adds or Deducts 1 from slider
     function plusSlides(n) {
         lastSlide = slideIndex;
@@ -70,21 +61,16 @@ layout: homepage
         showSlides(slideIndex += n);
         //Put prev slide here  
     }
-
     function currentSlide(n) {
         lastSlide = slideIndex;
         nextSlide = +1
         showSlides(slideIndex = n);
     }
-    
     function showSlides(n) {
         var i;
         var slides = document.getElementsByClassName("mySlides");
-
         var imageSlides = document.getElementsByClassName("slides");
-
         var showcase = document.getElementsByClassName("bigSlide");
-
         if (n > slides.length) {
             slideIndex = 1
         }    
@@ -94,36 +80,25 @@ layout: homepage
         if (nextSlide > slides.length) {
             nextSlide = 1
         }
-   
         for (i = 0; i < slides.length; i++) {
             imageSlides[i].className = imageSlides[i].className.replace(" active", "");
-            imageSlides[i].style.display = "none";
         }
-        
-        //Puts current dot as active
         imageSlides[slideIndex-1].className += " active";
-        imageSlides[slideIndex-1].style.display = "none";
-        imageSlides[slideIndex-1].style.display = "block";
-        //Resets all pictures to original place 
         for (var i = 0; i < slides.length; i++) {
             imageSlides[i].src = imageCollection[i]
-            imageSlides[i].style.display = "block";
         }
-
         //Position to assign
         var baseImage = imageSlides[basePos].src; // Always points to Big picture
         var pastImage = imageSlides[lastSlide-1].src; //Points to picture prior to index
         var currentImage = imageSlides[slideIndex-1].src; //Points to currentIndex
         var futureImage = imageSlides[nextSlide-1].src; //Points to Index ahead of CurrentIndex
         var showcaseImage = showcase[0].src
-  
         // document.getElementsByClassName("slides")[slideIndex-1].src = baseImage;
         // document.getElementsByClassName("slides")[basePos].src = currentImage;
         showcase[0].src = currentImage;
     }
     getImages();
     showSlides();
-    console.log(imageCollection);
 </script>
 
 

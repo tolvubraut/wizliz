@@ -21,22 +21,28 @@ $pictureGalleryHeight: 90vh;
     height:auto;
 }
 
-
-
 /* ==========================
     Showcase Image
 =============================*/
 .myBigSlide {
+
     position: relative;
-}
+    width: 100%;
+    padding-top: 38.25%; 
+ }
+
+
 
 .bigSlide {
     @include fade();
-    width: 100%;
+    position:  absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
     height: 100%;
-    max-height: 75vh;
-    margin: 0 auto 0 auto;
-}
+ }
+
 
 
 /* ==========================
@@ -55,6 +61,7 @@ $pictureGalleryHeight: 90vh;
     width:20%;
     height: auto;
     right:0;
+    object-fit: cover;
 }
 
 //Images
@@ -88,7 +95,10 @@ $pictureGalleryHeight: 90vh;
 
 .next {
     right: 0%;
-    @include sRadius();
+}
+
+.left {
+    left: 0%;
 }
 
 .prev:hover, .next:hover {
@@ -100,7 +110,6 @@ $pictureGalleryHeight: 90vh;
 .active, .slides:hover {
     background-color: $backgroundRgba;
     @include mainBorder($whiteColor);
-  
 
 }
 
@@ -113,56 +122,48 @@ $pictureGalleryHeight: 90vh;
 
 
 @media screen and(min-width: 2000px) {
+    .myBigSlide {
+        padding-top: 39.15%
+    }
     .slides-container {
         max-height:270px;
     }
 }
 
-@media screen and(max-width: 65em) {
-    .news-container {
-        width: auto;
+@media screen and (max-width: 100em) {
+    .myBigSlide {
+        padding-top: 56.25%
     }
+}
+
+@media screen and(max-width: 65em) {
     .prev, .next {
         padding: 25px;
     }
+    .news-container {
+        width: auto;
+    }
 }
 
-@media screen and(max-width: 57.5em) {
-    .myBigSlide {
-        
-    }
-    .bigSlide {
-        height: 25em;
-    }
+@media screen and(max-width: 57.5em) { 
     .prev, .next {
         padding: 16px;
     }
-
 }
 
 @media screen and(max-width: 45em) {
-    .bigSlide {
-        height: 20em;
-    }
     .prev, .next {
         padding: 14px;
     }
 }
 
-@media screen and(max-width: 37.5em) {
-    .bigSlide {
-        height:17em;
-    }
+@media screen and(max-width: 37.5em) { 
     .prev, .next {
         padding: 12px;
-    }
-    
+    }  
 }
 
 @media screen and(max-width: 30em) {
-    .bigSlide {
-        height: 15em;
-    }
     .slides-container {
         height: 57px;
     }
