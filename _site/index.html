@@ -181,9 +181,7 @@
     var imageCollection = [];
     var backupCollection = [];
     var basePos = 0;
-    var lastSlide = 1;
     var slideIndex = 1;
-    var nextSlide = 2;
     function getImages() {
         Gallery = document.getElementsByClassName("slides");
         for (x = 0; x < Gallery.length; x++) {
@@ -214,7 +212,6 @@
         var imageSlides = document.getElementsByClassName("slides");
         var showcase = document.getElementsByClassName("bigSlide");
 
-
         var backup = document.getElementsByClassName("smallbackup");
         var bigbackup = document.getElementsByClassName("bigbackup");
 
@@ -223,9 +220,6 @@
         }    
         if (n < 1) {
             slideIndex = slides.length
-        }
-        if (nextSlide > slides.length) {
-            nextSlide = 1
         }
         for (i = 0; i < slides.length; i++) {
             imageSlides[i].className = imageSlides[i].className.replace(" active", "");
