@@ -34,7 +34,7 @@
                     <section class="mySlides">
                         
                             <picture>
-                                <source class="sliderbackup" data-value="1" media="(max-width: 800px)" srcset="/verkefni2/assets/img/witcher3mobile.jpg">
+                                <source class="smallbackup" data-value="1" media="(max-width: 800px)" srcset="/verkefni2/assets/img/witcher3mobile.jpg">
                                 <img onclick ="currentSlide(1)" class="slides" data-value="1"  src="/verkefni2\assets\img\witcher3Slider.jpg" alt="Slider Small Image">
                             </picture>
                         
@@ -46,7 +46,7 @@
                     <section  class="mySlides">
                         
                             <picture>
-                                <source class="sliderbackup" data-value="2" media="(max-width: 800px)" srcset="/verkefni2/assets/img/wowmobile.jpg">
+                                <source class="smallbackup" data-value="2" media="(max-width: 800px)" srcset="/verkefni2/assets/img/wowmobile.jpg">
                                 <img onclick ="currentSlide(2)" class="slides" data-value="2" src="/verkefni2\assets\img\wow500px.png" alt="Slide Image">
                             </picture>
                         
@@ -58,7 +58,7 @@
                     <section  class="mySlides">
                         
                             <picture>
-                                <source class="sliderbackup" data-value="3" media="(max-width: 800px)" srcset="/verkefni2/assets/img/cyberpunk2077mobile.jpg">
+                                <source class="smallbackup" data-value="3" media="(max-width: 800px)" srcset="/verkefni2/assets/img/cyberpunk2077mobile.jpg">
                                 <img onclick ="currentSlide(3)" class="slides" data-value="3" src="/verkefni2\assets\img\cyberpunkSlider.jpg" alt="Slide Image">
                             </picture>
                         
@@ -70,7 +70,7 @@
                     <section  class="mySlides">
                         
                             <picture>
-                                <source class="sliderbackup" data-value="4" media="(max-width: 800px)" srcset="/verkefni2/assets/img/diablo3mobile.jpg">
+                                <source class="smallbackup" data-value="4" media="(max-width: 800px)" srcset="/verkefni2/assets/img/diablo3mobile.jpg">
                                 <img onclick ="currentSlide(4)" class="slides" data-value="4" src="/verkefni2\assets\img\diablo3Slider.jpg" alt="Slide Image">
                             </picture>
                         
@@ -82,7 +82,7 @@
                     <section  class="mySlides">
                         
                             <picture>
-                                <source class="sliderbackup" data-value="5" media="(max-width: 800px)" srcset="/verkefni2/assets/img/sc2mobile.jpg">
+                                <source class="smallbackup" data-value="5" media="(max-width: 800px)" srcset="/verkefni2/assets/img/sc2mobile.jpg">
                                 <img onclick ="currentSlide(5)" class="slides" data-value="5" src="/verkefni2\assets\img\starcraft2Slider.png" alt="Slide Image">
                             </picture>
                         
@@ -112,27 +112,21 @@
     function getImages() {
         Gallery = document.getElementsByClassName("slides");
         for (x = 0; x < Gallery.length; x++) {
-            images = document.getElementsByClassName("slides")[x].src;
+            images = Gallery[x].src;
             imageCollection.push(images);
         } 
     }  
-    function getImagesV2() {
-        Gallery = document.getElementsByClassName("sliderbackup");
+    function getbackup() {
+        Gallery = document.getElementsByClassName("smallbackup");
         for (x = 0; x < Gallery.length; x++) {
-            images = document.getElementsByClassName("sliderbackup")[x].getAttribute("srcset");
+            images = Gallery[x].srcset;
             backupCollection.push(images);
         } 
     } 
-    //Adds or Deducts 1 from slider
     function plusSlides(n) {
-        lastSlide = slideIndex;
-        nextSlide = nextSlide + 1
-        showSlides(slideIndex += n);
-        //Put prev slide here  
+        showSlides(slideIndex += n); 
     }
     function currentSlide(n) {
-        lastSlide = slideIndex;
-        nextSlide = +1
         showSlides(slideIndex = n);
     }
 
@@ -146,7 +140,7 @@
         var showcase = document.getElementsByClassName("bigSlide");
 
 
-        var backup = document.getElementsByClassName("sliderbackup");
+        var backup = document.getElementsByClassName("smallbackup");
         var bigbackup = document.getElementsByClassName("bigbackup");
 
         if (n > slides.length) {
@@ -167,29 +161,26 @@
         }
         //Position to assign
         var baseImage = imageSlides[basePos].src; // Always points to Big picture
-        var pastImage = imageSlides[lastSlide-1].src; //Points to picture prior to index
         var currentImage = imageSlides[slideIndex-1].src; //Points to currentIndex
-        var futureImage = imageSlides[nextSlide-1].src; //Points to Index ahead of CurrentIndex
-
-        var backupImage = backup[slideIndex-1].src;
-
-        for (x = 0; x < backup.length; x++) {
-            if (imageSlides[x].getAttribute("data-value") == backup[x].getAttribute("data-value")) {
-                
-            } 
-        }
+        var backupImage = backup[slideIndex-1].srcset;
         if (window.innerWidth > 800) {
             showcase[0].src = currentImage;
-        } else {
-            
-            
+        }else {
+            //Loop to avoid error incase srcset dosen't load
+            for (x = 0; x < backup.length; x++) {
+                for (check = 0; check < imageSlides.length; check++){
+                    if (imageSlides[check].getAttribute("data-value") == backup[x].getAttribute("data-value")) {
+                        if (backup[x].getAttribute("data-value") == backup[slideIndex-1].getAttribute("data-value")){
+                            bigbackup[0].srcset = backupImage;
+                            showcase[0].src = currentImage;//Used for swapping in responsive
+                        }
+                    }
+                }
+            }
         }
-      //Maybe remove all <picture tags> and just add them somewhere else.
-}   
-        
-    
+    }   
     getImages();
-    getImagesV2();
+    getbackup();
     showSlides();
 </script>
 
