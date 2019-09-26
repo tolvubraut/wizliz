@@ -1,6 +1,5 @@
-
-//Cleanup for Mixins and vars
 // Base for Website
+//Redo colors and variables on site to make more consistent
 :root {
   --main-font: 'Roboto Condensed', sans-serif; //used for main things on site
   --secondary-font: 'Rambla', sans-serif; // Use for side things Paragraphs, etc
@@ -24,6 +23,24 @@ html, body {
   scroll-behavior: smooth;
 }
 
+/*=========================
+      Icomoon Fonts
+=========================== */
+
+//Adjust
+.icon-steam:before {
+  content: "\eaad";
+}
+.icon-twitch:before {
+  content: "\ea9f";
+}
+.icon-steam:before {
+  content: "\eaad";
+}
+.icon-github:before {
+  content: "\eab0";
+}
+
 img {
   display:block;
   width: 100%; 
@@ -31,7 +48,6 @@ img {
 }
 
 //End of Sticky Footer
-
 .current {
   color: orangered;
 }
@@ -39,9 +55,6 @@ img {
 //SCSS Variables
 
 //Font sizes
-$paraSize: 0.8em;
-
-$fontSize: 1em;
 
 $fontLinkSize: 1.25em;
 
@@ -89,16 +102,12 @@ $backgroundGradient: linear-gradient(to top right,rgba( 22, 22, 22, 0.6), 70%, r
     from {opacity: .4} 
     to {opacity: 1}
   }
-  
   @keyframes fade {
     from {opacity: .4} 
     to {opacity: 1}
   }
 }
-@mixin grid {
-  display: -webkit-box;
-  display:grid;
-}
+
 
 @mixin flexCenter {
   display:flex;
@@ -175,18 +184,18 @@ li a {
 }
 
 //Styles Links
-.links {
-  @include flexCenter();
-  font-size: $fontHeadingSize;
-}
-
-//Use this instead of links to take up entire parent div
 .linksBlock {
   display:flex;
   justify-content: center;
   height: 100%;
   width: 100%;
 }
+.links {
+  @include flexCenter();
+  font-size: $fontHeadingSize;
+}
+
+//Use this instead of links to take up entire parent div
 
 .heading-title {
   font-family:  var(--header-font);

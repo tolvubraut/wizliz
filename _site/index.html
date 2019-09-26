@@ -90,6 +90,7 @@
         <!-- Slider -->
     <div class="slideshow-gallery"> 
         <gallery class="slideshow-container">
+                <link rel="stylesheet" href="https://i.icomoon.io/public/temp/d0de28a5de/UntitledProject/style.css">
             
             
                 
@@ -227,9 +228,9 @@
         for (var i = 0; i < slides.length; i++) {
             imageSlides[i].src = imageCollection[i]
         }
-        //Position to assign
-        var baseImage = imageSlides[basePos].src; // Always points to Big picture
-        var currentImage = imageSlides[slideIndex-1].src; //Points to currentIndex
+
+        var baseImage = imageSlides[basePos].src; 
+        var currentImage = imageSlides[slideIndex-1].src; 
         var backupImage = backup[slideIndex-1].srcset;
         if (window.innerWidth > 800) {
             showcase[0].src = currentImage;
@@ -240,7 +241,7 @@
                     if (imageSlides[check].getAttribute("data-value") == backup[x].getAttribute("data-value")) {
                         if (backup[x].getAttribute("data-value") == backup[slideIndex-1].getAttribute("data-value")){
                             bigbackup[0].srcset = backupImage;
-                            showcase[0].src = currentImage;//Used for swapping in responsive
+                            showcase[0].src = currentImage;
                         }
                     }
                 }
@@ -260,19 +261,18 @@
     <div class="social-media-container">
         <div class="social-media">
             <a href="">
-                <img src="/verkefni2/assets/img/g1.png">
             </a>
             <a href="">
-                <img src="/verkefni2/assets/img/g2.png">
+                <span class="icon-steam"></span>
             </a>
             <a href="">
-                <img src="/verkefni2/assets/img/g3.png">
+                <span class="icon-twitch"></span>
             </a>
             <a href="">
-                <img src="/verkefni2/assets/img/g4.png">
+                <span class="icon-steam"></span>
             </a>
             <a href="">
-                <img src="/verkefni2/assets/img/g5.png">
+                <span class="icon-github"></span>
             </a>
         </div>
     </div>

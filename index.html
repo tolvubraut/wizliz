@@ -6,6 +6,7 @@ layout: homepage
         <!-- Slider -->
     <div class="slideshow-gallery"> 
         <gallery class="slideshow-container">
+                <link rel="stylesheet" href="https://i.icomoon.io/public/temp/d0de28a5de/UntitledProject/style.css">
             {% for index in site.posts reversed limit:5 %}
             {% assign counter = counter | plus:1 %}
                 {% if counter == 1 %}
@@ -113,9 +114,9 @@ layout: homepage
         for (var i = 0; i < slides.length; i++) {
             imageSlides[i].src = imageCollection[i]
         }
-        //Position to assign
-        var baseImage = imageSlides[basePos].src; // Always points to Big picture
-        var currentImage = imageSlides[slideIndex-1].src; //Points to currentIndex
+
+        var baseImage = imageSlides[basePos].src; 
+        var currentImage = imageSlides[slideIndex-1].src; 
         var backupImage = backup[slideIndex-1].srcset;
         if (window.innerWidth > 800) {
             showcase[0].src = currentImage;
@@ -126,7 +127,7 @@ layout: homepage
                     if (imageSlides[check].getAttribute("data-value") == backup[x].getAttribute("data-value")) {
                         if (backup[x].getAttribute("data-value") == backup[slideIndex-1].getAttribute("data-value")){
                             bigbackup[0].srcset = backupImage;
-                            showcase[0].src = currentImage;//Used for swapping in responsive
+                            showcase[0].src = currentImage;
                         }
                     }
                 }
