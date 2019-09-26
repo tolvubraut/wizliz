@@ -194,6 +194,8 @@ main { grid-area: main; }
 
 @media screen and (max-width: 100em) { .myBigSlide { padding-top: 32.01%; } }
 
+@media screen and (max-width: 80em) { .news-container { width: 100%; } }
+
 @media screen and (max-width: 65em) { .myBigSlide { padding-top: 55.6%; }
   .prev, .next { padding: 25px; }
   .news-container { width: auto; } }
