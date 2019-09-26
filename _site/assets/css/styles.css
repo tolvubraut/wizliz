@@ -106,6 +106,45 @@ li a:hover { border-bottom: 2px solid; none: 2px solid; border-color: white; }
   .nav-wrapper .mobile-menu .bar:after { top: 10px; }
   /* ==================== End of Adjustment =====================*/ }
 
+.toggle { display: none; }
+
+/*  ==================== Media Query 1040PX ==================== */
+@media screen and (max-width: 65em) { #headwrapper { height: 4.25em; border-bottom: 2px solid; none: 2px solid; border-color: white; }
+  .head-container { width: 100%; height: 4.25em; }
+  .logo-container { display: flex; display: -webkit-box; display: -moz-box; display: -webkit-flex; display: -ms-flexbox; justify-content: center; align-items: center; align-content: center; width: 100%; height: 4.25em; }
+  .nav-wrapper { width: 0; }
+  .nav-menu { position: fixed; top: 4.25em; right: 0; opacity: 0; width: 0; height: 0; overflow: hidden; z-index: 1; background: rgba(25, 25, 25, 0.85); justify-content: flex-start; flex-direction: column; background: rgba(25, 25, 25, 0.85); }
+  .nav-link { display: flex; display: -webkit-box; display: -moz-box; display: -webkit-flex; display: -ms-flexbox; justify-content: center; align-items: center; align-content: center; border-bottom: 2px solid; none: 2px solid; border-color: white; width: 100%; height: 10%; background: rgba(25, 25, 25, 0.85); font-size: 1.25em; }
+  .nav-link-text { position: relative; right: 15px; font-weight: 500; }
+  .nav-link-icon { top: 1px; }
+  /*====================================== Start of Mobile Menu and animations ======================================*/
+  .nav-wrapper .toggle { display: initial; width: 4.6rem; height: 4rem; position: absolute; top: 0.25em; right: 1em; opacity: 0; cursor: pointer; z-index: 999; }
+  .nav-wrapper .mobile-menu { width: 4.2rem; height: 4rem; position: absolute; top: 0.1em; right: 0.9em; z-index: 998; display: flex; padding: 10px; display: flex; display: -webkit-box; display: -moz-box; display: -webkit-flex; display: -ms-flexbox; justify-content: center; align-items: center; align-content: center; -webkit-transition: all 0.4s ease; -moz-transition: all 0.4s ease; -o-transition: all 0.4s ease; transition: all 0.4s ease; }
+  .nav-wrapper .mobile-menu .bar { position: relative; width: 1000px; height: 5px; z-index: 5; -webkit-transition: all 0.4s ease; -moz-transition: all 0.4s ease; -o-transition: all 0.4s ease; transition: all 0.4s ease; background: white; }
+  .nav-wrapper .mobile-menu .bar::after, .nav-wrapper .mobile-menu .bar::before { content: ''; position: absolute; top: -12px; height: 5px; width: 100%; background: white; -webkit-transition: all 0.4s ease; -moz-transition: all 0.4s ease; -o-transition: all 0.4s ease; transition: all 0.4s ease; }
+  .nav-wrapper .mobile-menu .bar:after { top: 12px; }
+  .nav-wrapper .toggle:hover + .mobile-menu { border-radius: 50%; background: rgba(255, 255, 255, 0.1); }
+  .nav-wrapper .toggle:checked + .mobile-menu { transform: rotate(45deg); }
+  .nav-wrapper .toggle.checked:hover + .mobile-menu { transform: rotate(135deg); }
+  .nav-wrapper .toggle:checked + .mobile-menu .bar::before, .nav-wrapper .toggle:checked + .mobile-menu .bar::after { top: 0; transform: rotate(90deg); }
+  .toggle:checked + .mobile-menu + .nav-menu { opacity: 1; width: 100%; height: 100vh; -webkit-transition: all 0.4s ease; -moz-transition: all 0.4s ease; -o-transition: all 0.4s ease; transition: all 0.4s ease; }
+  /*====================================== ENd of Mobile Menu and animations ======================================*/ }
+
+/* ================
+Media Query 720PX
+====================*/
+@media screen and (max-width: 45em) { /*============================================ Start of Adjusting Height of mobile Hamburger ==============================================*/
+  #headwrapper { height: 3.8em; }
+  .head-container { height: 3.8em; }
+  .logo-container { height: 3.8em; justify-content: flex-start; }
+  .nav-menu { top: 3.8rem; }
+  .nav-wrapper .toggle { width: 4.2rem; height: 3.6rem; top: 0em; right: 0.8em; }
+  .nav-wrapper .mobile-menu { width: 3.8rem; height: 3.6rem; top: 0.15em; right: 0.8em; }
+  .nav-wrapper .mobile-menu .bar { height: 4px; }
+  .nav-wrapper .mobile-menu .bar::after, .nav-wrapper .mobile-menu .bar::before { content: ''; top: -10px; height: 4px; }
+  .nav-wrapper .mobile-menu .bar:after { top: 10px; }
+  /* ==================== End of Adjustment =====================*/ }
+
 aside { grid-area: aside; }
 
 main { grid-area: main; }
