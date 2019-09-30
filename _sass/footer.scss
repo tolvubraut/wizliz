@@ -19,21 +19,21 @@
     flex-wrap:wrap;
     flex: 30%;
     width: 100%;
+    height: auto;
     background: darken($backgroundColor, 5%);
 }
 
 //maybe add a class for footer logos
-.social-media img {
+.social-media-icons {
     @include flexCenter();
-    width: 35px;
-    border-radius: 50%;
+    @include sRadius(50%);
     background:$whiteColor;
-    margin: 5px 10px 5px 10px;
+    margin: 4px 10px 6px 10px;
+    padding: 5px 5px;
+    &:hover {
+        opacity:.7;
+    }
 }
-
-
-//Testing
-
 //End of Social Media
 
 //Start of main Content on footer
@@ -51,7 +51,7 @@
 .company-info {
     @include flexCenter();
     @include sRadius();
-    flex: 25%;
+    flex: 26%;
     height: 5em;
     margin: 10px;
     background: $backgroundGradient;
@@ -69,7 +69,6 @@
 
 @media screen and (max-width: 30em) {
     .company-info {
-        flex: 45%;
-        
+        flex: 45%;   
     }
 }

@@ -1,14 +1,22 @@
 - name: Home
-  image: /assets/img/g3.png
   link: /
+  icon: icon-aard
+
+- name: Gallery
+  link: /gallery.html 
+  icon: icon-axii
 
 - name: Games
-  image: /assets/img/g1.png
   link: /games.html
-- name: Companies
-  image: /assets/img/g4.png
-  link: /companies.html
+  icon: icon-igni
 
+- name: Companies
+  link: /companies.html
+  icon: icon-quen
+
+- name: About
+  link: /about.html
+  icon: icon-yrden
 
 
   

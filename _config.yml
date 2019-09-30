@@ -1,4 +1,4 @@
-#baseurl: /verkefni2 Can be used to setup for links if need be
+
 baseurl: /verkefni2
 collections:
   companies:
