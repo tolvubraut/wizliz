@@ -1,7 +1,7 @@
 
 //Header Navigation
 .current {
-  @include mainBorder(#9147FF, border-bottom)
+  @include mainBorder($themeColor, border-bottom);
 }
 
 // Start of Header
