@@ -24,8 +24,10 @@
   width: 100em; 
 }
 
-.logo {
 
+.logo {
+  width:134px;
+  height:45px;
 }
 .logo-container {
   @include flexCenter;
@@ -43,6 +45,7 @@
   display:flex;
   flex-direction: row;
   justify-content: flex-end;
+  @include transLink;
 }
 
 .nav-link {

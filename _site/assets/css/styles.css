@@ -76,12 +76,14 @@ li a:hover { border-bottom: 2px solid; none: 2px solid; border-color: #fffff1; }
 
 .head-container { display: flex; margin: 0 auto; width: 100em; }
 
+.logo { width: 134px; height: 45px; }
+
 .logo-container { display: flex; display: -webkit-box; display: -moz-box; display: -webkit-flex; display: -ms-flexbox; justify-content: center; align-items: center; align-content: center; width: 52%; }
 
 /*======================== Start of Nav Menu =========================*/
 .nav-wrapper { width: 100%; }
 
-.nav-menu { display: flex; flex-direction: row; justify-content: flex-end; }
+.nav-menu { display: flex; flex-direction: row; justify-content: flex-end; -webkit-transition: all 0.4s ease; -moz-transition: all 0.4s ease; -o-transition: all 0.4s ease; transition: all 0.4s ease; }
 
 .nav-link { padding: 0 1.2em; align-self: center; height: 4em; text-transform: uppercase; display: flex; align-items: center; color: #b3b3b3; }
 
