@@ -1,6 +1,8 @@
 
 //Header Navigation
-
+.current {
+  @include mainBorder($themeColor, border-bottom);
+}
 
 // Start of Header
 #headwrapper {
@@ -15,19 +17,21 @@
   background-color: $backgroundColor;
 }
 
-//Adjust Header nav location
+//Adjust Header nav location need to fix logo container
 .head-container {
   display:flex;
   margin: 0 auto;
-  width: 65em; 
+  width: 100em; 
 }
+
 
 .logo {
-  @include flexCenter;
+  width:134px;
+  height:45px;
 }
-
 .logo-container {
   @include flexCenter;
+  width: 52%
 }
 
  /*========================
@@ -41,6 +45,7 @@
   display:flex;
   flex-direction: row;
   justify-content: flex-end;
+  @include transLink;
 }
 
 .nav-link {
@@ -61,16 +66,11 @@
   }
 }
 
-.nav-link-icon {
-  position:relative;  
-  right: 12px;
-  width: 61px;
-  height: 60px;
-}
+
 .nav-link-text {
   position:relative;
-  right: 15px;
-  top: 2px;
+  right: 10px;
+  top:1.5px;
   font-size: $fontLinkSize;
 }
  /*======================================

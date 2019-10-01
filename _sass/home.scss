@@ -1,25 +1,20 @@
 //Grid area
 $pictureGalleryHeight: 90vh;
-
 .homewrapper {
     margin-top: 4em;
     flex: 1 0 auto; //Keeps sticky footer sticky
 }
-
 /*========================
         Slideshow Gallery
 ==========================*/
-
 .slideshow-gallery {
     max-width: 100%;
     height:auto;
 }
-
 .slideshow-container {
     max-width: 100%;
     height:auto;
 }
-
 /* ==========================
     Showcase Image
 =============================*/
@@ -28,8 +23,6 @@ $pictureGalleryHeight: 90vh;
     width: 100%;
     padding-top: 38.25%; 
  }
-
-
 .bigSlide {
     @include fade();
     position:  absolute;
@@ -38,20 +31,16 @@ $pictureGalleryHeight: 90vh;
     bottom: 0;
     right: 0;
     height: 100%;
-    // height: 91.9vh; This is complete height of both big picture and small picture
  }
-
 /* ==========================
     Small Images in Slider
 =============================*/
-//Parent of Img containers
 .slides-container {
     display:flex;
     flex-direction: row;
     max-height: 178px;
 }
 
-//Img Container
 .mySlides {
     position: relative;
     width:20%;
@@ -60,7 +49,6 @@ $pictureGalleryHeight: 90vh;
     object-fit: cover;
 }
 
-//Images
 .slides {
     height: 100%;
     width: 100%;
@@ -86,15 +74,12 @@ $pictureGalleryHeight: 90vh;
     @include transLink();
     @include sRadius();
 }
-  
 .next {
     right: 0%;
 }
-
 .left {
     left: 0%;
 }
-
 .prev:hover, .next:hover {
     background-color:$whiteColor;
   }
@@ -104,7 +89,6 @@ $pictureGalleryHeight: 90vh;
     @include mainBorder($whiteColor);
 
 }
-
 .news-container {
     width: 80em;
     margin: 0 auto;
@@ -138,8 +122,7 @@ $pictureGalleryHeight: 90vh;
     }
     .news-container {
         width: 100%;
-    }
-    
+    } 
 }
 //Tablets 1040PX
 @media screen and(max-width: 65em) {
@@ -163,6 +146,9 @@ $pictureGalleryHeight: 90vh;
 @media screen and(max-width: 45em) {
     .prev, .next {
         padding: 14px;
+    }
+    .homewrapper {
+        margin-top: 3.8em;
     }
 }
 

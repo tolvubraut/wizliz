@@ -2,6 +2,15 @@ $headerHeight: 4.25em;
 .toggle {
     display:none;
   }
+  //Change it to be like cd projekt Reds header
+  @media screen and (max-width: 100em) {
+      .head-container {
+          width: auto;
+      }
+      .logo-container {
+          width: auto;
+      }
+  }
   
   /*  ====================
        Media Query 1040PX
@@ -12,7 +21,6 @@ $headerHeight: 4.25em;
     //Start of Header containers
     #headwrapper {
         height: $headerHeight;
-        @include mainBorder($whiteColor, border-bottom);
     }
     
     .head-container {
@@ -21,11 +29,8 @@ $headerHeight: 4.25em;
     }
     
     .logo-container {
-        @include flexCenter;
-        width: 100%;
         height: $headerHeight;
     }
-    
     
     .nav-wrapper {
         width: 0;
@@ -56,9 +61,13 @@ $headerHeight: 4.25em;
         background: $backgroundRgba;
         font-size: $fontLinkSize;
     }
+    ///CHECK
+    .nav-link:first-child {
+        @include mainBorder($whiteColor,border-top)
+      }
     .nav-link-text {
         position:relative;
-        right: 15px;
+        
         font-weight: 500;
     }
     .nav-link-icon {
@@ -69,7 +78,6 @@ $headerHeight: 4.25em;
         Start of Mobile Menu and animations
     ======================================*/
     .nav-wrapper .toggle {
-        
         display:initial;
         width: 4.6rem;
         height: 4rem;

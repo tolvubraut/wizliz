@@ -3,16 +3,12 @@ title: Home
 layout: homepage
 ---
 <div class="homewrapper">
-        <!-- Slider -->
     <div class="slideshow-gallery"> 
         <gallery class="slideshow-container">
-                <link rel="stylesheet" href="https://i.icomoon.io/public/temp/d0de28a5de/UntitledProject/style.css">
             {% for index in site.posts reversed limit:5 %}
             {% assign counter = counter | plus:1 %}
                 {% if counter == 1 %}
                     <section class="myBigSlide">
-                            <!-- Makes sure an alternative image has been put in in the src tag -->
-                            <!-- Add a loop that keeps going through games until it finds a picture if it dosen't find any -->
                             {% if index.mobileImage%}
                                 <picture>
                                     <source class="bigbackup" data-value="{{counter}}" media="(max-width: 800px)" srcset="{{site.baseurl}}{{index.mobileImage}}" alt="Slider Big Image">
