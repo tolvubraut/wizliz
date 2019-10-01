@@ -1,18 +1,14 @@
-//Start of Footer
-//Start of Social Media
+
 #footwrapper {
     @include mainBorder($secondaryColor);
     @include boxShadow;
     background: $backgroundColor;
 }
-
-//Social media temp
 .social-media-container {
     @include flexCenter();
     flex-direction: row;
     height:auto;
 }
-
 .social-media {
     @include flexCenter();
     flex-direction: row;
@@ -22,8 +18,6 @@
     height: auto;
     background: darken($backgroundColor, 5%);
 }
-
-//maybe add a class for footer logos
 .social-media-icons {
     @include flexCenter();
     @include sRadius(50%);
@@ -37,10 +31,32 @@
 //End of Social Media
 
 //Start of main Content on footer
+aside {
+    grid-area:aside;
+}
+main {
+    grid-area:main;
+}
+
 .footer-container {
-    max-width: 70em;
+    display:grid;
     height: auto;
     margin: 0 auto;
+    grid-template-areas: "aside main";
+    grid-template-columns: 0.9fr 5fr;
+    grid-template-rows: 1fr;
+    padding-right: 30px;
+}
+
+.contact-info {
+    padding: 10px;
+}
+.footer-logo {
+    position: relative;
+    width:150px;
+    height:55px;
+    right:10px;
+    padding-bottom: 10px;
 }
 
 .flexwrapper {
@@ -48,27 +64,61 @@
     flex-wrap: wrap;
 }
 
-.company-info {
+.company-info-main, .company-info-secondary {
+    position: relative;
     @include flexCenter();
-    @include sRadius();
-    flex: 26%;
     height: 5em;
-    margin: 10px;
+    margin: 10px 15px;
     background: $backgroundGradient;
+    // background-image: url("/verkefni2/assets/img/diablo3Slider.jpg");
+    // background-repeat: no-repeat; 
+    // background-size: 100% 100%;
     &:hover {
         background: linear-gradient(to top right,rgba( 22, 22, 22, 0.4), 65%, rgba(82, 42, 97, 0.4));
     }
 }
+.company-info-main {
+    flex: 45%;
+}
+.company-info-secondary {
+    flex:30%;
+    height: 7em;
+}
+.copyright {
+    @include mainBorder($whiteColor, border-top);
+    color: $whiteColor;
+  }
+
 // of main Content on footer
 
-@media screen and (max-width: 45em) {
-    .company-info {
-    flex: 35%;
+@media screen and (max-width: 55em) {
+    .company-info-main {
+        flex: 100%
+    }
+    .company-info-secondary {
+        flex:35%;
+        height: 7em;
     }
 }
-
+@media screen and (max-width: 45em) {
+    .footer-container {
+        display:inline;    
+    }
+    .contact-info {
+        display:flex;
+        flex-direction: column;
+    }
+    .info li {
+        margin-right:10px;
+        @include mainBorder($whiteColor, border-bottom);
+    }
+    .copyright {
+        text-align: center;
+        border:none;
+      }
+}
 @media screen and (max-width: 30em) {
-    .company-info {
-        flex: 45%;   
+    .company-info-secondary{
+        flex:50%;
     }
 }

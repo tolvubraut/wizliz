@@ -35,6 +35,7 @@ $fontHeadingSize: 1.5em;
 $mainColor:#b3b3b3;
 $secondaryColor: #030303;
 $themeColor: #9147FF;
+$iconColor: #743a8a;
 $headerColor: #030303; //Maybe give headers unqiue colour
 $linkColor:rgb(35, 100, 170);
 $whiteColor: #fffff1;
@@ -83,27 +84,23 @@ $backgroundGradient: linear-gradient(to top right,rgba( 22, 22, 22, 0.6), 70%, r
 }
 .icon-aard:before {
   content: "\e900";
-  color: #743a8a;
 }
 .icon-axii:before {
   content: "\e901";
-  color: #743a8a;
 }
 .icon-igni:before {
   content: "\e902";
-  color: #743a8a;
 }
 .icon-quen:before {
   content: "\e903";
-  color: #743a8a;
 }
 .icon-yrden:before {
   content: "\e904";
-  color: #743a8a;
 }
 .icon-aard, .icon-axii, .icon-igni, .icon-quen, .icon-yrden {
   position: relative;
   right: 10px;
+  color:$iconColor;
 }
 .icon-twitch:before {
   content: "\ea9f";
@@ -182,24 +179,21 @@ body {
   font-weight: 400;
   line-height: 1.5;
   //Add background img to Games/Companies/About and make it transparent
-  background-image: url("/verkefni2/assets/img/mainBackground.png"); /* The image used */
+  background-image: url("/verkefni2/assets/img/mainBackground.png");
   background-color: whitesmoke;
-  background-position: center; /* Center the image */
-  background-repeat: no-repeat; /* Do not repeat the image */
-  background-size: fill; /* Resize the background image to cover the entire container */
+  background-position: center; 
+  background-repeat: no-repeat; 
+  background-size: fill; 
 }
-
 h1,  h3, h4 {
   font-family: var(--main-font);
   color:$headerColor;
   line-height: 1.5;
 }
-
 //H2 used exclusively for blog titles
 h2 {
   color:$whiteColor;
 }
-
 //Header and Links
 a {
   color: $linkColor;
@@ -208,14 +202,15 @@ a {
     color: lighten($linkColor, 10%);
   }
 }
-
 p {
   color:$secondaryColor;
   font-weight: 600;
 }
-
 ul li {
   list-style: none;
+  line-height: 2;
+  color:$whiteColor;
+  font-size: 12px;
 }
 
 //List Items for Publishers
@@ -229,16 +224,19 @@ li a {
 }
 
 //Styles Links
+
+.links {
+  @include flexCenter();
+  font-size: $fontHeadingSize;
+}
 .linksBlock {
   display:flex;
   justify-content: center;
   height: 100%;
   width: 100%;
 }
-.links {
-  @include flexCenter();
-  font-size: $fontHeadingSize;
-}
+
+
 
 .heading-title {
   font-family:  var(--header-font);
@@ -282,4 +280,5 @@ li a {
  .heading-title {
    font-size: 2em;
  } 
+ 
 }

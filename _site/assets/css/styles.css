@@ -13,17 +13,17 @@ img { display: block; width: 100%; height: auto; }
 
 [class^="icon-"], [class*=" icon-"] { /* use !important to prevent issues with browser extensions that change fonts */ font-family: 'icomoon' !important; speak: none; font-style: normal; font-weight: normal; font-variant: normal; text-transform: none; line-height: 1; font-size: 20px; color: black; /* Better Font Rendering =========== */ -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
 
-.icon-aard:before { content: "\e900"; color: #743a8a; }
+.icon-aard:before { content: "\e900"; }
 
-.icon-axii:before { content: "\e901"; color: #743a8a; }
+.icon-axii:before { content: "\e901"; }
 
-.icon-igni:before { content: "\e902"; color: #743a8a; }
+.icon-igni:before { content: "\e902"; }
 
-.icon-quen:before { content: "\e903"; color: #743a8a; }
+.icon-quen:before { content: "\e903"; }
 
-.icon-yrden:before { content: "\e904"; color: #743a8a; }
+.icon-yrden:before { content: "\e904"; }
 
-.icon-aard, .icon-axii, .icon-igni, .icon-quen, .icon-yrden { position: relative; right: 10px; }
+.icon-aard, .icon-axii, .icon-igni, .icon-quen, .icon-yrden { position: relative; right: 10px; color: #743a8a; }
 
 .icon-twitch:before { content: "\ea9f"; position: relative; left: 1px; }
 
@@ -36,7 +36,7 @@ img { display: block; width: 100%; height: auto; }
 .icon-github:before { content: "\eab0"; }
 
 /*============================== FontSizing/Colors ================================*/
-body { display: flex; flex-direction: column; font-family: var(--secondary-font); font-weight: 400; line-height: 1.5; background-image: url("/verkefni2/assets/img/mainBackground.png"); /* The image used */ background-color: whitesmoke; background-position: center; /* Center the image */ background-repeat: no-repeat; /* Do not repeat the image */ background-size: fill; /* Resize the background image to cover the entire container */ }
+body { display: flex; flex-direction: column; font-family: var(--secondary-font); font-weight: 400; line-height: 1.5; background-image: url("/verkefni2/assets/img/mainBackground.png"); background-color: whitesmoke; background-position: center; background-repeat: no-repeat; background-size: fill; }
 
 h1, h3, h4 { font-family: var(--main-font); color: #030303; line-height: 1.5; }
 
@@ -48,15 +48,15 @@ a:hover { color: #2c7dd4; }
 
 p { color: #030303; font-weight: 600; }
 
-ul li { list-style: none; }
+ul li { list-style: none; line-height: 2; color: #fffff1; font-size: 12px; }
 
 li a { font-size: 1.5em; font-weight: bold; margin: 10px; }
 
 li a:hover { border-bottom: 2px solid; none: 2px solid; border-color: #fffff1; }
 
-.linksBlock { display: flex; justify-content: center; height: 100%; width: 100%; }
-
 .links { display: flex; display: -webkit-box; display: -moz-box; display: -webkit-flex; display: -ms-flexbox; justify-content: center; align-items: center; align-content: center; font-size: 1.5em; }
+
+.linksBlock { display: flex; justify-content: center; height: 100%; width: 100%; }
 
 .heading-title { font-family: var(--header-font); color: #030303; font-weight: 100; font-size: 3em; text-transform: uppercase; position: relative; right: 1em; }
 
@@ -165,17 +165,37 @@ main { grid-area: main; }
 
 .social-media-icons:hover { opacity: .7; }
 
-.footer-container { max-width: 70em; height: auto; margin: 0 auto; }
+aside { grid-area: aside; }
+
+main { grid-area: main; }
+
+.footer-container { display: grid; height: auto; margin: 0 auto; grid-template-areas: "aside main"; grid-template-columns: 0.9fr 5fr; grid-template-rows: 1fr; padding-right: 30px; }
+
+.contact-info { padding: 10px; }
+
+.footer-logo { position: relative; width: 150px; height: 55px; right: 10px; padding-bottom: 10px; }
 
 .flexwrapper { display: flex; flex-wrap: wrap; }
 
-.company-info { display: flex; display: -webkit-box; display: -moz-box; display: -webkit-flex; display: -ms-flexbox; justify-content: center; align-items: center; align-content: center; border-radius: 10px; flex: 26%; height: 5em; margin: 10px; background: linear-gradient(to top right, rgba(22, 22, 22, 0.6), 70%, rgba(82, 42, 97, 0.6)); }
+.company-info-main, .company-info-secondary { position: relative; display: flex; display: -webkit-box; display: -moz-box; display: -webkit-flex; display: -ms-flexbox; justify-content: center; align-items: center; align-content: center; height: 5em; margin: 10px 15px; background: linear-gradient(to top right, rgba(22, 22, 22, 0.6), 70%, rgba(82, 42, 97, 0.6)); }
 
-.company-info:hover { background: linear-gradient(to top right, rgba(22, 22, 22, 0.4), 65%, rgba(82, 42, 97, 0.4)); }
+.company-info-main:hover, .company-info-secondary:hover { background: linear-gradient(to top right, rgba(22, 22, 22, 0.4), 65%, rgba(82, 42, 97, 0.4)); }
 
-@media screen and (max-width: 45em) { .company-info { flex: 35%; } }
+.company-info-main { flex: 45%; }
 
-@media screen and (max-width: 30em) { .company-info { flex: 45%; } }
+.company-info-secondary { flex: 30%; height: 7em; }
+
+.copyright { border-top: 2px solid; none: 2px solid; border-color: #fffff1; color: #fffff1; }
+
+@media screen and (max-width: 55em) { .company-info-main { flex: 100%; }
+  .company-info-secondary { flex: 35%; height: 7em; } }
+
+@media screen and (max-width: 45em) { .footer-container { display: inline; }
+  .contact-info { display: flex; flex-direction: column; }
+  .info li { margin-right: 10px; border-bottom: 2px solid; none: 2px solid; border-color: #fffff1; }
+  .copyright { text-align: center; border: none; } }
+
+@media screen and (max-width: 30em) { .company-info-secondary { flex: 50%; } }
 
 .homewrapper { margin-top: 4em; flex: 1 0 auto; }
 

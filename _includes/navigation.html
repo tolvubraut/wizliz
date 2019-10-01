@@ -3,7 +3,7 @@
     <div class="logo-container">
       <a href="{{site.baseurl}}/">
        
-        <img class="logo" src="{{site.baseurl}}/assets/img/wizlizmain.svg">
+        <img class="logo" src="{{site.baseurl}}/assets/img/wizliz-logo.svg">
       </a>
     </div>
     <!-- Menu/Hamburger -->
@@ -16,10 +16,6 @@
       <!-- Menu -->
       <div class="nav-menu">
         {% for item in site.data.navigation %}
-          <!-- <a class="nav-link {% if page.url == item.link %} current {% endif %}" href="{{site.baseurl}}{{ item.link }}" >
-              <span class="{{item.icon}}"></span>
-              <span class="nav-link-text">{{ item.name }}</span>  
-          </a> -->
           <a class="nav-link {% if page.url == item.link %} current {% endif %}" href="{{site.baseurl}}{{ item.link }}" >
               <span class="{{item.icon}}"></span>
               <span class="nav-link-text">{{ item.name }}</span>  
