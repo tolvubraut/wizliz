@@ -25,7 +25,7 @@
 <link rel="canonical" href="http://localhost:4000/verkefni2/" />
 <meta property="og:url" content="http://localhost:4000/verkefni2/" />
 <script type="application/ld+json">
-{"@type":"WebSite","headline":"Home","url":"http://localhost:4000/verkefni2/","@context":"https://schema.org"}</script>
+{"headline":"Home","@type":"WebSite","url":"http://localhost:4000/verkefni2/","@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
   </head>
@@ -116,7 +116,7 @@
                         
                             <picture>
                                 <source class="smallbackup" data-value="2" media="(max-width: 800px)" srcset="/verkefni2/assets/img/wowmobile.jpg">
-                                <img onclick ="currentSlide(2)" class="slides" data-value="2" src="/verkefni2\assets\img\wow500px.png" alt="Slide Image">
+                                <img onclick ="currentSlide(2)" class="slides" data-value="2" src="/verkefni2\assets\img\wow500px.jpg" alt="Slide Image">
                             </picture>
                         
                     </section > 
@@ -152,7 +152,7 @@
                         
                             <picture>
                                 <source class="smallbackup" data-value="5" media="(max-width: 800px)" srcset="/verkefni2/assets/img/sc2mobile.jpg">
-                                <img onclick ="currentSlide(5)" class="slides" data-value="5" src="/verkefni2\assets\img\starcraft2Slider.png" alt="Slide Image">
+                                <img onclick ="currentSlide(5)" class="slides" data-value="5" src="/verkefni2\assets\img\starcraft2Slider.jpg" alt="Slide Image">
                             </picture>
                         
                     </section > 
@@ -219,7 +219,7 @@
         }
         imageSlides[slideIndex-1].className += " active";
         for (var i = 0; i < slides.length; i++) {
-            imageSlides[i].src = imageCollection[i]
+            imageSlides[i].src = imageCollection[i] //Find alternative it causes double loading on some images
         }
 
         var baseImage = imageSlides[basePos].src; 

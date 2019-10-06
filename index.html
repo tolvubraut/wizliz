@@ -108,7 +108,7 @@ layout: homepage
         }
         imageSlides[slideIndex-1].className += " active";
         for (var i = 0; i < slides.length; i++) {
-            imageSlides[i].src = imageCollection[i]
+            imageSlides[i].src = imageCollection[i] //Find alternative it causes double loading on some images
         }
 
         var baseImage = imageSlides[basePos].src; 

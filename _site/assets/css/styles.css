@@ -197,7 +197,7 @@ main { grid-area: main; }
 
 @media screen and (max-width: 30em) { .company-info-secondary { flex: 50%; } }
 
-.homewrapper { margin-top: 4em; flex: 1 0 auto; }
+.homewrapper { margin-top: 4em; flex: 1 0 auto; overflow: hidden; }
 
 /*======================== Slideshow Gallery ==========================*/
 .slideshow-gallery { max-width: 100%; height: auto; }

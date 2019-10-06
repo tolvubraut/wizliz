@@ -2,7 +2,7 @@
 publisher: Activision
 title: World of Warcraft
 icon: \assets\img\wow.png
-image: \assets\img\wow500px.png
+image: \assets\img\wow500px.jpg
 mobileImage: /assets/img/wowmobile.jpg
 ---
 <!-- Worldofwarcraft.md -->
