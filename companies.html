@@ -12,7 +12,9 @@ header: Companies
           <img  class="company-icon" src="{{site.baseurl}}{{ publisher.image }}">
       </aside>
       <main class="main-grid"> 
+        <div class="excerpt">
           <p>{{ publisher.content | markdownify }}</p>
+        </div>
       </main>
     </a>
   {% endfor %}
