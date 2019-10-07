@@ -124,7 +124,6 @@
     function currentSlide(n) {
         showSlides(slideIndex = n);
     }
-
     /*====================================================
                         MAIN JS FUNC
     ===================================================*/
@@ -133,10 +132,8 @@
         var slides = document.getElementsByClassName("mySlides");
         var imageSlides = document.getElementsByClassName("slides");
         var showcase = document.getElementsByClassName("bigSlide");
-
         var backup = document.getElementsByClassName("smallbackup");
         var bigbackup = document.getElementsByClassName("bigbackup");
-
         if (n > slides.length) {
             slideIndex = 1
         }    
@@ -150,7 +147,6 @@
         for (var i = 0; i < slides.length; i++) {
             imageSlides[i].src = imageCollection[i] //Find alternative it causes double loading on some images
         }
-
         var baseImage = imageSlides[basePos].src; 
         var currentImage = imageSlides[slideIndex-1].src; 
         var backupImage = backup[slideIndex-1].srcset;
