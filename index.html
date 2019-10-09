@@ -3,53 +3,57 @@ title: Home
 layout: homepage
 ---
 <div class="homewrapper">
-    <div class="slideshow-gallery"> 
-        <gallery class="slideshow-container">
-            {% for index in site.posts reversed limit:5 %}
-            {% assign counter = counter | plus:1 %}
-                {% if counter == 1 %}
-                    <section class="myBigSlide">
-                            {% if index.mobileImage%}
-                                <picture>
-                                    <source class="bigbackup" data-value="{{counter}}" media="(max-width: 800px)" srcset="{{site.baseurl}}{{index.mobileImage}}" alt="Slider Big Image">
-                                    <img  class="bigSlide" data-value="{{counter}}" src="{{site.baseurl}}{{index.image}}">
-                                </picture>
-                            {% else %}
-                                <img  class="bigSlide" data-value="{{counter}}" src="{{site.baseurl}}{{index.image}}">
-                                <source class="smallbackup" src="{{site.baseurl}}{{index.image}}">
-                            {%endif%}
-                        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-                        <a class="next" onclick="plusSlides(1)">&#10095;</a>
-                    </section>
-                <div class="slides-container">
-                    <section class="mySlides">
-                        {% if index.mobileImage%}
-                            <picture>
-                                <source class="smallbackup" data-value="{{counter}}" media="(max-width: 800px)" srcset="{{site.baseurl}}{{index.mobileImage}}">
-                                <img onclick ="currentSlide({{counter}})" class="slides" data-value="{{counter}}"  src="{{site.baseurl}}{{index.image}}" alt="Slider Small Image">
-                            </picture>
-                        {% else %}
-                            <source class="smallbackup" src="{{site.baseurl}}{{index.image}}">
-                            <img onclick ="currentSlide({{counter}})" class="slides" data-value="{{counter}}" src="{{site.baseurl}}{{index.image}}" alt="Slider Small Image">
-                        {%endif%}
-                    </section>
+    <div class="slideshow-wrapper"> 
+        {% for index in site.posts reversed limit:5 %}
+        {% assign counter = counter | plus:1 %}
+        {% if counter == 1 %}
+            <!-- Slideshow start -->
+                <section class="myBigSlide">
+                {% if index.mobileImage%}
+                    <picture>
+                        <source class="bigbackup" data-value="{{counter}}" media="(max-width: 800px)" srcset="{{site.baseurl}}{{index.mobileImage}}" alt="Slider Big Image">
+                        <img  class="bigSlide" data-value="{{counter}}" src="{{site.baseurl}}{{index.image}}">
+                    </picture>
+                {% else %}
+                    <img  class="bigSlide" data-value="{{counter}}" src="{{site.baseurl}}{{index.image}}">
+                    <source class="smallbackup" src="{{site.baseurl}}{{index.image}}">
+            {%endif%}
+            <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+            <a class="next" onclick="plusSlides(1)">&#10095;</a>
+        </section>
+        <!-- Slideshow End -->
+        <!-- Slideshow Gallery Start -->
+        <section class="slides-container">
+            <div class="mySlides">
+                {% if index.mobileImage%}
+                    <picture>
+                        <source class="smallbackup" data-value="{{counter}}" media="(max-width: 800px)" srcset="{{site.baseurl}}{{index.mobileImage}}">
+                        <img onclick ="currentSlide({{counter}})" class="slides" data-value="{{counter}}"  src="{{site.baseurl}}{{index.image}}" alt="Slider Small Image">
+                    </picture>
+                {% else %}
+                    <source class="smallbackup" src="{{site.baseurl}}{{index.image}}">
+                    <img onclick ="currentSlide({{counter}})" class="slides" data-value="{{counter}}" src="{{site.baseurl}}{{index.image}}" alt="Slider Small Image">
+                {%endif%}
+            </div>
+            
+            {%else%}
+            <div class="mySlides">
+                {% if index.mobileImage%}
+                    <picture>
+                        <source class="smallbackup" data-value="{{counter}}" media="(max-width: 800px)" srcset="{{site.baseurl}}{{index.mobileImage}}">
+                        <img onclick ="currentSlide({{counter}})" class="slides" data-value="{{counter}}" src="{{site.baseurl}}{{index.image}}" alt="Slide Image">
+                    </picture>
                 {%else%}
-                    <section  class="mySlides">
-                        {% if index.mobileImage%}
-                            <picture>
-                                <source class="smallbackup" data-value="{{counter}}" media="(max-width: 800px)" srcset="{{site.baseurl}}{{index.mobileImage}}">
-                                <img onclick ="currentSlide({{counter}})" class="slides" data-value="{{counter}}" src="{{site.baseurl}}{{index.image}}" alt="Slide Image">
-                            </picture>
-                        {%else%}
-                            <source class="smallbackup" src="{{site.baseurl}}{{index.image}}">
-                            <img onclick ="currentSlide({{counter}})" class="slides" data-value="{{counter}}"  src="{{site.baseurl}}{{index.image}}" alt="Slide Image">
-                        {%endif%}
-                    </section > 
-                    {% endif %}
-                {% endfor %}
-                </div>
-        </gallery>
-        </div>
+                    <source class="smallbackup" src="{{site.baseurl}}{{index.image}}">
+                    <img onclick ="currentSlide({{counter}})" class="slides" data-value="{{counter}}"  src="{{site.baseurl}}{{index.image}}" alt="Slide Image">
+                {%endif%}
+            </div> 
+            {% endif %}
+            {% endfor %}
+            <!-- Slideshow Gallery end -->
+        </section>
+    </div>
+
     <div class="news-container">
         <article>
             <h1 class="news-header">Project - WIZLIZ Web Page</h1>
@@ -63,7 +67,9 @@ layout: homepage
     var imageCollection = [];
     var backupCollection = [];
     var basePos = 0;
+    var prevSlideIndex = 0
     var slideIndex = 1;
+    var nextSlideIndex = 2
     function getImages() {
         Gallery = document.getElementsByClassName("slides");
         for (x = 0; x < Gallery.length; x++) {
