@@ -5,15 +5,10 @@
     <title>Home</title>
     <meta name="viewport" content="width=device-width">
     <link rel="stylesheet" href="/verkefni2/assets/css/styles.css">
-    
     <!-- ROBOTO CONDENSED MAIN-->
     <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed&display=swap" rel="stylesheet"> 
-    <!-- YANONE SECONDARY -->
-    <link href="https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz&display=swap" rel="stylesheet">
     <!-- RAMBLA  -->
     <link href="https://fonts.googleapis.com/css?family=Rambla&display=swap" rel="stylesheet">
-    <!-- Kosugi -->
-    <link href="https://fonts.googleapis.com/css?family=Kosugi&display=swap" rel="stylesheet">
     <!-- Black Hans -->
     <link href="https://fonts.googleapis.com/css?family=Black+Han+Sans&display=swap" rel="stylesheet">
     <link type="application/atom+xml" rel="alternate" href="http://localhost:4000/verkefni2/feed.xml" />
@@ -34,18 +29,14 @@
   <div class="head-container">
     <div class="logo-container">
       <a href="/verkefni2/">
-       
         <img class="logo" src="/verkefni2/assets/img/wizliz-logo.svg">
       </a>
     </div>
-    <!-- Menu/Hamburger -->
     <nav class="nav-wrapper">
-      <!-- Hamburger -->
       <input type="checkbox" class="toggle">
       <div class="mobile-menu">
         <div class="bar"></div>
       </div>
-      <!-- Menu -->
       <div class="nav-menu">
         
           <a class="nav-link  current " href="/verkefni2/" >
@@ -84,83 +75,87 @@
   
 </header>
         <div class="homewrapper">
-    <div class="slideshow-gallery"> 
-        <gallery class="slideshow-container">
+    <div class="slideshow-wrapper"> 
+        
+        
+        
+            <!-- Slideshow start -->
+                <section class="myBigSlide">
+                
+                    <picture>
+                        <source class="bigbackup" data-value="1" media="(max-width: 800px)" srcset="/verkefni2/assets/img/witcher3mobile.jpg" alt="Slider Big Image">
+                        <img  class="bigSlide" data-value="1" src="/verkefni2\assets\img\witcher3Slider.jpg">
+                    </picture>
+                
+            <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+            <a class="next" onclick="plusSlides(1)">&#10095;</a>
+        </section>
+        <!-- Slideshow End -->
+        <!-- Slideshow Gallery Start -->
+        <section class="slides-container">
+            <div class="mySlides">
+                
+                    <picture>
+                        <source class="smallbackup" data-value="1" media="(max-width: 800px)" srcset="/verkefni2/assets/img/witcher3mobile.jpg">
+                        <img onclick ="currentSlide(1)" class="slides" data-value="1"  src="/verkefni2\assets\img\witcher3Slider.jpg" alt="Slider Small Image">
+                    </picture>
+                
+            </div>
             
             
-                
-                    <section class="myBigSlide">
-                            
-                                <picture>
-                                    <source class="bigbackup" data-value="1" media="(max-width: 800px)" srcset="/verkefni2/assets/img/witcher3mobile.jpg" alt="Slider Big Image">
-                                    <img  class="bigSlide" data-value="1" src="/verkefni2\assets\img\witcher3Slider.jpg">
-                                </picture>
-                            
-                        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-                        <a class="next" onclick="plusSlides(1)">&#10095;</a>
-                    </section>
-                <div class="slides-container">
-                    <section class="mySlides">
-                        
-                            <picture>
-                                <source class="smallbackup" data-value="1" media="(max-width: 800px)" srcset="/verkefni2/assets/img/witcher3mobile.jpg">
-                                <img onclick ="currentSlide(1)" class="slides" data-value="1"  src="/verkefni2\assets\img\witcher3Slider.jpg" alt="Slider Small Image">
-                            </picture>
-                        
-                    </section>
-                
-                
             
+        
+        
+            <div class="mySlides">
                 
-                    <section  class="mySlides">
-                        
-                            <picture>
-                                <source class="smallbackup" data-value="2" media="(max-width: 800px)" srcset="/verkefni2/assets/img/wowmobile.jpg">
-                                <img onclick ="currentSlide(2)" class="slides" data-value="2" src="/verkefni2\assets\img\wow500px.png" alt="Slide Image">
-                            </picture>
-                        
-                    </section > 
-                    
+                    <picture>
+                        <source class="smallbackup" data-value="2" media="(max-width: 800px)" srcset="/verkefni2/assets/img/wowmobile.jpg">
+                        <img onclick ="currentSlide(2)" class="slides" data-value="2" src="/verkefni2\assets\img\wow500px.jpg" alt="Slide Image">
+                    </picture>
                 
+            </div> 
             
-                
-                    <section  class="mySlides">
-                        
-                            <picture>
-                                <source class="smallbackup" data-value="3" media="(max-width: 800px)" srcset="/verkefni2/assets/img/cyberpunk2077mobile.jpg">
-                                <img onclick ="currentSlide(3)" class="slides" data-value="3" src="/verkefni2\assets\img\cyberpunkSlider.jpg" alt="Slide Image">
-                            </picture>
-                        
-                    </section > 
-                    
-                
             
+        
+        
+            <div class="mySlides">
                 
-                    <section  class="mySlides">
-                        
-                            <picture>
-                                <source class="smallbackup" data-value="4" media="(max-width: 800px)" srcset="/verkefni2/assets/img/diablo3mobile.jpg">
-                                <img onclick ="currentSlide(4)" class="slides" data-value="4" src="/verkefni2\assets\img\diablo3Slider.jpg" alt="Slide Image">
-                            </picture>
-                        
-                    </section > 
-                    
+                    <picture>
+                        <source class="smallbackup" data-value="3" media="(max-width: 800px)" srcset="/verkefni2/assets/img/cyberpunk2077mobile.jpg">
+                        <img onclick ="currentSlide(3)" class="slides" data-value="3" src="/verkefni2\assets\img\cyberpunkSlider.jpg" alt="Slide Image">
+                    </picture>
                 
+            </div> 
             
+            
+        
+        
+            <div class="mySlides">
                 
-                    <section  class="mySlides">
-                        
-                            <picture>
-                                <source class="smallbackup" data-value="5" media="(max-width: 800px)" srcset="/verkefni2/assets/img/sc2mobile.jpg">
-                                <img onclick ="currentSlide(5)" class="slides" data-value="5" src="/verkefni2\assets\img\starcraft2Slider.png" alt="Slide Image">
-                            </picture>
-                        
-                    </section > 
-                    
+                    <picture>
+                        <source class="smallbackup" data-value="4" media="(max-width: 800px)" srcset="/verkefni2/assets/img/diablo3mobile.jpg">
+                        <img onclick ="currentSlide(4)" class="slides" data-value="4" src="/verkefni2\assets\img\diablo3Slider.jpg" alt="Slide Image">
+                    </picture>
                 
-                </div>
-        </gallery>
-        </div>
+            </div> 
+            
+            
+        
+        
+            <div class="mySlides">
+                
+                    <picture>
+                        <source class="smallbackup" data-value="5" media="(max-width: 800px)" srcset="/verkefni2/assets/img/sc2mobile.jpg">
+                        <img onclick ="currentSlide(5)" class="slides" data-value="5" src="/verkefni2\assets\img\starcraft2Slider.jpg" alt="Slide Image">
+                    </picture>
+                
+            </div> 
+            
+            
+            <!-- Slideshow Gallery end -->
+        </section>
+    </div>
+
     <div class="news-container">
         <article>
             <h1 class="news-header">Project - WIZLIZ Web Page</h1>
@@ -174,7 +169,9 @@
     var imageCollection = [];
     var backupCollection = [];
     var basePos = 0;
+    var prevSlideIndex = 0
     var slideIndex = 1;
+    var nextSlideIndex = 2
     function getImages() {
         Gallery = document.getElementsByClassName("slides");
         for (x = 0; x < Gallery.length; x++) {
@@ -195,7 +192,6 @@
     function currentSlide(n) {
         showSlides(slideIndex = n);
     }
-
     /*====================================================
                         MAIN JS FUNC
     ===================================================*/
@@ -204,10 +200,8 @@
         var slides = document.getElementsByClassName("mySlides");
         var imageSlides = document.getElementsByClassName("slides");
         var showcase = document.getElementsByClassName("bigSlide");
-
         var backup = document.getElementsByClassName("smallbackup");
         var bigbackup = document.getElementsByClassName("bigbackup");
-
         if (n > slides.length) {
             slideIndex = 1
         }    
@@ -219,9 +213,8 @@
         }
         imageSlides[slideIndex-1].className += " active";
         for (var i = 0; i < slides.length; i++) {
-            imageSlides[i].src = imageCollection[i]
+            imageSlides[i].src = imageCollection[i] //Find alternative it causes double loading on some images
         }
-
         var baseImage = imageSlides[basePos].src; 
         var currentImage = imageSlides[slideIndex-1].src; 
         var backupImage = backup[slideIndex-1].srcset;
@@ -270,10 +263,7 @@
             </a>
         </div>
     </div>
-
-
     <div class="footer-container">
-        
         <!-- Reset -->
         
         <main class="flexwrapper"> 
@@ -282,7 +272,6 @@
             
                 <div class="company-info-main">
                     <a class="linksBlock" href="/verkefni2/2019/09/20/Starcraft2.html" ><span  class="links">Starcraft 2</span></a>   
-  
                 </div>
             
             
@@ -290,7 +279,6 @@
             
                 <div class="company-info-main">
                     <a class="linksBlock" href="/verkefni2/2019/09/19/diablo3.html" ><span  class="links">Diablo 3</span></a>   
-  
                 </div>
             
             
@@ -298,7 +286,6 @@
             
                 <div class="company-info-secondary">
                     <a class="linksBlock" href="/verkefni2/2018/08/20/Cyberpunk.html" ><span class="links">Cyberpunk 2077</span></a>      
-                    
                 </div>
             
             
@@ -306,7 +293,6 @@
             
                 <div class="company-info-secondary">
                     <a class="linksBlock" href="/verkefni2/2018/08/20/WorldofWarcraft.html" ><span class="links">World of Warcraft</span></a>      
-                    
                 </div>
             
             
@@ -314,7 +300,6 @@
             
                 <div class="company-info-secondary">
                     <a class="linksBlock" href="/verkefni2/2018/08/20/Witcher.html" ><span class="links">The Witcher 3 Wild Hunt</span></a>      
-                    
                 </div>
             
             
@@ -332,10 +317,5 @@
         </aside>
     </div>
 </footer>
-
-    
-
-
-
   </body>
 </html>

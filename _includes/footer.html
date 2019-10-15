@@ -19,10 +19,7 @@
             </a>
         </div>
     </div>
-
-
     <div class="footer-container">
-        
         <!-- Reset -->
         {% assign counter = 0 | plus:1 %}
         <main class="flexwrapper"> 
@@ -31,12 +28,10 @@
             {%if counter > 3%}
                 <div class="company-info-secondary">
                     <a class="linksBlock" href="{{site.baseurl}}{{ index.url }}" ><span class="links">{{index.title}}</span></a>      
-                    
                 </div>
             {%else%}
                 <div class="company-info-main">
                     <a class="linksBlock" href="{{site.baseurl}}{{ index.url }}" ><span  class="links">{{index.title}}</span></a>   
-  
                 </div>
             {%endif%}
             {% endfor %}

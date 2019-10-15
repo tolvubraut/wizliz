@@ -1,9 +1,9 @@
-//Grid area
 $pictureGalleryHeight: 90vh;
 .homewrapper {
     margin-top: 4em;
     flex: 1 0 auto; //Keeps sticky footer sticky
-}
+    overflow:hidden; //Figure why overflow starts from 1410px to 1425px roughly 88em to 89em
+ }
 /*========================
         Slideshow Gallery
 ==========================*/
@@ -11,7 +11,7 @@ $pictureGalleryHeight: 90vh;
     max-width: 100%;
     height:auto;
 }
-.slideshow-container {
+.slideshow-wrapper {
     max-width: 100%;
     height:auto;
 }
