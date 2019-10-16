@@ -4,7 +4,7 @@ layout: homepage
 ---
 <div class="homewrapper">
     <div class="slideshow-wrapper"> 
-        {% for index in site.posts reversed limit:5 %}
+        {% for index in site.posts limit:5 %}
         {% assign counter = counter | plus:1 %}
         {% if counter == 1 %}
             <!-- Slideshow start -->
@@ -35,19 +35,19 @@ layout: homepage
                     <img onclick ="currentSlide({{counter}})" class="slides" data-value="{{counter}}" src="{{site.baseurl}}{{index.image}}" alt="Slider Small Image">
                 {%endif%}
             </div>
-            
-            {%else%}
-            <div class="mySlides">
-                {% if index.mobileImage%}
-                    <picture>
-                        <source class="smallbackup" data-value="{{counter}}" media="(max-width: 800px)" srcset="{{site.baseurl}}{{index.mobileImage}}">
-                        <img onclick ="currentSlide({{counter}})" class="slides" data-value="{{counter}}" src="{{site.baseurl}}{{index.image}}" alt="Slide Image">
-                    </picture>
-                {%else%}
-                    <source class="smallbackup" src="{{site.baseurl}}{{index.image}}">
-                    <img onclick ="currentSlide({{counter}})" class="slides" data-value="{{counter}}"  src="{{site.baseurl}}{{index.image}}" alt="Slide Image">
-                {%endif%}
-            </div> 
+
+            {%if counter > 0%}
+                <div class="mySlides">
+                    {% if index.mobileImage%}
+                        <picture>
+                            <source class="smallbackup" data-value="{{counter}}" media="(max-width: 800px)" srcset="{{site.baseurl}}{{index.mobileImage}}">
+                            <img onclick ="currentSlide({{counter}})" class="slides" data-value="{{counter}}" src="{{site.baseurl}}{{index.image}}" alt="Slide Image">
+                        </picture>
+                    {%else%}
+                        <source class="smallbackup" src="{{site.baseurl}}{{index.image}}">
+                        <img onclick ="currentSlide({{counter}})" class="slides" data-value="{{counter}}"  src="{{site.baseurl}}{{index.image}}" alt="Slide Image">
+                    {%endif%}
+                </div> 
             {% endif %}
             {% endfor %}
             <!-- Slideshow Gallery end -->
