@@ -1,5 +1,5 @@
 
-baseurl: /verkefni2
+baseurl: /wizliz
 collections:
   companies:
     output: true
