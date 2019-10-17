@@ -91,12 +91,8 @@ $pictureGalleryHeight: 90vh;
   }
 
 .testing {
-    display:flex;
-    justify-content: center;
-    align-content:center;
     position: absolute;
     z-index:10000;
-    padding:50px 50px 50px 0;
     top:0;
     left: 0;
     display:flex;
@@ -110,9 +106,22 @@ $pictureGalleryHeight: 90vh;
     @include sRadius();
     @include flexCenter;
     font-size: 24px;
-    background-color:$backgroundRgba;
-    padding:25px;
+    // background-color:$backgroundRgba;
     display:flex;
+    height: 100%;
+}
+
+.third-testing {
+    @include sRadius();
+    @include flexCenter;
+    width: 60px;
+    height: 25%;
+    background: $backgroundRgba;
+    transition: width height 3s;
+    &:hover {
+        height: 100%;
+        width: 100px;
+    }
 }
 
 /*==================
