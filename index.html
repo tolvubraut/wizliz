@@ -8,7 +8,8 @@ layout: homepage
         {% assign counter = counter | plus:1 %}
             {% if counter == 1 %}
                 <!-- Slideshow start -->
-                    <section class="myBigSlide">
+                <section class="myBigSlide">
+                    <div href="" class="testing"><a class="secondary-testing">&#10094;</a></div>
                     {% if index.mobileImage%}
                         <picture>
                             <source class="bigbackup" data-value="{{counter}}" media="(max-width: 800px)" srcset="{{site.baseurl}}{{index.mobileImage}}" alt="Slider Big Image">
@@ -23,7 +24,7 @@ layout: homepage
             </section>
             <!-- Slideshow End -->
             <!-- Slideshow Gallery Start -->
-            <section class="slides-container">
+        <section class="slides-container">
             {% endif %}
             {%if counter > 0%}
                 <div class="mySlides">
@@ -39,7 +40,7 @@ layout: homepage
                 </div> 
             {% endif %}
         {% endfor %}
-    </section>
+        </section>
     <!-- Slideshow Gallery end -->
     </div>
 
