@@ -47,7 +47,6 @@ $headerHeight: 4.25em;
         height: 0;
         overflow: hidden;
         z-index: 1;
-        background: $backgroundRgba;
         justify-content: flex-start;
         flex-direction: column;
         background: $backgroundRgba;
@@ -107,7 +106,7 @@ $headerHeight: 4.25em;
         height: 5px;
         z-index: 5;
         @include transLink;
-        background:white;
+        background:$whiteColor;
     }
     .nav-wrapper .mobile-menu .bar::after,
     .nav-wrapper .mobile-menu .bar::before {
@@ -116,7 +115,7 @@ $headerHeight: 4.25em;
         top: -12px;
         height: 5px;
         width: 100%;
-        background:white;
+        background:$whiteColor;
         @include transLink;
     }
     .nav-wrapper .mobile-menu .bar:after {

@@ -1,7 +1,3 @@
-//Styling for post based pages --header/image/title
-//Add Color to Mixin
-
-
 aside {
     grid-area: aside;
 }
@@ -26,7 +22,7 @@ main {
 }
 
 .aside-grid {
-    background:$backgroundColor;
+    background-color: $backgroundColor;
     @include flexCenter();
 }
 .games-logo {
@@ -44,7 +40,7 @@ main {
 }
 
 .main-grid {
-    background:$backgroundMain;
+    background-color: $backgroundMain;
     padding: 10px;
     
 }
