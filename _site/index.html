@@ -83,8 +83,8 @@
                 <section class="myBigSlide">
                 
                     <picture>
-                        <source class="bigbackup" data-value="1" media="(max-width: 800px)" srcset="/wizliz/assets/img/witcher3mobile.jpg" alt="Slider Big Image">
-                        <img  class="bigSlide" data-value="1" src="/wizliz\assets\img\witcher3Slider.jpg">
+                        <source class="bigbackup" data-value="1" media="(max-width: 800px)" srcset="/wizliz/assets/img/sc2mobile.jpg" alt="Slider Big Image">
+                        <img  class="bigSlide" data-value="1" src="/wizliz\assets\img\starcraft2Slider.jpg">
                     </picture>
                 
             <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
@@ -93,29 +93,32 @@
         <!-- Slideshow End -->
         <!-- Slideshow Gallery Start -->
         <section class="slides-container">
-            <div class="mySlides">
-                
-                    <picture>
-                        <source class="smallbackup" data-value="1" media="(max-width: 800px)" srcset="/wizliz/assets/img/witcher3mobile.jpg">
-                        <img onclick ="currentSlide(1)" class="slides" data-value="1"  src="/wizliz\assets\img\witcher3Slider.jpg" alt="Slider Small Image">
-                    </picture>
-                
-            </div>
-            
-            
-            
         
         
             <div class="mySlides">
                 
                     <picture>
-                        <source class="smallbackup" data-value="2" media="(max-width: 800px)" srcset="/wizliz/assets/img/wowmobile.jpg">
-                        <img onclick ="currentSlide(2)" class="slides" data-value="2" src="/wizliz\assets\img\wow500px.jpg" alt="Slide Image">
+                        <source class="smallbackup" data-value="1" media="(max-width: 800px)" srcset="/wizliz/assets/img/sc2mobile.jpg">
+                        <img onclick ="currentSlide(1)" class="slides" data-value="1" src="/wizliz\assets\img\starcraft2Slider.jpg" alt="Slide Image">
                     </picture>
                 
             </div> 
-            
-            
+        
+        
+        
+        
+        
+            <div class="mySlides">
+                
+                    <picture>
+                        <source class="smallbackup" data-value="2" media="(max-width: 800px)" srcset="/wizliz/assets/img/diablo3mobile.jpg">
+                        <img onclick ="currentSlide(2)" class="slides" data-value="2" src="/wizliz\assets\img\diablo3Slider.jpg" alt="Slide Image">
+                    </picture>
+                
+            </div> 
+        
+        
+        
         
         
             <div class="mySlides">
@@ -126,34 +129,36 @@
                     </picture>
                 
             </div> 
-            
-            
         
         
-            <div class="mySlides">
-                
-                    <picture>
-                        <source class="smallbackup" data-value="4" media="(max-width: 800px)" srcset="/wizliz/assets/img/diablo3mobile.jpg">
-                        <img onclick ="currentSlide(4)" class="slides" data-value="4" src="/wizliz\assets\img\diablo3Slider.jpg" alt="Slide Image">
-                    </picture>
-                
-            </div> 
-            
-            
+        
         
         
             <div class="mySlides">
                 
                     <picture>
-                        <source class="smallbackup" data-value="5" media="(max-width: 800px)" srcset="/wizliz/assets/img/sc2mobile.jpg">
-                        <img onclick ="currentSlide(5)" class="slides" data-value="5" src="/wizliz\assets\img\starcraft2Slider.jpg" alt="Slide Image">
+                        <source class="smallbackup" data-value="4" media="(max-width: 800px)" srcset="/wizliz/assets/img/wowmobile.jpg">
+                        <img onclick ="currentSlide(4)" class="slides" data-value="4" src="/wizliz\assets\img\wow500px.jpg" alt="Slide Image">
                     </picture>
                 
             </div> 
-            
-            
-            <!-- Slideshow Gallery end -->
-        </section>
+        
+        
+        
+        
+        
+            <div class="mySlides">
+                
+                    <picture>
+                        <source class="smallbackup" data-value="5" media="(max-width: 800px)" srcset="/wizliz/assets/img/witcher3mobile.jpg">
+                        <img onclick ="currentSlide(5)" class="slides" data-value="5" src="/wizliz\assets\img\witcher3Slider.jpg" alt="Slide Image">
+                    </picture>
+                
+            </div> 
+        
+        
+    </section>
+    <!-- Slideshow Gallery end -->
     </div>
 
     <div class="news-container">
@@ -213,7 +218,7 @@
         }
         imageSlides[slideIndex-1].className += " active";
         for (var i = 0; i < slides.length; i++) {
-            imageSlides[i].src = imageCollection[i] //Find alternative it causes double loading on some images
+            // imageSlides[i].src = imageCollection[i] //Find alternative it causes double loading on some images
         }
         var baseImage = imageSlides[basePos].src; 
         var currentImage = imageSlides[slideIndex-1].src; 

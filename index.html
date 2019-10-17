@@ -24,34 +24,23 @@ layout: homepage
         <!-- Slideshow End -->
         <!-- Slideshow Gallery Start -->
         <section class="slides-container">
+        {% endif %}
+        {%if counter > 0%}
             <div class="mySlides">
                 {% if index.mobileImage%}
                     <picture>
                         <source class="smallbackup" data-value="{{counter}}" media="(max-width: 800px)" srcset="{{site.baseurl}}{{index.mobileImage}}">
-                        <img onclick ="currentSlide({{counter}})" class="slides" data-value="{{counter}}"  src="{{site.baseurl}}{{index.image}}" alt="Slider Small Image">
+                        <img onclick ="currentSlide({{counter}})" class="slides" data-value="{{counter}}" src="{{site.baseurl}}{{index.image}}" alt="Slide Image">
                     </picture>
-                {% else %}
+                {%else%}
                     <source class="smallbackup" src="{{site.baseurl}}{{index.image}}">
-                    <img onclick ="currentSlide({{counter}})" class="slides" data-value="{{counter}}" src="{{site.baseurl}}{{index.image}}" alt="Slider Small Image">
+                    <img onclick ="currentSlide({{counter}})" class="slides" data-value="{{counter}}"  src="{{site.baseurl}}{{index.image}}" alt="Slide Image">
                 {%endif%}
-            </div>
-
-            {%else counter > 0%}
-                <div class="mySlides">
-                    {% if index.mobileImage%}
-                        <picture>
-                            <source class="smallbackup" data-value="{{counter}}" media="(max-width: 800px)" srcset="{{site.baseurl}}{{index.mobileImage}}">
-                            <img onclick ="currentSlide({{counter}})" class="slides" data-value="{{counter}}" src="{{site.baseurl}}{{index.image}}" alt="Slide Image">
-                        </picture>
-                    {%else%}
-                        <source class="smallbackup" src="{{site.baseurl}}{{index.image}}">
-                        <img onclick ="currentSlide({{counter}})" class="slides" data-value="{{counter}}"  src="{{site.baseurl}}{{index.image}}" alt="Slide Image">
-                    {%endif%}
-                </div> 
-            {% endif %}
-            {% endfor %}
-            <!-- Slideshow Gallery end -->
-        </section>
+            </div> 
+        {% endif %}
+        {% endfor %}
+    </section>
+    <!-- Slideshow Gallery end -->
     </div>
 
     <div class="news-container">
@@ -111,7 +100,7 @@ layout: homepage
         }
         imageSlides[slideIndex-1].className += " active";
         for (var i = 0; i < slides.length; i++) {
-            imageSlides[i].src = imageCollection[i] //Find alternative it causes double loading on some images
+            // imageSlides[i].src = imageCollection[i] //Find alternative it causes double loading on some images
         }
         var baseImage = imageSlides[basePos].src; 
         var currentImage = imageSlides[slideIndex-1].src; 
