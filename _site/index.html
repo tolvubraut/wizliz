@@ -81,11 +81,19 @@
             
                 <!-- Slideshow start -->
                 <section class="myBigSlide">
-                    <div href="" class="testing">
-                        <a class="secondary-testing">
-                            <span class="third-testing">&#10094;</span>
-                        </a>
+                    <div class="slides-wrapper">
+                        <div class="slides-left">
+                            <a class="slides-arrow-container" onclick="plusSlides(-1)">
+                                <span class="slides-arrow">&#10094;</span>
+                            </a>
+                        </div>
+                        <div class="slides-right">
+                            <a class="slides-arrow-container" onclick="plusSlides(+1)">
+                                <span class="slides-arrow">&#10095;</span>
+                            </a>
+                        </div>
                     </div>
+                    
                     
                         <picture>
                             <source class="bigbackup" data-value="1" media="(max-width: 800px)" srcset="/wizliz/assets/img/sc2mobile.jpg" alt="Slider Big Image">

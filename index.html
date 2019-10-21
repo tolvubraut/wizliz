@@ -9,11 +9,19 @@ layout: homepage
             {% if counter == 1 %}
                 <!-- Slideshow start -->
                 <section class="myBigSlide">
-                    <div href="" class="testing">
-                        <a class="secondary-testing">
-                            <span class="third-testing">&#10094;</span>
-                        </a>
+                    <div class="slides-wrapper">
+                        <div class="slides-left">
+                            <a class="slides-arrow-container" onclick="plusSlides(-1)">
+                                <span class="slides-arrow">&#10094;</span>
+                            </a>
+                        </div>
+                        <div class="slides-right">
+                            <a class="slides-arrow-container" onclick="plusSlides(+1)">
+                                <span class="slides-arrow">&#10095;</span>
+                            </a>
+                        </div>
                     </div>
+                    
                     {% if index.mobileImage%}
                         <picture>
                             <source class="bigbackup" data-value="{{counter}}" media="(max-width: 800px)" srcset="{{site.baseurl}}{{index.mobileImage}}" alt="Slider Big Image">

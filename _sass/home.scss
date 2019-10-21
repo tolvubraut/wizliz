@@ -88,40 +88,49 @@ $pictureGalleryHeight: 90vh;
 }
 .prev:hover, .next:hover {
     background-color:$whiteColor;
-  }
-
-.testing {
-    position: absolute;
-    z-index:10000;
-    top:0;
-    left: 0;
-    display:flex;
-    width: 10%;
-    height: 100%;
-    ;
 }
 
-.secondary-testing {
+.slides-wrapper {
+    width: 100%;
+}
+
+.slides-arrow-container {
     position: relative;
     @include sRadius();
     @include flexCenter;
     font-size: 24px;
-    // background-color:$backgroundRgba;
-    display:flex;
     height: 100%;
 }
 
-.third-testing {
+.slides-arrow {
     @include sRadius();
     @include flexCenter;
     width: 60px;
     height: 25%;
     background: $backgroundRgba;
-    transition: width height 3s;
+    transition: width 3s;
+    cursor: pointer;
     &:hover {
         height: 100%;
         width: 100px;
+        @include sRadius(0)
     }
+}
+
+.slides-prev, .slides-next{
+    position: absolute;
+    display:flex;
+    z-index:10000;
+    top:0;
+    width: 10%;
+    height: 100%;
+}
+.slides-prev {
+    left: 0%;
+}
+.slides-next {
+    right: 0;
+    
 }
 
 /*==================
