@@ -4,54 +4,55 @@ layout: homepage
 ---
 <div class="homewrapper">
     <div class="slideshow-wrapper"> 
-        {% for index in site.posts reversed limit:5 %}
+        {% for index in site.posts limit:5 %}
         {% assign counter = counter | plus:1 %}
-        {% if counter == 1 %}
-            <!-- Slideshow start -->
+            {% if counter == 1 %}
+                <!-- Slideshow start -->
                 <section class="myBigSlide">
-                {% if index.mobileImage%}
-                    <picture>
-                        <source class="bigbackup" data-value="{{counter}}" media="(max-width: 800px)" srcset="{{site.baseurl}}{{index.mobileImage}}" alt="Slider Big Image">
+                    <!-- Slides-wrapper currently not needed -->
+                    <div class="slides-wrapper">
+                        <div class="slides-prev">
+                            <a class="slides-arrow-container" onclick="plusSlides(-1)">
+                                <span class="slides-arrow"><p class="temp">&#10094;</p></span>
+                            </a>
+                        </div>
+                        <div class="slides-next">
+                            <a class="slides-arrow-container" onclick="plusSlides(+1)">
+                                <span class="slides-arrow">&#10095;</span>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    {% if index.mobileImage%}
+                        <picture>
+                            <source class="bigbackup" data-value="{{counter}}" media="(max-width: 800px)" srcset="{{site.baseurl}}{{index.mobileImage}}" alt="Slider Big Image">
+                            <img  class="bigSlide" data-value="{{counter}}" src="{{site.baseurl}}{{index.image}}">
+                        </picture>
+                    {% else %}
                         <img  class="bigSlide" data-value="{{counter}}" src="{{site.baseurl}}{{index.image}}">
-                    </picture>
-                {% else %}
-                    <img  class="bigSlide" data-value="{{counter}}" src="{{site.baseurl}}{{index.image}}">
-                    <source class="smallbackup" src="{{site.baseurl}}{{index.image}}">
-            {%endif%}
-            <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-            <a class="next" onclick="plusSlides(1)">&#10095;</a>
-        </section>
-        <!-- Slideshow End -->
-        <!-- Slideshow Gallery Start -->
+                        <source class="smallbackup" src="{{site.baseurl}}{{index.image}}">
+                {%endif%}
+            </section>
+            <!-- Slideshow End -->
+            <!-- Slideshow Gallery Start -->
         <section class="slides-container">
-            <div class="mySlides">
-                {% if index.mobileImage%}
-                    <picture>
-                        <source class="smallbackup" data-value="{{counter}}" media="(max-width: 800px)" srcset="{{site.baseurl}}{{index.mobileImage}}">
-                        <img onclick ="currentSlide({{counter}})" class="slides" data-value="{{counter}}"  src="{{site.baseurl}}{{index.image}}" alt="Slider Small Image">
-                    </picture>
-                {% else %}
-                    <source class="smallbackup" src="{{site.baseurl}}{{index.image}}">
-                    <img onclick ="currentSlide({{counter}})" class="slides" data-value="{{counter}}" src="{{site.baseurl}}{{index.image}}" alt="Slider Small Image">
-                {%endif%}
-            </div>
-            
-            {%else%}
-            <div class="mySlides">
-                {% if index.mobileImage%}
-                    <picture>
-                        <source class="smallbackup" data-value="{{counter}}" media="(max-width: 800px)" srcset="{{site.baseurl}}{{index.mobileImage}}">
-                        <img onclick ="currentSlide({{counter}})" class="slides" data-value="{{counter}}" src="{{site.baseurl}}{{index.image}}" alt="Slide Image">
-                    </picture>
-                {%else%}
-                    <source class="smallbackup" src="{{site.baseurl}}{{index.image}}">
-                    <img onclick ="currentSlide({{counter}})" class="slides" data-value="{{counter}}"  src="{{site.baseurl}}{{index.image}}" alt="Slide Image">
-                {%endif%}
-            </div> 
             {% endif %}
-            {% endfor %}
-            <!-- Slideshow Gallery end -->
+            {%if counter > 0%}
+                <div class="mySlides">
+                    {% if index.mobileImage%}
+                        <picture>
+                            <source class="smallbackup" data-value="{{counter}}" media="(max-width: 800px)" srcset="{{site.baseurl}}{{index.mobileImage}}">
+                            <img onclick ="currentSlide({{counter}})" class="slides" data-value="{{counter}}" src="{{site.baseurl}}{{index.image}}" alt="Slide Image">
+                        </picture>
+                    {%else%}
+                        <source class="smallbackup" src="{{site.baseurl}}{{index.image}}">
+                        <img onclick ="currentSlide({{counter}})" class="slides" data-value="{{counter}}"  src="{{site.baseurl}}{{index.image}}" alt="Slide Image">
+                    {%endif%}
+                </div> 
+            {% endif %}
+        {% endfor %}
         </section>
+    <!-- Slideshow Gallery end -->
     </div>
 
     <div class="news-container">
@@ -90,9 +91,9 @@ layout: homepage
     function currentSlide(n) {
         showSlides(slideIndex = n);
     }
-    /*====================================================
-                        MAIN JS FUNC
-    ===================================================*/
+    /*=================================
+                   Slider
+    ===================================*/
     function showSlides(n) {
         var i;
         var slides = document.getElementsByClassName("mySlides");
@@ -111,7 +112,7 @@ layout: homepage
         }
         imageSlides[slideIndex-1].className += " active";
         for (var i = 0; i < slides.length; i++) {
-            imageSlides[i].src = imageCollection[i] //Find alternative it causes double loading on some images
+            // imageSlides[i].src = imageCollection[i] //Find alternative it causes double loading on some images
         }
         var baseImage = imageSlides[basePos].src; 
         var currentImage = imageSlides[slideIndex-1].src; 

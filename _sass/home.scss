@@ -1,11 +1,11 @@
 $pictureGalleryHeight: 90vh;
 .homewrapper {
     margin-top: 4em;
-    flex: 1 0 auto; //Keeps sticky footer sticky
+    flex: 1 0 auto; 
     overflow:hidden; //Figure why overflow starts from 1410px to 1425px roughly 88em to 89em
  }
 /*========================
-        Slideshow Gallery
+     Slideshow Gallery
 ==========================*/
 .slideshow-gallery {
     max-width: 100%;
@@ -16,20 +16,19 @@ $pictureGalleryHeight: 90vh;
     height:auto;
 }
 /* ==========================
-    Showcase Image
+        Showcase Image
 =============================*/
 .myBigSlide {
     position: relative;
     width: 100%;
     padding-top: 38.25%; 
  }
+ 
 .bigSlide {
     @include fade();
     position:  absolute;
     top: 0;
     left: 0;
-    bottom: 0;
-    right: 0;
     height: 100%;
  }
 /* ==========================
@@ -42,7 +41,7 @@ $pictureGalleryHeight: 90vh;
 }
 
 .mySlides {
-    position: relative;
+    // position: relative;
     width:20%;
     height: auto;
     right:0;
@@ -56,39 +55,67 @@ $pictureGalleryHeight: 90vh;
     object-fit: cover;
     @include fade();
     @include mainBorder($secondaryColor);
+    &:hover {
+        opacity:.75;
+    }
 }
-
-//Arrows
-.prev, .next {
-    position: absolute;
-    width: auto;
-    margin: 0 auto;
-    padding: 25px;
-    font-weight: bold;
-    color:$whiteColor;
-    background-color: $backgroundRgba;
-    font-size: $fontHeadingSize;
-    top: 40%;
-    z-index: 4;
-    cursor: pointer;
-    @include transLink();
-    @include sRadius();
-}
-.next {
-    right: 0%;
-}
-.left {
-    left: 0%;
-}
-.prev:hover, .next:hover {
-    background-color:$whiteColor;
-  }
 
 .active, .slides:hover {
     background-color: $backgroundRgba;
     @include mainBorder($whiteColor);
-
 }
+
+/*==================
+       Arrows
+===================*/
+.slides-wrapper {
+    width: 100%;
+}
+
+.slides-arrow-container {
+    position: relative;
+    @include sRadius();
+    @include flexCenter;
+    @include backgroundRgba(0.70);
+    font-size: 24px;
+    height: 100%;
+    width:3em;
+    transition: all 1s ease;
+    &:hover {
+        width: 3.5em;
+        @include backgroundRgba(1);
+    }
+}
+
+.slides-arrow {
+    @include flexCenter;
+    height: 100%;
+    cursor: pointer;
+    
+}
+
+.slides-prev, .slides-next{
+    position: absolute;
+    display:flex;
+    z-index: 5;
+    top:0;
+    width: 10%;
+    height: 100%;
+}
+.slides-prev {
+    left: 0%;
+}
+.slides-next {
+    right: 0;
+    width:auto;
+}
+.temp {
+    opacity:1;
+}
+
+/*==================
+    News Section
+====================*/
 .news-container {
     width: 80em;
     margin: 0 auto;
@@ -99,6 +126,9 @@ $pictureGalleryHeight: 90vh;
     font-family: var(--header-font)
 }
 
+/*===========================================================================================
+    Redo slider and remove all padding top only use 1 to maintain aspect ratio fo slider
+=============================================================================================*/
 //2k Resolution 2540x1440
 @media screen and(min-width: 2000px) {
     .myBigSlide {
@@ -111,15 +141,13 @@ $pictureGalleryHeight: 90vh;
 //HD Resolution 1920x1080
 @media screen and (max-width: 100em) {
     .myBigSlide {
-        padding-top: 32.01%
+        // padding-top: 32.01%
+        padding-top: 33.51%
     }
 }
 
 //Laptops
 @media screen and (max-width: 80em) {
-    .myBigSlide {
-        // padding-top: 45%;
-    }
     .news-container {
         width: 100%;
     } 

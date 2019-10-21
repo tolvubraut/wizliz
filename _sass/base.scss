@@ -37,14 +37,15 @@ $themeColor: #9147FF;
 $iconColor: #743a8a;
 $headerColor: #030303; //Maybe give headers unqiue colour
 $linkColor:rgb(35, 100, 170);
-$whiteColor: #fffff1;
+$whiteColor: #fffffe;
 
 //Background for header and footer
-$backgroundColor:  #161616; 
-$backgroundMain: linear-gradient(#32143d, #582c68);
+$backgroundColor:  #161616;
+//Background for games
+$backgroundGames: linear-gradient(#32143d, #582c68);
 
 //Hamburger
-$backgroundRgba: rgba(25, 25, 25, 0.85);
+$backgroundRgba: rgba(25, 25, 25, 0.75);
 
 //Footer
 $backgroundGradient: linear-gradient(to top right,rgba( 22, 22, 22, 0.6), 70%, rgba(82, 42, 97, 0.6));
@@ -77,9 +78,6 @@ $backgroundGradient: linear-gradient(to top right,rgba( 22, 22, 22, 0.6), 70%, r
   /* Better Font Rendering =========== */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  &:hover {
-    // opacity: .6;
-  }
 }
 .icon-aard:before {
   content: "\e900";
@@ -167,6 +165,10 @@ $backgroundGradient: linear-gradient(to top right,rgba( 22, 22, 22, 0.6), 70%, r
   box-shadow: 0 0 7px 1px black;
 }
 
+@mixin backgroundRgba($opacity:0.75) {
+  background: rgba(25, 25, 25, $opacity);
+}
+
 /*==============================
       FontSizing/Colors
 ================================*/
@@ -178,7 +180,7 @@ body {
   font-weight: 400;
   line-height: 1.5;
   //Add background img to Games/Companies/About and make it transparent
-  background-image: url("/verkefni2/assets/img/mainBackground.png");
+  background-image: url("/wizliz/assets/img/mainBackground.png");
   background-color: whitesmoke;
   background-position: center; 
   background-repeat: no-repeat; 
@@ -233,8 +235,6 @@ li a {
   height: 100%;
   width: 100%;
 }
-
-
 
 .heading-title {
   font-family:  var(--header-font);
