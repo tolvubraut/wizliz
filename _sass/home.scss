@@ -65,31 +65,9 @@ $pictureGalleryHeight: 90vh;
     @include mainBorder($whiteColor);
 }
 
-//Arrows
-.prev, .next {
-    position: absolute;
-    width: auto;
-    margin: 0 auto;
-    padding: 25px;
-    font-weight: bold;
-    color:$whiteColor;
-    background-color: $backgroundRgba;
-    font-size: 24px;
-    top: 40%;
-    z-index: 4;
-    cursor: pointer;
-    @include sRadius();
-}
-.next {
-    right: 0%;
-}
-.left {
-    left: 0%;
-}
-.prev:hover, .next:hover {
-    background-color:$whiteColor;
-}
-
+/*==================
+       Arrows
+===================*/
 .slides-wrapper {
     width: 100%;
 }
@@ -98,29 +76,28 @@ $pictureGalleryHeight: 90vh;
     position: relative;
     @include sRadius();
     @include flexCenter;
+    @include backgroundRgba(0.70);
     font-size: 24px;
     height: 100%;
+    width:3em;
+    transition: all 1s ease;
+    &:hover {
+        width: 3.5em;
+        @include backgroundRgba(1);
+    }
 }
 
 .slides-arrow {
-    @include sRadius();
     @include flexCenter;
-    width: 60px;
-    height: 25%;
-    background: $backgroundRgba;
-    transition: width 3s;
+    height: 100%;
     cursor: pointer;
-    &:hover {
-        height: 100%;
-        width: 100px;
-        @include sRadius(0)
-    }
+    
 }
 
 .slides-prev, .slides-next{
     position: absolute;
     display:flex;
-    z-index:10000;
+    z-index: 5;
     top:0;
     width: 10%;
     height: 100%;
@@ -130,7 +107,10 @@ $pictureGalleryHeight: 90vh;
 }
 .slides-next {
     right: 0;
-    
+    width:auto;
+}
+.temp {
+    opacity:1;
 }
 
 /*==================
@@ -146,6 +126,9 @@ $pictureGalleryHeight: 90vh;
     font-family: var(--header-font)
 }
 
+/*===========================================================================================
+    Redo slider and remove all padding top only use 1 to maintain aspect ratio fo slider
+=============================================================================================*/
 //2k Resolution 2540x1440
 @media screen and(min-width: 2000px) {
     .myBigSlide {
@@ -158,7 +141,8 @@ $pictureGalleryHeight: 90vh;
 //HD Resolution 1920x1080
 @media screen and (max-width: 100em) {
     .myBigSlide {
-        padding-top: 32.01%
+        // padding-top: 32.01%
+        padding-top: 33.51%
     }
 }
 
