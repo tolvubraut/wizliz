@@ -11,7 +11,7 @@
   left:0;
   width: 100%;
   @include boxShadow;
-  height:auto;
+  height:4em;
   z-index: 1000;
   background-color: $backgroundColor;
 }
