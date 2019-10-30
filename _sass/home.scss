@@ -120,9 +120,13 @@
 
 .next-arrow {
  &:active {
-     padding-left: 15%;
-     
+     padding-left: 15%; 
  }
+}
+
+.unique-arrow {
+    font-size: 16px;
+    color:blue;
 }
 
 /*==================
