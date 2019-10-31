@@ -19,8 +19,6 @@ layout: homepage
                             <span class="next-arrow icon-right-arrow"></span>         
                         </a>
                     </div>
-                    
-                    
                     {% if index.mobileImage%}
                         <picture>
                             <source class="bigbackup" data-value="{{counter}}" media="(max-width: 800px)" srcset="{{site.baseurl}}{{index.mobileImage}}" alt="Slider Big Image">
@@ -58,7 +56,7 @@ layout: homepage
             <h1 class="news-header">Project - WIZLIZ Web Page</h1>
             <p>Þessi vefslóð heldur utan um leiki og leikja fyrirtæki</p>
             <div class="post-container">
-                <!-- Add modulo with grid to have 3xY for posts -->
+                <!-- Add modulo with grid to have 3 seperate post locations for posts -->
                 {% for post in site.news %}
                     <div class="post-item">
                         <a class="news-header linksBlock" href="{{site.baseurl}}/{{post.url}}">{{post.title}}</a>
