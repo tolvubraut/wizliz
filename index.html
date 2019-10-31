@@ -9,9 +9,6 @@ layout: homepage
             {% if counter == 1 %}
                 <!-- Slideshow start -->
                 <section class="myBigSlide">
-                    <!-- Slides-wrapper currently not needed -->
-                    
-                    <!-- Add slider arrows to icomoon after adding back all svgs to prevent a fuck up -->
                     <div class="slides-prev">
                         <a class="slides-arrow-container" onclick="plusSlides(-1)">
                             <span class="prev-arrow icon-left-arrow"></span>       
@@ -60,18 +57,26 @@ layout: homepage
         <article>
             <h1 class="news-header">Project - WIZLIZ Web Page</h1>
             <p>Þessi vefslóð heldur utan um leiki og leikja fyrirtæki</p>
+            <div class="post-container">
+                <!-- Add modulo with grid to have 3xY for posts -->
+                {% for post in site.news %}
+                    <div class="post-item">
+                        <a class="news-header linksBlock" href="{{site.baseurl}}/{{post.url}}">{{post.title}}</a>
+                    </div>
+                {% endfor %}
+            </div>
         </article>
     </div>
 </div>
 
 <script>
-    //These will only be run on startup
     var imageCollection = [];
     var backupCollection = [];
     var basePos = 0;
     var prevSlideIndex = 0
     var slideIndex = 1;
     var nextSlideIndex = 2
+    //Startup
     function getImages() {
         Gallery = document.getElementsByClassName("slides");
         for (x = 0; x < Gallery.length; x++) {

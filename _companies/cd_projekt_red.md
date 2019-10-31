@@ -1,6 +1,5 @@
 ---
 company: Cd Projekt Red
-founded: "1994"
 image: \assets\img\cdprojektred.png
 ---
 <!-- cd_projekt_red.md -->

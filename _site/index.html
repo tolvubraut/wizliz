@@ -45,12 +45,6 @@
           </a>
 
           
-          <a class="nav-link " href="/wizliz/gallery.html" >
-              <span class="icon-axii"></span>
-              <span class="nav-link-text">Gallery</span>  
-          </a>
-
-          
           <a class="nav-link " href="/wizliz/games.html" >
               <span class="icon-igni"></span>
               <span class="nav-link-text">Games</span>  
@@ -63,9 +57,15 @@
           </a>
 
           
+          <a class="nav-link " href="/wizliz/gallery.html" >
+              <span class="icon-axii"></span>
+              <span class="nav-link-text">Gallery(WIP)</span>  
+          </a>
+
+          
           <a class="nav-link " href="/wizliz/about.html" >
               <span class="icon-yrden"></span>
-              <span class="nav-link-text">About</span>  
+              <span class="nav-link-text">About(WIP)</span>  
           </a>
 
           
@@ -81,9 +81,6 @@
             
                 <!-- Slideshow start -->
                 <section class="myBigSlide">
-                    <!-- Slides-wrapper currently not needed -->
-                    
-                    <!-- Add slider arrows to icomoon after adding back all svgs to prevent a fuck up -->
                     <div class="slides-prev">
                         <a class="slides-arrow-container" onclick="plusSlides(-1)">
                             <span class="prev-arrow icon-left-arrow"></span>       
@@ -178,18 +175,38 @@
         <article>
             <h1 class="news-header">Project - WIZLIZ Web Page</h1>
             <p>Þessi vefslóð heldur utan um leiki og leikja fyrirtæki</p>
+            <div class="post-container">
+                <!-- Add modulo with grid to have 3xY for posts -->
+                
+                    <div class="post-item">
+                        <a class="news-header linksBlock" href="/wizliz//news/2019-10-31-Games.html">Gaming companies</a>
+                    </div>
+                
+                    <div class="post-item">
+                        <a class="news-header linksBlock" href="/wizliz//news/2019-10-31-Update.html">Gaming Updates</a>
+                    </div>
+                
+                    <div class="post-item">
+                        <a class="news-header linksBlock" href="/wizliz//news/2019-10-31-VeryCool.html">Gaming companies</a>
+                    </div>
+                
+                    <div class="post-item">
+                        <a class="news-header linksBlock" href="/wizliz//news/2019-10-31-veryEpic.html">Epyc gymes</a>
+                    </div>
+                
+            </div>
         </article>
     </div>
 </div>
 
 <script>
-    //These will only be run on startup
     var imageCollection = [];
     var backupCollection = [];
     var basePos = 0;
     var prevSlideIndex = 0
     var slideIndex = 1;
     var nextSlideIndex = 2
+    //Startup
     function getImages() {
         Gallery = document.getElementsByClassName("slides");
         for (x = 0; x < Gallery.length; x++) {
