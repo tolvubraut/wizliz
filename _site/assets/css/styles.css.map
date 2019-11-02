@@ -30,8 +30,6 @@
                         </a>
                     </div>
                     
-                    
-                    
                         <picture>
                             <source class="bigbackup" data-value="1" media="(max-width: 800px)" srcset="/wizliz/assets/img/sc2mobile.jpg" alt="Slider Big Image">
                             <img  class="bigSlide" data-value="1" src="/wizliz\assets\img\starcraft2Slider.jpg">
@@ -114,7 +112,7 @@
             <h1 class="news-header">Project - WIZLIZ Web Page</h1>
             <p>Þessi vefslóð heldur utan um leiki og leikja fyrirtæki</p>
             <div class="post-container">
-                <!-- Add modulo with grid to have 3xY for posts -->
+                <!-- Add modulo with grid to have 3 seperate post locations for posts -->
                 
                     <div class="post-item">
                         <a class="news-header linksBlock" href="/wizliz//news/2019-10-31-Games.html">Gaming companies</a>
@@ -125,7 +123,7 @@
                     </div>
                 
                     <div class="post-item">
-                        <a class="news-header linksBlock" href="/wizliz//news/2019-10-31-VeryCool.html">Gaming companies</a>
+                        <a class="news-header linksBlock" href="/wizliz//news/2019-10-31-VeryCool.html">Very Epic Companies!</a>
                     </div>
                 
                     <div class="post-item">
