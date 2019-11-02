@@ -35,7 +35,6 @@ $mainColor:#b3b3b3;
 $secondaryColor: #030303;
 $themeColor: #9147FF;
 $iconColor: #743a8a;
-$headerColor: #030303; //Maybe give headers unqiue colour
 $linkColor:rgb(35, 100, 170);
 $whiteColor: #fffffe;
 
@@ -79,20 +78,32 @@ $backgroundGradient: linear-gradient(to top right,rgba( 22, 22, 22, 0.6), 70%, r
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-.icon-aard:before {
+.icon-right-arrow:before {
   content: "\e900";
+  font-size: 20px;
+  color:deepskyblue;
+  font-weight: bold;
+}
+.icon-left-arrow:before {
+  content: "\e901";
+  font-size: 20px;
+  color:deepskyblue;
+  font-weight: bold;
+}
+.icon-aard:before {
+  content: "\e904";
 }
 .icon-axii:before {
-  content: "\e901";
+  content: "\e905";
 }
 .icon-igni:before {
-  content: "\e902";
+  content: "\e906";
 }
 .icon-quen:before {
-  content: "\e903";
+  content: "\e907";
 }
 .icon-yrden:before {
-  content: "\e904";
+  content: "\e908";
 }
 .icon-aard, .icon-axii, .icon-igni, .icon-quen, .icon-yrden {
   position: relative;
@@ -188,7 +199,7 @@ body {
 }
 h1,  h3, h4 {
   font-family: var(--main-font);
-  color:$headerColor;
+  color:$secondaryColor;
   line-height: 1.5;
 }
 //H2 used exclusively for blog titles
@@ -238,7 +249,7 @@ li a {
 
 .heading-title {
   font-family:  var(--header-font);
-  color: $headerColor;
+  color: $secondaryColor;
   font-weight: 100;
   font-size: 3em;
   text-transform: uppercase;

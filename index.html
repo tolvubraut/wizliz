@@ -9,22 +9,16 @@ layout: homepage
             {% if counter == 1 %}
                 <!-- Slideshow start -->
                 <section class="myBigSlide">
-                    <!-- Slides-wrapper currently not needed -->
-                    
                     <div class="slides-prev">
                         <a class="slides-arrow-container" onclick="plusSlides(-1)">
-                            <span class="prev-arrow">&#10094;</span>
+                            <span class="prev-arrow icon-left-arrow"></span>       
                         </a>
                     </div>
                     <div class="slides-next">
                         <a class="slides-arrow-container" onclick="plusSlides(+1)">
-                            <span class="next-arrow">&#10095;</span>
-                            <!-- <span class="next-arrow"><img src="{{site.baseurl}}/assets/img/aard.png"></span> 
-                                    Add in svg in tag above-->
+                            <span class="next-arrow icon-right-arrow"></span>         
                         </a>
                     </div>
-                    
-                    
                     {% if index.mobileImage%}
                         <picture>
                             <source class="bigbackup" data-value="{{counter}}" media="(max-width: 800px)" srcset="{{site.baseurl}}{{index.mobileImage}}" alt="Slider Big Image">
@@ -61,18 +55,26 @@ layout: homepage
         <article>
             <h1 class="news-header">Project - WIZLIZ Web Page</h1>
             <p>Þessi vefslóð heldur utan um leiki og leikja fyrirtæki</p>
+            <div class="post-container">
+                <!-- Add modulo with grid to have 3 seperate post locations for posts -->
+                {% for post in site.news %}
+                    <div class="post-item">
+                        <a class="news-header linksBlock" href="{{site.baseurl}}/{{post.url}}">{{post.title}}</a>
+                    </div>
+                {% endfor %}
+            </div>
         </article>
     </div>
 </div>
 
 <script>
-    //These will only be run on startup
     var imageCollection = [];
     var backupCollection = [];
     var basePos = 0;
     var prevSlideIndex = 0
     var slideIndex = 1;
     var nextSlideIndex = 2
+    //Startup
     function getImages() {
         Gallery = document.getElementsByClassName("slides");
         for (x = 0; x < Gallery.length; x++) {
