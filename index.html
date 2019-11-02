@@ -74,7 +74,7 @@ layout: homepage
     var prevSlideIndex = 0
     var slideIndex = 1;
     var nextSlideIndex = 2
-    //Startup
+    //Gets all src from images
     function getImages() {
         Gallery = document.getElementsByClassName("slides");
         for (x = 0; x < Gallery.length; x++) {
@@ -82,6 +82,7 @@ layout: homepage
             imageCollection.push(images);
         } 
     }  
+    //Gets all srcset from images
     function getbackup() {
         Gallery = document.getElementsByClassName("smallbackup");
         for (x = 0; x < Gallery.length; x++) {
