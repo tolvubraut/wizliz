@@ -124,13 +124,11 @@
  }
 }
 
-
-
-/*==================
-    News Section
-====================*/
+/*========================
+    Start of News Section
+==========================*/
 .news-container {
-    width: 80em;
+    width: 85em;
     margin: 0 auto;
     padding: 3em 0 4em 0;
 }
@@ -141,15 +139,32 @@
 
 .post-container {
     display:flex;
+    // margin: 0 auto;
     flex-wrap:wrap;
+    max-width: 90%;
+    width: 100%;
 }
 
 .post-item {
-    @include flexCenter();
-    background:$backgroundGames;
-    flex: 28%;
+    width: 30%;
     margin: 5px;
+    min-height: 6em;
+    background:$backgroundGames;
 }
+.article-header {
+    display:flex;
+    justify-content: center;
+    font-family: var(--header-font);
+    padding-top: 0.5em;
+    font-weight: bold;
+}
+.news-excerpt {
+    @include flexCenter();
+}
+
+/*========================
+    Start of News Section
+==========================*/
 
 /*===========================================================================================
     Redo slider and remove all padding top only use 1 to maintain aspect ratio fo slider

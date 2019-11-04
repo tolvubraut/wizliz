@@ -51,21 +51,25 @@ layout: homepage
     <!-- Slideshow Gallery end -->
     </div>
 
+    <!-- Start of news articles -->
     <div class="news-container">
         <article>
             <h1 class="news-header">Project - WIZLIZ Web Page</h1>
             <p>Þessi vefslóð heldur utan um leiki og leikja fyrirtæki</p>
             <div class="post-container">
-                <!-- Add modulo with grid to have 3 seperate post locations for posts -->
                 {% for post in site.news %}
                     <div class="post-item">
-                        <a class="news-header linksBlock" href="{{site.baseurl}}/{{post.url}}">{{post.title}}</a>
+                        <a href="{{site.baseurl}}/{{post.url}}">
+                            <span class="article-header">{{post.title}}</span>
+                            <!-- add excerpt and some more stuff -->
+                        </a>
                     </div>
                 {% endfor %}
             </div>
         </article>
     </div>
 </div>
+<!-- End of news articles -->
 
 <script>
     var imageCollection = [];

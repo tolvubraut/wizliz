@@ -20,7 +20,7 @@
 <link rel="canonical" href="http://localhost:4000/wizliz/" />
 <meta property="og:url" content="http://localhost:4000/wizliz/" />
 <script type="application/ld+json">
-{"@type":"WebSite","headline":"Home","url":"http://localhost:4000/wizliz/","@context":"https://schema.org"}</script>
+{"headline":"Home","@type":"WebSite","url":"http://localhost:4000/wizliz/","@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
   </head>
@@ -169,33 +169,46 @@
     <!-- Slideshow Gallery end -->
     </div>
 
+    <!-- Start of news articles -->
     <div class="news-container">
         <article>
             <h1 class="news-header">Project - WIZLIZ Web Page</h1>
             <p>Þessi vefslóð heldur utan um leiki og leikja fyrirtæki</p>
             <div class="post-container">
-                <!-- Add modulo with grid to have 3 seperate post locations for posts -->
                 
                     <div class="post-item">
-                        <a class="news-header linksBlock" href="/wizliz//news/2019-10-31-Games.html">Gaming companies</a>
+                        <a href="/wizliz//news/2019-10-31-Games.html">
+                            <span class="article-header">Gaming companies</span>
+                            <!-- add excerpt and some more stuff -->
+                        </a>
                     </div>
                 
                     <div class="post-item">
-                        <a class="news-header linksBlock" href="/wizliz//news/2019-10-31-Update.html">Gaming Updates</a>
+                        <a href="/wizliz//news/2019-10-31-Update.html">
+                            <span class="article-header">Gaming Updates</span>
+                            <!-- add excerpt and some more stuff -->
+                        </a>
                     </div>
                 
                     <div class="post-item">
-                        <a class="news-header linksBlock" href="/wizliz//news/2019-10-31-VeryCool.html">Very Epic Companies!</a>
+                        <a href="/wizliz//news/2019-10-31-VeryCool.html">
+                            <span class="article-header">Very Epic Companies!</span>
+                            <!-- add excerpt and some more stuff -->
+                        </a>
                     </div>
                 
                     <div class="post-item">
-                        <a class="news-header linksBlock" href="/wizliz//news/2019-10-31-veryEpic.html">Epyc gymes</a>
+                        <a href="/wizliz//news/2019-10-31-veryEpic.html">
+                            <span class="article-header">Epyc gymes</span>
+                            <!-- add excerpt and some more stuff -->
+                        </a>
                     </div>
                 
             </div>
         </article>
     </div>
 </div>
+<!-- End of news articles -->
 
 <script>
     var imageCollection = [];
@@ -204,7 +217,7 @@
     var prevSlideIndex = 0
     var slideIndex = 1;
     var nextSlideIndex = 2
-    //Startup
+    //Gets all src from images
     function getImages() {
         Gallery = document.getElementsByClassName("slides");
         for (x = 0; x < Gallery.length; x++) {
@@ -212,6 +225,7 @@
             imageCollection.push(images);
         } 
     }  
+    //Gets all srcset from images
     function getbackup() {
         Gallery = document.getElementsByClassName("smallbackup");
         for (x = 0; x < Gallery.length; x++) {
