@@ -53,37 +53,49 @@ layout: homepage
 
     <!-- Start of news articles -->
     <div class="news-container">
-        <article>
-            <h1 class="news-header">Project - WIZLIZ Web Page</h1>
-            <p>Þessi vefslóð heldur utan um leiki og leikja fyrirtæki</p>
-
-            <div class="post-container">
-                {% for news in site.news %}
-                {% assign remainder = forloop.index | modulo: 3 %}
-                    {% if remainder == 1 %}
-                        <div class="post-grid-first">
-                            <a class="post-title" href="{{site.baseurl}}/{{news.url}}">{{news.title}}</a>
-                        </div>
-                    {% endif %}
-                    {% if remainder == 2 %}
-                        <div class="post-grid-second">
-                            <a class="post-title" href="{{site.baseurl}}/{{news.url}}">{{news.title}}</a>
-                        </div>
-                    {% endif %}
-                    {% if remainder == 0 %}
-                        <div class="post-grid-third">
-                            <a class="post-title" href="{{site.baseurl}}/{{news.url}}">{{news.title}}</a>
-                        </div>
-                    {% endif %}
-                  {% endfor %}
+        <h1 class="news-header">Project - WIZLIZ Web Page</h1>
+        <p>Þessi vefslóð heldur utan um leiki og leikja fyrirtæki</p>
+        <div class="post-container">
+            <div class="post-grid-first">
+            {% for news in site.news %}
+            {% assign remainder = forloop.index | modulo: 3 %}
+            {% if remainder == 1 %}
+                <div class="post-item">
+                    <a class="post-title" href="{{site.baseurl}}/{{news.url}}">{{news.title}}</a>
+                    <span class="post-excerpt">{{news.excerpt}}</span>
+                    <a href="{{site.baseurl}}/{{news.url}}"><button class="readmore">Read More!</button></a>
+                </div>
+            {% endif %}
+            {% endfor %}
             </div>
-        </article>
+            <div class="post-grid-second">
+            {% for news in site.news %}
+            {% assign remainder = forloop.index | modulo: 3 %}
+            {% if remainder == 2 %}
+                    <div class="post-item">
+                        <a class="post-title" href="{{site.baseurl}}/{{news.url}}">{{news.title}}</a>
+                        <span class="post-excerpt">{{news.excerpt}}</span>
+                        <a href="{{site.baseurl}}/{{news.url}}"><button class="readmore">Read More!</button></a>
+                    </div>
+            {% endif %}
+            {% endfor %}
+            </div>
+            <div class="post-grid-third">
+            {% for news in site.news %}
+            {% assign remainder = forloop.index | modulo: 3 %}
+            {% if remainder == 0 %}
+                    <div class="post-item">
+                        <a class="post-title" href="{{site.baseurl}}/{{news.url}}">{{news.title}}</a>
+                        <span class="post-excerpt">{{news.excerpt}}</span>
+                        <a href="{{site.baseurl}}/{{news.url}}"><button class="readmore">Read More!</button></a>
+                    </div>
+            {% endif %}
+            {% endfor %}
+            </div>
+        </div>
     </div>
 </div>
 
-
-
-        
 
 <!-- End of news articles -->
 
