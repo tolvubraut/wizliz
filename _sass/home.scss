@@ -125,10 +125,10 @@
 }
 
 /*========================
-    Start of News Section
+    News Section
 ==========================*/
 .news-container {
-    width: 85em;
+    width: 90em;
     margin: 0 auto;
     padding: 3em 0 4em 0;
 }
@@ -137,34 +137,49 @@
     font-family: var(--header-font);
 }
 
+/*============================
+    Items from news posts
+==============================*/
+.post-grid-first {
+    grid-area: post-first;
+}
+
+.post-grid-second {
+    grid-area: post-second;
+}
+
+.post-grid-third {
+    grid-area: post-third;
+}
+
 .post-container {
-    display:flex;
-    // margin: 0 auto;
-    flex-wrap:wrap;
-    max-width: 90%;
-    width: 100%;
+    display:grid;
+    grid-template-areas: 
+    "post-first post-second post-third";
+    grid-template-columns: 1fr 1fr 1fr;
+
 }
 
-.post-item {
-    width: 30%;
-    margin: 5px;
+.post-grid-first, .post-grid-second, .post-grid-third {
+    background: $newsBackground;
+    margin: 1em;
     min-height: 6em;
-    background:$backgroundGames;
-}
-.article-header {
-    display:flex;
-    justify-content: center;
-    font-family: var(--header-font);
-    padding-top: 0.5em;
-    font-weight: bold;
-}
-.news-excerpt {
-    @include flexCenter();
 }
 
-/*========================
-    Start of News Section
-==========================*/
+
+
+.post-title {
+    @include flexCenter();
+    height: 2.5em;
+    width: 100%;
+    font-weight: bold;
+    font-size: 1.2em;
+    font-family:  var(--header-font);
+
+    color: lighten($linkColor, 5%);
+}
+
+
 
 /*===========================================================================================
     Redo slider and remove all padding top only use 1 to maintain aspect ratio fo slider

@@ -56,19 +56,35 @@ layout: homepage
         <article>
             <h1 class="news-header">Project - WIZLIZ Web Page</h1>
             <p>Þessi vefslóð heldur utan um leiki og leikja fyrirtæki</p>
+
             <div class="post-container">
-                {% for post in site.news %}
-                    <div class="post-item">
-                        <a href="{{site.baseurl}}/{{post.url}}">
-                            <span class="article-header">{{post.title}}</span>
-                            <!-- add excerpt and some more stuff -->
-                        </a>
-                    </div>
-                {% endfor %}
+                {% for news in site.news %}
+                {% assign remainder = forloop.index | modulo: 3 %}
+                    {% if remainder == 1 %}
+                        <div class="post-grid-first">
+                            <a class="post-title" href="{{site.baseurl}}/{{news.url}}">{{news.title}}</a>
+                        </div>
+                    {% endif %}
+                    {% if remainder == 2 %}
+                        <div class="post-grid-second">
+                            <a class="post-title" href="{{site.baseurl}}/{{news.url}}">{{news.title}}</a>
+                        </div>
+                    {% endif %}
+                    {% if remainder == 0 %}
+                        <div class="post-grid-third">
+                            <a class="post-title" href="{{site.baseurl}}/{{news.url}}">{{news.title}}</a>
+                        </div>
+                    {% endif %}
+                  {% endfor %}
             </div>
         </article>
     </div>
 </div>
+
+
+
+        
+
 <!-- End of news articles -->
 
 <script>
