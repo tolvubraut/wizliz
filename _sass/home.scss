@@ -123,23 +123,9 @@
      padding-left: 15%; 
  }
 }
-
 /*========================
-    News Section
+    Post-Advert grid
 ==========================*/
-.news-container {
-    width: 90em;
-    margin: 0 auto;
-    padding: 3em 0 4em 0;
-}
-
-.news-header {
-    font-family: var(--header-font);
-}
-
-/*============================
-    Items from news posts
-==============================*/
 .post-grid-first {
     grid-area: post-first;
 }
@@ -153,6 +139,45 @@
 }
 
 .post-container {
+  grid-area: post;
+}
+
+.post-aside {
+    grid-area: post-aside;
+    padding: 7.5em 0 4em 0;
+}
+
+.grid-news {
+    display:grid;
+    grid-template-areas: 
+    "post post-aside";
+    grid-template-columns:4fr 1fr;
+}
+
+/*========================
+    News Section
+==========================*/
+
+.news-container {
+    width:auto;
+    margin: 0 auto;
+    padding: 3em 0 4em 0;
+}
+
+.news-header {
+    font-family: var(--header-font);
+    padding-left: 0.75em;
+}
+
+.news-description {
+    padding-left: 1.5em;
+}
+
+/*============================
+    Items from news posts
+==============================*/
+
+.post-container {
     display:grid;
     grid-template-areas: 
     "post-first post-second post-third";
@@ -163,7 +188,9 @@
 .post-item {
     background: $newsBackground;
     margin: 1em;
-    min-height: 6em;
+    min-height: 10em;
+    width:auto;
+    position: relative;
 }
 
 .post-title {
@@ -179,16 +206,17 @@
 }
 
 .post-excerpt {
-    font-size: 8px;
-    padding: 4px;
-    color: $whiteColor;
     display:flex;
     justify-content: center;
+    color: $whiteColor;
+    font-size: 8px;
+    padding: 4px 4px 36px 4px;
 } 
 
-.readmore {
-    position: relative;
+.button-readmore {
+    position: absolute;
     left: calc(50% - 58px);
+    bottom: 0;
     outline:none;
     cursor:pointer;
     background: deepskyblue;
@@ -201,6 +229,9 @@
     }
 }
 
+.button-readmore a {
+    color:$secondaryColor;
+}
 
 
 /*===========================================================================================
@@ -223,10 +254,8 @@
 }
 
 //Laptops
-@media screen and (max-width: 80em) {
-    .news-container {
-        width: 100%;
-    } 
+@media screen and (max-width: 90em) {
+    
 }
 //Tablets 1040PX
 @media screen and(max-width: 65em) {
@@ -242,9 +271,10 @@
             width: 60%;
         }
     }
-    // .news-container {
-    //     width: auto;
-    // }
+    .news-header, .news-description {
+        text-align: center;
+        padding-left: 0;
+    }
     .post-container{
         display: block;
     }
@@ -255,12 +285,15 @@
     .post-item {
         display:flex;
         flex-direction: column;
-        flex: 40%;
+        flex: 42%;
+        min-height: 8em;
     }
 }
 
 @media screen and(max-width: 57.5em) { 
-
+    .post-item {
+        flex: 50%;
+    }
 }
 
 @media screen and(max-width: 45em) {

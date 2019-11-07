@@ -1,1 +1,43 @@
-// Add css for add here
+$CDPR-themecolor: #DB0E15;
+// Aligning something using relative/absolute calc(50% - 24.3px) 24.3-24.4center
+.advert {
+    margin: 1em;
+    padding: 1em;
+    box-shadow: inset 1em 1em 3em #161616;
+    @include sRadius();
+    width: 250px;
+}
+
+.advert-content {
+    position:relative;
+}
+
+.advert-image {
+    animation-name: ad-image;
+    animation-duration: 4s;
+    @keyframes ad-image {
+        0% {opacity:0.1;}
+        100% {opacity:1}
+      }
+}
+
+
+.advert-highlight {
+    @include mainBorder($CDPR-themecolor, border-bottom);
+}
+
+.advert-tease {
+    padding: .8em 0;
+    text-align: center;;
+}
+
+.advert-click {
+    text-align: center;
+}
+
+.advert-button {
+    position: relative;
+    left: calc(50% - 24.3px);
+    // width: 203px;
+}
+

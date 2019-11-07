@@ -52,45 +52,59 @@ layout: homepage
     </div>
 
     <!-- Start of news articles -->
-    <div class="news-container">
-        <h1 class="news-header">Project - WIZLIZ Web Page</h1>
-        <p>Þessi vefslóð heldur utan um leiki og leikja fyrirtæki</p>
-        <div class="post-container">
-            <div class="post-grid-first">
-            {% for news in site.news %}
-            {% assign remainder = forloop.index | modulo: 3 %}
-            {% if remainder == 1 %}
-                <div class="post-item">
-                    <a class="post-title" href="{{site.baseurl}}/{{news.url}}">{{news.title}}</a>
-                    <span class="post-excerpt">{{news.excerpt}}</span>
-                    <a href="{{site.baseurl}}/{{news.url}}"><button class="readmore">Read More!</button></a>
+    <div class="grid-news">
+        <div class="news-container">
+            <h1 class="news-header">Project - WIZLIZ Web Page</h1>
+            <p class="news-description">Þessi vefslóð heldur utan um leiki og leikja fyrirtæki</p>
+            <div class="post-container">
+                <div class="post-grid-first">
+                {% for news in site.news %}
+                {% assign remainder = forloop.index | modulo: 3 %}
+                {% if remainder == 1 %}
+                    <div class="post-item">
+                        <a class="post-title" href="{{site.baseurl}}/{{news.url}}">{{news.title}}</a>
+                        <span class="post-excerpt">{{news.excerpt}}</span>
+                        <button class="button-readmore"><a href="{{site.baseurl}}/{{news.url}}">Read More!</a></button>
+                    </div>
+                {% endif %}
+                {% endfor %}
                 </div>
-            {% endif %}
-            {% endfor %}
+                <div class="post-grid-second">
+                {% for news in site.news %}
+                {% assign remainder = forloop.index | modulo: 3 %}
+                {% if remainder == 2 %}
+                        <div class="post-item">
+                            <a class="post-title" href="{{site.baseurl}}/{{news.url}}">{{news.title}}</a>
+                            <span class="post-excerpt">{{news.excerpt}}</span>
+                            <a href="{{site.baseurl}}/{{news.url}}"></a>
+                            <button class="button-readmore"><a href="{{site.baseurl}}/{{news.url}}">Read More!</a></button>
+                        </div>
+                {% endif %}
+                {% endfor %}
+                </div>
+                <div class="post-grid-third">
+                {% for news in site.news %}
+                {% assign remainder = forloop.index | modulo: 3 %}
+                {% if remainder == 0 %}
+                        <div class="post-item">
+                            <a class="post-title" href="{{site.baseurl}}/{{news.url}}">{{news.title}}</a>
+                            <span class="post-excerpt">{{news.excerpt}}</span>
+                            <button class="button-readmore"><a href="{{site.baseurl}}/{{news.url}}">Read More!</a></button>
+                        </div>
+                {% endif %}
+                {% endfor %}
+                </div>
             </div>
-            <div class="post-grid-second">
-            {% for news in site.news %}
-            {% assign remainder = forloop.index | modulo: 3 %}
-            {% if remainder == 2 %}
-                    <div class="post-item">
-                        <a class="post-title" href="{{site.baseurl}}/{{news.url}}">{{news.title}}</a>
-                        <span class="post-excerpt">{{news.excerpt}}</span>
-                        <a href="{{site.baseurl}}/{{news.url}}"><button class="readmore">Read More!</button></a>
-                    </div>
-            {% endif %}
-            {% endfor %}
-            </div>
-            <div class="post-grid-third">
-            {% for news in site.news %}
-            {% assign remainder = forloop.index | modulo: 3 %}
-            {% if remainder == 0 %}
-                    <div class="post-item">
-                        <a class="post-title" href="{{site.baseurl}}/{{news.url}}">{{news.title}}</a>
-                        <span class="post-excerpt">{{news.excerpt}}</span>
-                        <a href="{{site.baseurl}}/{{news.url}}"><button class="readmore">Read More!</button></a>
-                    </div>
-            {% endif %}
-            {% endfor %}
+        </div>
+        <div class="post-aside">
+            <div class="advert">
+                <div class="advert-content">
+                    <img class="advert-image" src="{{site.baseurl}}/assets/img/cdprojektred.png">
+                    <h3 class="advert-highlight">Cyberpunk 2077 Coming soon!</h3>
+                    <p class="advert-tease">Want to play an upcoming Rpg from the famous developers known as Cd Projekt Red?</p>
+                    <p class="advert-click">Click Below to know more!</p>
+                    <button class="advert-button">Click Me!</button>
+                </div>
             </div>
         </div>
     </div>
@@ -113,8 +127,8 @@ layout: homepage
             images = Gallery[x].src;
             imageCollection.push(images);
         } 
-    }  
     //Gets all srcset from images
+    }  
     function getbackup() {
         Gallery = document.getElementsByClassName("smallbackup");
         for (x = 0; x < Gallery.length; x++) {
