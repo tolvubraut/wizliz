@@ -57,18 +57,6 @@
           </a>
 
           
-          <a class="nav-link " href="/wizliz/gallery.html" >
-              <span class="icon-axii"></span>
-              <span class="nav-link-text">Gallery(WIP)</span>  
-          </a>
-
-          
-          <a class="nav-link " href="/wizliz/about.html" >
-              <span class="icon-yrden"></span>
-              <span class="nav-link-text">About(WIP)</span>  
-          </a>
-
-          
         </div>
     </nav>
   </div>
@@ -169,33 +157,104 @@
     <!-- Slideshow Gallery end -->
     </div>
 
-    <div class="news-container">
-        <article>
+    <!-- Start of news articles -->
+    <div class="grid-news">
+        <div class="news-container">
             <h1 class="news-header">Project - WIZLIZ Web Page</h1>
-            <p>Þessi vefslóð heldur utan um leiki og leikja fyrirtæki</p>
+            <p class="news-description">Þessi vefslóð heldur utan um leiki og leikja fyrirtæki</p>
             <div class="post-container">
-                <!-- Add modulo with grid to have 3 seperate post locations for posts -->
+                <div class="post-grid-first">
+                
+                
                 
                     <div class="post-item">
-                        <a class="news-header linksBlock" href="/wizliz//news/2019-10-31-Games.html">Gaming companies</a>
+                        <a class="post-title" href="/wizliz//news/2019-10-31-Games.html">Gaming companies</a>
+                        <span class="post-excerpt"><h1 id="blizzard-ent-presents-3-new-games-at-blizzcon">Blizzard Ent, presents 3 new games at blizzcon</h1>
+</span>
+                        <button class="button-readmore"><a href="/wizliz//news/2019-10-31-Games.html">Read More!</a></button>
                     </div>
+                
+                
+                
+                
+                
+                
+                
+                
+                
                 
                     <div class="post-item">
-                        <a class="news-header linksBlock" href="/wizliz//news/2019-10-31-Update.html">Gaming Updates</a>
+                        <a class="post-title" href="/wizliz//news/2019-10-31-veryEpic.html">Diablo 4</a>
+                        <span class="post-excerpt"><h1 id="diablo-4-revealead-at-blizzcon">Diablo 4 revealead at Blizzcon!</h1>
+</span>
+                        <button class="button-readmore"><a href="/wizliz//news/2019-10-31-veryEpic.html">Read More!</a></button>
                     </div>
                 
-                    <div class="post-item">
-                        <a class="news-header linksBlock" href="/wizliz//news/2019-10-31-VeryCool.html">Very Epic Companies!</a>
-                    </div>
                 
-                    <div class="post-item">
-                        <a class="news-header linksBlock" href="/wizliz//news/2019-10-31-veryEpic.html">Epyc gymes</a>
-                    </div>
+                </div>
+                <div class="post-grid-second">
                 
+                
+                
+                
+                
+                
+                        <div class="post-item">
+                            <a class="post-title" href="/wizliz//news/2019-10-31-Update.html">Blizzcon News</a>
+                            <span class="post-excerpt"><h1 id="blizzcon-just-started">Blizzcon just started.</h1>
+</span>
+                            <a href="/wizliz//news/2019-10-31-Update.html"></a>
+                            <button class="button-readmore"><a href="/wizliz//news/2019-10-31-Update.html">Read More!</a></button>
+                        </div>
+                
+                
+                
+                
+                
+                
+                
+                
+                </div>
+                <div class="post-grid-third">
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                        <div class="post-item">
+                            <a class="post-title" href="/wizliz//news/2019-10-31-VeryCool.html">Update on Cyberpunk 2077</a>
+                            <span class="post-excerpt"><h1 id="new-game-features-introduced-in-cyberpunk-2077">New game features introduced in Cyberpunk 2077!</h1>
+</span>
+                            <button class="button-readmore"><a href="/wizliz//news/2019-10-31-VeryCool.html">Read More!</a></button>
+                        </div>
+                
+                
+                
+                
+                
+                </div>
             </div>
-        </article>
+        </div>
+        <div class="post-aside">
+            <div class="advert">
+                <div class="advert-content">
+                    <img class="advert-image" src="/wizliz/assets/img/cdprojektred.png">
+                    <h3 class="advert-highlight">Cyberpunk 2077 Coming soon!</h3>
+                    <p class="advert-tease">Want to play an upcoming Rpg from the famous developers known as Cd Projekt Red?</p>
+                    <p class="advert-click">Click Below to know more!</p>
+                    <button class="advert-button">Click Me!</button>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
+
+
+<!-- End of news articles -->
 
 <script>
     var imageCollection = [];
@@ -204,13 +263,14 @@
     var prevSlideIndex = 0
     var slideIndex = 1;
     var nextSlideIndex = 2
-    //Startup
+    //Gets all src from images
     function getImages() {
         Gallery = document.getElementsByClassName("slides");
         for (x = 0; x < Gallery.length; x++) {
             images = Gallery[x].src;
             imageCollection.push(images);
         } 
+    //Gets all srcset from images
     }  
     function getbackup() {
         Gallery = document.getElementsByClassName("smallbackup");
@@ -270,6 +330,7 @@
     getImages();
     getbackup();
     showSlides();
+    
 </script>
 
 

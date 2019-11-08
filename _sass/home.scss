@@ -66,7 +66,6 @@
 
 /*==================
     Arrows
-    todo Adjust arrows to add a better animate effect and fix width to be scalabe with 100% for mobile
 ===================*/
 
 .slides-prev, .slides-next{
@@ -123,33 +122,116 @@
      padding-left: 15%; 
  }
 }
+/*========================
+    Post-Advert grid
+==========================*/
+.post-grid-first {
+    grid-area: post-first;
+}
 
+.post-grid-second {
+    grid-area: post-second;
+}
 
+.post-grid-third {
+    grid-area: post-third;
+}
 
-/*==================
+.post-container {
+  grid-area: post;
+}
+
+.post-aside {
+    grid-area: post-aside;
+    padding: 7.5em 0 4em 0;
+}
+
+.grid-news {
+    display:grid;
+    grid-template-areas: 
+    "post post-aside";
+    grid-template-columns:4fr 1fr;
+}
+
+/*========================
     News Section
-====================*/
+==========================*/
+
 .news-container {
-    width: 80em;
+    width:auto;
     margin: 0 auto;
     padding: 3em 0 4em 0;
 }
 
 .news-header {
     font-family: var(--header-font);
+    padding-left: 0.75em;
 }
 
+.news-description {
+    padding-left: 1.5em;
+}
+
+/*============================
+    Items from news posts
+==============================*/
+
 .post-container {
-    display:flex;
-    flex-wrap:wrap;
+    display:grid;
+    grid-template-areas: 
+    "post-first post-second post-third";
+    grid-template-columns: 1fr 1fr 1fr;
+
 }
 
 .post-item {
-    @include flexCenter();
-    background:$backgroundGames;
-    flex: 28%;
-    margin: 5px;
+    background: $newsBackground;
+    margin: 1em;
+    min-height: 10em;
+    width:auto;
+    position: relative;
 }
+
+.post-title {
+    @include flexCenter();
+    @include mainBorder($iconColor, border-bottom);
+    height: auto;
+    width: 100%;
+    font-weight: bold;
+    font-size: 1.2em;
+    font-family:  var(--header-font);
+    padding: 4px;
+    color: lighten($linkColor, 5%);
+}
+
+.post-excerpt {
+    display:flex;
+    justify-content: center;
+    color: $whiteColor;
+    font-size: 8px;
+    padding: 4px 4px 36px 4px;
+} 
+
+.button-readmore {
+    position: absolute;
+    left: calc(50% - 58px);
+    bottom: 0;
+    outline:none;
+    cursor:pointer;
+    background: deepskyblue;
+    border:none;
+    padding: 10px 25px;
+    height: 36px;
+    transition: all 0.3s linear;
+    &:hover {
+        background: darken(deepskyblue, 8%);
+    }
+}
+
+.button-readmore a {
+    color:$secondaryColor;
+}
+
 
 /*===========================================================================================
     Redo slider and remove all padding top only use 1 to maintain aspect ratio fo slider
@@ -171,10 +253,8 @@
 }
 
 //Laptops
-@media screen and (max-width: 80em) {
-    .news-container {
-        width: 100%;
-    } 
+@media screen and (max-width: 90em) {
+    
 }
 //Tablets 1040PX
 @media screen and(max-width: 65em) {
@@ -190,13 +270,29 @@
             width: 60%;
         }
     }
-    .news-container {
-        width: auto;
+    .news-header, .news-description {
+        text-align: center;
+        padding-left: 0;
+    }
+    .post-container{
+        display: block;
+    }
+    .post-grid-first, .post-grid-second, .post-grid-third {
+        display:flex;
+        flex-wrap: wrap;
+    }
+    .post-item {
+        display:flex;
+        flex-direction: column;
+        flex: 42%;
+        min-height: 8em;
     }
 }
 
 @media screen and(max-width: 57.5em) { 
-
+    .post-item {
+        flex: 50%;
+    }
 }
 
 @media screen and(max-width: 45em) {
@@ -212,6 +308,7 @@
     .homewrapper {
         margin-top: 3.8em;
     }
+    
 }
 
 //Mobile
@@ -222,6 +319,10 @@
             width: 85%;
         }
     }
+    .post-item {
+        flex: 100%;
+    }
+    
 }
 
 @media screen and(max-width: 30em) {
