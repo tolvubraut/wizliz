@@ -1,26 +1,27 @@
 $CDPR-themecolor: #DB0E15;
 // Aligning something using relative/absolute calc(50% - 24.3px) 24.3-24.4center
 .advert {
+    @include sRadius();
     margin: 1em;
     padding: 1em;
     box-shadow: inset 1em 1em 3em #161616;
-    @include sRadius();
     width: 250px;
 }
 
 .advert-content {
     position:relative;
+    @include flexCenter();
+    flex-direction: column;
 }
 
 .advert-image {
     animation-name: ad-image;
-    animation-duration: 4s;
+    animation-duration: 6s;
     @keyframes ad-image {
         0% {opacity:0.1;}
         100% {opacity:1}
       }
 }
-
 
 .advert-highlight {
     @include mainBorder($CDPR-themecolor, border-bottom);
@@ -36,8 +37,15 @@ $CDPR-themecolor: #DB0E15;
 }
 
 .advert-button {
+    // left: calc(50% - 24.3px); //without flexcenter this is centered with no padding
+    // box-shadow: inset 0em 0em 1em black;
     position: relative;
-    left: calc(50% - 24.3px);
-    // width: 203px;
+    padding: 10px 20px;
+    background-color: $CDPR-themecolor;
+    box-shadow: inset 0px 0px 0px 0px rgba(255,115,100,0.4), 0 0px 4px $secondaryColor;
+    border:1px solid $mainColor;
+    &:hover {
+        background: darken($CDPR-themecolor, 5%)
+    }
 }
 
