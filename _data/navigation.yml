@@ -2,10 +2,6 @@
   link: /
   icon: icon-aard
 
-- name: Gallery
-  link: /gallery.html 
-  icon: icon-axii
-
 - name: Games
   link: /games.html
   icon: icon-igni
@@ -14,9 +10,6 @@
   link: /companies.html
   icon: icon-quen
 
-- name: About
-  link: /about.html
-  icon: icon-yrden
 
 
   

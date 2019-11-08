@@ -25,6 +25,9 @@ img {
   width: 100%; 
   height: auto;
 }
+button {
+  cursor:pointer;
+}
 
 //Font sizes
 $fontLinkSize: 1.25em;
@@ -35,19 +38,20 @@ $mainColor:#b3b3b3;
 $secondaryColor: #030303;
 $themeColor: #9147FF;
 $iconColor: #743a8a;
-$headerColor: #030303; //Maybe give headers unqiue colour
 $linkColor:rgb(35, 100, 170);
-$whiteColor: #fffff1;
+$whiteColor: #fffffe;
 
 //Background for header and footer
-$backgroundColor:  #161616; 
-$backgroundMain: linear-gradient(#32143d, #582c68);
+$backgroundColor:  #161616;
+//Background for games
+$backgroundGames: linear-gradient(#32143d, #582c68);
 
 //Hamburger
-$backgroundRgba: rgba(25, 25, 25, 0.85);
+$backgroundRgba: rgba(25, 25, 25, 0.75);
 
 //Footer
 $backgroundGradient: linear-gradient(to top right,rgba( 22, 22, 22, 0.6), 70%, rgba(82, 42, 97, 0.6));
+$newsBackground: linear-gradient(to top right ,rgb(17, 14, 14), 35%, rgb(30, 22, 102));
 
 /*=========================
       Icomoon Fonts
@@ -77,24 +81,33 @@ $backgroundGradient: linear-gradient(to top right,rgba( 22, 22, 22, 0.6), 70%, r
   /* Better Font Rendering =========== */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  &:hover {
-    // opacity: .6;
-  }
+}
+.icon-right-arrow:before {
+  content: "\e900";
+  font-size: 20px;
+  color:deepskyblue;
+  font-weight: bold;
+}
+.icon-left-arrow:before {
+  content: "\e901";
+  font-size: 20px;
+  color:deepskyblue;
+  font-weight: bold;
 }
 .icon-aard:before {
-  content: "\e900";
+  content: "\e904";
 }
 .icon-axii:before {
-  content: "\e901";
+  content: "\e905";
 }
 .icon-igni:before {
-  content: "\e902";
+  content: "\e906";
 }
 .icon-quen:before {
-  content: "\e903";
+  content: "\e907";
 }
 .icon-yrden:before {
-  content: "\e904";
+  content: "\e908";
 }
 .icon-aard, .icon-axii, .icon-igni, .icon-quen, .icon-yrden {
   position: relative;
@@ -167,6 +180,10 @@ $backgroundGradient: linear-gradient(to top right,rgba( 22, 22, 22, 0.6), 70%, r
   box-shadow: 0 0 7px 1px black;
 }
 
+@mixin backgroundRgba($opacity:0.75) {
+  background: rgba(25, 25, 25, $opacity);
+}
+
 /*==============================
       FontSizing/Colors
 ================================*/
@@ -186,7 +203,6 @@ body {
 }
 h1,  h3, h4 {
   font-family: var(--main-font);
-  color:$headerColor;
   line-height: 1.5;
 }
 //H2 used exclusively for blog titles
@@ -234,11 +250,9 @@ li a {
   width: 100%;
 }
 
-
-
 .heading-title {
   font-family:  var(--header-font);
-  color: $headerColor;
+  color: $secondaryColor;
   font-weight: 100;
   font-size: 3em;
   text-transform: uppercase;
