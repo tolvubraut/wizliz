@@ -1,6 +1,6 @@
 $CDPR-themecolor: #DB0E15;
 // Aligning something using relative/absolute calc(50% - 24.3px) 24.3-24.4center
-.advert {
+.auglysing {
     @include sRadius();
     margin: 1em;
     padding: 1em;
@@ -8,35 +8,35 @@ $CDPR-themecolor: #DB0E15;
     width: 250px;
 }
 
-.advert-content {
+.auglysing-content {
     position:relative;
     @include flexCenter();
     flex-direction: column;
+    
 }
-
-.advert-image {
+.auglysing-image {
     animation-name: ad-image;
-    animation-duration: 6s;
+    animation-duration: 10s;
     @keyframes ad-image {
         0% {opacity:0.1;}
         100% {opacity:1}
       }
 }
 
-.advert-highlight {
+.auglysing-highlight {
     @include mainBorder($CDPR-themecolor, border-bottom);
 }
 
-.advert-tease {
+.auglysing-tease {
     padding: .8em 0;
-    text-align: center;;
-}
-
-.advert-click {
     text-align: center;
 }
 
-.advert-button {
+.auglysing-click {
+    text-align: center;
+}
+
+.auglysing-button {
     // left: calc(50% - 24.3px); //without flexcenter this is centered with no padding
     // box-shadow: inset 0em 0em 1em black;
     position: relative;
