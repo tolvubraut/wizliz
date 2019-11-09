@@ -3,16 +3,23 @@
     flex: 1 0 auto; 
     overflow:hidden; //Figure why overflow starts from 1410px to 1425px roughly 88em to 89em
  }
+
+
 /*========================
      Slideshow Gallery
 ==========================*/
-.slideshow-gallery {
-    max-width: 100%;
-    height:auto;
+.slideshow-background {
+    // background: rgba(0,0,0,.25)
 }
+
 .slideshow-wrapper {
-    max-width: 100%;
+    @include flexCenter();
+    flex-direction: column;
+    margin: 0 auto;
+    max-width: 63.5em;
     height:auto;
+    margin: 1em auto 0 auto;
+    @include mainBorder($secondaryColor,border)
 }
 /* ==========================
         Showcase Image
@@ -20,7 +27,7 @@
 .myBigSlide {
     position: relative;
     width: 100%;
-    padding-top: 38.25%; 
+    padding-top: 56.25%;
  }
  
 .bigSlide {
@@ -29,6 +36,13 @@
     top: 0;
     left: 0;
     height: 100%;
+    // Avoids blue highlighting from chrome
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
  }
 /* ==========================
     Small Images in Slider
@@ -36,33 +50,79 @@
 .slides-container {
     display:flex;
     flex-direction: row;
-    max-height: 178px;
+    max-height: 12;
+    border-top: 1px solid;
 }
 
+// Fix -- Some pictures readjust the size of the smaller slides causing it to shift up or down based on the size of the image
 .mySlides {
-    // position: relative;
+    position: relative;
     width:20%;
     height: auto;
-    right:0;
     object-fit: cover;
-}
-
-.slides {
-    height: 100%;
-    width: 100%;
-    background-image:black;
-    object-fit: cover;
-    @include fade();
-    @include mainBorder($secondaryColor);
+    overflow:hidden;
     &:hover {
-        opacity:.75;
+        
     }
 }
 
-.active, .slides:hover {
-    background-color: $backgroundRgba;
-    @include mainBorder($whiteColor);
+.slides {
+    overflow:Hidden;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;  
+      
+    &:hover {
+        transform:scale(1.1);
+	
+    }
 }
+
+.slides-text {
+    display:none;
+    font-size: 16px;
+    font-weight: 500;
+    color: #fff;
+    text-align: center;
+    margin: auto;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    height: 50px;
+    pointer-events: none;
+    &:hover {
+        display:initial;
+    }
+    
+}
+.active{ 
+    @include mainBorder($themeColor);
+    z-index: 2;
+    // transform: scale(1.1);
+    filter:brightness(105%);
+    animation: flash 1s;
+     
+}
+.slides:hover + .slides-text{
+    display:initial;
+}
+.active + .slides-text {
+    display:initial;
+}
+
+// KF
+@keyframes flash {
+    0% {
+        opacity: .4;
+    }
+    100% {
+        opacity: 1;
+    }
+} 
+
 
 /*==================
     Arrows
@@ -151,6 +211,8 @@
     grid-template-areas: 
     "post post-aside";
     grid-template-columns:4fr 1fr;
+    width: 90em;
+    margin: 0 auto;
 }
 
 /*========================
@@ -160,7 +222,7 @@
 .news-container {
     width:auto;
     margin: 0 auto;
-    padding: 3em 0 4em 0;
+    padding: 3em 0;
 }
 
 .news-header {
@@ -194,7 +256,7 @@
 
 .post-title {
     @include flexCenter();
-    @include mainBorder($iconColor, border-bottom);
+    @include mainBorder(border-bottom);
     height: auto;
     width: 100%;
     font-weight: bold;
@@ -224,7 +286,7 @@
     height: 36px;
     transition: all 0.3s linear;
     &:hover {
-        background: darken(deepskyblue, 8%);
+        background: darken(deepskyblue, 26%);
     }
 }
 
@@ -238,8 +300,10 @@
 =============================================================================================*/
 //2k Resolution 2540x1440
 @media screen and(min-width: 2000px) {
-    .myBigSlide {
-        padding-top: 39.15%
+    .slideshow-wrapper {
+        margin: 3em auto 0 auto;
+        max-width: 80em;
+        @include mainBorder($secondaryColor,border)
     }
     .slides-container {
         max-height:270px;
@@ -247,13 +311,14 @@
 }
 //HD Resolution 1920x1080
 @media screen and (max-width: 100em) {
-    .myBigSlide {
-        padding-top: 33.51%;
-    }
+    
 }
 
 //Laptops
 @media screen and (max-width: 90em) {
+    .grid-news {
+        width: auto;
+    }
     
 }
 //Tablets 1040PX
@@ -261,15 +326,13 @@
     .homewrapper {
         margin-top: 4.2em;
     }
-    .myBigSlide {
-        padding-top: 55.6%;
-    }
     .slides-arrow-container {
         width: 50%;
         &:hover {
             width: 60%;
         }
     }
+    
     .news-header, .news-description {
         text-align: center;
         padding-left: 0;
@@ -287,17 +350,23 @@
         flex: 42%;
         min-height: 8em;
     }
+    .news-container {
+        margin: 0 0;
+    }
+    
 }
 
 @media screen and(max-width: 57.5em) { 
+    
     .post-item {
         flex: 50%;
     }
 }
 
 @media screen and(max-width: 45em) {
+    
     .homewrapper {
-        margin-top: 3.75em;
+        margin-top: 3.8em;
     }
     .slides-arrow-container {
         width: 65%;
@@ -305,13 +374,27 @@
             width: 75%;
         }
     }
-    .homewrapper {
-        margin-top: 3.8em;
+    .slides:hover + .slides-text{
+        display:none;
+    }
+    .active + .slides-text {
+        display:none;
+    }
+    
+    .grid-news {
+        display:block;
+    }
+
+    .post-aside {
+        padding:0;
+    }
+    .news-container {
+        padding: 0 0;
     }
     
 }
 
-//Mobile
+//Mobile / adspace
 @media screen and(max-width: 37.5em) { 
     .slides-arrow-container {
         width: 75%;
@@ -323,23 +406,16 @@
         flex: 100%;
     }
     
+    
 }
-
 @media screen and(max-width: 30em) {
-    .myBigSlide {
-        padding-top: 62%;
-    }
     .slides-container {
-        height: 57px;
+        height:50px;
     }
-    //Img Container
     .mySlides {
         height: 100%;
     }
-    .slides-arrow-container {
-        width: 85%;
-        &:hover {
-            width: 95%;
-        }
-    }
+    
 }
+
+
