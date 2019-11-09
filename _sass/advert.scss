@@ -1,11 +1,19 @@
 $CDPR-themecolor: #DB0E15;
-// Aligning something using relative/absolute calc(50% - 24.3px) 24.3-24.4center
+.auglysing-link {
+    color:black; 
+    &:hover {
+        color:black;
+  }
+}
 .auglysing {
     @include sRadius();
     margin: 1em;
     padding: 1em;
-    box-shadow: inset 1em 1em 3em #161616;
-    width: 250px;
+    box-shadow: inset 0.8em 1em 4em #161616;
+    width: 260px;
+    background:rgba(0,0,0,0.1);
+    overflow: hidden;
+    font-size: 110%;
 }
 
 .auglysing-content {
@@ -13,39 +21,111 @@ $CDPR-themecolor: #DB0E15;
     @include flexCenter();
     flex-direction: column;
     
+    
 }
-.auglysing-image {
+#auglysing-image {
     animation-name: ad-image;
-    animation-duration: 10s;
-    @keyframes ad-image {
-        0% {opacity:0.1;}
-        100% {opacity:1}
-      }
+    animation-duration: 4s;
+    animation-iteration-count: infinite;
+    animation-direction:alternate;
 }
 
-.auglysing-highlight {
+.auglysing-content h3{
     @include mainBorder($CDPR-themecolor, border-bottom);
+    position: relative;
+    font-family: var(--header-font);
+    animation-name: title;
+    animation-duration:12s;
+    animation-iteration-count: infinite;
 }
 
-.auglysing-tease {
+#auglysing-tease {
+    position: relative;
     padding: .8em 0;
     text-align: center;
+    animation-name: tease;
+    animation-duration:12s;
+    animation-iteration-count: infinite;
+    font-weight: bold;
 }
 
-.auglysing-click {
-    text-align: center;
-}
-
-.auglysing-button {
-    // left: calc(50% - 24.3px); //without flexcenter this is centered with no padding
-    // box-shadow: inset 0em 0em 1em black;
+#auglysing-click {
     position: relative;
-    padding: 10px 20px;
+    text-align: center;
+    padding: 2px;
+    font-weight: bold;
+    color:$secondaryColor;
+    animation-name: purchase;
+    animation-duration:8s;
+}
+
+#auglysing-button {
+    // left: calc(50% - 24.3px); //without flexcenter this is centered with no padding
+    position: relative;
+    margin: .3em 0 1em;
+    font-size: 1.2em;
+    padding: 10px 30px;
     background-color: $CDPR-themecolor;
-    box-shadow: inset 0px 0px 0px 0px #9e060666, 0 0px 4px $secondaryColor;
+    box-shadow: 4px 8px 4px $secondaryColor;
     border:1px solid $mainColor;
+    text-shadow:0px -1px 1px rgba(0,0,0,0.15);
+    @include sRadius();
+    color:whitesmoke;
+    animation-name:button;
+    animation-duration:8s;
     &:hover {
-        background: darken($CDPR-themecolor, 5%)
+        background-color: lighten($CDPR-themecolor, 5%);
     }
 }
 
+
+/* KEYFRAMES */
+@keyframes ad-image {
+    0% {opacity:0.55}
+    100% {opacity:1}
+}
+
+@keyframes title {
+    0% {left:40em}
+    20% {left: -0.5em}
+    35% {left:0}
+    85% {left: 0}
+    100%{left: -40em}
+}
+@keyframes tease {
+    0%{right: 40em}
+    20%{right:-0.5em}
+    35%{right:0}
+    85%{right:0}
+    100%{right:-40em}
+    
+}
+@keyframes purchase {
+    0% {opacity:0}
+    45%{opacity: 0.01}
+    100%{opacity: 1;}
+}
+
+@keyframes button {
+    0%{bottom:-20em;}
+    35%{bottom: 2.5em;}
+    70%{bottom: 0em}
+    100%{bottom: 0em;}
+}
+
+
+
+@media screen and(max-width: 45em) {
+
+    .auglysing {
+        margin: 1em auto 1.5em auto;
+        width: 75%;
+        background:rgba(0,0,0,0.4);
+    }
+}
+
+@media screen and (max-width: 37.5em) {
+    .auglysing {
+        font-family: var(--header-font);
+    }
+}
