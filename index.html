@@ -3,53 +3,57 @@ title: Home
 layout: homepage
 ---
 <div class="homewrapper">
-    <div class="slideshow-wrapper"> 
-        {% for index in site.posts limit:5 %}
-        {% assign counter = counter | plus:1 %}
-            {% if counter == 1 %}
-                <!-- Slideshow start -->
-                <section class="myBigSlide">
-                    <div class="slides-prev">
-                        <a class="slides-arrow-container" onclick="plusSlides(-1)">
-                            <span class="prev-arrow icon-left-arrow"></span>       
-                        </a>
-                    </div>
-                    <div class="slides-next">
-                        <a class="slides-arrow-container" onclick="plusSlides(+1)">
-                            <span class="next-arrow icon-right-arrow"></span>         
-                        </a>
-                    </div>
-                    {% if index.mobileImage%}
-                        <picture>
-                            <source class="bigbackup" data-value="{{counter}}" media="(max-width: 800px)" srcset="{{site.baseurl}}{{index.mobileImage}}" alt="Slider Big Image">
+    <div class="slideshow-background">
+        <div class="slideshow-wrapper"> 
+            {% for index in site.posts limit:5 %}
+            {% assign counter = counter | plus:1 %}
+                {% if counter == 1 %}
+                    <!-- Slideshow start -->
+                    <section class="myBigSlide">
+                        <div class="slides-prev">
+                            <a class="slides-arrow-container" onclick="plusSlides(-1)">
+                                <span class="prev-arrow icon-left-arrow"></span>       
+                            </a>
+                        </div>
+                        <div class="slides-next">
+                            <a class="slides-arrow-container" onclick="plusSlides(+1)">
+                                <span class="next-arrow icon-right-arrow"></span>         
+                            </a>
+                        </div>
+                        {% if index.mobileImage%}
+                            <picture>
+                                <source class="bigbackup" data-value="{{counter}}" media="(max-width: 800px)" srcset="{{site.baseurl}}{{index.mobileImage}}" alt="Slider Big Image">
+                                <img  class="bigSlide" data-value="{{counter}}" src="{{site.baseurl}}{{index.image}}">
+                            </picture>
+                        {% else %}
                             <img  class="bigSlide" data-value="{{counter}}" src="{{site.baseurl}}{{index.image}}">
-                        </picture>
-                    {% else %}
-                        <img  class="bigSlide" data-value="{{counter}}" src="{{site.baseurl}}{{index.image}}">
-                        <source class="smallbackup" src="{{site.baseurl}}{{index.image}}">
-                {%endif%}
-            </section>
-            <!-- Slideshow End -->
-            <!-- Slideshow Gallery Start -->
-        <section class="slides-container">
-            {% endif %}
-            {%if counter > 0%}
-                <div class="mySlides">
-                    {% if index.mobileImage%}
-                        <picture>
-                            <source class="smallbackup" data-value="{{counter}}" media="(max-width: 800px)" srcset="{{site.baseurl}}{{index.mobileImage}}">
-                            <img onclick ="currentSlide({{counter}})" class="slides" data-value="{{counter}}" src="{{site.baseurl}}{{index.image}}" alt="Slide Image">
-                        </picture>
-                    {%else%}
-                        <source class="smallbackup" src="{{site.baseurl}}{{index.image}}">
-                        <img onclick ="currentSlide({{counter}})" class="slides" data-value="{{counter}}"  src="{{site.baseurl}}{{index.image}}" alt="Slide Image">
+                            <source class="smallbackup" src="{{site.baseurl}}{{index.image}}">
                     {%endif%}
-                </div> 
-            {% endif %}
-        {% endfor %}
-        </section>
-    <!-- Slideshow Gallery end -->
+                </section>
+                <!-- Slideshow End -->
+                <!-- Slideshow Gallery Start -->
+            <section class="slides-container">
+                {% endif %}
+                {%if counter > 0%}
+                    <div class="mySlides">
+                        {% if index.mobileImage%}
+                            <picture>
+                                <source class="smallbackup" data-value="{{counter}}" media="(max-width: 800px)" srcset="{{site.baseurl}}{{index.mobileImage}}">
+                                <img onclick ="currentSlide({{counter}})" class="slides" data-value="{{counter}}" src="{{site.baseurl}}{{index.image}}" alt="Slide Image">
+                                <span class="slides-text">{{index.title}}</span>
+                            </picture>
+                        {%else%}
+                            <source class="smallbackup" src="{{site.baseurl}}{{index.image}}">
+                            <img onclick ="currentSlide({{counter}})" class="slides" data-value="{{counter}}"  src="{{site.baseurl}}{{index.image}}" alt="Slide Image">
+                            <span class="slides-text">{{index.title}}</span>
+                        {%endif%}
+                    </div> 
+                {% endif %}
+            {% endfor %}
+            </section>
+        <!-- Slideshow Gallery end -->
     </div>
+</div>
 
     <!-- Start of news articles -->
     <div class="grid-news">
@@ -97,15 +101,17 @@ layout: homepage
             </div>
         </div>
         <div class="post-aside">
-            <div class="auglysing">
-                <div class="auglysing-content">
-                    <img class="auglysing-image" src="{{site.baseurl}}/assets/img/cdprojektred.png">
-                    <h3 class="auglysing-highlight">Cyberpunk 2077 Coming soon!</h3>
-                    <p class="auglysing-tease">Want to play an upcoming Rpg from the famous developers known as Cd Projekt Red?</p>
-                    <p class="auglysing-click">Click Below to know more!</p>
-                    <button class="auglysing-button">Click Me!</button>
+            <a class="auglysing-link" href="https://store.steampowered.com/app/1091500/Cyberpunk_2077/" title="Cyberpunk 2077" target="_blank">
+                <div class="auglysing">
+                    <div class="auglysing-content">
+                        <img id="auglysing-image" src="{{site.baseurl}}/assets/img/cdprojektred.png">
+                        <h3 id="auglysing-title">Cyberpunk 2077 Releasing soon!</h3>
+                        <p id="auglysing-tease">Want to play an upcoming Rpg from the famous developers known as Cd Projekt Red?</p>
+                        <p id="auglysing-click">Click Below to purchase!</p>
+                        <button id="auglysing-button">Buy Game</button>
+                    </div>
                 </div>
-            </div>
+            </a>
         </div>
     </div>
 </div>
@@ -160,8 +166,11 @@ layout: homepage
         }
         for (i = 0; i < slides.length; i++) {
             imageSlides[i].className = imageSlides[i].className.replace(" active", "");
+            slides[i].className = slides[i].className.replace(" active", "");
+            
         }
         imageSlides[slideIndex-1].className += " active";
+        slides[slideIndex-1].className += " active";
         for (var i = 0; i < slides.length; i++) {
             // imageSlides[i].src = imageCollection[i] //Find alternative it causes double loading on some images
         }
