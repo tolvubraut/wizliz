@@ -31,7 +31,6 @@
  }
  
 .bigSlide {
-    @include fade();
     position:  absolute;
     top: 0;
     left: 0;
@@ -285,8 +284,9 @@
     padding: 10px 25px;
     height: 36px;
     transition: all 0.3s linear;
+    font-weight: 600;
     &:hover {
-        background: darken(deepskyblue, 26%);
+        background: darken(deepskyblue, 20%);
     }
 }
 
