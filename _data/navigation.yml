@@ -10,8 +10,8 @@
   link: /companies.html
   icon: icon-quen
 
-- name: Survey
-  link: /survey.html
+- name: Sign in
+  link: /signin.html
   icon: icon-yrden
 
 
