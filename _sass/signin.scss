@@ -1,33 +1,149 @@
-.signin-container {
-
-}
-
+/*START OF TABLE*/
 .table-container {
     @include flexCenter();
 }
 
 table {
-    border: 2px solid #161616;
+    border: 2px solid $secondaryColor;
     text-align: center;
     table-layout: fixed;
+    width: 100%;
 }
 
 thead {
+    background:rgba(0, 0, 0, 0.589);
 }
 
 th {
     padding: .65em;
+    color:$whiteColor;
+    border-bottom: 2px solid $secondaryColor;
 }
 
 tbody {
-    
 }
 
 tr {
-    background: #fff;
-    padding: .35em;
+    padding: .45em;
+}
+tbody tr:nth-child(odd) {
+    background: $mainColor;
+}
+tbody tr:nth-child(even) {
+    background: rgb(168, 164, 164);
 }
 
 td {
+    padding: 0.75em;
+}
+/*END OF TABLE*/
 
+/*===========================
+    START OF SIGNIN FORM
+============================*/
+.signin-form {
+    max-width: 35em;
+    margin: 2em auto 0;
+}
+
+.signin-form fieldset {
+    @include sRadius();
+    border: 1px solid $secondaryColor;
+    padding: 1.5em;
+    margin: 1em 0;
+}
+
+
+legend {
+    font-family: var(--header-font);
+}
+
+.signin-form input[type=text], .signin-form input[type=password], .signin-form input[type=email], .signin-form textarea{
+    width: 100%;
+}
+
+.signin-form input, .signin-form select, .signin-form textarea {
+    padding: 4.25px 10px;
+    border-color:deepskyblue;
+    @include sRadius();
+    outline:none;
+    margin: 0 auto 1em;
+    font-family: var(--main-font)
+}
+.signin-form input[type=radio], .signin-form input[type=checkbox], .signin-form select, .signin-form input[type=submit] {
+    cursor:pointer;
+}
+
+.signin-form select {
+    height: 2.5em;
+    width: 8em;
+}
+
+input:focus {
+    border-color:$themeColor;
+}
+input[type=submit] {
+    display:block;
+    width: 8em;
+    margin: 0 auto;
+    margin: 1em auto;
+}
+
+
+#myPassword {
+    margin: 0;
+}
+
+#reveal-loc {
+    display:block;
+    margin: 0 auto 0.8em;
+    padding-left: 0.25em;
+    font-weight: 600;
+}
+
+#reveal {
+    position: relative;
+    top: 2px;
+    width: auto;
+    width: 1em;
+    height: 1em;
+}
+
+#auto-signin {
+    display:block;
+}
+
+/*===========================
+    END OF SIGNIN FORM
+============================*/
+
+@media screen and(max-width: 45em) {
+    table {
+        border:none;
+    }
+    thead {
+        display:none;
+    }
+    table tr {
+        display:block;
+        border: 1px solid;
+        margin: 1em;
+    }
+    table td {
+        display:block;
+        text-align:right;
+        border-bottom: 1px solid lightgray;
+    }
+    table td:last-child {
+        border:none;
+        padding-bottom: 0.35em;
+    }
+    table td:before {
+        content: attr(data-label);
+        float:left;
+        text-transform: uppercase;
+    }
+    #auto-signin span {
+        display:block;
+    }
 }

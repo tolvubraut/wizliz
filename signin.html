@@ -1,32 +1,104 @@
 ---
 layout: default
-title: survey
+title: Sign in
 ---
 
+<h1 class="heading-title">Release Dates</h1>
+<table>
+    <thead>
+        <tr>
+            <th>Company</th>
+            <th>Upcoming Games</th>
+            <th>Release date</th>
+        </tr>
+    </thead>
 
-<div class="table-container">
-    <table>
-        <thead>
-            <tr>
-                <th>Upcoming Games</th>
-                <th>Cd Projekt Red</th>
-                <th>Blizzard</th>
-                <th>Release date</th>
+    <tbody>
+        <tr>
+            <td data-label="Company"><a href="https://www.blizzard.com/en-gb/" target="_blank">Blizzard</a></td>
+            <td data-label="Game"><a href="https://playoverwatch.com/en-us/" target="_blank">Overwatch</a></td>
+            <td data-label="Release date">2020 1-2Q</td>
+        </tr>
+        <tr>
+            <td data-label="Company"><a href="https://en.cdprojektred.com/" target="_blank">Cd Projekt Red</a></td>
+            <td data-label="Game"><a href="https://www.cyberpunk.net/is/en/" target="_blank">Cyberpunk 2077</a></td>
+            <td data-label="Release date">2020 2Q</td>
+        </tr>
+        <tr>
+            <td data-label="Company"><a href="https://www.blizzard.com/en-gb/" target="_blank">Blizzard</a></td>
+            <td data-label="Game"><a href="https://diablo.blizzard.com/en-gb/" target="_blank">Diablo 4</a></td>
+            <td data-label="Release date">2020 3Q</td>
+        </tr>
+    </tbody>
+</table>
 
-            </tr>
-        </thead>
+<div class="signin-form">
+    <form method="GET">
+        <fieldset>
+            <legend>Sign in</legend>
+            <label><p>Username:</p>
+                <input
+                    required
+                    type="text" 
+                    name="nafn" 
+                    placeholder="5 - 20 Characters"
+                    autofocus
+                    title="Enter username"
+                    pattern="^[a-zA-Z][a-zA-Z0-9-_\.]{1,20}$">
+                </label>
+            <label><p>Password:</p>
+                <input id="myPassword"
+                    required
+                    type="password" 
+                    name="password" 
+                    placeholder="Capital 8 chars 1 number"
+                    title="Enter Password"
+                    pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s).*$">
+                    <span id="reveal-loc">Show Password:<input type="checkbox" onclick="myFunction()" id="reveal"></span>
+                </label>
 
-        <tbody>
-             <tr>
-                 <td>release</td>
-                 <td>CD</td>
-                 <td>Diablo 4</td>
-                 <td>3Q 2020</td>
-             </tr>
-        </tbody>
-    </table>
+            <label><p>Email:</p>
+                <input
+                required
+                type="email" 
+                name="email" 
+                placeholder="name@email(.is/.com)"
+                title="Enter email">
+            </label>
 
-    <div class="form-container">
+            <label>Date of birth
+                <input type="date" name="date of birth" required>
+            </label>
 
-    </div>
+            <label id="auto-signin">Sign in Automatically?
+                <span>Yes: <input type="radio" name="passR" required></span>
+                <span>No: <input type="radio" name="passR" required></span>
+            </label>
+            
+            <p>Comment</p>
+            <textarea rows="4" name="comments"></textarea>
+            <p>Add more features in the future?</p>
+            <select name="remove?">
+                <option value="unknown">Not sure</option>
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+            </select>
+
+            <label>
+                <input type="submit" value="Sign in" name="sign-in">
+            </label>
+        </fieldset>
+    </form>
 </div>
+
+
+<script type="text/javascript">
+    function myFunction() {
+        var x = document.getElementById("myPassword");
+        if (x.type === "password") {
+            x.type = "text";
+        } else {
+            x.type = "password";
+        }
+    }
+</script>
