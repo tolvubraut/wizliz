@@ -3,25 +3,31 @@
 }
 
 .table-container {
+    @include flexCenter();
+}
+
+table {
+    border: 2px solid #161616;
+    text-align: center;
+    table-layout: fixed;
+}
+
+thead {
+}
+
+th {
+    padding: .65em;
+}
+
+tbody {
     
 }
 
-//Header for table items
-thead {
-
-}
-
-//container for table items
-tbody {
-
-}
-
-// Each row in Table
 tr {
-
+    background: #fff;
+    padding: .35em;
 }
 
-//each item in table
 td {
 
 }
