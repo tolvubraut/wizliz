@@ -149,21 +149,6 @@ $newsBackground: linear-gradient(to top right ,rgb(17, 14, 14), 35%, rgb(30, 22,
   transition: all 0.4s ease;
 }
 
-@mixin fade {
-  -webkit-animation-name: fade;
-  -webkit-animation-duration: 1.5s;
-  animation-name: fade;
-  animation-duration: 1.5s;
-  @-webkit-keyframes fade {
-    from {opacity: .4} 
-    to {opacity: 1}
-  }
-  @keyframes fade {
-    from {opacity: .4} 
-    to {opacity: 1}
-  }
-}
-
 @mixin flexCenter {
   display:flex;
   display: -webkit-box;
@@ -197,7 +182,7 @@ body {
   background-image: url("/wizliz/assets/img/mainBackground.png");
   background-color: whitesmoke;
   background-position: center; 
-  background-repeat: no-repeat; 
+  background-repeat: repeat;
   background-size: fill; 
 }
 h1,  h3, h4 {
@@ -266,6 +251,11 @@ li a {
   width: 70em;
   margin: 5em auto 0 auto;
   flex: 1 0 auto;
+}
+
+.secondary-wrapper {
+  flex: 1 0 auto;
+  margin: 5em auto 0 auto;  
 }
 
 .main-container {

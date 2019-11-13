@@ -31,7 +31,6 @@
  }
  
 .bigSlide {
-    @include fade();
     position:  absolute;
     top: 0;
     left: 0;
@@ -103,8 +102,9 @@
     z-index: 2;
     // transform: scale(1.1);
     filter:brightness(105%);
+    transition: all 0.5s ease;
     animation: flash 1s;
-     
+   
 }
 .slides:hover + .slides-text{
     display:initial;
@@ -285,8 +285,9 @@
     padding: 10px 25px;
     height: 36px;
     transition: all 0.3s linear;
+    font-weight: 600;
     &:hover {
-        background: darken(deepskyblue, 26%);
+        background: darken(deepskyblue, 20%);
     }
 }
 
@@ -363,6 +364,12 @@
     }
 }
 
+ @media screen and(max-width: 50em) {
+    .active {
+        border: 1px solid $themeColor;
+    }
+ }
+
 @media screen and(max-width: 45em) {
     
     .homewrapper {
@@ -380,6 +387,7 @@
     .active + .slides-text {
         display:none;
     }
+    
     
     .grid-news {
         display:block;
