@@ -60,7 +60,6 @@ $CDPR-themecolor: #DB0E15;
 }
 
 #auglysing-button {
-    // left: calc(50% - 24.3px); //without flexcenter this is centered with no padding
     position: relative;
     margin: .3em 0 1em;
     font-size: 1.2em;
@@ -77,7 +76,6 @@ $CDPR-themecolor: #DB0E15;
         background-color: lighten($CDPR-themecolor, 5%);
     }
 }
-
 
 /* KEYFRAMES */
 @keyframes ad-image {
@@ -113,8 +111,6 @@ $CDPR-themecolor: #DB0E15;
     100%{bottom: 0em;}
 }
 
-
-
 @media screen and(max-width: 45em) {
 
     .auglysing {
@@ -127,5 +123,6 @@ $CDPR-themecolor: #DB0E15;
 @media screen and (max-width: 37.5em) {
     .auglysing {
         font-family: var(--header-font);
+        width:85%;
     }
 }
